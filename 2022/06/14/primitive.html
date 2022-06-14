@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -127,7 +127,7 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Scan-Primitive-data">Scan Primitive data<a class="anchor-link" href="#Scan-Primitive-data"> </a></h3>
+<h3 id="Input-Primitive-data">Input Primitive data<a class="anchor-link" href="#Input-Primitive-data"> </a></h3>
 </div>
 </div>
 </div>
@@ -191,7 +191,6 @@ window.onload = wrap_img;
         <span class="n">input</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
 <span class="n">ScanPrimitives</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
@@ -209,6 +208,72 @@ window.onload = wrap_img;
 Enter a double: 3.14159
 Enter a boolean: true
 Enter a String: basketball 🏀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Output-Primitive-Data">Output Primitive Data<a class="anchor-link" href="#Output-Primitive-Data"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrimitiveDivision</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Integer Division&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\tint output with concatenation: &quot;</span> <span class="o">+</span> <span class="n">i1</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">i2</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">i1</span><span class="o">/</span><span class="n">i2</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;\tint output with format: %d/%d = %d&quot;</span><span class="p">,</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i1</span><span class="o">/</span><span class="n">i2</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;\tint output with printf: %d/%d = %d\n&quot;</span><span class="p">,</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i1</span><span class="o">/</span><span class="n">i2</span><span class="p">);</span>
+
+        <span class="kt">double</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">d2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Double Division&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\tdouble output with concatenation: &quot;</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">d2</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">d1</span><span class="o">/</span><span class="n">d2</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;\tdouble output with format: %.2f/%.2f = %.2f&quot;</span><span class="p">,</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">d1</span><span class="o">/</span><span class="n">d2</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;\tdouble output with printf: %.2f/%.2f = %.2f\n&quot;</span><span class="p">,</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">d1</span><span class="o">/</span><span class="n">d2</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Casting and Remainders&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;\tint cast to double on division: %d/%d = %.2f\n&quot;</span><span class="p">,</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i1</span><span class="o">/</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">i2</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\tint using modulo for remainder: &quot;</span> <span class="o">+</span> <span class="n">i1</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">i2</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">i1</span><span class="o">/</span><span class="n">i2</span> <span class="o">+</span> <span class="s">&quot; remainder &quot;</span> <span class="o">+</span> <span class="n">i1</span><span class="o">%</span><span class="n">i2</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">PrimitiveDivision</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Integer Division
+	int output with concatenation: 7/2 = 3
+	int output with format: 7/2 = 3
+	int output with printf: 7/2 = 3
+Double Division
+	double output with concatenation: 7.0/2.0 = 3.5
+	double output with format: 7.00/2.00 = 3.50
+	double output with printf: 7.00/2.00 = 3.50
+Casting and Remainders
+	int cast to double on division: 7/2 = 3.50
+	int using modulo for remainder: 7/2 = 3 remainder 1
 </pre>
 </div>
 </div>
