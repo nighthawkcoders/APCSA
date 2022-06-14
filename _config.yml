@@ -7,7 +7,7 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: APCSA
-description: Nighthawk Coding Society bloggin platform for AP Computer Science A.
+description: Nighthawk AP Computer Science A blogs.
 github_username: nighthawkcoders
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "APCSA"
@@ -39,8 +39,8 @@ baseurl: "/APCSA" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    twitter: NighthawkCoding
+    github: nighthawkcoders
 
 # Set this to true to get LaTeX math equation support
 use_math: 
