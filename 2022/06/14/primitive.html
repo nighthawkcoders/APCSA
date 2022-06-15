@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      4 min read
     
 </span></p>
 
@@ -204,10 +204,10 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter an integer: 21
+<pre>Enter an integer: 123
 Enter a double: 3.14159
 Enter a boolean: true
-Enter a String: basketball 🏀
+Enter a String: 🏀 Basketball
 </pre>
 </div>
 </div>
@@ -284,6 +284,113 @@ Casting and Remainders
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Grade-Calculator,-putting-Input-and-Output-together">Grade Calculator, putting Input and Output together<a class="anchor-link" href="#Grade-Calculator,-putting-Input-and-Output-together"> </a></h3><p>Primitive types rarley stand alone.  This lab uses the primitive double, but also introduces wrapper class Double and the most common data structure in Java ArrayList.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GradeCalculator</span> <span class="p">{</span>
+    <span class="c1">// introduction to Double wrapper class (object)</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">grades</span><span class="p">;</span>   <span class="c1">// similar to Python list</span>
+
+    <span class="c1">// constructor, initializes ArrayList and call enterGrades method</span>
+    <span class="kd">public</span> <span class="nf">GradeCalculator</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">enterGrades</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// double requires test for zero versus threshold, DO NOT compare to Zero</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isZero</span><span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">){</span>
+        <span class="kt">double</span> <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="n">threshold</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="c1">// enterGrades input method using scanner</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">enterGrades</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Scanner</span> <span class="n">input</span><span class="p">;</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter a double, 0 to exit: &quot;</span><span class="p">);</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="kt">double</span> <span class="n">sampleInputDouble</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sampleInputDouble</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">isZero</span><span class="p">(</span><span class="n">sampleInputDouble</span><span class="p">))</span> <span class="k">break</span><span class="p">;</span>       <span class="c1">// exit loop on isZero</span>
+                <span class="k">else</span> <span class="k">this</span><span class="p">.</span><span class="na">grades</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">sampleInputDouble</span><span class="p">);</span>    <span class="c1">// adding to object, ArrayList grades</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// if not a number</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Not an double (form like 9.99), &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">input</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// average callculation </span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">average</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// running total</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">double</span> <span class="n">num</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="na">grades</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// enhanced for loop</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span><span class="p">;</span>   <span class="c1">// shortcut add and assing operator</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">total</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="na">grades</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>  <span class="c1">// double math, ArrayList grades object maintains its size</span>
+    <span class="p">}</span>
+
+    <span class="c1">// static main method, used as driver and tester</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">GradeCalculator</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GradeCalculator</span><span class="p">();</span> <span class="c1">// calls constructur, creates object, which calls enterGrades</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Average: &quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span> <span class="n">grades</span><span class="p">.</span><span class="na">average</span><span class="p">()));</span>  <span class="c1">// format used to standarize to two decimal points</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// IJava activation</span>
+<span class="n">GradeCalculator</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Enter a double, 0 to exit: 95.3
+Enter a double, 0 to exit: 87.3
+Enter a double, 0 to exit: 91.6
+Enter a double, 0 to exit: 77.7
+Enter a double, 0 to exit: 0.0
+Average: 87.98
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Next-Steps">Next Steps<a class="anchor-link" href="#Next-Steps"> </a></h3><p>Build your own Scanning and Output solution.  Building something that helps you study for another class is highly encouraged.</p>
+<ol>
+<li>Multiple inputs are required</li>
+<li>Calculations are required</li>
+<li>Jupyter NoteBook with Outputs are required</li>
+</ol>
+
+</div>
+</div>
+</div>
 </div>
 
 
