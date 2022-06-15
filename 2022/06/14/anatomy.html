@@ -127,7 +127,8 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Static-example">Static example<a class="anchor-link" href="#Static-example"> </a></h3>
+<h3 id="Static-example">Static example<a class="anchor-link" href="#Static-example"> </a></h3><p>The class HelloStatic contains the typical introduction to Java anatomy.  The public static void main(String[] args) is a default method and has a very specific definition (signature).</p>
+
 </div>
 </div>
 </div>
@@ -140,7 +141,7 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="c1">// Define Static Method within a Class</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloStatic</span> <span class="p">{</span>
-    <span class="c1">// Java standard entry point</span>
+    <span class="c1">// Java standard runtime entry point</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>    
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
     <span class="p">}</span>
@@ -172,7 +173,8 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Dynamic-Example">Dynamic Example<a class="anchor-link" href="#Dynamic-Example"> </a></h3>
+<h3 id="Dynamic-Example">Dynamic Example<a class="anchor-link" href="#Dynamic-Example"> </a></h3><p>This example start to use Java in its natural manner, now the public static void main method is used as a driver/tester.  It creates an Object from the HelloObject constructor.  Also, this contains a getter called getHello().</p>
+
 </div>
 </div>
 </div>
@@ -192,9 +194,13 @@ window.onload = wrap_img;
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHello</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">hello</span><span class="p">;</span>
     <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>    
+        <span class="n">HelloObject</span> <span class="n">ho</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloObject</span><span class="p">();</span> <span class="c1">// Instance of Class (ho) is an Object via &quot;new&quot;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ho</span><span class="p">.</span><span class="na">getHello</span><span class="p">());</span> <span class="c1">// Object allows reference to public methods and data</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">HelloObject</span> <span class="n">ho</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloObject</span><span class="p">();</span> <span class="c1">// Instance of Class (ho) is an Object via &quot;new&quot;</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ho</span><span class="p">.</span><span class="na">getHello</span><span class="p">());</span> <span class="c1">// Object allows reference to public methods and data</span>
+<span class="c1">// IJava activation</span>
+<span class="n">HelloObject</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -220,7 +226,8 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Dynamic-Example-with-two-constructors">Dynamic Example with two constructors<a class="anchor-link" href="#Dynamic-Example-with-two-constructors"> </a></h3>
+<h3 id="Dynamic-Example-with-two-constructors">Dynamic Example with two constructors<a class="anchor-link" href="#Dynamic-Example-with-two-constructors"> </a></h3><p>This last example add to the Java anatomy, now containing two constructors and a setter to go with the getter.  Also, observe the driver/tester now contains two objects that are intialized different and contain distinct data.</p>
+
 </div>
 </div>
 </div>
@@ -236,20 +243,29 @@ window.onload = wrap_img;
     <span class="kd">private</span> <span class="n">String</span> <span class="n">hello</span><span class="p">;</span>
     <span class="c1">// no arguement signature</span>
     <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">hello</span> <span class="o">=</span> <span class="s">&quot;Hello, World!&quot;</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="c1">// one argument signature</span>
     <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="n">hello</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// setter</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHello</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">hello</span> <span class="o">=</span> <span class="n">hello</span><span class="p">;</span>
     <span class="p">}</span>
+    <span class="c1">// getter</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHello</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">hello</span><span class="p">;</span>
     <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="n">HelloDynamic</span> <span class="n">hd1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloDynamic</span><span class="p">();</span> <span class="c1">// no argument signature</span>
+        <span class="n">HelloDynamic</span> <span class="n">hd2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloDynamic</span><span class="p">(</span><span class="s">&quot;Hello, Nighthawk Coding Society!&quot;</span><span class="p">);</span> <span class="c1">// one argument signature</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hd1</span><span class="p">.</span><span class="na">getHello</span><span class="p">());</span> 
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hd2</span><span class="p">.</span><span class="na">getHello</span><span class="p">());</span> 
+    <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">HelloDynamic</span> <span class="n">hd1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloDynamic</span><span class="p">();</span> <span class="c1">// no argument signature</span>
-<span class="n">HelloDynamic</span> <span class="n">hd2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloDynamic</span><span class="p">(</span><span class="s">&quot;Hello, Nighthawk Coding Society!&quot;</span><span class="p">);</span> <span class="c1">// one argument signature</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hd1</span><span class="p">.</span><span class="na">getHello</span><span class="p">());</span> 
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hd2</span><span class="p">.</span><span class="na">getHello</span><span class="p">());</span>
+<span class="c1">// IJava activation</span>
+<span class="n">HelloDynamic</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -274,6 +290,17 @@ Hello, Nighthawk Coding Society!
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next steps</p>
+<ol>
+<li>Create your own Jupyter Notebook</li>
+<li>Establish a vocabulary of terms within your Notebook</li>
+</ol>
+
+</div>
+</div>
+</div>
 </div>
 
 
