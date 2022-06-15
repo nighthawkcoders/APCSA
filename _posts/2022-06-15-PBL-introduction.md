@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: 
-categories: [tri1-week-00, techtalk]
+categories: [tri1-weeks]
 title: Course Introduction and Tech Talk 0
 ---
 
