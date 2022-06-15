@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: 
 categories: [tri3]
-title: Tech Talk 0 - Trimester 3 introduction
+title: Tri3 Overview - 2022 Spring review 
 ---
 
 # Time Box Tri 3
