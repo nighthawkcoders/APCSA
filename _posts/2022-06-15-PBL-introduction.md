@@ -2,8 +2,8 @@
 toc: true
 layout: post
 description: 
-categories: [tri1-weeks]
-title: Course Introduction and Tech Talk 0
+categories: [tri1, devops]
+title: Tech Talk 0 - Trimester 1 Introduction and Tools
 ---
 
 # AP CSA COURSE OUTLINE
@@ -53,6 +53,7 @@ Thursday - Start bringing your laptop.  Tech Talk 0.  Start setting up tools and
 Friday - Perform as many 0.* Tech Talks as possible.
 
 ## Tech Talk 0 - Tools and Equipment
+Developer Operations (DevOps) is dependent 
 - Java is the key language you will be using in this class.  HTML, CSS, JavaScript are the key supporting technicals you will be using to enhance your learning of Java. 
 - VS Code is the code editor we will be using in this class.  VS Code is more than and editor, it is called and IDE (Interactive Development Environment. 
 - GitHub is where we store and share code in the cloud, think of Google Docs but for Code. 
@@ -61,13 +62,13 @@ Friday - Perform as many 0.* Tech Talks as possible.
 - AWS Cloud Commputing and Servers will be used to Deploy and Support projects.
 - Slack is the tool will use for messaging, we have been averaging 35,000 message per class.
 
-### Equipment needed/recommended to maximize class
+### Equipment needed and accounts to maximize class
 - A laptop, that you bring to class every day with the Development Tools installed on it.
-A Web Site host.
 - GitHub Account
-- AWS Account will be provided by Teacher
+- Slack account
+- AWS Account that will be provided by Teacher
 
-- Installation (software requirements)
+### Installation guides (Allie to add stuff to complement this outline)
     - VS Code 
     - JRE and JDK installations
     - Create initial project(s) from GitHub
