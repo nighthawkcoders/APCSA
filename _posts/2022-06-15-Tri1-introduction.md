@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: 
 categories: [tri1, devops]
-title: Tri1 Tech Talk 0 - Introduction and Tools
+title: Tech Talk 1.0 - Introduction, PBL, and Tools
 ---
 
 # AP CSA COURSE OUTLINE
