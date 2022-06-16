@@ -2,8 +2,8 @@
 toc: true
 layout: post
 description: 
-categories: [tri1, devops]
-title: Tech Talk 1.0 - Introduction, PBL, GitHub, VS Code
+categories: [tri1]
+title: Introduction, PBL, and Tools Sprint
 ---
 
 # AP CSA COURSE OUTLINE
@@ -15,16 +15,11 @@ title: Tech Talk 1.0 - Introduction, PBL, GitHub, VS Code
     - Team and Individual Project will highlight all 10 units, either academically or in interest fashion
 - Establish "Real World” Scrum Team projects
     - Preference is to establish projects with a Customer/Sponsor
-    - Projects will be tracked using GitHub README, Issues and Projects tools
+    - Projects will be tracked using GitHub README (Time Box), Issues and Projects tools
 - Create "GitHub Pages" Individual postings and notebooks
-    - Build individual GitHub Pages Web Site to track Notes and Learnings
+    - Build individual GitHub Pages Web Site to _post Notes and Learnings
 - AP testing in May
 
-## Week 0
-- Assignments mostly Due Monday at the start of class (see canvas)
-- Mostly live and self grading reviews conducted Monday in class
-- 5 point seed (highly engaged +, distracted -)
-- Approximately 100 points per trimester
 
 ## "Real World" Projects
 You, your pair, and your Scrum Team will collaboratively Build, deploy and host Web Site.  This Web project contains Technicals learned throughout the Trimester.  This will be done in increments.  Each Monday an assignment will be given and the previous will be under Live Review.
@@ -57,27 +52,32 @@ You, your pair, and your Scrum Team will collaboratively Build, deploy and host 
     - "C" is a lack consistent effort, lacking tangibles. Lack of producing working Code.
     - Below "C" is composed of Slash/Slash/Slash offenses. Lack of attendance, disruptive behaviors, doing work from other classes during class time, paper visible in class, and turning in tangbiles that you can't represent in live review.
 
+
+## Assignments and Work
+- Assignments mostly Due either Friday or Monday at the start of class (canvas is offical record for points)
+    - Live Grading that is complemented by Self/Crossover assesments 
+    - Always prepare Review Ticket (GH Issue) using canvas as guide
+- Trimester start with 5 point seed (highly engaged +, distracted -)
+- Less than 100 points per trimester, approximately 30% of points in last few weeks of Trimester.
+
+
 ### PBL Sprint 0 / Week 0
 Learning outcome.  Getting adapted to the Agile mindset used in Computer Science.  Additionally, getting introduced to GitHub and VS Code.   Building a Java/Spring Web Server on your localhost.  Showing personal and running Fastpages/GitHub Pages.
-- Wednesday - Pick pair share partner, Pick crossover pair, Establish team of four.  Based off of modulo mathematics (remainder) there can only be 3 teams of 5 maximum.   Spend some time talking and getting to know each other.  Teacher will visit teams as time allows.  
-- Thursday - Start bringing your laptop.  Setup GitHub and Tools and push code to your Repo.
-- Friday - Pair Share coding. Spend 30 minutes at keyboard installation and performing Jupyter coding, while Pair Share observes and consults.  Next 30 minutes Pairs reverse roles.  
+- Wednesday - "Introduction Sprint".  Pick pair share partner, Pick crossover pair, Establish team of four.  Based off of modulo mathematics (remainder) there can only be 3 teams of 5 maximum.   Spend some time talking and getting to know each other.  Consider key roles in Project Teams as Scrum Master (Issues, Scrum Board), DevOps (GitHub, Deploy, POM dependencies), Frontend Developer (HTML, Thymeleaf, Javascript), Backend Developer (Spring, Java)
+- Thursday - Review "Tools and Equipment".  Bringing your laptop.  Setup GitHub and Tools and push code to your Repo.
+- Friday - Review "Roles, Issues, and Scrum Board". Pair Share coding. Spend 30 minutes at keyboard installation and performing Jupyter coding, while Pair Share observes and consults.  Next 30 minutes Pairs reverse roles.
 
-## Tech Talk 0 - Tools and Equipment
-Developer Operations (DevOps) is dependent 
-- Java is the key language you will be using in this class.  HTML, CSS, JavaScript are the key supporting technicals you will be using to enhance your learning of Java. 
-- VS Code is the code editor we will be using in this class.  VS Code is more than and editor, it is called and IDE (Interactive Development Environment. 
-- GitHub is where we store and share code in the cloud, think of Google Docs but for Code. 
-- GitHub Pages will be used to host your personal notes and experiences.
-- Jupyter Notebooks will be used in conjunction with GitHub Pages to store Technical Notes.
-- AWS Cloud Commputing and Servers will be used to Deploy and Support projects.
-- Slack is the tool will use for messaging, we have been averaging 35,000 message per class.
 
-### Equipment and accounts required to maximize class
+### Equipment, accounts and tools
 - A laptop, that you bring to class every day with the Development Tools installed on it.
-- GitHub Account, VS Code will be used to push/pull changes
-- Slack Account, install App on Laptop, get used to reading announcements
-- AWS Account for deployment, this will be provided by Teacher
+- GitHub Account, VS Code will be used to push/pull changes. GitHub is where we store and share code in the cloud, think of Google Docs but for Code.
+- GitHub Pages will be used to host your personal web site, notes, and experiences.
+- Jupyter Notebooks will be used in conjunction with GitHub Pages to build running Java Code in your Technical Notes.
+- Slack Account, install App on Laptop, get used to reading announcements. Slack is the tool will use for messaging, we have been averaging 35,000 message per class.
+- Java is the key language you will be using in this class.  Spring, Thymeleaf, HTML, CSS, JavaScript are the key supporting technicals you will be using to enhance your learning of Java. 
+- VS Code is the code editor we will be using in this class.  VS Code is more than and editor, it is called and Interactive Development Environment (IDE). 
+- AWS Account for deployment, this will be provided by Teacher.  AWS Cloud Commputing and Servers will be used to Deploy and Support projects.
+
 
 ### GitHub, VS Code Installation and Setup (Allie to verify and add stuff to this outline)
     - VS Code https://code.visualstudio.com/docs/languages/java
@@ -99,7 +99,14 @@ Developer Operations (DevOps) is dependent
         - Verify "markdown" change on GitHub Pages
         - Create a new Jupyter notebook and publish to _notebooks directory https://code.visualstudio.com/docs/datascience/jupyter-notebooks
 
+
 ### Extra Credit (Seed +)
 - Find the flaw Java/Spring project.  Java Spring project uses Vanta Birds.  When present on screen, the last element in drop down menu can't be activated.  This is often referred to as a 'layering problem'.
 - Find the flaw in Java/Spring POM file dependencies.  Switching to using Java 17 SDK an changing to Java 17 in POM file causes a compiler error.  Try to negotiate the POM file incompatibility error.
 - Find the flaw in FastPage using VSC and Jupyter.  In my environment when editing Jupyter Notebook (ipynb file), I often receive many Output errors.  They seem benign, but are annoying.
+
+
+# Posts and Tech Talks
+- Introduction, PBL, and Tools Sprint
+- TT 1.0.0 Tools and Equipment 
+- TT 1.0.1 Roles, Issues, and Scrum Board 
