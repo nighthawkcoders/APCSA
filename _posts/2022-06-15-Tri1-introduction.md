@@ -41,26 +41,24 @@ You, your pair, and your Scrum Team will collaboratively Build, deploy and host 
         - Data Structure exchange between frontend and backend
 
 - Individual GitHub Pages considerations for Java Units 1-10
-    - Each week we will be studying Java
-    - Design Fastpages/GitHub Pages according to personal style and interests
-    - Jupyter Notebooks using IJava and Markdown will be required for Java Test Prep learnings
-    - Make sure you are prepared each week to show how you have met Test Prep requirements
-    - Additionally, make sure you capture PBL learnings and notes throughout the week
+    - Each week we will be studying Java in Tech Talk and/or Test Prep
+    - GH Pages should be used like notes to capture PBL and Java learnings each week!
+    - Jupyter Notebooks using IJava and Markdown will be required to show Java learnings, Teacher likes running code!
 
 
 ### Establish PBL and Comp Sci attitude
 - Attitude.  An Agile mindset is not knowing the answer, making lots of mistakes and performing iteration.  A successful grade is dependent on making mistakes, research, and iteration.
 - Suggestion. Please bring a personal laptop to class daily.  The Internet and AP Classroom web site will  be considered text book.  
 - Requirements. Everything will be distributed electronically.  All code you develop will be delivered to the Cloud. 
-- Grading guidelines. There will be key technical objectives and expected tangibles. 10% deduction and office hours are required for late work.  Essentially, it is impossible to be late if you work consistently in class and turn something in each week.   
-    - High "A" is very tough to achieve, something beyond the tangibles.  Something that exhibits an unforced desire to learn.
-    - Low "A" is consistency in producing tangibles toward Team Project and Individual GH Page.
-    - "B" is having flaws in consistency or tangible shortcomings, but mostly on track.
-    - "C" is a lack consistent effort, lacking tangibles.
+- Grading guidelines. There will be key technical objectives which will require producing tangibles. Essentially, it is impossible to be late with work if you work consistently attend class, work in class and turn in progressive tangibles each week.  Thus, failure to have work will result in a 10% deduction.  Additinally, late work must be defended in office hours.  
+    - High "A" is very tough to achieve, something beyond the tangible requirements.  Something that exhibits an unforced desire to Code/Code/Code.
+    - Low "A" is consistency in producing tangibles toward Team Project and Individual GH Page according to Issues and Scrum Board plans.   Plans must be consistent with key objectives and technicals.
+    - "B" is having flaws in consistency or tangible shortcomings, but mostly on track.  A flaw would be mostly working code.
+    - "C" is a lack consistent effort, lacking tangibles. Lack of producing working Code.
     - Below "C" is composed of Slash/Slash/Slash offenses. Lack of attendance, disruptive behaviors, doing work from other classes during class time, paper visible in class, and turning in tangbiles that you can't represent in live review.
 
 ### PBL Sprint 0 / Week 0
-Learning outcome.  Getting adapted to the Agile mindset used in Computer Science.  Additionally, getting introduced to GitHub and VS Code used in building a Java/Spring Web Server and managing a year long personal GitHub Pages to capture notes and experiences.
+Learning outcome.  Getting adapted to the Agile mindset used in Computer Science.  Additionally, getting introduced to GitHub and VS Code.   Building a Java/Spring Web Server on your localhost.  Showing personal and running Fastpages/GitHub Pages.
 - Wednesday - Pick pair share partner, Pick crossover pair, Establish team of four.  Based off of modulo mathematics (remainder) there can only be 3 teams of 5 maximum.   Spend some time talking and getting to know each other.  Teacher will visit teams as time allows.  
 - Thursday - Start bringing your laptop.  Setup GitHub and Tools and push code to your Repo.
 - Friday - Pair Share coding. Spend 30 minutes at keyboard installation and performing Jupyter coding, while Pair Share observes and consults.  Next 30 minutes Pairs reverse roles.  
