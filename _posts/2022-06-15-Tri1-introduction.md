@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: 
 categories: [tri1]
-title: Introduction, PBL, and Tools Sprint
+title: Overview Sprint - Java, PBL, and Tools
 ---
 
 # AP CSA COURSE OUTLINE
@@ -64,7 +64,7 @@ You, your pair, and your Scrum Team will collaboratively Build, deploy and host 
 ### PBL Sprint 0 / Week 0
 Learning outcome.  Getting adapted to the Agile mindset used in Computer Science.  Additionally, getting introduced to GitHub and VS Code.   Building a Java/Spring Web Server on your localhost.  Showing personal and running Fastpages/GitHub Pages.
 - Wednesday - "Introduction Sprint".  Pick pair share partner, Pick crossover pair, Establish team of four.  Based off of modulo mathematics (remainder) there can only be 3 teams of 5 maximum.   Spend some time talking and getting to know each other.  Consider key roles in Project Teams as Scrum Master (Issues, Scrum Board), DevOps (GitHub, Deploy, POM dependencies), Frontend Developer (HTML, Thymeleaf, Javascript), Backend Developer (Spring, Java)
-- Thursday - Review "Tools and Equipment".  Bringing your laptop.  Setup GitHub and Tools and push code to your Repo.
+- Thursday - Review "Tools and Equipment" and "Anatomy of Java".  Bringing your laptop.  Setup GitHub and Tools and push code to your Repo.
 - Friday - Review "Roles, Issues, and Scrum Board". Pair Share coding. Spend 30 minutes at keyboard installation and performing Jupyter coding, while Pair Share observes and consults.  Next 30 minutes Pairs reverse roles.
 
 
@@ -107,6 +107,8 @@ Learning outcome.  Getting adapted to the Agile mindset used in Computer Science
 
 
 # Posts and Tech Talks
-- Introduction, PBL, and Tools Sprint
+- Overview Sprint - Java, PBL, and Tools
+- TPT Unit #0 Anatomy of Java
+
 - TT 1.0.0 Tools and Equipment 
 - TT 1.0.1 Roles, Issues, and Scrum Board 

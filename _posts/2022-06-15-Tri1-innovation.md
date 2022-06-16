@@ -3,7 +3,8 @@ toc: true
 layout: post
 description: 
 categories: [tri1]
-title: Innovation Sprint
+title: Innovation Sprint - Technologies in Java Web Apps
+
 ---
 
 # Innovation Sprint (Weeks 1 and 2)
@@ -17,7 +18,7 @@ Innovation is a time to explore, learn, and obtain skills needed to reach goals.
 Discuss College Board Units 1 - 10; Tours of Backend Code; Innovate and Plan/Plan/Plan before Code/Code/Code.  Alway Code/Code/Code in classroom when schedule allows!  Practice Pair Programming Habit of 30 minutes/30 minutes/1 commit each.
 - Monday: "Live Review" with pairs: show personal version of the "Anatomy of Java" on GH Pages, show "Personal Computer plan" post.
 - Tuesday:  Test Prep - Discuss Unit 1: Primitive Data Types; College Board AP classroom overview; establish 10 week schedule for 10 units.  
-- Wednesday:  PBL and Invididual work day.  Scrum Team must elect Scrum Master, create Issues and Kanban Scrum Board. Individual/Pair Programming on Primitive Types and Hacks on their GH Pages . Individual/Team Programming should consider how to modify Menu and establish Frontend/Backend workarea for each individual according to high level design.
+- Wednesday:  Tech Talk - Focus and Habits.  Scrum Team must elect Scrum Master, create Issues and Kanban Scrum Board. Individual/Pair Programming on Primitive Types and Hacks on their GH Pages . Individual/Team Programming should consider how to modify Menu and establish Frontend/Backend workarea for each individual according to high level design.
 - Thursday:  Tech Talk - Jupyter Notebooks: Tour of FastPages/GH Pages. 
 - Friday: Tech Talk - Backend Development: Tour of Spring/Java.
 
@@ -40,13 +41,14 @@ Review College Board Unit 1 & 2; Individual and Pair Code/Code/Code when schedul
     - Team 
         - "Issues" and Scrum Board" 
         - Localhost project running with Menu and Controller adjustments
-        - 
+
 
 # Posts and Tech Talks
-- Innovation Sprint
+- Innovation Sprint - Technologies in Java Web Apps
 - TPT Unit #01 Primitive Data Types
-- TPT Unit #02
+- TPT Unit #02 Using Objects
 
-- TT 1.1.0 Jupyter Notebooks: Tour of FastPages/GH Pages
-- TT 1.1.1 Backend Development: Tour of Spring/Java
+- TT 1.1.0 Focus and Habits: Yale Professor on Successful People
+- TT 1.1.1 Jupyter Notebooks: Tour of FastPages/GH Pages
+- TT 1.1.2 Backend Development: Tour of Spring/Java
 - TT 1.2.0 Frontend Development: Tour of Thymeleaf and Layouts
