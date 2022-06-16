@@ -98,3 +98,8 @@ Developer Operations (DevOps) is dependent
         - Push a minor "markdown" change and Verify on GitHub
         - Verify "markdown" change on GitHub Pages
         - Create a new Jupyter notebook and publish to _notebooks directory https://code.visualstudio.com/docs/datascience/jupyter-notebooks
+
+### Extra Credit
+- Find the flaw Java/Spring project.  Java Spring project uses Vanta Birds.  When present on screen, the last element in drop down menu can't be activated.  This is often referred to as a 'layering problem'.
+- Find the flaw in Java/Spring POM file dependencies.  Switching to using Java 17 SDK an changing to Java 17 in POM file causes a compiler error.  Try to negotiate the POM file incompatibility error.
+- Find the flaw in FastPage using VSC and Jupyter.  In my environment when editing Jupyter Notebook (ipynb file), I often receive many Output errors.  They seem benign, but are annoying.
