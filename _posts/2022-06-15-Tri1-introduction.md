@@ -45,17 +45,17 @@ You, your pair, and your Scrum Team will collaboratively Build, deploy and host 
 - Attitude.  An Agile mindset is not knowing the answer, making lots of mistakes and performing iteration.  A successful grade is dependent on making mistakes, research, and iteration.
 - Suggestion. Please bring a personal laptop to class daily.  The Internet and AP Classroom web site will  be considered text book.  
 - Requirements. Everything will be distributed electronically.  All code you develop will be delivered to the Cloud. 
-- Grading guidelines. There will be key technical objectives which will require producing tangibles. Essentially, it is impossible to be late with work if you work consistently attend class, work in class and turn in progressive tangibles each week.  Thus, failure to have work will result in a 10% deduction.  Additinally, late work must be defended in office hours.  
+- Grading guidelines. There will be key technical objectives which will require producing tangibles. Essentially, it is impossible to be late with work if you work consistently attend class, work in class and turn in progressive tangibles each week.  Thus, failure to have work will result in a 10% deduction.  Additionally, late work must be defended in office hours.  
     - High "A" is very tough to achieve, something beyond the tangible requirements.  Something that exhibits an unforced desire to Code/Code/Code.
     - Low "A" is consistency in producing tangibles toward Team Project and Individual GH Page according to Issues and Scrum Board plans.   Plans must be consistent with key objectives and technicals.
     - "B" is having flaws in consistency or tangible shortcomings, but mostly on track.  A flaw would be mostly working code.
     - "C" is a lack consistent effort, lacking tangibles. Lack of producing working Code.
-    - Below "C" is composed of Slash/Slash/Slash offenses. Lack of attendance, disruptive behaviors, doing work from other classes during class time, paper visible in class, and turning in tangbiles that you can't represent in live review.
+    - Below "C" is composed of Slash/Slash/Slash offenses. Lack of attendance, disruptive behaviors, doing work from other classes during class time, paper visible in class, and turning in tangibles that you can't represent in live review.
 
 
 ## Assignments and Work
-- Assignments mostly Due either Friday or Monday at the start of class (canvas is offical record for points)
-    - Live Grading that is complemented by Self/Crossover assesments 
+- Assignments mostly Due either Friday or Monday at the start of class (canvas is official record for points)
+    - Live Grading that is complemented by Self/Crossover assessments 
     - Always prepare Review Ticket (GH Issue) using canvas as guide
 - Trimester start with 5 point seed (highly engaged +, distracted -)
 - Less than 100 points per trimester, approximately 30% of points in last few weeks of Trimester.
@@ -76,28 +76,7 @@ Learning outcome.  Getting adapted to the Agile mindset used in Computer Science
 - Slack Account, install App on Laptop, get used to reading announcements. Slack is the tool will use for messaging, we have been averaging 35,000 message per class.
 - Java is the key language you will be using in this class.  Spring, Thymeleaf, HTML, CSS, JavaScript are the key supporting technicals you will be using to enhance your learning of Java. 
 - VS Code is the code editor we will be using in this class.  VS Code is more than and editor, it is called and Interactive Development Environment (IDE). 
-- AWS Account for deployment, this will be provided by Teacher.  AWS Cloud Commputing and Servers will be used to Deploy and Support projects.
-
-
-### GitHub, VS Code Installation and Setup (Allie to verify and add stuff to this outline)
-    - VS Code https://code.visualstudio.com/docs/languages/java
-        - Install the Coding Pack for Java
-        - Install Extension Pack
-        - Spring Boot Extension Pack
-    - Start Java GitHub Repo from Template https://github.com/nighthawkcoders/spring_portfolio/generate
-        - VS Code Clone new GitHub Project 
-        - Run/Play your project from Main.java
-        - In Chrome or browser, run localhost:8080
-        - Push a minor change and Verifiy on GitHub
-    - Start Pages/Fastpages GitHub Repo from Template https://github.com/nighthawkcoders/APCSA/generate
-        - Follow FastPage Repo Setup, skip Step #1, start Step #2 Pull Request (PR) https://github.com/fastai/fastpages#setup-instructions
-        - Verify GitHub pages is running
-        - Install Jupyter Kernel Spec for Java (IJava) on your machine https://github.com/SpencerPark/IJava#install-pre-built-binary
-        - VS Code Clone new GitHub Project
-        - Run/Play a Jupyter notebook _notebooks/2022-06-14-anatomy.ipynb
-        - Push a minor "markdown" change and Verify on GitHub
-        - Verify "markdown" change on GitHub Pages
-        - Create a new Jupyter notebook and publish to _notebooks directory https://code.visualstudio.com/docs/datascience/jupyter-notebooks
+- AWS Account for deployment, this will be provided by Teacher.  AWS Cloud Computing and Servers will be used to Deploy and Support projects.
 
 
 ### Extra Credit (Seed +)

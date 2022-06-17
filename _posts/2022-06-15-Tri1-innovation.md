@@ -12,10 +12,10 @@ Innovation is a time to explore, learn, and obtain skills needed to reach goals.
 - Exploration in building 1st Java Spring Web App
 - Capturing notes while building Fastpages/GitHub pages yearlong individual notebook
 - Reviewing the Anatomy of Java; coding using Java Primitives, 
-- Establish positve PBL hablits: a focused mindset in the classroom, using work habits to achieve success.
+- Establish positive PBL habits: a focused mindset in the classroom, using work habits to achieve success.
 
 ## Plans Week 1
-Discuss College Board Units 1 - 10; Tours of Backend Code; Innovate and Plan/Plan/Plan before Code/Code/Code.  Alway Code/Code/Code in classroom when schedule allows!  Practice Pair Programming Habit of 30 minutes/30 minutes/1 commit each.
+Discuss College Board Units 1 - 10; Tours of Backend Code; Innovate and Plan/Plan/Plan before Code/Code/Code.  Always Code/Code/Code in classroom when schedule allows!  Practice Pair Programming Habit of 30 minutes/30 minutes/1 commit each.
 - Monday: "Live Review" with pairs: show personal version of the "Anatomy of Java" on GH Pages, show "Personal Computer plan" post.
 - Tuesday:  Test Prep - Discuss Unit 1: Primitive Data Types; College Board AP classroom overview; establish 10 week schedule for 10 units.  
 - Wednesday:  Tech Talk - Focus and Habits.  Scrum Team must elect Scrum Master, create Issues and Kanban Scrum Board. Individual/Pair Programming on Primitive Types and Hacks on their GH Pages . Individual/Team Programming should consider how to modify Menu and establish Frontend/Backend workarea for each individual according to high level design.
@@ -31,7 +31,7 @@ Review College Board Unit 1 & 2; Individual and Pair Code/Code/Code when schedul
 - Friday: Live Review with Scrum Masters and Team "Innovation, Collaboration, and Planning"
 
 # Points and Tangibles
-- Points (see canvas), live reviews will be scheuled in class.  Everything will be crossover or pair graded using a "Review Ticket"
+- Points (see canvas), live reviews will be scheduled in class.  Everything will be crossover or pair graded using a "Review Ticket"
     - Individual
         - _posts: "Focus and Habits" video from Yale
         - _posts: "Personal Computer Plan"
