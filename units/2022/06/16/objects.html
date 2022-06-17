@@ -153,7 +153,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="c1">// This code produces Frame but no drawing on my machine, even if I run it outside of IJava</span>
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// This code produces Frame but no drawing on my machine</span>
 <span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
@@ -173,11 +173,11 @@ window.onload = wrap_img;
         <span class="c1">//JFrame.setDefaultLookAndFeelDecorated(true);</span>
         <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>
 
-        <span class="cm">/* Removing Close keeps kernel from crashing</span>
+        <span class="cm">/* Removing Close keeps IJava kernel from crashing</span>
 <span class="cm">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
 <span class="cm">        */</span>
 
-        <span class="c1">// should paint method</span>
+        <span class="c1">// activates paint method</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>    
         
         <span class="c1">//pack set the window to what it needs to display</span>
@@ -198,6 +198,20 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>in paint
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
