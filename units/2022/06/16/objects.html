@@ -172,21 +172,24 @@ window.onload = wrap_img;
     <span class="kd">public</span> <span class="nf">Frame</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">//JFrame.setDefaultLookAndFeelDecorated(true);</span>
         <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>
-        <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
 
-        <span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">600</span><span class="p">);</span>
-        <span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>    <span class="c1">// this should activate paint paint method on timer</span>
+        <span class="cm">/* Removing Close keeps kernel from crashing</span>
+<span class="cm">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="cm">        */</span>
+
+        <span class="c1">// should paint method</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>    
         
         <span class="c1">//pack set the window to what it needs to display</span>
         <span class="c1">// frame.pack();</span>
-        <span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">250</span><span class="p">);</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
 
         <span class="c1">//shows window</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>     
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Frame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Frame</span><span class="p">(</span><span class="s">"Frame Title"</span><span class="p">);</span>
+        <span class="n">Frame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Frame</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
     <span class="p">}</span>
     
 <span class="p">}</span>
