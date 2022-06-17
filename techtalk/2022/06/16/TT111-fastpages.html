@@ -101,6 +101,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#resources">Resources</a></li>
 <li class="toc-entry toc-h3"><a href="#home-page">Home Page</a></li>
 <li class="toc-entry toc-h3"><a href="#sub-pages">Sub Pages</a></li>
+<li class="toc-entry toc-h3"><a href="#images">Images</a></li>
+<li class="toc-entry toc-h3"><a href="#gh-pages-yaml-files">GH Pages YAML files</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#hacks">Hacks</a></li>
@@ -130,7 +132,7 @@ window.onload = wrap_img;
 <mark>_word</mark>: word .docx files.  This allows you to save Microsoft or Goggle documents into a docx format.  Saving these directly to _word folder will streamline steps.</li>
         </ul>
         <p>
-        Read more or review files in the [fastpages README.md](https://github.com/fastai/fastpages#readme)
+        Read more or review files in the <a href="https://github.com/fastai/fastpages#readme">fastpages README.md</a>
         </p>
         <hr>
     </div>
@@ -141,25 +143,38 @@ window.onload = wrap_img;
 
 <h3 id="resources">
 <a class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h3>
-<p>There are many resource, tutorials, and reference for buiding pages with HTML and Markdown.  On these subjects, I would say learn it when you need it.  Right clicking on Chrome and looking at View Page Source will allow the entire Web to be resource examples.  There are many examples in the code provided.  Here are a couple of link I often refer to for structure reference…</p>
+<p>There are many resource, tutorials, and reference for buiding pages with <mark>HTML and Markdown</mark>.  On these subjects, I would say learn it when you need it.  Right clicking on Chrome provides <mark>View Page Source</mark> on any link on the Web.  The APCSA/APCSP projects have many examples within these projects.  Here are a couple of Web links I often find through google or refer to when looking for ideas …</p>
 <ul>
   <li><a href="https://www.w3schools.com/html/default.asp">HTML on W3Schools</a></li>
-  <li><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheetshee</a></li>
+  <li><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheet Sheet</a></li>
 </ul>
 
 <h3 id="home-page">
 <a class="anchor" href="#home-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Home Page</h3>
-<p>The Home page is source by the index.file file.  This is the place to personalize and customize your home page.  GH Pages / Fastpages build prcess lets you mix markdown and html within this file.</p>
+<p>The Home page is sourced by the <mark>index.html</mark> file.  This is the file to personalize and customize your Fastpages home page.  BTW, index.html is the standard name for your web sites landing page.  GH Pages / Fastpages builds allows you to <makrk>mix Markdown and HTML&lt;/mark&gt; within the index.html file.</makrk></p>
 
 <h3 id="sub-pages">
 <a class="anchor" href="#sub-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sub Pages</h3>
-<p>Look under _pages folder as show in the above illustration.  In this directory there are serveral .md files.  These allow a combination of HTML and Markdown.  Observe that this project has prefix of 01, 02, 03 on the .md files.  This lets me control the order of menus from left to right…</p>
+<p>Look under <mark>_pages folder</mark> within the Navigator.  In this directory, there are serveral .md files.  These allow a combination of HTML and Markdown.  Observe that this project has <mark>prefix of 01, 02, 03 on the .md files allows control the order</mark> of menus from left to right…</p>
 <ul>
-  <li>01_search.md:  This provides a very cool search on the site.  This is untouched from fastpages project.</li>
-  <li>02_tags.md:  This provide a very cool tagging system that is related to the “categories: [techtalk]” that are seen at the top of all the GH Pages / FastPages _posts.  This is untouched from fastpage project.</li>
-  <li>03_about.md:  This page is left for your individual customization, similar to index.html</li>
-  <li>Students could add .md file of choice and order according to preference.</li>
+  <li>01_search.md:  This provides a very cool <mark>search on the site</mark>.  The search.md is renamed but the contents are untouched from fastpages project.</li>
+  <li>02_tags.md:  This provide a very cool <mark>tagging system</mark> that is related to the “categories: categoryname” that are seen at the top of all the GH Pages / FastPages _posts.  This tags.md is renamed but the contents are untouched from fastpage project.</li>
+  <li>03_about.md:  This page is left for your <mark>individual customization</mark>, similar to index.html</li>
+  <li>Developers <mark>can add .md file of choice<mark> and order according to preference.</mark></mark>
+</li>
 </ul>
+
+<h3 id="images">
+<a class="anchor" href="#images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images</h3>
+<p>Look under <mark>images folder</mark> and you will see files added to support the site.  Some are for customization of the site others are for pages.</p>
+<ul>
+  <li>Site: favicon.ico, logo.png</li>
+  <li>Pages: agile.webp, apcsa.png</li>
+</ul>
+
+<h3 id="gh-pages-yaml-files">
+<a class="anchor" href="#gh-pages-yaml-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>GH Pages YAML files</h3>
+<p>THe <mark>_config.yml</mark> has many strings and preferences that are specific to the site.  The file is full of comments that describe what can be changed and what should remain untouched.  Note, the .yml files will be seen again as we begin to deploy our own site with Docker.</p>
 
 <h2 id="hacks">
 <a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h2>
