@@ -108,7 +108,6 @@ Learning outcome.  Getting adapted to the Agile mindset used in Computer Science
 
 # Posts and Tech Talks
 - Overview Sprint - Java, PBL, and Tools
-- TPT Unit #00 Anatomy of Java
-
+- TPT Unit 00 Anatomy of Java
 - TT 1.0.0 Tools and Equipment 
 - TT 1.0.1 Roles, Issues, and Scrum Board 
