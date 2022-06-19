@@ -124,8 +124,8 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Menu-Object-Lab">Menu Object Lab </a></li>
-<li class="toc-entry toc-h2"><a href="#Drawing-Lab">Drawing Lab </a></li>
+<li class="toc-entry toc-h2"><a href="#Console-Based-Menu">Console Based Menu </a></li>
+<li class="toc-entry toc-h2"><a href="#Desktop-GUI-Menu">Desktop GUI Menu </a></li>
 <li class="toc-entry toc-h2"><a href="#Hacks">Hacks </a></li>
 </ul><!--
 #################################################
@@ -139,13 +139,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Menu-Object-Lab">
-<a class="anchor" href="#Menu-Object-Lab" aria-hidden="true"><span class="octicon octicon-link"></span></a>Menu Object Lab<a class="anchor-link" href="#Menu-Object-Lab"> </a>
+<h2 id="Console-Based-Menu">
+<a class="anchor" href="#Console-Based-Menu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Console Based Menu<a class="anchor-link" href="#Console-Based-Menu"> </a>
 </h2>
-<p>Console Based Menu</p>
+<p>Java imports allow user input and console output to be displayed in Terminal</p>
+<p>Objects Used</p>
 <ul>
 <li>Makes Object from Scanner Class to obtain inputs / menu selection from User</li>
-<li>User Math Class, but in this case as reference to call static method Math.random()</li>
+<li>Use System Class, to call static methods System.out.print and System.out.println to output to console</li>
+<li>User Math Class, to call static method Math.random() to generate random number</li>
 </ul>
 <p>Other College Board Topics</p>
 <ul>
@@ -307,10 +309,15 @@ java.util.InputMismatchException: Not a number, try again.
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Drawing-Lab">
-<a class="anchor" href="#Drawing-Lab" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://studycs.org/project/view/drawing">Drawing Lab</a><a class="anchor-link" href="#Drawing-Lab"> </a>
+<h2 id="Desktop-GUI-Menu">
+<a class="anchor" href="#Desktop-GUI-Menu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Desktop GUI Menu<a class="anchor-link" href="#Desktop-GUI-Menu"> </a>
 </h2>
-<p>Swing Drawing Tools allow Java to provide a Graphical User Interface on the desktop.</p>
+<p>Swing and AWT imports allow Java to provide a Graphical User Interface on the desktop.</p>
+<p>Other College Board Topics</p>
+<ul>
+<li>A 1D array is used to store MENUS</li>
+<li>A Control Structure, if-else if-else, is used to process Menu selection to code that performs related action</li>
+</ul>
 
 </div>
 </div>
@@ -322,52 +329,73 @@ java.util.InputMismatchException: Not a number, try again.
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
 
 <span class="c1">// Graphical-User-Interface for Desktop in Java using Java Swing. </span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Frame</span> <span class="kd">extends</span> <span class="n">JPanel</span> <span class="p">{</span>
-    <span class="c1">// JFrame is the starter Class from swing import, frame is the object</span>
-    <span class="n">JFrame</span> <span class="n">frame</span><span class="p">;</span>
-
-    <span class="c1">// Override of paint(Graphics g) enables drawing within the frame object</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">paint</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">black</span><span class="p">);</span>   <span class="c1">//change drawing color</span>
-        <span class="n">g</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>  <span class="c1">//draw a filled-in rectangle with the top-left corner at 0 and width and height of 50. </span>
-    
-        <span class="n">g</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">blue</span><span class="p">);</span>    <span class="c1">//change drawing color</span>
-        <span class="n">g</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span><span class="c1">//draw a solid rectangle with the top-left corner located at x = 100 and y = 0.</span>
-    <span class="p">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MenuJFrame</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">ActionListener</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">JFrame</span> <span class="n">frame</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">JMenuBar</span> <span class="n">menubar</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">JMenu</span> <span class="n">menu</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">JLabel</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">"Wating for menu action."</span><span class="p">);</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">MENUS</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// 1D Array of Menu Choices</span>
+        <span class="s">"Hello"</span><span class="p">,</span> <span class="s">"Colors"</span><span class="p">,</span> <span class="s">"Loading bar"</span><span class="p">,</span>  
+    <span class="p">};</span>
 
     <span class="c1">// Constructor enables the Frame instance, the object "this.frame"</span>
-    <span class="kd">public</span> <span class="nf">Frame</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Make a JFrame object "frame" with "title" as parameter to the constructor</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>
+    <span class="kd">public</span> <span class="nf">MenuJFrame</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// Initializing Key Objects</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>
+	<span class="n">menubar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuBar</span><span class="p">();</span>
+	<span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenu</span><span class="p">(</span><span class="s">"Menu"</span><span class="p">);</span>
+
+	<span class="c1">// Initializing Menu objects and adding actions</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">mx</span> <span class="p">:</span> <span class="n">MENUS</span><span class="p">)</span> <span class="p">{</span>
+	    <span class="n">JMenuItem</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuItem</span><span class="p">(</span><span class="n">mx</span><span class="p">);</span>
+	    <span class="n">m</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+	    <span class="n">menu</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">m</span><span class="p">);</span> 
+	<span class="p">}</span>
+
+	<span class="c1">// Adding / Connecting Objects</span>
+	<span class="n">menubar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">menu</span><span class="p">);</span>
+	<span class="n">frame</span><span class="p">.</span><span class="na">setJMenuBar</span><span class="p">(</span><span class="n">menubar</span><span class="p">);</span>
+	<span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 
         <span class="c1">// Sets JFrame close operation to Class variable JFrame.EXIT_ON_CLOSE</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
-
-        <span class="c1">// Identifies this Frame object, allows this.paint(Graphics g) to be identified</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>    
+        <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
         
-        <span class="c1">// set the window within the frame object</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="c1">// set the size of window based on objects</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">pack</span><span class="p">();</span>
 
         <span class="c1">// makes the frame object visible according to properties previously set</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>  <span class="c1">// flow of control shifts to frame object</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>  <span class="c1">// flow of control shifts to frame object</span>
     <span class="p">}</span>
 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+	    <span class="n">String</span> <span class="n">msg</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getActionCommand</span><span class="p">();</span>
+
+        <span class="c1">// action according to MENU selected</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s">"Hello, World"</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s">"red green blue"</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s">"loading"</span><span class="p">;</span>
+
+        <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">selection</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">msg</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Makes an instance of our Frame class, which in turn makes a JFrame object</span>
-        <span class="k">new</span> <span class="n">Frame</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
+        <span class="c1">// Activates an instance of MenuJFrame class, which makes a JFrame object</span>
+        <span class="k">new</span> <span class="n">MenuJFrame</span><span class="p">(</span><span class="s">"Menu"</span><span class="p">);</span>
     <span class="p">}</span>
     
 <span class="p">}</span>
 
-<span class="n">Frame</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="n">MenuJFrame</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
