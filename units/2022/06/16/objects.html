@@ -373,18 +373,24 @@ java.util.InputMismatchException: Not a number, try again.
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="n">String</span> <span class="n">msg</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">msg</span><span class="p">;</span>
         <span class="n">String</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getActionCommand</span><span class="p">();</span>
+        <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Red"</span><span class="p">,</span> <span class="s">"Green"</span><span class="p">,</span> <span class="s">"Blue"</span><span class="p">};</span>
 
-        <span class="c1">// action according to MENU selected</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+        <span class="c1">// set the label to the menuItem that is selected</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s">"Hello, World"</span><span class="p">;</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s">"red green blue"</span><span class="p">;</span>
-        <span class="k">else</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s">"&lt;html&gt;"</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">color</span> <span class="p">:</span> <span class="n">COLORS</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">" &lt;/font&gt;"</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s">"&lt;/html&gt;"</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s">"loading"</span><span class="p">;</span>
-
-        <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">selection</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">msg</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">//message.setText(selection + ": " + msg);</span>
+        <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
     <span class="p">}</span>
 
 
