@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
@@ -338,7 +338,7 @@ java.util.InputMismatchException: Not a number, try again.
     <span class="kd">private</span> <span class="n">JFrame</span> <span class="n">frame</span><span class="p">;</span>
     <span class="kd">private</span> <span class="n">JMenuBar</span> <span class="n">menubar</span><span class="p">;</span>
     <span class="kd">private</span> <span class="n">JMenu</span> <span class="n">menu</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="n">JLabel</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">"Wating for menu action."</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="n">JLabel</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">"Click on Menu to select an action."</span><span class="p">);</span>
     <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">MENUS</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// 1D Array of Menu Choices</span>
         <span class="s">"Hello"</span><span class="p">,</span> <span class="s">"Colors"</span><span class="p">,</span> <span class="s">"Loading bar"</span><span class="p">,</span>  
     <span class="p">};</span>
@@ -372,6 +372,7 @@ java.util.InputMismatchException: Not a number, try again.
         <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>  <span class="c1">// flow of control shifts to frame object</span>
     <span class="p">}</span>
 
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">String</span> <span class="n">msg</span><span class="p">;</span>
         <span class="n">String</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getActionCommand</span><span class="p">();</span>
@@ -380,17 +381,33 @@ java.util.InputMismatchException: Not a number, try again.
         <span class="c1">// set the label to the menuItem that is selected</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s">"Hello, World"</span><span class="p">;</span>
+            <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s">"&lt;html&gt;"</span><span class="p">;</span>
             <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">color</span> <span class="p">:</span> <span class="n">COLORS</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">msg</span> <span class="o">+=</span> <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">" &lt;/font&gt;"</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="s">"&lt;/html&gt;"</span><span class="p">;</span>
+            <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s">"loading"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="s">"#"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">loading</span>  <span class="o">=</span> <span class="s">"loading"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">start_msg</span> <span class="o">=</span> <span class="s">"&lt;html&gt;"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">hashes</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">end_msg</span> <span class="o">=</span> <span class="s">"&lt;/html&gt;"</span><span class="p">;</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// fixed length loading bar</span>
+                <span class="kt">int</span> <span class="n">random</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">COLORS</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>  <span class="c1">// random logic</span>
+                <span class="n">hashes</span> <span class="o">+=</span> <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">COLORS</span><span class="o">[</span><span class="n">random</span><span class="o">]</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">hash</span> <span class="o">+</span> <span class="s">"&lt;/font&gt;"</span><span class="p">;</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="n">start_msg</span> <span class="o">+</span> <span class="n">hashes</span> <span class="o">+</span> <span class="n">end_msg</span><span class="p">;</span>
+                <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+                <span class="k">try</span> <span class="p">{</span>
+                    <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// delay for loading</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Sleep catch: "</span> <span class="o">+</span> <span class="n">ex</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
         <span class="p">}</span>
-        <span class="c1">//message.setText(selection + ": " + msg);</span>
-        <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
     <span class="p">}</span>
 
 
