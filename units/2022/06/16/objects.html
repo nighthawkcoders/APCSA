@@ -345,22 +345,22 @@ java.util.InputMismatchException: Not a number, try again.
 
     <span class="c1">// Constructor enables the Frame instance, the object "this.frame"</span>
     <span class="kd">public</span> <span class="nf">MenuJFrame</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// Initializing Key Objects</span>
+	    <span class="c1">// Initializing Key Objects</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>
-	<span class="n">menubar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuBar</span><span class="p">();</span>
-	<span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenu</span><span class="p">(</span><span class="s">"Menu"</span><span class="p">);</span>
+	    <span class="n">menubar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuBar</span><span class="p">();</span>
+	    <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenu</span><span class="p">(</span><span class="s">"Menu"</span><span class="p">);</span>
 
-	<span class="c1">// Initializing Menu objects and adding actions</span>
-	<span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">mx</span> <span class="p">:</span> <span class="n">MENUS</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="n">JMenuItem</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuItem</span><span class="p">(</span><span class="n">mx</span><span class="p">);</span>
-	    <span class="n">m</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-	    <span class="n">menu</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">m</span><span class="p">);</span> 
-	<span class="p">}</span>
+        <span class="c1">// Initializing Menu objects and adding actions</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">mx</span> <span class="p">:</span> <span class="n">MENUS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">JMenuItem</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuItem</span><span class="p">(</span><span class="n">mx</span><span class="p">);</span>
+            <span class="n">m</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+            <span class="n">menu</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">m</span><span class="p">);</span> 
+        <span class="p">}</span>
 
-	<span class="c1">// Adding / Connecting Objects</span>
-	<span class="n">menubar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">menu</span><span class="p">);</span>
-	<span class="n">frame</span><span class="p">.</span><span class="na">setJMenuBar</span><span class="p">(</span><span class="n">menubar</span><span class="p">);</span>
-	<span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+        <span class="c1">// Adding / Connecting Objects</span>
+        <span class="n">menubar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">menu</span><span class="p">);</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">setJMenuBar</span><span class="p">(</span><span class="n">menubar</span><span class="p">);</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 
         <span class="c1">// Sets JFrame close operation to Class variable JFrame.EXIT_ON_CLOSE</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
