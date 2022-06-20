@@ -229,32 +229,33 @@ window.onload = wrap_img;
 
 <h3 id="resources-overview">
 <a class="anchor" href="#resources-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="images/resources.png">Resources</a> Overview</h3>
-<p>div&gt;
-    &lt;div&gt;
-        &lt;div&gt;
-            &lt;hr&gt;
-            &lt;p&gt;
-            Resources are structure in standard directories for many reasons: familiarity amongst developer, tool defaults, deployment defaults, cache optimizations, etc.  Here are some of introductions:
-            &lt;/p&gt;
-            &lt;ul&gt;
-                &lt;li&gt; static/images - this is where a web server typically expects images that do not change after deployment.  Service in deployment will cache these files for quick loading over the internet.
-                &lt;/li&gt;
-                &lt;li&gt; static/sccs - these are cached as well.  This location and the sccs name state this will work with node tools.  The standard is called Sassy and is the same as used in Python Flask projects.
-                &lt;/li&gt; 
-                &lt;li&gt; templates/error - error pages can be placed here.  Can you guess were you would put a 500 error page.<br>
-                &lt;/li&gt; 
-                &lt;li&gt; application.properties - this resource is used to define defaults for the application.  Most of these default are used by backed, for instance this will be used to define location of a database.  This is similar to <strong>init</strong>.py.
-                &lt;/li&gt;
-            &lt;/ul&gt;
-            &lt;hr&gt;
-        &lt;/div&gt;
-        &lt;div style="float: right; margin: 0px 10px 10px 0px;"&gt;
+<div>
+    <div>
+        <div style="float: right; margin: 0px 10px 10px 0px;">
             <a href="https://github.com/nighthawkcoders/spring_portfolio">
                 <img atl="Frontend Files" src="/APCSA/images/resources.png" title="VS Code frontend files" width="250">
             </a>
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</p>
+        </div>
+        <div>
+            <hr>
+            <p>
+            Resources are structure in standard directories for many reasons: familiarity amongst developer, tool defaults, deployment defaults, cache optimizations, etc.  Here are some of introductions:
+            </p>
+            <ul>
+                <li> static/images - this is where a web server typically expects images that do not change after deployment.  Service in deployment will cache these files for quick loading over the internet.
+                </li>
+                <li> static/sccs - these are cached as well.  This location and the sccs name state this will work with node tools.  The standard is called Sassy and is the same as used in Python Flask projects.
+                </li> 
+                <li> templates/error - error pages can be placed here.  Can you guess were you would put a 500 error page.  
+                </li> 
+                <li> application.properties - this resource is used to define defaults for the application.  Most of these default are used by backed, for instance this will be used to define location of a database.  This is similar to __init__.py.
+                </li>
+            </ul>
+            <hr>
+        </div>
+        
+    </div>
+</div>
 </body>
   </div><a class="u-url" href="/APCSA/techtalk/2022/06/16/TT113-frontend.html" hidden></a>
 </article>
