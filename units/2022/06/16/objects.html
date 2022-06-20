@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -343,6 +343,7 @@ java.util.InputMismatchException: Not a number, try again.
     <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">MENUS</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// 1D Array of Menu Choices</span>
         <span class="s">"Hello"</span><span class="p">,</span> <span class="s">"Colors"</span><span class="p">,</span> <span class="s">"Loading bar"</span><span class="p">,</span>  
     <span class="p">};</span>
+    <span class="c1">// Statics to assist with timer and messaging, single copy (no instance)</span>
     <span class="kd">private</span>	<span class="kd">static</span> <span class="kt">int</span> <span class="n">delay</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
     <span class="kd">private</span>	<span class="kd">static</span> <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">hashes</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
@@ -376,60 +377,58 @@ java.util.InputMismatchException: Not a number, try again.
         <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>  <span class="c1">// flow of control shifts to frame object</span>
     <span class="p">}</span>
 
-
+    <span class="c1">// event from user selecting a menu option</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">String</span> <span class="n">msg</span><span class="p">;</span>
-        <span class="n">String</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getActionCommand</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Red"</span><span class="p">,</span> <span class="s">"Green"</span><span class="p">,</span> <span class="s">"Blue"</span><span class="p">};</span>
- 	<span class="kd">final</span> <span class="n">String</span> <span class="n">start_msg</span> <span class="o">=</span> <span class="s">"&lt;html&gt;"</span><span class="p">;</span>
+        <span class="c1">// local variable to ActinEvent</span>
+        <span class="n">String</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getActionCommand</span><span class="p">();</span>  <span class="c1">// menu selection</span>
+        <span class="n">String</span> <span class="n">msg</span><span class="p">;</span> <span class="c1">// local variable to create response from action</span>
+        <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Red"</span><span class="p">,</span> <span class="s">"Green"</span><span class="p">,</span> <span class="s">"Blue"</span><span class="p">};</span>  <span class="c1">// add more colors here</span>
+ 	    <span class="kd">final</span> <span class="n">String</span> <span class="n">start_msg</span> <span class="o">=</span> <span class="s">"&lt;html&gt;"</span><span class="p">;</span>  <span class="c1">// html building</span>
        	<span class="kd">final</span> <span class="n">String</span> <span class="n">end_msg</span> <span class="o">=</span> <span class="s">"&lt;/html&gt;"</span><span class="p">;</span>
        	<span class="kd">final</span> <span class="n">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="s">"#"</span><span class="p">;</span>
 
-        <span class="c1">// set the label to the menuItem that is selected</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// run code based on the menuItem that was selected</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>  <span class="c1">// Hello Action</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s">"Hello, World"</span><span class="p">;</span>
             <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s">"&lt;html&gt;"</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">// Color Action</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">start_msg</span><span class="p">;</span>
             <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">color</span> <span class="p">:</span> <span class="n">COLORS</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">msg</span> <span class="o">+=</span> <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">" &lt;/font&gt;"</span><span class="p">;</span>
             <span class="p">}</span>
-            <span class="n">msg</span> <span class="o">+=</span> <span class="s">"&lt;/html&gt;"</span><span class="p">;</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">end_msg</span><span class="p">;</span>
             <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  <span class="c1">// Loading Action, aka Animation</span>
 
+            <span class="c1">// Code to run on a Timer</span>
             <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="p">();</span>
             <span class="n">TimerTask</span> <span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TimerTask</span><span class="p">()</span> <span class="p">{</span>
-                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// Method for TimerTask</span>
+                    <span class="c1">// Static and Local variables used to manage message building</span>
                     <span class="kt">int</span> <span class="n">random</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">COLORS</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>  <span class="c1">// random logic</span>
-                    <span class="n">hashes</span> <span class="o">+=</span>  <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">COLORS</span><span class="o">[</span><span class="n">random</span><span class="o">]</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">hash</span> <span class="o">+</span> <span class="s">"&lt;/font&gt;"</span><span class="p">;</span>
+                    <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">hashes</span> <span class="o">+=</span>  <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">COLORS</span><span class="o">[</span><span class="n">random</span><span class="o">]</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">hash</span> <span class="o">+</span> <span class="s">"&lt;/font&gt;"</span><span class="p">;</span>
                     <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">start_msg</span> <span class="o">+</span> <span class="n">hashes</span> <span class="o">+</span> <span class="n">end_msg</span><span class="p">;</span>
-
+                    <span class="c1">// Object text updated</span>
                     <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-
-                    <span class="k">if</span><span class="p">(</span><span class="n">step</span><span class="o">++</span> <span class="o">&gt;</span> <span class="n">delay</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">hashes</span><span class="o">=</span><span class="s">""</span><span class="p">;</span>
+                    <span class="c1">// Shutdown timer and reset data</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">MenuJFrame</span><span class="p">.</span><span class="na">step</span><span class="o">++</span> <span class="o">&gt;</span> <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">delay</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">hashes</span><span class="o">=</span><span class="s">""</span><span class="p">;</span>
                         <span class="n">timer</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
                     <span class="p">}</span>
-
-
                 <span class="p">};</span>
             <span class="p">};</span>
-     
+            <span class="c1">// Schedule task and interval</span>
             <span class="n">timer</span><span class="p">.</span><span class="na">schedule</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
-            <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>
-
+            <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>  <span class="c1">// prime/initial display</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
-
+    <span class="c1">// Driver turn over control the GUI</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Activates an instance of MenuJFrame class, which makes a JFrame object</span>
         <span class="k">new</span> <span class="n">MenuJFrame</span><span class="p">(</span><span class="s">"Menu"</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
-
 <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
@@ -446,25 +445,29 @@ java.util.InputMismatchException: Not a number, try again.
 <h2 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
-<p>Build your own Jupyter Notebook meeting these College Board and CTE competencies</p>
-<ul>
-<li>Explain in Notebook cell where you are defining a Class.</li>
-<li>Show in Notebook cell where you are making an instances of the Class<ul>
-<li>Show in same Notebook cell where you are calling Methods</li>
-<li>Show in same Notebook cell where you are Mutating data</li>
-</ul>
-</li>
-<li>Repeat making an instance, calling methods, and mutating for a an Object created with a Constructor of a different signature.</li>
-<li>Use Wrapper Classes Integer and Double for storing data in the class</li>
-<li>Use the <a href="https://www.javatpoint.com/java-math">Math Class</a> in performing calculations</li>
-<li>In preparation for next unit, evaluate a Boolean expressions that uses a relational operators to branch code execution (ie if statement using ==)</li>
-</ul>
-<p>Additional requirements</p>
+<p>College Board and CTE competences.</p>
 <ol>
-<li>Adapt given Drawing Tool lab for your own solution of interest, this is great opportunity to visualize data from Math, Physics, or other class. </li>
-<li>
-<li>
+<li>Documentation / Analysis. Describe with Markdown Cell(s) and triple backtick code fragments the answers to the following...</li>
 </ol>
+<ul>
+<li>Explain where a Class is defined </li>
+<li>Explain where an instances of a Class is defined</li>
+<li>Explain where code is calling a Method</li>
+<li>Explain where code is Mutating data</li>
+<li>Describe Console and GUI differences. Come up with an example could share Methods or Data between the two solutions?</li>
+<li>Establish a list of using Classes that resulted in instantiating Objects.</li>
+<li>Establish a list of using Classes that resulted in calling Static Methods.</li>
+</ul>
+<ol>
+<li>Coding
+Make a new Console or GUI lab for your own solution of interest, this is great opportunity to visualize data from Math, Physics, or other class using Math library.  Look to make these changes in your work </li>
+</ol>
+<ul>
+<li>Make constructors of different signatures.</li>
+<li>Use Wrapper Classes of Integer and Double for define instance or static data in the Class</li>
+<li>Use the <a href="https://www.javatpoint.com/java-math">Math Class</a> in performing calculations</li>
+<li>Use a Boolean expressions that uses a relational operators to branch code execution (ie if (x == 0)</li>
+</ul>
 
 </div>
 </div>
