@@ -371,7 +371,7 @@ java.util.InputMismatchException: Not a number, try again.
         <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
         
         <span class="c1">// set the size of window based on objects</span>
-        <span class="n">frame</span><span class="p">.</span><span class="na">pack</span><span class="p">();</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
 
         <span class="c1">// makes the frame object visible according to properties previously set</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>  <span class="c1">// flow of control shifts to frame object</span>
@@ -392,14 +392,14 @@ java.util.InputMismatchException: Not a number, try again.
             <span class="n">msg</span> <span class="o">=</span> <span class="s">"Hello, World"</span><span class="p">;</span>
             <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">selection</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MENUS</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">// Color Action</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="n">start_msg</span><span class="p">;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">start_msg</span> <span class="o">+</span> <span class="s">"&lt;p&gt;"</span> <span class="o">+</span> <span class="n">selection</span> <span class="o">+</span> <span class="s">"&lt;/p&gt;"</span><span class="p">;</span>
             <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">color</span> <span class="p">:</span> <span class="n">COLORS</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">msg</span> <span class="o">+=</span> <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">color</span> <span class="o">+</span> <span class="s">" &lt;/font&gt;"</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="n">end_msg</span><span class="p">;</span>
             <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  <span class="c1">// Loading Action, aka Animation</span>
-
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  <span class="c1">// Loading Bar Action</span>
+	    <span class="n">String</span> <span class="n">loading</span> <span class="o">=</span> <span class="s">"&lt;p&gt;Loading&lt;/p&gt;"</span><span class="p">;</span>
             <span class="c1">// Code to run on a Timer</span>
             <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="p">();</span>
             <span class="n">TimerTask</span> <span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TimerTask</span><span class="p">()</span> <span class="p">{</span>
@@ -407,10 +407,10 @@ java.util.InputMismatchException: Not a number, try again.
                     <span class="c1">// Static and Local variables used to manage message building</span>
                     <span class="kt">int</span> <span class="n">random</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">COLORS</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>  <span class="c1">// random logic</span>
                     <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">hashes</span> <span class="o">+=</span>  <span class="s">"&lt;font color="</span> <span class="o">+</span> <span class="n">COLORS</span><span class="o">[</span><span class="n">random</span><span class="o">]</span> <span class="o">+</span> <span class="s">"&gt;"</span> <span class="o">+</span> <span class="n">hash</span> <span class="o">+</span> <span class="s">"&lt;/font&gt;"</span><span class="p">;</span>
-                    <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">start_msg</span> <span class="o">+</span> <span class="n">hashes</span> <span class="o">+</span> <span class="n">end_msg</span><span class="p">;</span>
-                    <span class="c1">// Object text updated</span>
+                    <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">start_msg</span> <span class="o">+</span> <span class="n">loading</span> <span class="o">+</span> <span class="n">hashes</span> <span class="o">+</span> <span class="n">end_msg</span><span class="p">;</span>
                     <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-                    <span class="c1">// Shutdown timer and reset data</span>
+                    
+	  	            <span class="c1">// Shutdown timer and reset data</span>
                     <span class="k">if</span><span class="p">(</span><span class="n">MenuJFrame</span><span class="p">.</span><span class="na">step</span><span class="o">++</span> <span class="o">&gt;</span> <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">delay</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">MenuJFrame</span><span class="p">.</span><span class="na">hashes</span><span class="o">=</span><span class="s">""</span><span class="p">;</span>
                         <span class="n">timer</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
@@ -419,7 +419,7 @@ java.util.InputMismatchException: Not a number, try again.
             <span class="p">};</span>
             <span class="c1">// Schedule task and interval</span>
             <span class="n">timer</span><span class="p">.</span><span class="na">schedule</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
-            <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>  <span class="c1">// prime/initial display</span>
+            <span class="n">message</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">start_msg</span> <span class="o">+</span> <span class="n">loading</span> <span class="o">+</span> <span class="n">hash</span> <span class="o">+</span> <span class="n">end_msg</span><span class="p">);</span>  <span class="c1">// prime/initial display</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
