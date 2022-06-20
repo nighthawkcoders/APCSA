@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -100,6 +100,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#html-page-indexhtml">HTML page (index.html)</a></li>
 <li class="toc-entry toc-h3"><a href="#layouts-folder">Layouts Folder</a></li>
+<li class="toc-entry toc-h3"><a href="#resourcesimagesresourcespng-overview">[Resources(images/resources.png) Overview</a></li>
 </ul>
 </li>
 </ul><body>
@@ -107,9 +108,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#tour-of-fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tour of Fastpages</h2>
 
 <div>
-
     <div>
-
         <div style="float: left; margin: 0px 10px 10px 0px;">
             <a href="https://github.com/nighthawkcoders/spring_portfolio">
                 <img atl="Frontend Files" src="/APCSA/images/frontend.png" title="VS Code frontend files" width="250">
@@ -124,9 +123,7 @@ window.onload = wrap_img;
             </p>
             <hr>
         </div>
-
     </div>
-
 </div>
 
 <h3 id="html-page-indexhtml">
@@ -229,6 +226,17 @@ window.onload = wrap_img;
 
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
+
+<h3 id="resourcesimagesresourcespng-overview">
+<a class="anchor" href="#resourcesimagesresourcespng-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>[Resources(images/resources.png) Overview</h3>
+<p>Resources are structure in standard directories for many reasons: familiarity amongst developer, tool defaults, deployment defaults, cache optimizations, etc.  Here are some of introductions:</p>
+<ul>
+  <li>static/images - this is where a web server typically expects images that do not change after deployment.  Service in deployment will cache these files for quick loading over the internet.</li>
+  <li>static/sccs - these are cached as well.  This location and the sccs name state this will work with node tools.  The standard is called Sassy and is the same as used in Python Flask projects.</li>
+  <li>templates/error - error pages can be placed here.  Can you guess were you would put a 500 error page.</li>
+  <li>application.properties - this resource is used to define defaults for the application.  Most of these default are used by backed, for instance this will be used to define location of a database.  This is similar to <strong>init</strong>.py.</li>
+</ul>
+
 </body>
   </div><a class="u-url" href="/APCSA/techtalk/2022/06/16/TT113-frontend.html" hidden></a>
 </article>
