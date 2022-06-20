@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="TT 1.2.0 Frontend Development - Tour of Thymeleaf and Layouts" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="AP Computer Science A" />
-<meta property="og:description" content="AP Computer Science A" />
+<meta name="description" content="Tour of Fastpages" />
+<meta property="og:description" content="Tour of Fastpages" />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT113-frontend.html" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT113-frontend.html" />
 <meta property="og:site_name" content="APCSA" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="TT 1.2.0 Frontend Development - Tour of Thymeleaf and Layouts" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"AP Computer Science A","headline":"TT 1.2.0 Frontend Development - Tour of Thymeleaf and Layouts","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT113-frontend.html"},"url":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT113-frontend.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"Tour of Fastpages","headline":"TT 1.2.0 Frontend Development - Tour of Thymeleaf and Layouts","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT113-frontend.html"},"url":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT113-frontend.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -96,8 +96,140 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#tour-of-fastpages">Tour of Fastpages</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#html-page-indexhtml">HTML page (index.html)</a></li>
+<li class="toc-entry toc-h3"><a href="#layouts-folder">Layouts Folder</a></li>
+</ul>
+</li>
+</ul><body>
+<h2 id="tour-of-fastpages">
+<a class="anchor" href="#tour-of-fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tour of Fastpages</h2>
+
+<div>
+
+    <div>
+
+        <div style="float: left; margin: 0px 10px 10px 0px;">
+            <a href="https://github.com/nighthawkcoders/spring_portfolio">
+                <img atl="Frontend Files" src="/APCSA/images/frontend.png" title="VS Code frontend files" width="250">
+            </a>
+        </div>
+        <div>
+            <hr>
+            <p>
+            This visual shows files for a Java Spring Boot Web Application project.  The frontend of the project contains HTML files that are infused with Thymeleaf.  Each frontend file has a backend has a Controller that loads the HTML template.  In this illustration Greet.java loads greet.html, Birds.java loads birds.html, index.html is using default/non-visible Controller to load its page.  This article will discuss the HTML files, the backend will discuss the Java files
+        
+            Read more or review files in the <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/">Spring Boot Reference Documentation</a>
+            </p>
+            <hr>
+        </div>
+
+    </div>
+
+</div>
+
+<h3 id="html-page-indexhtml">
+<a class="anchor" href="#html-page-indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML page (index.html)</h3>
+<p>All files are Thymeleaf infused, thus they are NOT pure HTML.  This allows pre-processor to be run on all HTML files before Java Spring pass the files to the Web Browser.  Here are some things to observe…</p>
+
+<p>Allowing HTML to understand thymeleaf and layouts, you will see introduction of xmlns:layout, xmlns:th, layout:decorate, layout:fragment.  These unusual, non HTML5 references, are REAL to Spring Thymeleaf framework we are using.  Many of the important pieces of HTML for headers, footers, style, and script will not be found in the index.html pages.</p>
+<ul>
+  <li>
+     section only contains the title for this page
+
+  </li>
+  <li>
+     section only contains data that is specific to this page
+
+  </li>
+  <li>this and other HTMl pages use “layouts” to form the remainder of the page</li>
 </ul>
 
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- This page is illustrative and contains ideas about HTML formatting --&gt;</span>
+<span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="c">&lt;!-- Signals to the Layout Dialect which layout should be used to decorate this View --&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns:layout=</span><span class="s">"http://www.w3.org/1999/xhtml"</span> <span class="na">xmlns:th=</span><span class="s">"http://www.w3.org/1999/xhtml"</span> <span class="na">layout:decorate=</span><span class="s">"~{layouts/base}"</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;th:block</span> <span class="na">layout:fragment=</span><span class="s">"head"</span> <span class="na">th:remove=</span><span class="s">"tag"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Intro<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/th:block&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;th:block</span> <span class="na">layout:fragment=</span><span class="s">"body"</span> <span class="na">th:remove=</span><span class="s">"tag"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Start of body content specific to page --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"px-4 py-5 my-5"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;&lt;strong&gt;</span>Java and Spring<span class="nt">&lt;/strong&gt;&lt;/h1&gt;</span>
+        <span class="nt">&lt;h3&gt;&lt;strong&gt;</span>What should Java Developers learn?<span class="nt">&lt;/strong&gt;&lt;/h3&gt;</span>
+        <span class="nt">&lt;ol&gt;</span>
+            <span class="nt">&lt;li&gt;</span>Java 11-17 is used for PBL. Java 8 appears to be College Board standard.  Java features like Reactive Streams, HTTP2 client, JShell, React JS are more recent than 8.<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>GitHub.  Learning to master managing change, branches, pull requests, and more.<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>Development DevOps. Java programmers should have a passion for managing the environment and learning automation (Git, Maven, Docker).<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>REST and Microservices using Spring.  Mastering creating and consuming RESTful APIs<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ol&gt;</span>
+        <span class="nt">&lt;h3&gt;&lt;strong&gt;</span>What is Spring?<span class="nt">&lt;/strong&gt;&lt;/h3&gt;</span>
+        <span class="nt">&lt;ol&gt;</span>
+            <span class="nt">&lt;li&gt;</span>Spring Framework is the most popular application development framework of Java. <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>Spring Boot helps to create a stand-alone application with less configuration.<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>Spring MVC is a model view controller-based web framework under the Spring framework.<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>ThymeLeaf is a server-side Java template engine, supports HTML5 JVM web development, and provides full integration with Spring Framework.<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ol&gt;</span>
+        
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!-- End of body content specific to page --&gt;</span>
+<span class="nt">&lt;/th:block&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="layouts-folder">
+<a class="anchor" href="#layouts-folder" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layouts Folder</h3>
+<p>This folder contains a base.html and two fragments: footer.html and nav.html.  These files form the standards for the Web Application project.  The layouts/base.html is structural beginning file for index.html, greet.html, birds.html or any future file added to this project.  This connection is made at the top of each HTML template: layout:decorate=”~{layouts/base}”.</p>
+
+<p>As you look at the layouts/base.html think of it as a Table of Contents of everything that will be in each HTML file.  As you look back at the index.html, consider that it is staring with layouts/base.html and insert its fragments for head and body.</p>
+
+<p>Thymeleaf will put all these things together through a pre-process step.  In the end, every HTML pages that is given to the Web Browser has style and structure from layouts/base, but content from its own HTML head and body.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- This page is illustrative and contains ideas about HTML layouts --&gt;</span>
+<span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns:layout=</span><span class="s">"http://www.w3.org/1999/xhtml"</span> <span class="na">xmlns:th=</span><span class="s">"http://www.w3.org/1999/xhtml"</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Required meta tags --&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1, shrink-to-fit=no"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"Content-Type"</span> <span class="na">content=</span><span class="s">"text/html; charset=UTF-8"</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- JQuery CSS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">th:src=</span><span class="s">"@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"</span> <span class="na">integrity=</span><span class="s">"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">th:href=</span><span class="s">"@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">integrity=</span><span class="s">"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- Project CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">th:href=</span><span class="s">"@{/scss/custom.css}"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;th:block</span> <span class="na">layout:fragment=</span><span class="s">"head"</span> <span class="na">th:remove=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Head details are added by ThymeLeaf layout consumer<span class="nt">&lt;/th:block&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;th:block</span> <span class="na">th:replace=</span><span class="s">"layouts/nav :: header"</span> <span class="na">th:remove=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Standard header and Navigation<span class="nt">&lt;/th:block&gt;</span>
+
+    <span class="nt">&lt;th:block</span> <span class="na">layout:fragment=</span><span class="s">"body"</span> <span class="na">th:remove=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Body details are added by ThymeLeaf layout consumer<span class="nt">&lt;/th:block&gt;</span>
+
+    <span class="nt">&lt;th:block</span> <span class="na">th:replace=</span><span class="s">"layouts/footer :: footer"</span> <span class="na">th:remove=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Standard footer<span class="nt">&lt;/th:block&gt;</span>
+
+    <span class="c">&lt;!-- Bootstrap 5.0 Bundle with Popper --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">th:src=</span><span class="s">"@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js}"</span> <span class="na">integrity=</span><span class="s">"sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;th:block</span> <span class="na">layout:fragment=</span><span class="s">"script"</span> <span class="na">th:remove=</span><span class="s">"tag"</span><span class="nt">&gt;&lt;/th:block&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+</body>
   </div><a class="u-url" href="/APCSA/techtalk/2022/06/16/TT113-frontend.html" hidden></a>
 </article>
 
