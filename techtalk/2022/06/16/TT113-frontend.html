@@ -128,7 +128,7 @@ window.onload = wrap_img;
 <h3 id="html-page-indexhtml">
 <a class="anchor" href="#html-page-indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML page (index.html)</h3>
 
-<p>The index.html file is infused with standard fragments with Thymeleaf.  Thus, these files are NOT pure HTML.  The Thymeleaf pre-processor runs on all HTML files in this project before files are sent to the Web Browser.  Review comments in source code for instruction …</p>
+<p>The index.html file is infused with page specific fragments via Thymeleaf, it uses layouts/base.html as the template.  Thus, files in this project are NOT pure HTML.  The Thymeleaf pre-processor runs across all HTML files in this project, taking fragments and base to form pure HTML prior to files being sent to the Web Browser.  Review comments in source code for understanding …</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- This page is illustrative and contains ideas about HTML formatting --&gt;</span>
 <span class="cp">&lt;!DOCTYPE HTML&gt;</span>
@@ -214,9 +214,9 @@ window.onload = wrap_img;
 
 <h3 id="layouts-folder">
 <a class="anchor" href="#layouts-folder" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layouts Folder</h3>
-<p>This folder contains a base.html and two fragments: footer.html and nav.html.  These files form the standards for the Web Application project.  The layouts/base.html is structural beginning file for index.html, greet.html, birds.html or any future file added to this project.  This connection is made at the top of each HTML template: layout:decorate=”~{layouts/base}”.</p>
+<p>This folder contains a base.html and two fragments: footer.html and nav.html.  These files form the standards for each HTML page in this Web Application project.  The layouts/base.html is structural beginning file for index.html, greet.html, birds.html or any future file added to this project.  This connection is made at the top of each HTML template, layout:decorate=”~{layouts/base}”.</p>
 
-<p>As you look at the layouts/base.html think of it as the common contents that will be in every HTML file.  As you look back at the index.html, consider that it is starting with layouts/base.html and insert its page specific fragments for the head and body.</p>
+<p>As you look at the contents of the layouts/base.html think of it as the structure and common contents that will be in every HTML file.  As you look back at the index.html, consider that it is starting with layouts/base.html and inserting its page specific fragments for the head and body.</p>
 
 <p>Thymeleaf will put all these things together through a pre-process step.  In the end, every HTML pages that is given to the Web Browser has style and structure from layouts/base, but content from its own HTML head and body.</p>
 
