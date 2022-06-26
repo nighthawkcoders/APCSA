@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -103,6 +103,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#greetjava">Greet.java</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#hacks">Hacks</a></li>
 </ul><h2 id="tour-of-backend">
 <a class="anchor" href="#tour-of-backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tour of Backend</h2>
 <p>The backend for now is minimal as there is NO backend business logic.  Mastering these simple activities is critical as backend will get much more complicated.</p>
@@ -143,7 +144,7 @@ window.onload = wrap_img;
 
 <h3 id="greetjava">
 <a class="anchor" href="#greetjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Greet.java</h3>
-<p>This page is VERY important to master as it is passing data from frontend to backend using @RequestParam with associated keys and values.  The key name is associated with the Java using Wrapper Class, String name.  This is passed back to the template using model.addAttribute(“name”, name).   Nothing is altered in this example, but it could be.</p>
+<p>Purpose of Greet is to allow user to change Hello, World! greeting.  This page is VERY important to learn in order to master passing data from frontend to backend using @RequestParam with associated keys and values.  The key “name” HTML input and is mapped to the Java using wrapper Class, String name.  In the method, String name is made back into key value using model.addAttribute(“name”, name).   In this example, nothing is altered in, but this provides feedback and response framework that can be used for more sophisticated applications.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>  <span class="c1">// HTTP requests are handled as a controller, using the @Controller annotation</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Greet</span> <span class="o">{</span>
@@ -163,6 +164,10 @@ window.onload = wrap_img;
 
 <span class="o">}</span>
 </code></pre></div></div>
+
+<h2 id="hacks">
+<a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h2>
+<p>Using creativity and research, can you come up with something that alters Hello, World application.  Perhaps a question, answer, and evaluation for correct response.</p>
 
   </div><a class="u-url" href="/APCSA/techtalk/2022/06/16/TT112-backend.html" hidden></a>
 </article>
