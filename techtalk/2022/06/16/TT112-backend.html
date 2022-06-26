@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="TT 1.1.2 Backend Development - Tour of Spring/Java" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="AP Computer Science A" />
-<meta property="og:description" content="AP Computer Science A" />
+<meta name="description" content="Tour of Backend The backend for now is minimal as there is NO backend business logic. Mastering these simple activities is critical as backend will get much more complicated." />
+<meta property="og:description" content="Tour of Backend The backend for now is minimal as there is NO backend business logic. Mastering these simple activities is critical as backend will get much more complicated." />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT112-backend.html" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT112-backend.html" />
 <meta property="og:site_name" content="APCSA" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="TT 1.1.2 Backend Development - Tour of Spring/Java" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"AP Computer Science A","headline":"TT 1.1.2 Backend Development - Tour of Spring/Java","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT112-backend.html"},"url":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT112-backend.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"Tour of Backend The backend for now is minimal as there is NO backend business logic. Mastering these simple activities is critical as backend will get much more complicated.","headline":"TT 1.1.2 Backend Development - Tour of Spring/Java","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT112-backend.html"},"url":"https://nighthawkcoders.github.io/APCSA/techtalk/2022/06/16/TT112-backend.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -96,7 +96,73 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#tour-of-backend">Tour of Backend</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#mainjava">Main.java</a></li>
+<li class="toc-entry toc-h3"><a href="#birdsjava">Birds.java</a></li>
+<li class="toc-entry toc-h3"><a href="#greetjava">Greet.java</a></li>
 </ul>
+</li>
+</ul><h2 id="tour-of-backend">
+<a class="anchor" href="#tour-of-backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tour of Backend</h2>
+<p>The backend for now is minimal as there is NO backend business logic.  Mastering these simple activities is critical as backend will get much more complicated.</p>
+
+<h3 id="mainjava">
+<a class="anchor" href="#mainjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main.java</h3>
+<p>Main.java contains the Class that is used to bootstrap and launch a Spring application from a Java main method.  By default it will load index.html.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @SpringBootApplication annotation is key to building web applications with Java https://spring.io/projects/spring-boot</span>
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="c1">// Starts a spring application as a stand-alone application from the main method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Main</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="birdsjava">
+<a class="anchor" href="#birdsjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Birds.java</h3>
+<p>This is about as simple as an @Controller can get, it loads a page for view only.  Note the @GetMapping which is used to associate a Web URL (/birds) with a Java Method (public String birds())</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>  <span class="c1">// HTTP requests are handled as a controller, using the @Controller annotation</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Birds</span> <span class="o">{</span>
+
+    <span class="c1">// CONTROLLER handles GET request for /birds, maps it to birds() method</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/birds"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">birds</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="c1">// load HTML VIEW (birds.html)</span>
+        <span class="k">return</span> <span class="s">"birds"</span><span class="o">;</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="greetjava">
+<a class="anchor" href="#greetjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Greet.java</h3>
+<p>This page is VERY important to master as it is passing data from frontend to backend using @RequestParam with associated keys and values.  The key name is associated with the Java using Wrapper Class, String name.  This is passed back to the template using model.addAttribute(“name”, name).   Nothing is altered in this example, but it could be.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>  <span class="c1">// HTTP requests are handled as a controller, using the @Controller annotation</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Greet</span> <span class="o">{</span>
+
+    <span class="c1">// @GetMapping handles GET request for /greet, maps it to greeting() method</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/greet"</span><span class="o">)</span>
+    <span class="c1">// @RequestParam handles variables binding to frontend, defaults, etc</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">greeting</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">"name"</span><span class="o">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">false</span><span class="o">,</span> <span class="n">defaultValue</span><span class="o">=</span><span class="s">"World"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// model attributes are visible to Thymeleaf when HTML is "pre-processed"</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+
+        <span class="c1">// load HTML VIEW (greet.html)</span>
+        <span class="k">return</span> <span class="s">"greet"</span><span class="o">;</span> 
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
   </div><a class="u-url" href="/APCSA/techtalk/2022/06/16/TT112-backend.html" hidden></a>
 </article>
