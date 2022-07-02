@@ -55,9 +55,11 @@ permalink: /about/
             const tr = document.createElement("tr");
             const name = document.createElement("td");
             const id = document.createElement("td");
+            const age = document.createElement("td");
 
             name.innerHTML = data[row].name; 
             id.innerHTML = data[row].email; 
+            age.innerHTML = data[row].age; 
 
             tr.appendChild(name);
             tr.appendChild(id);
