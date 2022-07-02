@@ -9,6 +9,7 @@ permalink: /about/
   <tr>
     <th>Name</th>
     <th>ID</th>
+    <th>Age</th>
   </tr>
   </thead>
   <tbody id="result">
@@ -63,6 +64,8 @@ permalink: /about/
 
             tr.appendChild(name);
             tr.appendChild(id);
+            tr.appendChild(age);S
+
             resultContainer.appendChild(tr);
           }
       })
