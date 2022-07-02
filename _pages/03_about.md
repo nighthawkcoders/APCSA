@@ -73,7 +73,7 @@ permalink: /about/
           }
       })
   })
-  // catch fetch errors
+  // catch fetch errors (ie ACCESS to server blocked)
   .catch(err => {
     console.error(err);
     const tr = document.createElement("tr");
