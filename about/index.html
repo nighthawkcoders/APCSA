@@ -77,35 +77,77 @@ window.onload = wrap_img;
 
   <div class="post-content">
     <table>
+  <thead>
   <tr>
     <th>Name</th>
-    <th>Role</th>
-    <th>Profile</th>
-    <th>Issues</th>
-    <th>Commits</th>
+    <th>ID</th>
   </tr>
-  <tr>
-    <td>John Mortensen</td>
-    <td>Teacher</td>
-    <td><a href="https://github.com/jm1021" target="_blank">Profile</a></td>
-    <td><a href="https://github.com/nighthawkcoders/APCSA/issues/assigned/jm1021" target="_blank">Issues</a></td>
-    <td><a href="https://github.com/nighthawkcoders/APCSA/commits?author=jm1021" target="_blank">Commits</a></td>
-  </tr>
-  <tr>
-    <td>Bria Gilliam</td>
-    <td>Student</td>
-    <td><a href="https://github.com/jm1021" target="_blank">Profile</a></td>
-    <td><a href="https://github.com/nighthawkcoders/APCSA/issues/assigned/B-G101" target="_blank">Issues</a></td>
-    <td><a href="https://github.com/nighthawkcoders/APCSA/commits?author=B-G101" target="_blank">Commits</a></td>
-  </tr>
-  <tr>
-    <td>Allie Xiao</td>
-    <td>Student</td>
-    <td><a href="https://github.com/jm1021" target="_blank">Profile</a></td>
-    <td><a href="https://github.com/nighthawkcoders/APCSA/issues/assigned/xiaoa0" target="_blank">Issues</a></td>
-    <td><a href="https://github.com/nighthawkcoders/APCSA/commits?author=xiaoa0" target="_blank">Commits</a></td>
-  </tr>
+  </thead>
+  <tbody id="result">
+    <!-- javascript generated data -->
+  </tbody>
 </table>
+
+<script>
+  // prepare HTML result container for new output
+  const resultContainer = document.getElementById("result");
+
+  // prepare fetch options
+  // const url = "https://csp.nighthawkcodingsociety.com/crud_api/read/";
+  const url = "https://csa.nighthawkcodingsociety.com/api/person/all";
+  const options = {
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'omit', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  };
+
+  // fetch the API
+  fetch(url, options)
+    .then(response => {
+      // check for response errors
+      if (response.status !== 200) {
+          const errorMsg = 'Database response error: ' + response.status;
+          console.log(errorMsg);
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.innerHTML = errorMsg;
+          tr.appendChild(td);
+          resultContainer.appendChild(tr);
+          return;
+      }
+      // response to json data
+      response.json().then(data => {
+          console.log(data);
+          for (let row in data) {
+            const tr = document.createElement("tr");
+            const name = document.createElement("td");
+            const id = document.createElement("td");
+
+            name.innerHTML = data[row].name; 
+            id.innerHTML = data[row].email; 
+
+            tr.appendChild(name);
+            tr.appendChild(id);
+            resultContainer.appendChild(tr);
+          }
+      })
+  })
+  // catch fetch errors
+  .catch(err => {
+    console.error(err);
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.innerHTML = err;
+    tr.appendChild(td);
+    resultContainer.appendChild(tr);
+  });
+</script>
+
 
   </div>
 
