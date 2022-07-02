@@ -67,7 +67,7 @@ permalink: /about/
             // this build td's into tr
             tr.appendChild(name);
             tr.appendChild(id);
-            tr.appendChild(age);S
+            tr.appendChild(age);
             // add HTML to container
             resultContainer.appendChild(tr);
           }
