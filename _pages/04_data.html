@@ -10,9 +10,9 @@ title: Data
 <table>
   <thead>
   <tr>
-    <th>Name</th>
-    <th>ID</th>
-    <th>Age</th>
+    <th>Joke</th>
+    <th>HaHa</th>
+    <th>Boohoo</th>
   </tr>
   </thead>
   <tbody id="result">
@@ -60,10 +60,12 @@ title: Data
             // tr and td build out for each row
             const tr = document.createElement("tr");
             const name = document.createElement("td");
-            const id = document.createElement("td");
-            const age = document.createElement("td");
+            const haha = document.createElement("td");
+            const boohoo = document.createElement("td");
             // data is specific to the API
-            joke.innerHTML = data[row].joke; 
+            joke.innerHTML = data[row].joke;
+            haha.innerHTML = data[row].haha; 
+            boohoo.innerHTML = data[row].boohoo; 
             // this build td's into tr
             tr.appendChild(joke);
             // add HTML to container
