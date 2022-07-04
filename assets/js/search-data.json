@@ -162,6 +162,17 @@
 
   
       ,"page2": {
+          "title": "JavaScript Demos",
+          "content": "| Graph | Binary Math | Joke API | Covid19 RapidAPI | . JavaScript - Draw on Canvas .",
+          "url": "https://nighthawkcoders.github.io/APCSA/demos/",
+          "relUrl": "/demos/",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page3": {
           "title": "About Us",
           "content": "Name ID Age .",
           "url": "https://nighthawkcoders.github.io/APCSA/about/",
@@ -191,7 +202,7 @@
   
 
   
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nighthawkcoders.github.io/APCSA/robots.txt",
