@@ -163,7 +163,7 @@
   
       ,"page2": {
           "title": "JavaScript Demos",
-          "content": "JavaScript - Draw on Canvas .",
+          "content": "| Graph | Binary Math | Joke API | Covid19 RapidAPI | .",
           "url": "https://nighthawkcoders.github.io/APCSA/demos/",
           "relUrl": "/demos/",
           "date": ""
