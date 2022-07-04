@@ -137,8 +137,9 @@ window.onload = wrap_img;
       response.json().then(data => {
           console.log(data);
           for (let row in data) {
-            // tr and td build out for each row
+            // tr for each row
             const tr = document.createElement("tr");
+            // td for each column
             const name = document.createElement("td");
             const haha = document.createElement("td");
             const boohoo = document.createElement("td");
