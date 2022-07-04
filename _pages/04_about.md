@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About Us
 permalink: /about/
+title: About Us
 ---
 
 <!-- HTML table fragment for page -->
