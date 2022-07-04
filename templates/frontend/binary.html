@@ -3,6 +3,7 @@ layout: default
 permalink: /frontend/binary
 ---
 {% include nav_frontend.html %}
+{% assign BITS = 8 %}
 
 <!-- Hack 1: variable bits and variables for IMAGE_ON/IMAGE_OFF should come from backend Model -->
 <!-- Hack 2: have input to allow user to customize bits, 8 or 24 are key for remainder -->
@@ -12,7 +13,7 @@ permalink: /frontend/binary
 <!-- Hack 6: fix all warnings -->
 
 <script>
-    const BITS = 8;
+    const BITS = {{BITS}};
     const MAX = 2 ** BITS - 1;
     const MSG_ON = "Turn on";
     const IMAGE_ON = "/APCSA/images/bulb_on.gif";
@@ -131,7 +132,7 @@ permalink: /frontend/binary
     </div>
 
     <div class="col-12">
-        {% assign bits = 7 %}
+        {% assign bits = {{BITS}} - 1 %}
         <table class="table">
 
         <tr>
