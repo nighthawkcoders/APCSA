@@ -129,11 +129,12 @@ permalink: /frontend/binary
     </div>
 
     <div class="col-12">
-        {% comment %}Liquid for loop includes last number{% endcomment %}
+        {% comment %}Liquid for loop includes last number, thus the Minus{% endcomment %}
         {% assign bits = BITS | minus: 1 %} 
         <table class="table">
 
         <tr>
+            {% comment %}Build many bits{% endcomment %}
             {% for i in (0..bits) %}
             <td><img class="img-responsive py-3" id="bulb{{ i }}" src="/APCSA/images/bulb_off.png" alt="" width="40" height="Auto">
                 <button type="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})">Turn on</button>
@@ -142,6 +143,7 @@ permalink: /frontend/binary
         </tr>
 
         <tr>
+            {% comment %}Value of bit{% endcomment %}
             {% for i in (0..bits) %}
             <td><input type='text' id="digit{{ i }}" Value="0" size="1" readonly></td>
             {% endfor %}
