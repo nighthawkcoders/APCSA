@@ -4,20 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Search | APCSA</title>
+<title>Data | APCSA</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Search" />
+<meta property="og:title" content="Data" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="AP Computer Science A" />
 <meta property="og:description" content="AP Computer Science A" />
-<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/search/" />
-<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/search/" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/data/" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/data/" />
 <meta property="og:site_name" content="APCSA" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Search" />
+<meta property="twitter:title" content="Data" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"AP Computer Science A","headline":"Search","url":"https://nighthawkcoders.github.io/APCSA/search/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"AP Computer Science A","headline":"Data","url":"https://nighthawkcoders.github.io/APCSA/data/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -69,17 +69,102 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <!-- adapted from https://github.com/pmarsceill/just-the-docs -->
-<script type="text/javascript" src="/APCSA/assets/js/search.js"></script>
-<script type="text/javascript" src="/APCSA/assets/js/vendor/lunr.min.js"></script>
+        <article class="post">
 
-<div class="search">
-    <div class="search-input-wrap">
-    <input type="text" class="js-search-input search-input input-block form-control" tabindex="0" placeholder="Search APCSA" aria-label="Search APCSA" autocomplete="off">
-    </div>
-    <br>
-    <div class="js-search-results search-results-wrap"></div>
-</div>
+  <header class="post-header">
+    <h1 class="post-title">Data</h1>
+  </header>
+
+  <div class="post-content">
+    <table>
+    <tr>
+        <td><img src="/APCSA/images/logo.png" height="60" alt=""></td>
+        <td><a href="">Overview</a></td>
+        <td><a href="">Jokes API</a></td>
+        <td><a href="">Covid19 RapidAPI</a></td>
+        <td><a href="">Database API</a></td>
+    </tr>
+</table>
+
+<!-- HTML table fragment for page -->
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>ID</th>
+    <th>Age</th>
+  </tr>
+  </thead>
+  <tbody id="result">
+    <!-- javascript generated data -->
+  </tbody>
+</table>
+
+<!-- Script is layed out in a sequence (no function) and will execute when page is loaded -->
+<script>
+  // prepare HTML result container for new output
+  const resultContainer = document.getElementById("result");
+
+  // prepare fetch options
+  const url = "https://csp.nighthawkcodingsociety.com/api/jokes";
+  const options = {
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'omit', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  };
+
+  // fetch the API
+  fetch(url, options)
+    // response is a RESTful "promise" on any successful fetch
+    .then(response => {
+      // check for response errors
+      if (response.status !== 200) {
+          const errorMsg = 'Database response error: ' + response.status;
+          console.log(errorMsg);
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.innerHTML = errorMsg;
+          tr.appendChild(td);
+          resultContainer.appendChild(tr);
+          return;
+      }
+      // valid response will have json data
+      response.json().then(data => {
+          console.log(data);
+          for (let row in data) {
+            // tr and td build out for each row
+            const tr = document.createElement("tr");
+            const name = document.createElement("td");
+            const id = document.createElement("td");
+            const age = document.createElement("td");
+            // data is specific to the API
+            joke.innerHTML = data[row].joke; 
+            // this build td's into tr
+            tr.appendChild(joke);
+            // add HTML to container
+            resultContainer.appendChild(tr);
+          }
+      })
+  })
+  // catch fetch errors (ie ACCESS to server blocked)
+  .catch(err => {
+    console.error(err);
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.innerHTML = err;
+    tr.appendChild(td);
+    resultContainer.appendChild(tr);
+  });
+</script>
+
+  </div>
+
+</article>
 
       </div>
     </main><footer class="site-footer h-card">

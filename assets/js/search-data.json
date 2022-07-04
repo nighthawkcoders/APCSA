@@ -163,7 +163,7 @@
   
       ,"page2": {
           "title": "Frontend",
-          "content": "| Overview | Graph | Life | Snake | Joke API | Covid19 RapidAPI | .",
+          "content": "| Overview | Binary | Graph | Life | Snake | .",
           "url": "https://nighthawkcoders.github.io/APCSA/frontend/",
           "relUrl": "/frontend/",
           "date": ""
@@ -173,6 +173,17 @@
 
   
       ,"page3": {
+          "title": "Data",
+          "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Name ID Age .",
+          "url": "https://nighthawkcoders.github.io/APCSA/data/",
+          "relUrl": "/data/",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page4": {
           "title": "About Us",
           "content": "Name ID Age .",
           "url": "https://nighthawkcoders.github.io/APCSA/about/",
@@ -202,7 +213,7 @@
   
 
   
-      ,"page11": {
+      ,"page12": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nighthawkcoders.github.io/APCSA/robots.txt",
