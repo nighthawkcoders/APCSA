@@ -4,20 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Frontend | APCSA</title>
+<title>APCSA | AP Computer Science A</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Frontend" />
+<meta property="og:title" content="APCSA" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="AP Computer Science A" />
 <meta property="og:description" content="AP Computer Science A" />
-<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/frontend/" />
-<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/frontend/" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/frontend/snake" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/frontend/snake" />
 <meta property="og:site_name" content="APCSA" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Frontend" />
+<meta property="twitter:title" content="APCSA" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"AP Computer Science A","headline":"Frontend","url":"https://nighthawkcoders.github.io/APCSA/frontend/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"AP Computer Science A","headline":"APCSA","url":"https://nighthawkcoders.github.io/APCSA/frontend/snake"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -64,19 +64,12 @@ window.onload = wrap_img;
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Tags</a><a class="page-link" href="/APCSA/frontend/">Frontend</a><a class="page-link" href="/APCSA/data/overview">Data</a><a class="page-link" href="/APCSA/about/">About Us</a></div>
+        <div class="trigger"><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/data/overview">Data</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Tags</a><a class="page-link" href="/APCSA/about/">About Us</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">Frontend</h1>
-  </header>
-
-  <div class="post-content">
-    <table>
+        <table>
     <tr>
         <td><img src="/APCSA/images/logo.png" height="60" title="Frontend" alt=""></td>
         <td><a href="">Overview</a></td>
@@ -87,108 +80,7 @@ window.onload = wrap_img;
     </tr>
 </table>
 
-<div style="text-align:center;">
-    <canvas id="canvas" width="512" height="384" ></canvas>
-</div>
-
-<script>
-    // https://www.w3schools.com/graphics/canvas_intro.asp
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const WIDTH = canvas.width;
-    const HEIGHT = canvas.height;
-    const CELL_SIZE = 16;   // CELL_SIZE block size
-
-    // grid based off of width, HEIGHT
-    function grid(){
-        // color and pen width
-        ctx.strokeStyle = 'white';
-        ctx.lineWidth = 1;
-        // make graph paper look
-        for (let col = 0; col < WIDTH; col += CELL_SIZE) {
-            for (let row = 0; row < HEIGHT; row += CELL_SIZE) {
-                ctx.strokeRect(col, row, CELL_SIZE, CELL_SIZE);
-            }
-        }
-    }
-
-    // axis lines
-    function axis() {
-        // color and pen width
-        ctx.strokeStyle = 'red';
-        ctx.lineWIDTH = 3;
-        // x & y zero midpoints of grid
-        const x0 = WIDTH*.5;
-        const y0 = HEIGHT*.5;
-        // x-axis
-        ctx.moveTo(0, y0);
-        ctx.lineTo(WIDTH, y0);
-        ctx.stroke();
-        // y-axis
-        ctx.moveTo(x0, 0);
-        ctx.lineTo(x0, HEIGHT);
-        ctx.stroke();
-    }
-
-    // square using lines
-    function square(x0, y0, len) {
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = 5;
-        // NOTE canvas 0,0 is upper left corner, grid 0,0 is in middle of canvas
-        let x = x0*CELL_SIZE + (WIDTH/2);
-        let y = -y0*CELL_SIZE + (HEIGHT/2);
-        let l = len*CELL_SIZE;
-        // draw a square
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x+l, y);
-        ctx.lineTo(x+l, y-l);
-        ctx.lineTo(x, y-l);   // positive y is negative orientation in grid
-        ctx.lineTo(x, y);
-        ctx.stroke();
-    }
-
-    // randomly find
-    function randomPlusMinus(range) {
-        let pluMinusSeed =  (Math.random() - 0.499) * 2; // from -.998 to .998
-        return Math.round(pluMinusSeed * range);  // convert to rounded integer
-    }
-
-    // randomly draw squares
-    function randomDraw(i) {
-        // recursion base case
-        if ( i <= 0) {
-            return;
-        }
-        // obtain x, y coordinates on canvas per quadrant
-        let x = randomPlusMinus(WIDTH/CELL_SIZE/2);
-        let y = randomPlusMinus(HEIGHT/CELL_SIZE/2);
-        // obtain random length between 1 and 5
-        let l = Math.floor((Math.random()) * 5) + 1;
-        // draw square
-        square(x, y, l);
-        // timeout allows user to enjoy drawing effect
-        // this function calls itself, but decrements counter before call
-        setTimeout(() => { randomDraw(--i); }, 150);
-    }
-
-    // establish grid and axis
-    grid();
-    axis();
-
-    // Sample squares
-    square(-2, -2, 4);   // center square
-    //square(12, 8, 4);    // quadrant 1 extents
-    //square(-16, 8, 4);   // quadrant 2 extents
-    //square(-16, -12, 4); // quadrant 3 extents
-    //square(12, -12, 4);  // quadrant 4 extents
-
-    // Random squares
-    randomDraw(50);
-</script>
-  </div>
-
-</article>
+<p>Snake</p>
 
       </div>
     </main><footer class="site-footer h-card">

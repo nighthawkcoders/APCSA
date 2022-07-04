@@ -157,29 +157,29 @@
 
   
   
-
-  
-
-  
-      ,"page2": {
+      ,"page0": {
           "title": "Frontend",
-          "content": "| Overview | Binary | Graph | Life | Snake | .",
-          "url": "https://nighthawkcoders.github.io/APCSA/frontend/",
-          "relUrl": "/frontend/",
+          "content": "| Overview | Binary | Graph | Life | Snake | . Frontend Overview .",
+          "url": "https://nighthawkcoders.github.io/APCSA/frontend/overview",
+          "relUrl": "/frontend/overview",
           "date": ""
       }
       
   
 
   
-      ,"page3": {
+      ,"page1": {
           "title": "Data",
-          "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Overview .",
+          "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Data Overview .",
           "url": "https://nighthawkcoders.github.io/APCSA/data/overview",
           "relUrl": "/data/overview",
           "date": ""
       }
       
+  
+
+  
+
   
 
   
@@ -196,13 +196,85 @@
   
 
   
+      ,"page6": {
+          "title": "",
+          "content": "| Overview | Binary | Graph | Life | Snake | . Binary .",
+          "url": "https://nighthawkcoders.github.io/APCSA/frontend/binary",
+          "relUrl": "/frontend/binary",
+          "date": ""
+      }
+      
+  
 
   
       ,"page7": {
           "title": "",
+          "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Covid19 RapidAPI .",
+          "url": "https://nighthawkcoders.github.io/APCSA/data/covid",
+          "relUrl": "/data/covid",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page8": {
+          "title": "",
+          "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Database API .",
+          "url": "https://nighthawkcoders.github.io/APCSA/data/database",
+          "relUrl": "/data/database",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page9": {
+          "title": "",
+          "content": "| Overview | Binary | Graph | Life | Snake | .",
+          "url": "https://nighthawkcoders.github.io/APCSA/frontend/graph",
+          "relUrl": "/frontend/graph",
+          "date": ""
+      }
+      
+  
+
+  
+
+  
+      ,"page11": {
+          "title": "",
           "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Joke HaHa Boohoo .",
           "url": "https://nighthawkcoders.github.io/APCSA/data/jokes",
           "relUrl": "/data/jokes",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page12": {
+          "title": "",
+          "content": "| Overview | Binary | Graph | Life | Snake | . Life .",
+          "url": "https://nighthawkcoders.github.io/APCSA/frontend/life",
+          "relUrl": "/frontend/life",
+          "date": ""
+      }
+      
+  
+
+  
+  
+
+  
+  
+
+  
+      ,"page15": {
+          "title": "",
+          "content": "{% include nav_frontend.html %} . Snake .",
+          "url": "https://nighthawkcoders.github.io/APCSA/frontend/snake",
+          "relUrl": "/frontend/snake",
           "date": ""
       }
       
@@ -218,13 +290,7 @@
   
 
   
-  
-
-  
-  
-
-  
-      ,"page13": {
+      ,"page19": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nighthawkcoders.github.io/APCSA/robots.txt",
