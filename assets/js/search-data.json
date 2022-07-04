@@ -162,10 +162,10 @@
 
   
       ,"page2": {
-          "title": "JavaScript Demos",
+          "title": "frontend",
           "content": "| Overview | Graph | Life | Snake | Joke API | Covid19 RapidAPI | .",
-          "url": "https://nighthawkcoders.github.io/APCSA/demos/",
-          "relUrl": "/demos/",
+          "url": "https://nighthawkcoders.github.io/APCSA/frontend/",
+          "relUrl": "/frontend/",
           "date": ""
       }
       
