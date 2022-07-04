@@ -173,10 +173,10 @@
 
   
       ,"page3": {
-          "title": "Data - Overview",
+          "title": "Data",
           "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Overview .",
-          "url": "https://nighthawkcoders.github.io/APCSA/data/",
-          "relUrl": "/data/",
+          "url": "https://nighthawkcoders.github.io/APCSA/data/overview",
+          "relUrl": "/data/overview",
           "date": ""
       }
       
@@ -199,7 +199,7 @@
 
   
       ,"page7": {
-          "title": "Data - Jokes",
+          "title": "Data",
           "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Joke HaHa Boohoo .",
           "url": "https://nighthawkcoders.github.io/APCSA/data/jokes",
           "relUrl": "/data/jokes",
