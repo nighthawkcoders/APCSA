@@ -5,8 +5,13 @@ permalink: /frontend/graph
 
 {% include nav_frontend.html %}
 
-<div style="text-align:center;">
-    <canvas id="canvas" width="512" height="384" ></canvas>
+<div class="container py-4 bg-primary">
+    <header class="pb-3 mb-4 border-bottom border-primary text-dark">
+        <span class="fs-4">Graphing grid</span>
+    </header>
+    <div style="text-align:center;">
+        <canvas id="canvas" width="512" height="384" ></canvas>
+    </div>
 </div>
 
 <script>
@@ -20,7 +25,7 @@ permalink: /frontend/graph
     // grid based off of width, HEIGHT
     function grid(){
         // color and pen width
-        ctx.strokeStyle = 'white';
+        ctx.strokeStyle = 'black';
         ctx.lineWidth = 1;
         // make graph paper look
         for (let col = 0; col < WIDTH; col += CELL_SIZE) {
