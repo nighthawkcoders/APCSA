@@ -16,9 +16,9 @@ Paper exam in Gym, MCQs and FRQs
 -	Test Prep Tuesday were polarized between hard working individuals not paying attention.   This resorted to Teacher leading Test Prep and abandoning what seemed successful in years past.
 -	Stats show there is no middle in the data.  Lots of success and lots of failure.  
 
- ![]({/APCSA/images/history/2022-CB-Scores1.png})
+ ![]({{site.baseurl}}/images/history/2022-CB-Scores1.png)
 
- ![]({/APCSA/images/history/2022-CB-Scores2.png})
+ ![]({{site.baseurl}}/images/history/2022-CB-Scores2.png Score Distributions)
 
   
 ### 2021
@@ -28,11 +28,9 @@ Pandemic and online exam, MCQs and FRQs
 -	The single student that received a 2 was a surprise to me as they were very active in the classroom.
 -	Stats show there is no left in this graph, very successful class.
 
- ![]({/APCSA/images/history/2021-CB-Scores1.png})
- 
- ![]({/APCSA/images/history/2021-CB-Scores2.png})
+ ![]({{site.baseurl}}/images/history/2021-CB-Scores1.png)
 
-  
+ ![]({{site.baseurl}}/images/history/2021-CB-Scores2.png Score Distributions)
 
  
  
@@ -43,10 +41,7 @@ Pandemic and online exam, only FRQs
 -	Students did a lot of async self-administered Test Prep in online groups.  They had a big sense of reaching out to each other.
 -	Stats show that most took opportunity.
 
- ![]({/APCSA/images/history/2020-CB-Scores1.png})
- 
- ![]({/APCSA/images/history/2020-CB-Scores2.png})
+ ![]({{site.baseurl}}/images/history/2020-CB-Scores1.png)
 
-  
-
+ ![]({{site.baseurl}}/images/history/2020-CB-Scores2.png Score Distributions)
  
