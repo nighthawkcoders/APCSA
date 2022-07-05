@@ -272,7 +272,7 @@
   
       ,"page15": {
           "title": "",
-          "content": "{% include nav_frontend.html %} . Snake score: 0 . . Welcome to Snake, press space to begin . new game settings Game Over, press space to try again . new game settings Settings . press space to begin . new game Speed: Slow Normal Fast . Wall: On Off .",
+          "content": "{% include nav_frontend.html %} . Snake score: 0 . . Welcome to Snake, press space to begin . new game settings Game Over, press space to try again . new game settings Settings Screen, press space to go back to playing . new game Speed: Slow Normal Fast . Wall: On Off .",
           "url": "https://nighthawkcoders.github.io/APCSA/frontend/snake",
           "relUrl": "/frontend/snake",
           "date": ""
