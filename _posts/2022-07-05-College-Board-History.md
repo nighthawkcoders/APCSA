@@ -18,7 +18,7 @@ Paper exam in Gym, MCQs and FRQs
 
  ![]({{site.baseurl}}/images/history/2022-CB-Scores1.png)
 
- ![]({{site.baseurl}}/images/history/2022-CB-Scores2.png Score Distributions)
+ ![]({{site.baseurl}}/images/history/2022-CB-Scores2.png "Score Distributions")
 
   
 ### 2021
@@ -30,7 +30,7 @@ Pandemic and online exam, MCQs and FRQs
 
  ![]({{site.baseurl}}/images/history/2021-CB-Scores1.png)
 
- ![]({{site.baseurl}}/images/history/2021-CB-Scores2.png Score Distributions)
+ ![]({{site.baseurl}}/images/history/2021-CB-Scores2.png "Score Distributions")
 
  
  
@@ -43,5 +43,5 @@ Pandemic and online exam, only FRQs
 
  ![]({{site.baseurl}}/images/history/2020-CB-Scores1.png)
 
- ![]({{site.baseurl}}/images/history/2020-CB-Scores2.png Score Distributions)
+ ![]({{site.baseurl}}/images/history/2020-CB-Scores2.png "Score Distributions")
  
