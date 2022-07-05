@@ -255,7 +255,7 @@
   
       ,"page12": {
           "title": "",
-          "content": "| Overview | Binary | Graph | Life | Snake | . JavaScript - Remix of Game of Life . start step",
+          "content": "| Overview | Binary | Graph | Life | Snake | . Remix of Game of Life . start step",
           "url": "https://nighthawkcoders.github.io/APCSA/frontend/life",
           "relUrl": "/frontend/life",
           "date": ""
@@ -272,7 +272,7 @@
   
       ,"page15": {
           "title": "",
-          "content": "{% include nav_frontend.html %} . Snake score: 0 . . Snake . press space to begin . new game settings Game Over . press space to begin . new game settings Settings . press space to begin . new game Speed: Slow Normal Fast . Wall: On Off .",
+          "content": "{% include nav_frontend.html %} . Snake score: 0 . . Welcome to Snake, press space to begin . new game settings Game Over, press space to try again . new game settings Settings . press space to begin . new game Speed: Slow Normal Fast . Wall: On Off .",
           "url": "https://nighthawkcoders.github.io/APCSA/frontend/snake",
           "relUrl": "/frontend/snake",
           "date": ""
