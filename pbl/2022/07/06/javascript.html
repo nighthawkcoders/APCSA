@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -325,6 +325,117 @@ window.onload = wrap_img;
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Hello, Students!
 2022
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-javascript"><pre><span></span><span class="c1">// define a function to hold data</span>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">ghID</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ghID</span> <span class="o">=</span> <span class="nx">ghID</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// define a JSON conversion method associated with Person</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toJSON</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">role</span><span class="o">:</span> <span class="nx">role</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">ghID</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">ghID</span><span class="p">};</span>
+    <span class="kr">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">json</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// make a teacher instance of Person</span>
+<span class="kd">var</span> <span class="nx">teacher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"John Mortensen"</span><span class="p">,</span> <span class="s2">"jm1021"</span><span class="p">);</span>
+
+<span class="c1">// use method associated with function</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">teacher</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">teacher</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">(</span><span class="s2">"Teacher"</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Person { name: 'John Mortensen', ghID: 'jm1021' }
+{"role":"Teacher","name":"John Mortensen","ghID":"jm1021"}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-javascript"><pre><span></span><span class="c1">// build a student list</span>
+<span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span> 
+    <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Anthony"</span><span class="p">,</span> <span class="s2">"tonyhieu"</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Bria"</span><span class="p">,</span> <span class="s2">"B-G101"</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Allie"</span><span class="p">,</span> <span class="s2">"xiaoa0"</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Tigran"</span><span class="p">,</span> <span class="s2">"Tigran7"</span><span class="p">)</span> 
+<span class="p">];</span>
+
+<span class="c1">// build a classroom list from teacher and students</span>
+<span class="kd">var</span> <span class="nx">classroom</span> <span class="o">=</span> <span class="p">[</span><span class="nx">teacher</span><span class="p">];</span>
+<span class="nx">students</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">student</span> <span class="p">=&gt;</span> <span class="nx">classroom</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">student</span><span class="p">));</span>
+
+<span class="c1">// output each list</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Students\n"</span><span class="p">,</span> <span class="nx">students</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Classroom\n"</span><span class="p">,</span> <span class="nx">classroom</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Teacher
+ Person { name: 'John Mortensen', githubID: 'jm1021' }
+Students
+ [
+  Person { name: 'Anthony', githubID: 'tonyhieu' },
+  Person { name: 'Bria', githubID: 'B-G101' },
+  Person { name: 'Allie', githubID: 'xiaoa0' },
+  Person { name: 'Tigran', githubID: 'Tigran7' }
+]
+Classroom
+ [
+  Person { name: 'John Mortensen', githubID: 'jm1021' },
+  Person { name: 'Anthony', githubID: 'tonyhieu' },
+  Person { name: 'Bria', githubID: 'B-G101' },
+  Person { name: 'Allie', githubID: 'xiaoa0' },
+  Person { name: 'Tigran', githubID: 'Tigran7' }
+]
 </pre>
 </div>
 </div>
