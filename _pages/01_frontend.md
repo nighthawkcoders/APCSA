@@ -17,7 +17,12 @@ title: Frontend
     <div>
         <hr>
         <p>
-            Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website.  In this class, we will be using Fastpages on top of GitHub Pages to maximize our presentations, while minimizing our front-end coding.  In GH Pages, deployment is performed through Jekyll, which regenerates the website automatically after each commit, tracking can be seen in Actions tab within GitHub. <a href="https://shopify.github.io/liquid/basics/introduction/">Liquid</a> is the template language that allows us to store dynamic data within our static pages.
+            Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website.  
+            <ul>
+                <li>In this class, we will be using Fastpages on top of GitHub Pages to maximize our presentations, while minimizing our front-end coding.</li> 
+                <li>In GH Pages, deployment is performed through Jekyll, which regenerates the website automatically after each commit, tracking can be seen in Actions tab within GitHub.</li>
+                <li> <a href="https://shopify.github.io/liquid/basics/introduction/">Liquid</a> is the template language that allows us to store dynamic data within our static pages. </li>
+            </ul>
         </p>
         <hr>
     </div>
