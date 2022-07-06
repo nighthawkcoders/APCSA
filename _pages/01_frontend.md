@@ -23,8 +23,8 @@ title: Frontend
 
                 <li> HTML generation is performed through <a href="https://shopify.github.io/liquid/basics/introduction/"><mark>Liquid</mark></a>, a template language (similar to Jinja2 or Thymeleaf).</li>
 
-                <li>CSS style layout is provided by using <marl>Themes</mark> provided through GH Pages. </li>
-                
+                <li>CSS style layout is provided by using <mark>Themes</mark> provided through GH Pages. </li>
+
                 <li><mark>JavaScript</mark> enable pages to have actions, fetch content, animate, etc</li> 
             </ul>
         </p>
