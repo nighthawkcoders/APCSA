@@ -30,7 +30,7 @@ title: Frontend
 </div>
 
 
-### Sample Code
+### Sample Code in this Sub Menu
 
 HTML, CSS, and JavaScript are the front-end of the Web.  Many tools and languages complement development using markup, style and javascript.  This section of the Del Note CS website is providing some code samples.  These are intended to spark your own PBL ideas.  Each of these were generated after watching others teach or interacting with students.
 - Binary: This example was created after watching Harvard CS50 by David J. Malan in 2020, he had built a machine to turn on and off lights/binary digits.  Why not in software?
