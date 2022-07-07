@@ -400,13 +400,21 @@ window.onload = wrap_img;
     <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Tigran"</span><span class="p">,</span> <span class="s2">"Tigran7"</span><span class="p">)</span> 
 <span class="p">];</span>
 
-<span class="c1">// build a classroom list from teacher and students</span>
-<span class="kd">var</span> <span class="nx">classroom</span> <span class="o">=</span> <span class="p">[</span><span class="nx">teacher</span><span class="p">];</span>
-<span class="nx">students</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">student</span> <span class="p">=&gt;</span> <span class="nx">classroom</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">student</span><span class="p">));</span>
+<span class="c1">// build a classroom list with teacher and students</span>
+<span class="kd">var</span> <span class="nx">classroom</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">teacher</span><span class="p">,</span> <span class="nx">students</span><span class="p">){</span> 
+    <span class="k">this</span><span class="p">.</span><span class="nx">teacher</span> <span class="o">=</span> <span class="nx">teacher</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">students</span> <span class="o">=</span> <span class="nx">students</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">classroom</span> <span class="o">=</span> <span class="p">[</span><span class="nx">teacher</span><span class="p">];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">students</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">student</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">classroom</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">student</span><span class="p">));</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">json</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">classroom</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">person</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">json</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">()));</span>
+<span class="p">}</span>
 
-<span class="c1">// output each list</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Students\n"</span><span class="p">,</span> <span class="nx">students</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Classroom\n"</span><span class="p">,</span> <span class="nx">classroom</span><span class="p">);</span>
+<span class="nx">compsci</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">classroom</span><span class="p">(</span><span class="nx">teacher</span><span class="p">,</span> <span class="nx">students</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Classroom Object[0]]"</span><span class="p">,</span> <span class="nx">compsci</span><span class="p">.</span><span class="nx">classroom</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">name</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Classroom Objects"</span><span class="p">,</span> <span class="nx">compsci</span><span class="p">.</span><span class="nx">classroom</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Classroom JSON[0]]"</span><span class="p">,</span> <span class="nx">compsci</span><span class="p">.</span><span class="nx">json</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Classroom JSONs"</span><span class="p">,</span> <span class="nx">compsci</span><span class="p">.</span><span class="nx">json</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -419,22 +427,21 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Teacher
- Person { name: 'John Mortensen', githubID: 'jm1021' }
-Students
- [
-  Person { name: 'Anthony', githubID: 'tonyhieu' },
-  Person { name: 'Bria', githubID: 'B-G101' },
-  Person { name: 'Allie', githubID: 'xiaoa0' },
-  Person { name: 'Tigran', githubID: 'Tigran7' }
+<pre>Classroom Object[0]] John Mortensen
+Classroom Objects [
+  Person { name: 'John Mortensen', ghID: 'jm1021' },
+  Person { name: 'Anthony', ghID: 'tonyhieu' },
+  Person { name: 'Bria', ghID: 'B-G101' },
+  Person { name: 'Allie', ghID: 'xiaoa0' },
+  Person { name: 'Tigran', ghID: 'Tigran7' }
 ]
-Classroom
- [
-  Person { name: 'John Mortensen', githubID: 'jm1021' },
-  Person { name: 'Anthony', githubID: 'tonyhieu' },
-  Person { name: 'Bria', githubID: 'B-G101' },
-  Person { name: 'Allie', githubID: 'xiaoa0' },
-  Person { name: 'Tigran', githubID: 'Tigran7' }
+Classroom JSON[0]] {"name":"John Mortensen","ghID":"jm1021"}
+Classroom JSONs [
+  '{"name":"John Mortensen","ghID":"jm1021"}',
+  '{"name":"Anthony","ghID":"tonyhieu"}',
+  '{"name":"Bria","ghID":"B-G101"}',
+  '{"name":"Allie","ghID":"xiaoa0"}',
+  '{"name":"Tigran","ghID":"Tigran7"}'
 ]
 </pre>
 </div>
