@@ -4,6 +4,7 @@ permalink: /frontend/binary
 categories: [pbl]
 tags: [html, liquid, javascript]
 ---
+
 {% include nav_frontend.html %}
 {% assign BITS = 8 %}
 
@@ -12,12 +13,11 @@ tags: [html, liquid, javascript]
 <!-- Hack 3: do your own thing -->
 
 <script>
-    const BITS = {{BITS}};
     const MAX = 2 ** BITS - 1;
     const MSG_ON = "Turn on";
-    const IMAGE_ON = "/APCSA/images/bulb_on.gif";
+    const IMAGE_ON = "{{site.baseurl}}/images/bulb_on.gif";
     const MSG_OFF = "Turn off";
-    const IMAGE_OFF = "/APCSA/images/bulb_off.png"
+    const IMAGE_OFF = "{{site.baseurl}}/images/bulb_off.png"
 
     // return string with current value of each bit
     function getBits() {
@@ -141,8 +141,8 @@ tags: [html, liquid, javascript]
         <tr>
             {% comment %}Build many bits{% endcomment %}
             {% for i in (0..bits) %}
-            <td><img class="img-responsive py-3" id="bulb{{ i }}" src="/APCSA/images/bulb_off.png" alt="" width="40" height="Auto">
-                <button type="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})">Turn on</button>
+            <td><img class="img-responsive py-3" id="bulb{{ i }}" src="{{site.baseurl}}/images/bulb_off.png" alt="" width="40" height="Auto">
+                <button type="button" id="butt{{ i }}" onclick="javascript:toggleBit('{{ i }}')">Turn on</button>
             </td>
             {% endfor %}
         </tr>
