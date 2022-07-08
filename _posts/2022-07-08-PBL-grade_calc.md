@@ -14,15 +14,15 @@ tags: [javascript, input, onblur]
     Total   : <input type="number" name="total" id="total" readonly/>
     Average : <input type="number" name="average" id="average" readonly/>
     <br><br>
-    Score1 : <input onblur="findTotal()" type="text" name="score" id="score1"/><br>
-    Score2 : <input onblur="findTotal()" type="text" name="score" id="score2"/><br>
-    Score3 : <input onblur="findTotal()" type="text" name="score" id="score3"/><br>
-    Score4 : <input onblur="findTotal()" type="text" name="score" id="score4"/><br>
-    Score5 : <input onblur="findTotal()" type="text" name="score" id="score5"/><br>
+    Score1 : <input onblur="calculate()" type="text" name="score" id="score1"/><br>
+    Score2 : <input onblur="calculate()" type="text" name="score" id="score2"/><br>
+    Score3 : <input onblur="calculate()" type="text" name="score" id="score3"/><br>
+    Score4 : <input onblur="calculate()" type="text" name="score" id="score4"/><br>
+    Score5 : <input onblur="calculate()" type="text" name="score" id="score5"/><br>
 </div>
 
 <script>
-    function findTotal(){
+    function calculate(){
         var array = document.getElementsByName('score');
         var total=0;
         var count = 0;
@@ -32,6 +32,6 @@ tags: [javascript, input, onblur]
                 count++;
         }
         document.getElementById('total').value = total;
-        document.getElementById('average').value = average;
+        document.getElementById('average').value = total / count;
     }
 </script>
