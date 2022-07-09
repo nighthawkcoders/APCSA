@@ -79,26 +79,26 @@ window.onload = wrap_img;
     <br /><br />
     Input scores, press tab to add new number:
     <div id="scores">
-        <input onblur="calculate()" type="text" name="score" id="score0" /><br />
+        <input onblur="eventDriver()" type="text" name="score" id="score0" /><br />
         <!-- javascript generated inputs -->
     &lt;/dv&gt;
 </div>
 
 <script>
-    const scoreContainer = document.getElementById("scores");
 
-    function calculate(){
-        // setup totals
-        var total=0;
-        // establish array for every input with name="score"
+    function calculator(){
+        var total = 0;  // running total
         var array = document.getElementsByName('score');
         for(var i = 0; i < array.length; i++){  // iterate through all matching input element
             if(parseInt(array[i].value))  // convert to int and 
-                total += parseInt(array[i].value);  // running total on points
+                total += parseInt(array[i].value);  // running total update
         }
-        // calculate current total
         document.getElementById('total').value = total;
         document.getElementById('average').value = total / array.length;
+    }
+
+    const scoreContainer = document.getElementById("scores");
+    function newInput() {
         // make another input line
         var input = document.createElement("input");
         input.setAttribute('onblur', "calculate()");
@@ -108,6 +108,12 @@ window.onload = wrap_img;
         var br = document.createElement("br");
         scoreContainer.appendChild(br);
     }
+
+    function eventDriver() {
+        calculator();
+        newInput();
+    }
+
 </script>
 </div>
 
