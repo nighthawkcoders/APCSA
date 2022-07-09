@@ -86,31 +86,36 @@ window.onload = wrap_img;
 </div>
 
 <script>
-    const scoreContainer = document.getElementById("scores");
+    const scoresContainer = document.getElementById("scores");
 
     function newInputLine(index) {
-        // make another input line
-        var input = document.createElement("input");
+        // Prepare new input line
+        var input = document.createElement("input");  // input element
+        var br = document.createElement("br");  // line break element
+        // Setup input line attributes
         input.setAttribute('onblur', "calculator()");
         input.setAttribute('type', "text");
         input.setAttribute('name', "score");
         input.setAttribute('id', "score" + index);
-        scoreContainer.appendChild(input);
-        var br = document.createElement("br");
-        scoreContainer.appendChild(br);
+        // Add input and line break to page
+        scoresContainer.appendChild(input);
+        scoresContainer.appendChild(br);
+        // Set cursor focus to new element
         document.getElementById("score" + index).focus();
     }
 
     function calculator(){
         var total = 0;  // running total
-        var array = document.getElementsByName('score');
+        var array = document.getElementsByName('score'); // setup array of scores
         for(var i = 0; i < array.length; i++){  // iterate through all matching input element
             if(parseInt(array[i].value))  // convert to int and 
                 total += parseInt(array[i].value);  // running total update
         }
+        // setup totals
         document.getElementById('total').value = total;
         document.getElementById('count').value = array.length;
         document.getElementById('average').value = total / array.length;
+        // make a new input line
         newInputLine(array.length);
     }
 
