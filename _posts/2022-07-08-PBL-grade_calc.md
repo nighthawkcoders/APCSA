@@ -11,6 +11,8 @@ tags: [javascript, input, onblur]
 <!-- Hack 1: change control flow to enable editing of previous element -->
 <!-- Hack 2: build a title for each score -->
 
+{% include nav_frontend.html %}
+
 <div class="container bg-primary">
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
         <span class="fs-4">Grade Calculator</span>
