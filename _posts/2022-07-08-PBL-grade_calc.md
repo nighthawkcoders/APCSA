@@ -30,7 +30,7 @@ tags: [javascript, input, onblur]
 <script>
     const scoresContainer = document.getElementById("scores");
 
-    function newInputLine(index) {
+    function newInputLine() {
         // Prepare new input line
         var input = document.createElement("input");  // input element
         var br = document.createElement("br");  // line break element
@@ -42,24 +42,30 @@ tags: [javascript, input, onblur]
         // Add input and line break to page
         scoresContainer.appendChild(input);
         scoresContainer.appendChild(br);
-        // Set cursor focus to new element
-        document.getElementById("score" + index).focus();
     }
 
     function calculator(){
-        var total = 0;  // running total
         var array = document.getElementsByName('score'); // setup array of scores
-        if (array[array.length-1].value.length == 0) return; // current element not changed
-        for(var i = 0; i < array.length; i++){  // iterate through all matching input element
-            if(parseFloat(array[i].value))  // convert to int and 
-                total += parseFloat(array[i].value);  // running total update
+        if (array[array.length-1].value.length == 0) {   // input cell was changed
+        {
+            // No action; except return cursor focus to current element in array
+            document.getElementById("score" + (array.length-1)).focus();
+        } else {
+            // algorithm to calculate total
+            var total = 0;  // running total
+            for(var i = 0; i < array.length; i++){  // iterate through array
+                if(parseFloat(array[i].value))  // convert to float
+                    total += parseFloat(array[i].value);  // add to running total
+            }
+            // update totals
+            document.getElementById('total').innerHTML = total;
+            document.getElementById('count').innerHTML = array.length;
+            document.getElementById('average').innerHTML = total / array.length;
+            // make a new input line
+            newInputLine();
+            // Set cursor focus to new element
+            document.getElementById("score" + array.length).focus();
         }
-        // setup totals
-        document.getElementById('total').innerHTML = total;
-        document.getElementById('count').innerHTML = array.length;
-        document.getElementById('average').innerHTML = total / array.length;
-        // make a new input line
-        newInputLine(array.length);
     }
 
 </script>
