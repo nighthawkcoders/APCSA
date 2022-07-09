@@ -12,9 +12,9 @@ tags: [javascript, input, onblur]
         <span class="fs-4">Grade Calculator</span>
     </header>
     <div class="form-group row">
-      Total   : <input type="number" readonly name="total" class="form-control-plaintext"  id="total" readonly/>
-      Count   : <input type="number" readonly name="total" class="form-control-plaintext"  id="count" readonly/>
-      Average   : <input type="number" readonly name="total" class="form-control-plaintext"  id="average" readonly/>
+      Total : <input type="number" readonly name="total" class="form-control-plaintext"  id="total" readonly/>
+      Count : <input type="number" readonly name="total" class="form-control-plaintext"  id="count" readonly/>
+      Average : <input type="number" readonly name="total" class="form-control-plaintext"  id="average" readonly/>
     </div>
     <br><br>
     Input scores, press tab to add new number:
