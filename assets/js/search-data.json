@@ -36,7 +36,7 @@
     
         ,"post3": {
             "title": "Grade Calculator",
-            "content": "Grade Calculator . Total : 0.0 Count : 0.0 Average : 0.0 Input scores, press tab to add new number:",
+            "content": "| Overview | Tutorial | Grades | Binary | Graph | Life | Snake | . Grade Calculator . Total : 0.0 Count : 0.0 Average : 0.0 Input scores, press tab to add new number:",
             "url": "https://nighthawkcoders.github.io/APCSA/frontend/grades",
             "relUrl": "/frontend/grades",
             "date": " • Jul 8, 2022"
