@@ -120,9 +120,9 @@ window.onload = wrap_img;
                     total += parseFloat(array[i].value);  // add to running total
             }
             // update totals
-            document.getElementById('total').innerHTML = total;
+            document.getElementById('total').innerHTML = total.toFixed(2);
             document.getElementById('count').innerHTML = array.length;
-            document.getElementById('average').innerHTML = total / array.length;
+            document.getElementById('average').innerHTML = (total / array.length).toFixed(2);
             // make a new input line
             newInputLine(array.length);
             // Set cursor focus to new element
