@@ -81,7 +81,7 @@ window.onload = wrap_img;
     <div id="scores">
         <input onblur="calculate()" type="text" name="score" id="score0" /><br />
         <!-- javascript generated inputs -->
-    &lt;/idv&gt;
+    &lt;/dv&gt;
 </div>
 
 <script>
@@ -105,6 +105,8 @@ window.onload = wrap_img;
         input.setAttribute('type', "text");
         input.setAttribute('name', "score");
         scoreContainer.appendChild(input);
+        var br = document.createElement("br");
+        scoreContainer.appendChild(br);
     }
 </script>
 </div>
