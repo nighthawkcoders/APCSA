@@ -63,7 +63,7 @@ tags: [javascript, input, onblur]
             // make a new input line
             newInputLine(array.length);
             // Set cursor focus to new element
-            document.getElementById("score" + array.length).focus();
+            document.getElementById("score" + (array.length-1)).focus();
         }
     }
 
