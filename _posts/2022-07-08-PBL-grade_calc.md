@@ -12,6 +12,7 @@ tags: [javascript, input, onblur]
         <span class="fs-4">Grade Calculator</span>
     </header>
     Total   : <input type="number" name="total" id="total" readonly/>
+    Count   : <input type="number" name="count" id="count" readonly/>
     Average : <input type="number" name="average" id="average" readonly/>
     <br><br>
     Input scores, press tab to add new number:
@@ -31,6 +32,7 @@ tags: [javascript, input, onblur]
                 total += parseInt(array[i].value);  // running total update
         }
         document.getElementById('total').value = total;
+        document.getElementById('count').value = array.length;
         document.getElementById('average').value = total / array.length;
     }
 
