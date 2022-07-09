@@ -30,7 +30,7 @@ tags: [javascript, input, onblur]
 <script>
     const scoresContainer = document.getElementById("scores");
 
-    function newInputLine() {
+    function newInputLine(index) {
         // Prepare new input line
         var input = document.createElement("input");  // input element
         var br = document.createElement("br");  // line break element
@@ -61,7 +61,7 @@ tags: [javascript, input, onblur]
             document.getElementById('count').innerHTML = array.length;
             document.getElementById('average').innerHTML = total / array.length;
             // make a new input line
-            newInputLine();
+            newInputLine(array.length);
             // Set cursor focus to new element
             document.getElementById("score" + array.length).focus();
         }
