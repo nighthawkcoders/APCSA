@@ -18,7 +18,7 @@ tags: [javascript, input, onblur]
     <div id="scores">
         <input onblur="eventDriver()" type="text" name="score" id="score0"/><br>
         <!-- javascript generated inputs -->
-    </dv>
+    </div>
 </div>
 
 <script>
