@@ -47,7 +47,6 @@ tags: [javascript, input, onblur]
     function calculator(){
         var array = document.getElementsByName('score'); // setup array of scores
         if (array[array.length-1].value.length == 0) {   // input cell was changed
-        {
             // No action; except return cursor focus to current element in array
             document.getElementById("score" + (array.length-1)).focus();
         } else {
