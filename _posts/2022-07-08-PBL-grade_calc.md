@@ -11,17 +11,20 @@ tags: [javascript, input, onblur]
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
         <span class="fs-4">Grade Calculator</span>
     </header>
-    <div class="form-group row">
-      Total : <input type="number" readonly name="total" class="form-control-plaintext"  id="total" readonly/>
-      Count : <input type="number" readonly name="total" class="form-control-plaintext"  id="count" readonly/>
-      Average : <input type="number" readonly name="total" class="form-control-plaintext"  id="average" readonly/>
-    </div>
-    <br><br>
-    Input scores, press tab to add new number:
-    <div id="scores">
-        <input onblur="calculator()" type="text" name="score" id="score0"/><br>
-        <!-- javascript generated inputs -->
-    </div>
+    <form>
+        <div class="form-group row">
+            Total : <input type="number" readonly name="total" class="form-control-plaintext"  id="total" readonly/>
+            Count : <input type="number" readonly name="total" class="form-control-plaintext"  id="count" readonly/>
+            Average : <input type="number" readonly name="total" class="form-control-plaintext"  id="average" readonly/>
+        </div>
+        <div class="form-group row">
+            Input scores, press tab to add new number:
+            <div id="scores">
+                <input onblur="calculator()" type="text" name="score" id="score0"/><br>
+                <!-- javascript generated inputs -->
+            </div>
+        </div>
+    </form>
 </div>
 
 <script>
