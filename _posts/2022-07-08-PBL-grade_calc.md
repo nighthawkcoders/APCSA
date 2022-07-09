@@ -18,7 +18,7 @@ tags: [javascript, input, onblur]
     <div id="scores">
         <input onblur="calculate()" type="text" name="score" id="score0"/><br>
         <!-- javascript generated inputs -->
-    </idv>
+    </dv>
 </div>
 
 <script>
@@ -42,5 +42,7 @@ tags: [javascript, input, onblur]
         input.setAttribute('type', "text");
         input.setAttribute('name', "score");
         scoreContainer.appendChild(input);
+        var br = document.createElement("br");
+        scoreContainer.appendChild(br);
     }
 </script>
