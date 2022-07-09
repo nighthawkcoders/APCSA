@@ -49,9 +49,10 @@ tags: [javascript, input, onblur]
     function calculator(){
         var total = 0;  // running total
         var array = document.getElementsByName('score'); // setup array of scores
+        if (array[array.length-1].value.length == 0) return; // current element not changed
         for(var i = 0; i < array.length; i++){  // iterate through all matching input element
-            if(parseInt(array[i].value))  // convert to int and 
-                total += parseInt(array[i].value);  // running total update
+            if(parseFloat(array[i].value))  // convert to int and 
+                total += parseFloat(array[i].value);  // running total update
         }
         // setup totals
         document.getElementById('total').innerHTML = total;
