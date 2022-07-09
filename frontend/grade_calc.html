@@ -77,28 +77,37 @@ window.onload = wrap_img;
     Total   : <input type="number" name="total" id="total" readonly="" />
     Average : <input type="number" name="average" id="average" readonly="" />
     <br /><br />
-    Score1 : <input onblur="calculate()" type="text" name="score" id="score1" /><br />
-    Score2 : <input onblur="calculate()" type="text" name="score" id="score2" /><br />
-    Score3 : <input onblur="calculate()" type="text" name="score" id="score3" /><br />
-    Score4 : <input onblur="calculate()" type="text" name="score" id="score4" /><br />
-    Score5 : <input onblur="calculate()" type="text" name="score" id="score5" /><br />
+    Input scores, press tab to add new number:
+    <div id="scores">
+        <input onblur="calculate()" type="text" name="score" id="score0" /><br />
+        <!-- javascript generated inputs -->
+    &lt;/idv&gt;
 </div>
 
 <script>
+    const scoreContainer = document.getElementById("scores");
+
     function calculate(){
-        var array = document.getElementsByName('score');
+        // setup totals
         var total=0;
-        var count = 0;
-        for(var i=0;i<array.length;i++){
-            if(parseInt(array[i].value))
-                total += parseInt(array[i].value);
-                count++;
+        // establish array for every input with name="score"
+        var array = document.getElementsByName('score');
+        for(var i = 0; i < array.length; i++){  // iterate through all matching input element
+            if(parseInt(array[i].value))  // convert to int and 
+                total += parseInt(array[i].value);  // running total on points
         }
+        // calculate current total
         document.getElementById('total').value = total;
-        document.getElementById('average').value = total / count;
+        document.getElementById('average').value = total / array.length;
+        // make another input line
+        var input = document.createElement("input");
+        input.setAttribute('onblur', "calculate()");
+        input.setAttribute('type', "text");
+        input.setAttribute('name', "score");
+        scoreContainer.appendChild(input);
     }
 </script>
-
+</div>
 
       </div>
     </main><footer class="site-footer h-card">
