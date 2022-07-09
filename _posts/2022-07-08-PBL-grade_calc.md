@@ -13,7 +13,9 @@ tags: [javascript, input, onblur]
     </header>
     <form>
         <div class="form-group row">
-            Total : <input type="number" readonly name="total" class="form-control-plaintext"  id="total" readonly/>
+            Total : <span id="total" class="label label-primary"></span>
+        </div>
+        <div class="form-group row">
             Count : <input type="number" readonly name="total" class="form-control-plaintext"  id="count" readonly/>
             Average : <input type="number" readonly name="total" class="form-control-plaintext"  id="average" readonly/>
         </div>
@@ -54,7 +56,7 @@ tags: [javascript, input, onblur]
                 total += parseInt(array[i].value);  // running total update
         }
         // setup totals
-        document.getElementById('total').value = total;
+        document.getElementById('total').innerHTML = total;
         document.getElementById('count').value = array.length;
         document.getElementById('average').value = total / array.length;
         // make a new input line
