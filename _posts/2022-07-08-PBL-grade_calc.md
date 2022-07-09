@@ -13,11 +13,9 @@ tags: [javascript, input, onblur]
     </header>
     <form>
         <div class="form-group row">
-            Total : <span id="total" class="label label-primary"></span>
-        </div>
-        <div class="form-group row">
-            Count : <input type="number" readonly name="total" class="form-control-plaintext"  id="count" readonly/>
-            Average : <input type="number" readonly name="total" class="form-control-plaintext"  id="average" readonly/>
+            Total : <span id="total" class="label label-primary">0.0</span>
+            Count : <span id="count" class="label label-primary">0.0</span>
+            Average : <span id="average" class="label label-primary">0.0</span>
         </div>
         <div class="form-group row">
             Input scores, press tab to add new number:
@@ -57,8 +55,8 @@ tags: [javascript, input, onblur]
         }
         // setup totals
         document.getElementById('total').innerHTML = total;
-        document.getElementById('count').value = array.length;
-        document.getElementById('average').value = total / array.length;
+        document.getElementById('count').innerHTML = array.length;
+        document.getElementById('average').innerHTML = total / array.length;
         // make a new input line
         newInputLine(array.length);
     }
