@@ -25,15 +25,17 @@ tags: [javascript, input, onblur]
 <script>
     const scoreContainer = document.getElementById("scores");
 
-    function newInputLine() {
+    function newInputLine(index) {
         // make another input line
         var input = document.createElement("input");
         input.setAttribute('onblur', "calculator()");
         input.setAttribute('type', "text");
         input.setAttribute('name', "score");
+        input.setAttribute('id', "score" + index);
         scoreContainer.appendChild(input);
         var br = document.createElement("br");
         scoreContainer.appendChild(br);
+        document.getElementById("score" + index).focus();
     }
 
     function calculator(){
@@ -46,7 +48,7 @@ tags: [javascript, input, onblur]
         document.getElementById('total').value = total;
         document.getElementById('count').value = array.length;
         document.getElementById('average').value = total / array.length;
-        newInputLine();
+        newInputLine(array.length);
     }
 
 </script>
