@@ -4,7 +4,7 @@ layout: default
 description: Supports grade inputs and calculates average. 
 permalink: /frontend/grades
 categories: [pbl]
-tags: [javascript, input, onblur]
+tags: [javascript, html, input, onblur]
 ---
 
 <!-- For hacks take inspiration form here: https://www.rapidtables.com/calc/grade/grade-calculator.html -->
