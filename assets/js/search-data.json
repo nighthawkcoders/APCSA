@@ -290,10 +290,10 @@
 
   
       ,"page1": {
-          "title": "Data",
-          "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . Data Overview .",
-          "url": "https://nighthawkcoders.github.io/APCSA/data/overview",
-          "relUrl": "/data/overview",
+          "title": "API",
+          "content": "| Overview | Jokes API | Covid19 RapidAPI | Database API | . API Overview .",
+          "url": "https://nighthawkcoders.github.io/APCSA/api/overview",
+          "relUrl": "/api/overview",
           "date": ""
       }
       
