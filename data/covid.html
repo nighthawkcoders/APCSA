@@ -158,7 +158,7 @@ window.onload = wrap_img;
           document.getElementById("active_cases").innerHTML = data.world_total.active_cases;
 
           // Country data
-          for (let row in data.countries_stat) {
+          for (const row of data.countries_stat) {
             console.log(row);
 
             // tr for each row
@@ -170,10 +170,10 @@ window.onload = wrap_img;
             const active = document.createElement("td");
 
             // data is specific to the API
-            name.innerHTML = data.countries_stat[row].country_name;
-            cases.innerHTML = data.countries_stat[row].cases; 
-            deaths.innerHTML = data.countries_stat[row].deaths; 
-            active.innerHTML = data.countries_stat[row].active_cases; 
+            name.innerHTML = row.country_name;
+            cases.innerHTML = row.cases; 
+            deaths.innerHTML = row.deaths; 
+            active.innerHTML = row.active_cases; 
 
             // this build td's into tr
             tr.appendChild(name);

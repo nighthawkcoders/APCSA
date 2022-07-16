@@ -126,16 +126,16 @@ window.onload = wrap_img;
       // valid response will have json data
       response.json().then(data => {
           console.log(data);
-          for (let row in data) {
+          for (const row of data) {
             // tr and td build out for each row
             const tr = document.createElement("tr");
             const name = document.createElement("td");
             const id = document.createElement("td");
             const age = document.createElement("td");
             // data is specific to the API
-            name.innerHTML = data[row].name; 
-            id.innerHTML = data[row].email; 
-            age.innerHTML = data[row].age; 
+            name.innerHTML = row.name; 
+            id.innerHTML = row.email; 
+            age.innerHTML = row.age; 
             // this build td's into tr
             tr.appendChild(name);
             tr.appendChild(id);
