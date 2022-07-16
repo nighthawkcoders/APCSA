@@ -132,7 +132,7 @@ window.onload = wrap_img;
       // valid response will have json data
       response.json().then(data => {
           console.log(data);
-          for (let row in data) {
+          for (const row of data) {
             // tr for each row
             const tr = document.createElement("tr");
             // td for each column
@@ -140,9 +140,9 @@ window.onload = wrap_img;
             const haha = document.createElement("td");
             const boohoo = document.createElement("td");
             // data is specific to the API
-            joke.innerHTML = data[row].joke;
-            haha.innerHTML = data[row].haha; 
-            boohoo.innerHTML = data[row].boohoo; 
+            joke.innerHTML = row.joke;
+            haha.innerHTML = row.haha; 
+            boohoo.innerHTML = row.boohoo; 
             // this build td's into tr
             tr.appendChild(joke);
             tr.appendChild(haha);
