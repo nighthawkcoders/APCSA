@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Anatomy of Java" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="AP Computer Science A" />
-<meta property="og:description" content="AP Computer Science A" />
+<meta name="description" content="A progressive journey through Java’s anatomy starting with the classic “Hello, World!” example." />
+<meta property="og:description" content="A progressive journey through Java’s anatomy starting with the classic “Hello, World!” example." />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/units/2022/06/14/anatomy.html" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/units/2022/06/14/anatomy.html" />
 <meta property="og:site_name" content="APCSA" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Anatomy of Java" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-14T00:00:00-05:00","datePublished":"2022-06-14T00:00:00-05:00","description":"AP Computer Science A","headline":"Anatomy of Java","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/units/2022/06/14/anatomy.html"},"url":"https://nighthawkcoders.github.io/APCSA/units/2022/06/14/anatomy.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-14T00:00:00-05:00","datePublished":"2022-06-14T00:00:00-05:00","description":"A progressive journey through Java’s anatomy starting with the classic “Hello, World!” example.","headline":"Anatomy of Java","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/units/2022/06/14/anatomy.html"},"url":"https://nighthawkcoders.github.io/APCSA/units/2022/06/14/anatomy.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,13 +73,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Anatomy of Java</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-14T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Anatomy of Java</h1><p class="page-description">A progressive journey through Java's anatomy starting with the classic "Hello, World!" example.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-14T00:00:00-05:00" itemprop="datePublished">
         Jun 14, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      5 min read
     
 </span></p>
 
@@ -158,7 +158,14 @@ window.onload = wrap_img;
 <h3 id="Static-example">
 <a class="anchor" href="#Static-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static example<a class="anchor-link" href="#Static-example"> </a>
 </h3>
-<p>The class HelloStatic contains the classic introduction to Java anatomy.  The "public static void main(String[] args)", or main method, is the default runtime method and has a very specific definition (signature).</p>
+<p>The class HelloStatic contains the classic "Hello, World!" message that is often used as an introduction to a programming language.  The "public static void main(String[] args)", or main method, is the default runtime method in Java and has a very specific and ordered definition (signature).</p>
+<p>The key terms in HelloStatic introduction:</p>
+<ul>
+<li>"class" is a blueprint for code, it is the code definition and must be called to run</li>
+<li>"method" or "static method" in this case, is the code to be run/executed, similar to a procedure</li>
+<li>"method definition" or "signature" are the keywords "public static void" in front of the name "main" and the parameters "String[] args" after the name.</li>
+<li>"method call" is the means in which we run the defined code</li>
+</ul>
 
 </div>
 </div>
@@ -177,7 +184,7 @@ window.onload = wrap_img;
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// IJava only --- allows us to rexecute code without be wrapped in Class</span>
+<span class="c1">// A method call allows us to execute code that is wrapped in Class</span>
 <span class="n">HelloStatic</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>   <span class="c1">// Class prefix allows reference of Static Method</span>
 </pre></div>
 
@@ -208,7 +215,15 @@ window.onload = wrap_img;
 <h3 id="Dynamic-Example">
 <a class="anchor" href="#Dynamic-Example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic Example<a class="anchor-link" href="#Dynamic-Example"> </a>
 </h3>
-<p>This example starts to use Java in its natural manner, objects.  The main method is now used as a driver/tester, by making an instance of the class.  It creates an Object using the HelloObject() constructor.  Also, this Class contains a getter method called getHello() which returns a String.</p>
+<p>This example starts to use Java in its natural manner, using an object within the main method. This example is a very basic illustration of Object Oriente Programming (OOP). The main method is now used as a driver/tester, by making an instance of the class.  Thus, it creates an Object using the HelloObject() constructor.  Also, this Class contains a getter method called getHello() which returns the value with the "String hello".</p>
+<p>The key terms in HelloStatic introduction:</p>
+<ul>
+<li>"Object Oriented Programming" focuses software design around data, or objects.</li>
+<li>"object" contains both methods and data</li>
+<li>"instance of a class" is the process of making an object, unique or instances of variables are created within the object</li>
+<li>"constructor" special method in class, code that is used to initialize the data within the object</li>
+<li>"getter" is a method that is used to extract or reference data from within the object. </li>
+</ul>
 
 </div>
 </div>
@@ -222,11 +237,11 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="c1">// Define Class with Constructor returning Object</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloObject</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">hello</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">hello</span><span class="p">;</span>   <span class="c1">// instance attribute or variable</span>
     <span class="kd">public</span> <span class="nf">HelloObject</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// constructor</span>
         <span class="n">hello</span> <span class="o">=</span> <span class="s">"Hello, World!"</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHello</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// getter, returns value from inside the object</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">hello</span><span class="p">;</span>  <span class="c1">// return String from object</span>
     <span class="p">}</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>    
@@ -265,7 +280,17 @@ window.onload = wrap_img;
 <h3 id="Dynamic-Example-with-two-constructors">
 <a class="anchor" href="#Dynamic-Example-with-two-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic Example with two constructors<a class="anchor-link" href="#Dynamic-Example-with-two-constructors"> </a>
 </h3>
-<p>This last example adds to the basics of the Java anatomy.  The Class now contains two constructors and a setter to go with the getter.  Also, observe the driver/tester now contains two objects that are intialized differently, 0 and 1 argument constructor.  Look at the usage of the "this" prefix.  The "this" keyword helps in clarification between instance and local variable.</p>
+<p>This last example adds to the basics of the Java anatomy.  The Class now contains two constructors and a setter to go with the getter.  Also, observe the driver/tester now contains two objects that are initialized differently, 0 and 1 argument constructor.  Look at the usage of the "this" prefix.  The "this" keyword helps in clarification between instance and local variable.</p>
+<p>The key terms in HelloDynamic introduction:</p>
+<ul>
+<li>"0 argument constructor" constructor method with no parameter ()</li>
+<li>"1 argument constructor" construct method with a parameter (String hello)</li>
+<li>"this keyword" allows you to clear reference something that is part of the object, data or method</li>
+<li>"local variable" is a variable that is passed to the method in this example, see the 1 argument constructor as it has a local variable "String hello"</li>
+<li>"dynamic" versus "static" is something that has option to change, static never changes.  A class (blueprint) and objects (instance of blueprint) are generally intended to be dynamic.  Constructors and Setters are used to dynamically change the content of an object.</li>
+<li>"Java OOP, Java Classes/Objects, Java Class Attributes, Java Class Methods, Java Constructors" are explained if more complete detail in W3 Schools: <a href="https://www.w3schools.com/java/java_oop.asp">https://www.w3schools.com/java/java_oop.asp</a>
+</li>
+</ul>
 
 </div>
 </div>
@@ -280,20 +305,20 @@ window.onload = wrap_img;
 <div class=" highlight hl-java"><pre><span></span><span class="c1">// Define Class with Constructor returning Object</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloDynamic</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">hello</span><span class="p">;</span>
-    <span class="c1">// constructor with no arguement signature</span>
-    <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>  <span class="c1">// using setter</span>
+    <span class="c1">// constructor with no ARGUMENT signature</span>
+    <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// 0 argument constructor</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>  <span class="c1">// using setter with static string</span>
     <span class="p">}</span>
     <span class="c1">// constructor with one argument signature</span>
-    <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="n">hello</span><span class="p">);</span>
+    <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 1 argument constructor</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="n">hello</span><span class="p">);</span>   <span class="c1">// using setter with value passed into constructor</span>
     <span class="p">}</span>
     <span class="c1">// setter with void return</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHello</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHello</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// setter</span>
         <span class="k">this</span><span class="p">.</span><span class="na">hello</span> <span class="o">=</span> <span class="n">hello</span><span class="p">;</span>     <span class="c1">// instance variable on the left, local variable on the right</span>
     <span class="p">}</span>
     <span class="c1">// getter with String return</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHello</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// getter</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">hello</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>  
