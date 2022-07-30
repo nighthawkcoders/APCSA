@@ -42,6 +42,8 @@ You, your pair, and your Scrum Team will collaboratively Build, deploy and host 
 
 
 ### Establish PBL and Comp Sci attitude
+Watch a video [How I Would Learn To Code](https://www.youtube.com/watch?v=k9WqpQp8VSU)
+
 - Attitude.  An Agile mindset is not knowing the answer, making lots of mistakes and performing iteration.  A successful grade is dependent on making mistakes, research, and iteration.
 - Suggestion. Please bring a personal laptop to class daily.  The Internet and AP Classroom web site will  be considered text book.  
 - Requirements. Everything will be distributed electronically.  All code you develop will be delivered to the Cloud. 
@@ -55,10 +57,10 @@ You, your pair, and your Scrum Team will collaboratively Build, deploy and host 
 
 ## Assignments and Work
 - Assignments mostly Due either Friday or Monday at the start of class (canvas is official record for points)
-    - Live Grading that is complemented by Self/Crossover assessments 
-    - Always prepare Review Ticket (GH Issue) using canvas as guide
-- Trimester start with 5 point seed (highly engaged +, distracted -)
-- Less than 100 points per trimester, approximately 30% of points in last few weeks of Trimester.
+    - Live Grading that is complemented by Self/Crossover assessments. Teachers are passionate about quality crossover reviews.  This a big part of your personal learning.  Taking a review lightly is taking your grade lightly.
+    - Always prepare Review Ticket (GH Issue) using canvas assignment as a guide
+- Trimester starts with 5 point seed (highly engaged +, extra activities +, distracted -)
+- There will be less than 100 points per trimester, we will save a big chunk of points for the last few weeks of Trimester.  Don't get comfortable, keep working your CompSci muscles.
 
 
 ### PBL Sprint 0 / Week 0
