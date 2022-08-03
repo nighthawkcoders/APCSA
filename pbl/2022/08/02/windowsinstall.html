@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Installing Anaconda with Windows and WSL (Windows Subsystem for linux) | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Installing Anaconda with Windows and WSL (Windows Subsystem for linux)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)" />
+<meta property="og:description" content="Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-02T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Installing Anaconda with Windows and WSL (Windows Subsystem for linux)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-02T00:00:00-05:00","datePublished":"2022-08-02T00:00:00-05:00","description":"Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)","headline":"Installing Anaconda with Windows and WSL (Windows Subsystem for linux)","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html"},"url":"https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Tags</a><a class="page-link" href="/APCSA/about/">About Us</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Installing Anaconda with Windows and WSL (Windows Subsystem for linux)</h1><p class="page-description">Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-02T00:00:00-05:00" itemprop="datePublished">
+        Aug 2, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/APCSA/categories/#pbl">pbl</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/nighthawkcoders/APCSA/tree/master/_notebooks/2022-08-02-windowsinstall.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/APCSA/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/nighthawkcoders/APCSA/master?filepath=_notebooks%2F2022-08-02-windowsinstall.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/nighthawkcoders/APCSA/blob/master/_notebooks/2022-08-02-windowsinstall.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2FAPCSA%2Fblob%2Fmaster%2F_notebooks%2F2022-08-02-windowsinstall.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/APCSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Installing-and-Setting-Up-VS-Code">Installing and Setting Up VS Code </a></li>
+<li class="toc-entry toc-h2"><a href="#Installing-and-Setting-Up-Anaconda">Installing and Setting Up Anaconda </a></li>
+<li class="toc-entry toc-h2"><a href="#Installing-IJava-Kernel">Installing IJava Kernel </a></li>
+<li class="toc-entry toc-h2"><a href="#Installing-an-Appropriate-JDK-for-IJava">Installing an Appropriate JDK for IJava </a></li>
+<li class="toc-entry toc-h2"><a href="#Ending-Checks-and-How-to-Run">Ending Checks and How to Run </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-08-02-windowsinstall.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installing-and-Setting-Up-VS-Code">
+<a class="anchor" href="#Installing-and-Setting-Up-VS-Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing and Setting Up VS Code<a class="anchor-link" href="#Installing-and-Setting-Up-VS-Code"> </a>
+</h2>
+<blockquote>
+<p>Install VS Code to edit your code
+Navigate to <a href="https://code.visualstudio.com/download">this site</a> and install VS Code for Windows.
+<img src="https://raw.githubusercontent.com/nighthawkcoders/APCSA/master/images/vs_code_site.png" alt="image"></p>
+</blockquote>
+<p>Once it's downloaded, navigate to the left sidebar and click Extensions. Download some necessary extensions:</p>
+<ul>
+<li>Java extensions to debug Java (Maven, Project Manager, Debugger, Extension Pack, and Test Runner for Java by Microsoft are good options)</li>
+<li>Jupyter notebook extensions (Jupyter, Jupyter Keymap, and Jupyter Notebook Renderers by Microsoft are good options)</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/nighthawkcoders/APCSA/master/images/extensions_windows_install.png" alt="image"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installing-and-Setting-Up-Anaconda">
+<a class="anchor" href="#Installing-and-Setting-Up-Anaconda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing and Setting Up Anaconda<a class="anchor-link" href="#Installing-and-Setting-Up-Anaconda"> </a>
+</h2>
+<blockquote>
+<p>Installing Anaconda to configure Jupyter kernels. This section was used using Sahil's <a href="https://nighthawkcoders.github.io/APCSP/pbl/2022/07/21/neo4j_intro.html">Intro to Neo4J article</a>.
+Install Anaconda from their <a href="https://www.anaconda.com/products/distribution">website</a>. Follow the steps to install, and then open the Anaconda command prompt from your search bar.</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/nighthawkcoders/APCSA/master/images/anaconda_search.png" alt="image"></p>
+<p>Run the following commands:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">jupyter</span>
+<span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A website should pop up in your browser which contains your file hierarchy. This is the Anaconda Jupyter Notebook editor! You can edit notebooks from here, but we'll using VS Code to edit notebooks instead.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installing-IJava-Kernel">
+<a class="anchor" href="#Installing-IJava-Kernel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing IJava Kernel<a class="anchor-link" href="#Installing-IJava-Kernel"> </a>
+</h2>
+<blockquote>
+<p>To run Java on our notebooks, we need a Java kernel. Github user SpencerPark has created a Java kernel for us to use, as it notebooks do not support Java by default.</p>
+</blockquote>
+<p>Navigate to <a href="https://nighthawkcoders.github.io/APCSP/pbl/2022/07/21/neo4j_intro.html">SpencerPark's README</a> and follow the instructions to install IJava. I would recommend following the steps under <strong>Install pre-built binary</strong>.
+Ensure that running the command <code>jupyter kernelspec list</code> in your Anaconda prompt shows an output containing Java.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installing-an-Appropriate-JDK-for-IJava">
+<a class="anchor" href="#Installing-an-Appropriate-JDK-for-IJava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing an Appropriate JDK for IJava<a class="anchor-link" href="#Installing-an-Appropriate-JDK-for-IJava"> </a>
+</h2>
+<blockquote>
+<p>IJava requires a newer JDK, but some operating systems and Java downloads automatically come with JDK 8. This will help to make sure IJava works.</p>
+</blockquote>
+<p>Go to <a href="https://jdk.java.net/">this website</a> and download the newest JDK. I downloaded the Windows/x64 build for JDK 18. Unzip the contents of the folder. Then, move the jdk folder from the extracted zip folder into C:/Program Files/Java. (Note: if you don't have Program Files/Java, then you'll need to download Java from Oracle or a different open source website)
+<img src="https://raw.githubusercontent.com/nighthawkcoders/APCSA/master/images/move_jdk.png" alt="image"></p>
+<p>Next, edit the kernel.json file that comes with IJava for it to use the newly downloaded JDK. Run <code>jupyter kernelspec list</code> in the Anaconda prompt to find where the kernel is located (in my case, it's C:\Users\amv76\AppData\Roaming\jupyter\kernels\java). To access AppData, you can use Win + R and type in the command <code>%appdata%</code>. Open kernel.json (which might just be named kernel on your system) with VS Code. Replace the "java" argument with the path to your JDK, as seen below.</p>
+
+</div>
+</div>
+</div>{
+    "argv": [
+        "java", ----&gt; "C:\\Program Files\\Java\\jdk-18.0.2\\bin\\java.exe",
+        "-jar",
+        "C:\\Users\\amv76\\AppData\\Roaming\\jupyter\\kernels\\java/ijava-1.3.0.jar",
+        "{connection_file}"
+    ],
+    "display_name": "Java",
+    "env": {},
+    "interrupt_mode": "message",
+    "language": "java"
+}
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Make sure to use two <code>\\</code> instead of one <code>\</code>, as one <code>\</code> is an escape character and will not work in file paths.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ending-Checks-and-How-to-Run">
+<a class="anchor" href="#Ending-Checks-and-How-to-Run" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ending Checks and How to Run<a class="anchor-link" href="#Ending-Checks-and-How-to-Run"> </a>
+</h2>
+<p>Congratulations! You should now be able to run Java on Jupter Notebooks. To use Java, create a new notebook and switch the language from Python to Java.</p>
+<p><img src="https://raw.githubusercontent.com/nighthawkcoders/APCSA/master/images/switch_language.png" alt="image"></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/APCSA/pbl/2022/08/02/windowsinstall.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="nighthawkcoders"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="NighthawkCoding"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use></svg></a></li><li><a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="YouTube"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
