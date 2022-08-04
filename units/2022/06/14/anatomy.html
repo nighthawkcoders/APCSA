@@ -280,25 +280,28 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="c1">// Define Class with Constructor returning Object</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloDynamic</span> <span class="p">{</span>
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Define Class</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloDynamic</span> <span class="p">{</span> <span class="c1">// name the first letter of class as capitalized, note camel case</span>
+    <span class="c1">// instance variable have access modifier (private is most common), data type, and name</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">hello</span><span class="p">;</span>
-    <span class="c1">// constructor with no ARGUMENT signature</span>
+    <span class="c1">// constructor signature 1, public and zero arguments, constructors do not have return type</span>
     <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// 0 argument constructor</span>
         <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>  <span class="c1">// using setter with static string</span>
     <span class="p">}</span>
-    <span class="c1">// constructor with one argument signature</span>
+    <span class="c1">// constructor signature, public and one argument</span>
     <span class="kd">public</span> <span class="nf">HelloDynamic</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 1 argument constructor</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="n">hello</span><span class="p">);</span>   <span class="c1">// using setter with value passed into constructor</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setHello</span><span class="p">(</span><span class="n">hello</span><span class="p">);</span>   <span class="c1">// using setter with local variable passed into constructor</span>
     <span class="p">}</span>
-    <span class="c1">// setter with void return</span>
+    <span class="c1">// setter/mutator, setter have void return type and a parameter</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHello</span><span class="p">(</span><span class="n">String</span> <span class="n">hello</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// setter</span>
         <span class="k">this</span><span class="p">.</span><span class="na">hello</span> <span class="o">=</span> <span class="n">hello</span><span class="p">;</span>     <span class="c1">// instance variable on the left, local variable on the right</span>
     <span class="p">}</span>
-    <span class="c1">// getter with String return</span>
+    <span class="c1">// getter/accessor, getter used to return private instance variable (encapsulated), return type is String</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">getHello</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// getter</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">hello</span><span class="p">;</span>
     <span class="p">}</span>
+    <span class="c1">// public static void main(String[] args) is signature for main/drivers/tester method</span>
+    <span class="c1">// a driver/tester method is singular or called a class method, it is never part of an object</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>  
         <span class="n">HelloDynamic</span> <span class="n">hd1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloDynamic</span><span class="p">();</span> <span class="c1">// no argument constructor</span>
         <span class="n">HelloDynamic</span> <span class="n">hd2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloDynamic</span><span class="p">(</span><span class="s">"Hello, Nighthawk Coding Society!"</span><span class="p">);</span> <span class="c1">// one argument constructor</span>
@@ -325,17 +328,16 @@ window.onload = wrap_img;
 </h2>
 <p>Build your own Jupyter Notebook meeting these College Board and CTE competencies</p>
 <ul>
-<li>Explain Anatomy of a Class in comments of program (Key parts of the class)</li>
+<li>Explain Anatomy of a Class in comments of program (Diagram key parts of the class).</li>
 <li>Comment in code where there is a definition of a Class and an instance of a Class (ie object)</li>
 <li>Comment in code where there are constructors and highlight the signature difference in the signature</li>
 <li>Call non-static void methods with parameter (ie setters).</li>
 </ul>
 <p>Additional requirements</p>
 <ol>
-<li>Go through progression of understanding Static Class usage versus Instance of a Class (Object)</li>
-<li>Show how constructor(s) can be used to make the data in the Object dynamically change</li>
-<li>Establish a vocabulary of terms and comments within Jupyter Notebook</li>
-<li>Adapt solution to use a two argument constructors, provide constructor for 0, 1, 2 arguments.  Here are some ideas for adjustments to give Class: Name and Age, Household name and number of people, Course name and number of Student</li>
+<li>Go through code progression of understanding Static Class usage versus Instance of a Class (Object). </li>
+<li>Show how setters/mutators can be used to make the data in the Object dynamically change</li>
+<li>Adapt a Class from example: Person: Name and Age, Dessert: Name and Cost</li>
 </ol>
 
 </div>
