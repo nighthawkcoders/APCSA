@@ -1,7 +1,8 @@
 ---
 toc: true
 layout: post
-description: 
+description: Introduction to the year.  Introduce Real World projects, philosophies, and objectives of the class.
+image: images/apcsa.png
 categories: [tri1]
 title: Overview Sprint - Java, PBL, and Tools
 ---
@@ -16,8 +17,10 @@ title: Overview Sprint - Java, PBL, and Tools
 - Establish "Real World” Scrum Team projects
     - Preference is to establish projects with a Customer/Sponsor
     - Projects will be tracked using GitHub README (Time Box), Issues and Projects tools
+    - Become a software engineer
 - Create "GitHub Pages" Individual postings and notebooks
     - Build individual GitHub Pages Web Site to _post Notes and Learnings
+    - Become a blogger
 - AP testing in May
 
 
@@ -73,11 +76,11 @@ Learning outcome.  Getting adapted to the Agile mindset used in Computer Science
 ### Equipment, accounts and tools
 - A laptop, that you bring to class every day with the Development Tools installed on it.
 - GitHub Account, VS Code will be used to push/pull changes. GitHub is where we store and share code in the cloud, think of Google Docs but for Code.
-- GitHub Pages will be used to host your personal web site, notes, and experiences.
+- GitHub Pages will be used to host your personal web site, notes, and experiences.  A blogging platform.
 - Jupyter Notebooks will be used in conjunction with GitHub Pages to build running Java Code in your Technical Notes.
 - Slack Account, install App on Laptop, get used to reading announcements. Slack is the tool will use for messaging, we have been averaging 35,000 message per class.
 - Java is the key language you will be using in this class.  Spring, Thymeleaf, HTML, CSS, JavaScript are the key supporting technicals you will be using to enhance your learning of Java. 
-- VS Code is the code editor we will be using in this class.  VS Code is more than and editor, it is called and Interactive Development Environment (IDE). 
+- VS Code is the code editor we will be using in this class.  VS Code is more than and editor, such tools are often called Interactive Development Environment (IDE). 
 - AWS Account for deployment, this will be provided by Teacher.  AWS Cloud Computing and Servers will be used to Deploy and Support projects.
 
 
