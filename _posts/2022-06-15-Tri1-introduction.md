@@ -8,21 +8,27 @@ title: Overview Sprint - Java, PBL, and Tools
 ---
 
 # AP CSA COURSE OUTLINE
-- Methodology.  Project Based Learning (PBL)
-- Guideline. The 10 Units of AP Computer Science A
-- Key Learnings for 2022-2023
-    - Collaboratively Build, Deploy and Host Web Pages
-    - Programming, Algorithms, Databases, and APIs
-    - Team and Individual Project will highlight all 10 units, either academically or in interest fashion
-- Establish "Real World” Scrum Team projects
-    - Preference is to establish projects with a Customer/Sponsor
-    - Projects will be tracked using GitHub README (Time Box), Issues and Projects tools
-    - Become a software engineer
-- Create "GitHub Pages" Individual postings and notebooks
-    - Build individual GitHub Pages Web Site to _post Notes and Learnings
-    - Become a blogger
-- AP testing in May
-
+- Methodology.  
+    - Project Based Learning (PBL) 
+    - AP Classroom. The 10 Units of AP Computer Science A
+    - Code.org curriculum challenges 
+- Key Principles
+    - Leaning to Code
+        - Mini Labs on PBL, AP, and Code.org challenges
+        - Programming, Algorithms, Databases, and APIs
+        - Team and Individual Project which will highlight all 10 units, either academically or in interest fashion
+    - Succeed on Exam
+        - Work with AP FRQs and MCQs
+        - Work with Code.org segments to complement Test Prep
+        - Student led Paper FRQs and MCQ analysis exercises
+    - Preparing for Internships, "Real World"
+        - Follow practices to becoming a software engineer
+        - Collaboratively Build, Deploy and Host Web Pages
+        - Establish "Real World” Scrum Team projectsPreference with Customer/Sponsor
+        - Follow Agile methodology using GitHub, Issues and Projects tools
+    - Become a Blogger
+        - Build individual GitHub Pages Web Site to _post Notes and Learnings
+        - Learn to publish and share what you have learned
 
 ## "Real World" Projects
 You, your pair, and your Scrum Team will collaboratively Build, deploy and host Web Site.  This Web project contains Technicals learned throughout the Trimester.  This will be done in increments.  Each Monday an assignment will be given and the previous will be under Live Review.
