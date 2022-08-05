@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -153,12 +153,49 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DefinePrimitives</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">anInt</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+      <span class="kt">double</span> <span class="n">aDouble</span> <span class="o">=</span> <span class="mf">89.9</span><span class="p">;</span>
+      <span class="kt">boolean</span> <span class="n">aBoolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+      <span class="c1">// not primitives but essential</span>
+      <span class="n">String</span> <span class="n">aString</span> <span class="o">=</span> <span class="s">"Hello, World!"</span><span class="p">;</span>   <span class="c1">// wrapper class shortcut assignment</span>
+      <span class="n">String</span> <span class="n">aStringFormal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">"Greetings, World!"</span><span class="p">);</span>
+  
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"anInt: "</span> <span class="o">+</span> <span class="n">anInt</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"aDouble: "</span> <span class="o">+</span> <span class="n">aDouble</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"aBoolean: "</span> <span class="o">+</span> <span class="n">aBoolean</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"aString: "</span> <span class="o">+</span> <span class="n">aString</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"aStringFormal: "</span> <span class="o">+</span> <span class="n">aStringFormal</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">DefinePrimitives</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Input-Primitive-data">
 <a class="anchor" href="#Input-Primitive-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input Primitive data<a class="anchor-link" href="#Input-Primitive-data"> </a>
 </h3>
+<p>Input is a key concept to all programming.  The assignments in previous example are "static" or "hard coded".  The examples when you use input are supplied by the user.</p>
+<p>Scanner is the java utility class for console input.</p>
+
 </div>
 </div>
 </div>
@@ -238,6 +275,8 @@ window.onload = wrap_img;
 <h3 id="Output-Primitive-Data">
 <a class="anchor" href="#Output-Primitive-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Output Primitive Data<a class="anchor-link" href="#Output-Primitive-Data"> </a>
 </h3>
+<p>The second key to to all programming is Output.  All programming has means to format and combine data.  In these examples you see descriptions of the mathematical operation combine with the result of the operation.</p>
+
 </div>
 </div>
 </div>
@@ -283,7 +322,7 @@ window.onload = wrap_img;
 <h3 id="Grade-Calculator,-putting-Input-and-Output-together">
 <a class="anchor" href="#Grade-Calculator,-putting-Input-and-Output-together" aria-hidden="true"><span class="octicon octicon-link"></span></a>Grade Calculator, putting Input and Output together<a class="anchor-link" href="#Grade-Calculator,-putting-Input-and-Output-together"> </a>
 </h3>
-<p>Primitive types rarely stand alone.  This lab uses the primitive type double, but it also introduces the wrapper class Double.  Also included is the most common Data Structure in Java ArrayList.</p>
+<p>Primitive types rarely stand alone.  This lab uses the primitive type double, but it also introduces the wrapper class Double.  Also included is one of the most common Data Structures in Java, the ArrayList.  These items are put together to create a grade calculator.</p>
 
 </div>
 </div>
@@ -366,14 +405,16 @@ window.onload = wrap_img;
 <p>Build your own Jupyter Notebook meeting these College Board and CTE competencies</p>
 <ul>
 <li>Define in a Class the following data types<ul>
-<li>Demonstrate use of Primitives: int, double, boole</li>
+<li>Demonstrate use of Primitives: int, double, boolean, string</li>
 <li>Demonstrate use of Wrapper Class object: String </li>
 </ul>
 </li>
 <li>Describe in comments how each data type choice is appropriate to application</li>
-<li>Perform arithmetic expressions in a program code</li>
+<li>Perform arithmetic expressions and assignment in a program code <a href="https://studio.code.org/s/csa2-2022/lessons/2/student">Code.org Lesson</a>
+</li>
 <li>Determine what is result is in a variable as a result of an data type and expression (ie integer vs double)</li>
-<li>Perform an arithmetic expressions that uses casting, add comments on how this produces desired result.</li>
+<li>Perform an arithmetic expressions that uses casting, add comments that show how it produces desired result.  Learn more by watching this <a href="https://apclassroom.collegeboard.org/8/home?apd=ovg96bpudo&amp;unit=1">College Board video</a>
+</li>
 <li>Perform compound assignment operator (ie +=), add comments to describe the result of operator</li>
 </ul>
 <p>Additional requirements</p>
