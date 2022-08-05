@@ -3,7 +3,7 @@ layout: page
 permalink: /schedule
 title: Schedule
 ---
-## Schedule
+## Trimester 1
 
 <table>
     <tr>
