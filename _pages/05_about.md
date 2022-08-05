@@ -4,6 +4,14 @@ permalink: /about/
 title: About Us
 ---
 
+## Key Links
+- GitHub Repos:  <a href="https://github.com/nighthawkcoders">github.com/nighthawkcoders</a>, <a href="https://github.com/nighthawkcoders/spring_portfolio/generate">Spring Portfolio Template</a>
+- AWS Deployments: <a href="https://csa.nighthawkcodingsociety.com/">csa.nighthawkcodingsociety.com</a>
+- 2021-2022 Archives: <a href="https://padlet.com/jmortensen7/csa2022tri1">Fall</a>, <a href="https://padlet.com/jmortensen7/csa2022tri2">Early Winter</a>, <a href="https://csacoders.nighthawkcodingsociety.com/">Late Winter, Spring</a>
+
+This site is built with [fastpages](https://github.com/fastai/fastpages).
+
+## Students
 <!-- HTML table fragment for page -->
 <table>
   <thead>
