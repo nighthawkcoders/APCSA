@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /about/
-title: About Us
+title: About
 ---
 
 ## Key Links
