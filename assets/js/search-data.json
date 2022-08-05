@@ -323,6 +323,17 @@
   
   
       ,"page0": {
+          "title": "Schedule",
+          "content": "Schedule . Week Sprint AP Test Prep Career Tech Canvas . 10 | Analytics | Recursion | Intro to Sorts | TBD | . 9 | Algorithms with Polymorphism | Inheritance | Algorithms 3 ways | TBD | . 8 | Images | 2D Array | Managing Images in Java | TBD | . 7 | Class/Object Operations | ArrayList | Data Ops | TBD | . 6 | String/Object Operations | Exam FRQs, Array | String Ops | TBD | . 5 | Test Driven Results | Writing Classes | Spring Frontend | TBD | . 4 | Vision/Prototype Development | Iteration | Frontend API Fetch | TBD | . 3 | Creative Development | Ifs and Expressions | AWS, Docker, Nginx, Spring Backend, and APIs | TBD | . 2 | Innovation Week 2 | Using Objects | Focus and Habits, Frontend with Fastpages | TBD | . 1 | Innovation Week 1 | Primitives | Roles and Agile, Fastpages | TBD | . 0 | Overview | Anatomy of Java | Tools and Equipment | TBD | .",
+          "url": "https://nighthawkcoders.github.io/APCSA/schedule",
+          "relUrl": "/schedule",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page1": {
           "title": "Frontend",
           "content": "| Overview | Tutorial | Calculator | Binary | Grades | Graph | Life | Snake | . . Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website. In this class, we will be using Fastpages on top of GitHub Pages to maximize our presentations, while minimizing our front-end coding. CSS style layout is provided by using Themes provided through GH Pages. Each page we make we assume the defined theme and insert our HTML fragments, local page style, and local page JavaScript. | Fastpages defaults to the minima theme. Review the the README.md for style or layout customizations. | GitHub Pages deployment is performed through Jekyll, which regenerates the website automatically after each commit, tracking can be seen in Actions tab within GitHub. | HTML generation is performed through Liquid, a template language (similar to Jinja2 or Thymeleaf). | JavaScript enable pages to have actions, fetch content, animate, etc | . . . Sample Code in this Sub Menu . HTML, CSS, and JavaScript are the front-end of the Web. Many tools and languages complement development using markup, style and javascript. This section of the Del Note CS website is providing some code samples. These are intended to spark your own PBL ideas. Each of these were generated after watching others teach or interacting with students. . Tutorial: This is a Jupyter Notebook built using the JavaScript kernel. This provides a few fundamentals of JavaScript language. Pull this file into VSCode and explore the fundamentals of the language. | Calculator: This calculator was inspired by Mr. Mortensen’s calculator that he built in Objective-C during his first year of teaching at DNHS. It was recreated by former student Anthony using GitHub pages, HTML, JavaScript, and CSS in 2022. | Binary: This example was created after watching Harvard CS50 by David J. Malan in 2020, he had built a machine to turn on and off lights/binary digits. My thought after watching machine, why not simulate it in software? Liquid is used to generate the HTML bits and parameters for onclick actions | JavaScript is used base 2, 8, 16 calculations | . | Grades: This grade calculator was created to show interaction of HTML and JavaScript to perform input. Additionally, it show how to add element to HTML Document Object Model (DOM). FYI, the IJavaScript kernel did not support input as of this writing. | Graph: This was created when a student named Bryant 2022 asked me the question “how would I plot data?” as described in an FRQ. JavaScript canvas is used to draw grid, axis, lines | . | Life: This was created by Nathaniel 2022 when I asked him about something interesting to show students in JS that relates to school. Built on Conway’s Game of Life (Wikipedia, Original) | Somewhat pure JavaScript, no canvas usage even though it has a grid. | . | Snake: This was interest of students in each of my 3 years, inspiration and some of the code came from a student named Nolan 2021. Contains menu and settings, as well as Grid | Uses JavaScript canvas and key events | . | .",
           "url": "https://nighthawkcoders.github.io/APCSA/frontend/overview",
@@ -333,7 +344,7 @@
   
 
   
-      ,"page1": {
+      ,"page2": {
           "title": "API",
           "content": "| Overview | Covid19 RapidAPI | Jokes API | Database API | . API Overview .",
           "url": "https://nighthawkcoders.github.io/APCSA/api/overview",
@@ -348,9 +359,9 @@
   
 
   
-      ,"page4": {
+      ,"page5": {
           "title": "About Us",
-          "content": "Name ID Age .",
+          "content": "Key Links . GitHub Repos: github.com/nighthawkcoders, Spring Portfolio Template | AWS Deployments: csa.nighthawkcodingsociety.com | 2021-2022 Archives: Fall, Early Winter, Late Winter, Spring | . This site is built with fastpages. . Students . Name ID Age .",
           "url": "https://nighthawkcoders.github.io/APCSA/about/",
           "relUrl": "/about/",
           "date": ""
@@ -380,7 +391,7 @@
   
 
   
-      ,"page13": {
+      ,"page14": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nighthawkcoders.github.io/APCSA/robots.txt",
