@@ -75,7 +75,7 @@ title: Schedule
     <tr>
         <td>3</td>
         <td><a href="">Creative Development</a></td>
-        <td><a href="{{site.baseurl}}/units/3">Ifs and Expressions</a></td>
+        <td><a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a></td>
         <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Deploy-With-Docker">AWS, Docker, Nginx</a>,
             <a href="{{site.baseurl}}/techtalk/2022/06/16/TT112-backend.html">Spring Backend</a>,
             <a href="{{site.baseurl}}/pbl/2022/07/14/rapidapi.html">and APIs</a>
@@ -86,7 +86,7 @@ title: Schedule
     <tr>
         <td>2</td>
         <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-innovation.html">Innovation Week 2</a></td>
-        <td><a href="{{site.baseurl}}/units/2022/06/16/objects.html">Using Objects</a></td>
+        <td><a href="{{site.baseurl}}/unit/2">Using Objects</a></td>
         <td><a href="{{site.baseurl}}/techtalk/2022/06/16/TT110-focus.html">Focus and Habits</a>, 
             <a href="{{site.baseurl}}/frontend/overview">Frontend with Fastpages</a>
         </td>
@@ -96,7 +96,7 @@ title: Schedule
     <tr>
         <td>1</td>
         <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-innovation.html">Innovation Week 1</a></td>
-        <td><a href="{{site.baseurl}}/units/2022/06/14/primitives.html">Primitives</a></td>
+        <td><a href="{{site.baseurl}}/unit/1">Primitives</a></td>
         <td><a href="{{site.baseurl}}/techtalk/2022/06/16/TT101-roles.html">Roles and Agile</a>, 
             <a href="{{site.baseurl}}/techtalk/2022/06/16/TT111-fastpages.html">Fastpages</a>
         </td> 
@@ -106,7 +106,7 @@ title: Schedule
     <tr>
         <td>0</td>
         <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-introduction.html">Overview</a></td>
-        <td><a href="{{site.baseurl}}/units/2022/06/14/anatomy.html">Anatomy of Java</a></td>
+        <td><a href="{{site.baseurl}}/unit/0">Anatomy of Java</a></td>
         <td><a href="{{site.baseurl}}/techtalk/2022/06/16/TT100-tools.html">Tools and Equipment</a></td>
         <td>TBD</td>
     </tr>
