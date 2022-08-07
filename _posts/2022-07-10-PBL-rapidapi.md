@@ -3,6 +3,7 @@ title: Fetch of Covid19 RapidAPI
 layout: default
 description: An introductory example of talking to Backend Java application serving 3rd Party API  
 permalink: /data/covid
+image: /images/rapidapi.png
 categories: [pbl]
 tags: [javascript, fetch, dom, getElementID, appendChild]
 ---
