@@ -4,21 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Installing Anaconda with Windows and WSL (Windows Subsystem for linux) | APCSA</title>
+<title>Installing VS Code and Kernels with Anaconda | APCSA</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Installing Anaconda with Windows and WSL (Windows Subsystem for linux)" />
+<meta property="og:title" content="Installing VS Code and Kernels with Anaconda" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)" />
-<meta property="og:description" content="Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)" />
+<meta name="description" content="Guide to get Anaconda and Jupyter Notebooks to work with VS Code on Windows (Focus was IJava kernel)." />
+<meta property="og:description" content="Guide to get Anaconda and Jupyter Notebooks to work with VS Code on Windows (Focus was IJava kernel)." />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html" />
 <meta property="og:site_name" content="APCSA" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-08-02T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Installing Anaconda with Windows and WSL (Windows Subsystem for linux)" />
+<meta property="twitter:title" content="Installing VS Code and Kernels with Anaconda" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-02T00:00:00-05:00","datePublished":"2022-08-02T00:00:00-05:00","description":"Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)","headline":"Installing Anaconda with Windows and WSL (Windows Subsystem for linux)","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html"},"url":"https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-02T00:00:00-05:00","datePublished":"2022-08-02T00:00:00-05:00","description":"Guide to get Anaconda and Jupyter Notebooks to work with VS Code on Windows (Focus was IJava kernel).","headline":"Installing VS Code and Kernels with Anaconda","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html"},"url":"https://nighthawkcoders.github.io/APCSA/pbl/2022/08/02/windowsinstall.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Installing Anaconda with Windows and WSL (Windows Subsystem for linux)</h1><p class="page-description">Guide to get Anaconda and Jupyter Notebooks to work with VS Code (specifically for java)</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-02T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Installing VS Code and Kernels with Anaconda</h1><p class="page-description">Guide to get Anaconda and Jupyter Notebooks to work with VS Code on Windows (Focus was IJava kernel).</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-02T00:00:00-05:00" itemprop="datePublished">
         Aug 2, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -129,7 +129,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Installing-IJava-Kernel">Installing IJava Kernel </a></li>
 <li class="toc-entry toc-h2"><a href="#Installing-an-Appropriate-JDK-for-IJava">Installing an Appropriate JDK for IJava </a></li>
 <li class="toc-entry toc-h2"><a href="#Ending-Checks-and-How-to-Run">Ending Checks and How to Run </a></li>
-<li class="toc-entry toc-h2"><a href="#Extra-Kernels-to-Download">Extra Kernels to Download </a></li>
+<li class="toc-entry toc-h2"><a href="#Setup-JavaScript-and-Bash-Kernels">Setup JavaScript and Bash Kernels </a></li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
@@ -146,14 +146,21 @@ window.onload = wrap_img;
 <a class="anchor" href="#Installing-and-Setting-Up-VS-Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing and Setting Up VS Code<a class="anchor-link" href="#Installing-and-Setting-Up-VS-Code"> </a>
 </h2>
 <blockquote>
+<p>This guide was created by Anthony Vo and Sahil Samar as they were having problems with VS Code and IPython.  This was related to conflicting Tool dependencies that were introduced to their machines.</p>
+</blockquote>
+<ul>
+<li>
 <p>Install VS Code to edit your code
 Navigate to <a href="https://code.visualstudio.com/download">this site</a> and install VS Code for Windows.
 <img src="/APCSA/images/copied_from_nb/images/vs_code_site.png" alt="image"></p>
-</blockquote>
+</li>
+<li>
 <p>Once it's downloaded, navigate to the left sidebar and click Extensions. Download some necessary extensions:</p>
 <ul>
 <li>Java extensions to debug Java (Maven, Project Manager, Debugger, Extension Pack, and Test Runner for Java by Microsoft are good options)</li>
 <li>Jupyter notebook extensions (Jupyter, Jupyter Keymap, and Jupyter Notebook Renderers by Microsoft are good options)</li>
+</ul>
+</li>
 </ul>
 <p><img src="/APCSA/images/copied_from_nb/images/extensions_windows_install.png" alt="image"></p>
 
@@ -167,10 +174,13 @@ Navigate to <a href="https://code.visualstudio.com/download">this site</a> and i
 <a class="anchor" href="#Installing-and-Setting-Up-Anaconda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing and Setting Up Anaconda<a class="anchor-link" href="#Installing-and-Setting-Up-Anaconda"> </a>
 </h2>
 <blockquote>
-<p>Installing Anaconda to configure Jupyter kernels. This section was used using Sahil's <a href="https://nighthawkcoders.github.io/APCSP/pbl/2022/07/21/neo4j_intro.html">Intro to Neo4J article</a>.
-Install Anaconda from their <a href="https://www.anaconda.com/products/distribution">website</a>. Follow the steps to install, and then open the Anaconda command prompt from your search bar.</p>
+<p>Installing Anaconda to help configure and manage Jupyter kernels.  Anaconda uses the concept of creating environments, it brings many tools into a simple setup.</p>
 </blockquote>
-<p><img src="/APCSA/images/copied_from_nb/images/anaconda_search.png" alt="image"></p>
+<ul>
+<li>Install Anaconda from their <a href="https://www.anaconda.com/products/distribution">website</a>. Follow the steps to install, and then open the Anaconda command prompt from your search bar.
+<img src="/APCSA/images/copied_from_nb/images/anaconda_search.png" alt="image">
+</li>
+</ul>
 <p>Run the following commands:</p>
 
 </div>
@@ -183,8 +193,8 @@ Install Anaconda from their <a href="https://www.anaconda.com/products/distribut
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">jupyter</span>
-<span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">.</span>
+<div class=" highlight hl-bash"><pre><span></span>conda install jupyter
+jupyter notebook .
 </pre></div>
 
     </div>
@@ -211,8 +221,10 @@ Install Anaconda from their <a href="https://www.anaconda.com/products/distribut
 <blockquote>
 <p>To run Java on our notebooks, we need a Java kernel. Github user SpencerPark has created a Java kernel for us to use, as it notebooks do not support Java by default.</p>
 </blockquote>
-<p>Navigate to <a href="https://github.com/SpencerPark/IJava#installing">SpencerPark's README</a> and follow the instructions to install IJava. I would recommend following the steps under <strong>Install pre-built binary</strong>.
-Ensure that running the command <code>jupyter kernelspec list</code> in your Anaconda prompt shows an output containing Java.</p>
+<ul>
+<li>Navigate to <a href="https://github.com/SpencerPark/IJava#installing">SpencerPark's README</a> and follow the instructions to install IJava. I would recommend following the steps under <strong>Install pre-built binary</strong>.</li>
+<li>Ensure that running the command <code>jupyter kernelspec list</code> in your Anaconda prompt shows an output containing Java.</li>
+</ul>
 
 </div>
 </div>
@@ -226,24 +238,47 @@ Ensure that running the command <code>jupyter kernelspec list</code> in your Ana
 <blockquote>
 <p>IJava requires a newer JDK, but some operating systems and Java downloads automatically come with JDK 8. This will help to make sure IJava works.</p>
 </blockquote>
+<ul>
+<li>
 <p>Go to <a href="https://jdk.java.net/">this website</a> and download the newest JDK. I downloaded the Windows/x64 build for JDK 18. Unzip the contents of the folder. Then, move the jdk folder from the extracted zip folder into C:/Program Files/Java. (Note: if you don't have Program Files/Java, then you'll need to download Java from Oracle or a different open source website)
 <img src="/APCSA/images/copied_from_nb/images/move_jdk.png" alt="image"></p>
+</li>
+<li>
 <p>Next, edit the kernel.json file that comes with IJava for it to use the newly downloaded JDK. Run <code>jupyter kernelspec list</code> in the Anaconda prompt to find where the kernel is located (in my case, it's C:\Users\amv76\AppData\Roaming\jupyter\kernels\java). To access AppData, you can use Win + R and type in the command <code>%appdata%</code>. Open kernel.json (which might just be named kernel on your system) with VS Code. Replace the "java" argument with the path to your JDK, as seen below.</p>
+</li>
+</ul>
 
 </div>
 </div>
-</div>{
-    "argv": [
-        "java", ----&gt; "C:\\Program Files\\Java\\jdk-18.0.2\\bin\\java.exe",
-        "-jar",
-        "C:\\Users\\amv76\\AppData\\Roaming\\jupyter\\kernels\\java/ijava-1.3.0.jar",
-        "{connection_file}"
-    ],
-    "display_name": "Java",
-    "env": {},
-    "interrupt_mode": "message",
-    "language": "java"
-}
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-bash"><pre><span></span><span class="o">{</span>
+    <span class="s2">"argv"</span>: <span class="o">[</span>
+        <span class="s2">"java"</span>, ----&gt; <span class="s2">"C:\\Program Files\\Java\\jdk-18.0.2\\bin\\java.exe"</span>,
+        <span class="s2">"-jar"</span>,
+        <span class="s2">"C:\\Users\\amv76\\AppData\\Roaming\\jupyter\\kernels\\java/ijava-1.3.0.jar"</span>,
+        <span class="s2">"{connection_file}"</span>
+    <span class="o">]</span>,
+    <span class="s2">"display_name"</span>: <span class="s2">"Java"</span>,
+    <span class="s2">"env"</span>: <span class="o">{}</span>,
+    <span class="s2">"interrupt_mode"</span>: <span class="s2">"message"</span>,
+    <span class="s2">"language"</span>: <span class="s2">"java"</span>
+<span class="o">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -258,7 +293,9 @@ Ensure that running the command <code>jupyter kernelspec list</code> in your Ana
 <h2 id="Ending-Checks-and-How-to-Run">
 <a class="anchor" href="#Ending-Checks-and-How-to-Run" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ending Checks and How to Run<a class="anchor-link" href="#Ending-Checks-and-How-to-Run"> </a>
 </h2>
+<blockquote>
 <p>Congratulations! You should now be able to run Java on Jupter Notebooks. To use Java, create a new notebook and switch the language from Python to Java.</p>
+</blockquote>
 <p><img src="/APCSA/images/copied_from_nb/images/switch_language.png" alt="image"></p>
 
 </div>
@@ -267,14 +304,14 @@ Ensure that running the command <code>jupyter kernelspec list</code> in your Ana
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Extra-Kernels-to-Download">
-<a class="anchor" href="#Extra-Kernels-to-Download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extra Kernels to Download<a class="anchor-link" href="#Extra-Kernels-to-Download"> </a>
+<h2 id="Setup-JavaScript-and-Bash-Kernels">
+<a class="anchor" href="#Setup-JavaScript-and-Bash-Kernels" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup JavaScript and Bash Kernels<a class="anchor-link" href="#Setup-JavaScript-and-Bash-Kernels"> </a>
 </h2>
 <blockquote>
-<p>Some extra kernels for different languages as an option</p>
+<p>Some other kernels for different languages</p>
 </blockquote>
 <ul>
-<li>JavaScript:<a href="https://github.com/n-riesco/ijavascript#installation">Installation Guide</a>    - Choose a method that works best for you (I used Anaconda prompt). Also note that you need the Desktop Development with C++ Workload for VS Code; you can download it by accessing Visual Studio Installer &gt; Modify and selecting Desktop Development with C++.</li>
+<li>JavaScript:<a href="https://github.com/n-riesco/ijavascript#installation">Installation Guide</a>    - Choose a method that works best for you (remember that Anaconda prompt help manage tools). Also note that you need the Desktop Development with C++ Workload for VS Code; you can download it by accessing Visual Studio Installer &gt; Modify and selecting Desktop Development with C++.</li>
 <li>Bash: Go to Anaconda command prompt and input the following two lines of code:</li>
 </ul>
 
@@ -288,8 +325,8 @@ Ensure that running the command <code>jupyter kernelspec list</code> in your Ana
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">bash_kernel</span>
-<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">bash_kernel</span><span class="o">.</span><span class="n">install</span>
+<div class=" highlight hl-bash"><pre><span></span>pip install bash_kernel
+python -m bash_kernel.install
 </pre></div>
 
     </div>
