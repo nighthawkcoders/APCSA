@@ -58,7 +58,7 @@
     
         ,"post5": {
             "title": "Fetch of Backend Jokes",
-            "content": "| Overview | Covid19 RapidAPI | Jokes API | Database API | . Joke HaHa Boohoo .",
+            "content": "| Overview | Covid19 RapidAPI | Jokes API | Database CRUD | . Joke HaHa Boohoo .",
             "url": "https://nighthawkcoders.github.io/APCSA/data/jokes",
             "relUrl": "/data/jokes",
             "date": " • Jul 10, 2022"
@@ -69,7 +69,7 @@
     
         ,"post6": {
             "title": "Database CRUD Operations",
-            "content": "| Overview | Covid19 RapidAPI | Jokes API | Database API | . Database API .",
+            "content": "| Overview | Covid19 RapidAPI | Jokes API | Database CRUD | . Database CRUD will be Coming Soon .",
             "url": "https://nighthawkcoders.github.io/APCSA/data/database",
             "relUrl": "/data/database",
             "date": " • Jul 10, 2022"
@@ -80,7 +80,7 @@
     
         ,"post7": {
             "title": "Fetch of Covid19 data with RapidAPI",
-            "content": "| Overview | Covid19 RapidAPI | Jokes API | Database API | . Time All-time Cases Recorded Deaths Active Cases . | | | | Country All-time Cases Recorded Deaths Active Cases .",
+            "content": "| Overview | Covid19 RapidAPI | Jokes API | Database CRUD | . Time All-time Cases Recorded Deaths Active Cases . | | | | Country All-time Cases Recorded Deaths Active Cases .",
             "url": "https://nighthawkcoders.github.io/APCSA/data/covid",
             "relUrl": "/data/covid",
             "date": " • Jul 10, 2022"
@@ -346,7 +346,7 @@
   
       ,"page2": {
           "title": "API",
-          "content": "| Overview | Covid19 RapidAPI | Jokes API | Database API | . API Overview .",
+          "content": "| Overview | Covid19 RapidAPI | Jokes API | Database CRUD | . API Overview .",
           "url": "https://nighthawkcoders.github.io/APCSA/api/overview",
           "relUrl": "/api/overview",
           "date": ""
