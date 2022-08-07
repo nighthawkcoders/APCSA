@@ -57,7 +57,7 @@
   
     
         ,"post5": {
-            "title": "Fetch of Covid19 RapidAPI",
+            "title": "Fetch of Covid19 data with RapidAPI",
             "content": "| Overview | Covid19 RapidAPI | Jokes API | Database API | . Time All-time Cases Recorded Deaths Active Cases . | | | | Country All-time Cases Recorded Deaths Active Cases .",
             "url": "https://nighthawkcoders.github.io/APCSA/data/covid",
             "relUrl": "/data/covid",
