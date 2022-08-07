@@ -77,8 +77,8 @@ title: Schedule
         <td><a href="">Creative Development</a></td>
         <td><a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a></td>
         <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Deploy-With-Docker">AWS, Docker, Nginx</a>,
-            <a href="{{site.baseurl}}/techtalk/2022/06/16/TT112-backend.html">Spring Backend</a>,
-            <a href="{{site.baseurl}}/pbl/2022/07/14/rapidapi.html">and APIs</a>
+            <a href="{{site.baseurl}}/techtalk/spring">Spring Backend</a>, and
+            <a href="{{site.baseurl}}/techtalk/rapidapi">RapidAPIs</a>
         </td>
         <td>TBD</td>
     </tr>
