@@ -1,14 +1,15 @@
 ---
 toc: true
 layout: post
-title: Backend Development - Tour of Spring/Java
-description: Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the complicated infrastructure problems so you can focus on the purpose of your application.
-permalink: /techtalk/spring
+title: Java Backend Development - Spring Boot
+description: The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the complicated infrastructure problems so you can focus on the purpose of your application.  Spring Boot is a micro Service that is used to build stand-alone application.
+permalink: /techtalk/spring_boot
+permalink: /images/spring_boot.png
 categories: [techtalk]
 ---
 
 ## Tour of Backend
-The backend for now is minimal as there is NO backend business logic.  Mastering these simple activities is critical as backend will get much more complicated.
+The backend description for this blog is minimal as there is NO backend business logic, this will come with a blog focussing on Spring MVC.  Mastering Spring simple definitions is critical as the backend will get much more complicated.
 
 ### Main.java
 Main.java contains the Class that is used to bootstrap and launch a Spring application from a Java main method.  By default it will load index.html.  
@@ -68,4 +69,4 @@ public class Greet {
 ```
 
 ## Hacks
-Using creativity and research, can you come up with something that alters Hello, World application.  Perhaps a question, answer, and evaluation for correct response.
+Using creativity and research, can you come up with something that alters Hello, World application.  Perhaps a calculation, like counting words or letters in a phrase.

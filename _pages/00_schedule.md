@@ -60,7 +60,7 @@ title: Schedule
         <td>5</td>
         <td><a href="">Test Driven Results</a></td>
         <td><a href="">Writing Classes</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/spring_thymeleaf">Spring Frontend using Thymeleaf</a></td>
+        <td><a href="{{site.baseurl}}/techtalk/spring_thymeleaf">Spring Thymeleaf - Frontend</a></td>
         <td>TBD</td>
     </tr>
 
@@ -68,7 +68,7 @@ title: Schedule
         <td>4</td>
         <td><a href="">Vision/Prototype Development</a></td>
         <td><a href="">Iteration</a></td>
-        <td><a href="{{site.baseurl}}/data/overview">Frontend API Fetch</a></td>
+        <td><a href="{{site.baseurl}}/data/overview">APIs and Data</a></td>
         <td>TBD</td>
     </tr>
 
@@ -76,8 +76,8 @@ title: Schedule
         <td>3</td>
         <td><a href="">Creative Development</a></td>
         <td><a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a></td>
-        <td><a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Deploy-With-Docker">AWS, Docker, Nginx</a>,
-            <a href="{{site.baseurl}}/techtalk/spring">Spring Backend</a>, and
+        <td><a href="{{site.baseurl}}/tutorial/deploy">AWS, Docker, Nginx</a>,
+            <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>, and
             <a href="{{site.baseurl}}/techtalk/rapidapi">RapidAPIs</a>
         </td>
         <td>TBD</td>
