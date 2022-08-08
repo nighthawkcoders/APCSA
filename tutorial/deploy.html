@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Deployment Guide | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Deployment Guide" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx" />
+<meta property="og:description" content="Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/tutorial/deploy" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/tutorial/deploy" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/aws.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-20T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/aws.png" />
+<meta property="twitter:title" content="Deployment Guide" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-20T00:00:00-05:00","datePublished":"2022-07-20T00:00:00-05:00","description":"Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx","headline":"Deployment Guide","image":"https://nighthawkcoders.github.io/APCSA/images/aws.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/tutorial/deploy"},"url":"https://nighthawkcoders.github.io/APCSA/tutorial/deploy"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Tags</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Deployment Guide</h1><p class="page-description">Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-07-20T00:00:00-05:00" itemprop="datePublished">
+        Jul 20, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      15 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/APCSA/categories/#pbl">pbl</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#deployment-overview">Deployment Overview</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#keyvalues-required-as-you-go-through-these-procedures">Key/Values required as you go through these procedures</a></li>
+<li class="toc-entry toc-h3"><a href="#amazon-web-services-aws-electric-cloud-compute-ec2-setup">Amazon Web Services (AWS): Electric Cloud Compute (EC2) Setup</a></li>
+<li class="toc-entry toc-h3"><a href="#install-packages">Install packages</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#updateupgrade-all-packages-on-your-ec2">Update/Upgrade all packages on your EC2</a></li>
+<li class="toc-entry toc-h4"><a href="#install-java-runtime-environment">Install Java Runtime Environment</a></li>
+<li class="toc-entry toc-h4"><a href="#install-java-development-kit">Install Java Development Kit</a></li>
+<li class="toc-entry toc-h4"><a href="#maven-is-required-to-build-project">Maven is required to build project</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#clone-and-change-directory-to-project-location">Clone and Change Directory to project location</a></li>
+<li class="toc-entry toc-h3"><a href="#build-the-web-service">Build the Web Service</a></li>
+<li class="toc-entry toc-h3"><a href="#create-dockerfile-to-run-web-service">Create Dockerfile to run Web Service</a></li>
+<li class="toc-entry toc-h3"><a href="#create-docker-compose-file-share-web-service">Create docker-compose file share Web Service</a></li>
+<li class="toc-entry toc-h3"><a href="#running-docker-using-docker-composeyml">Running Docker using docker-compose.yml</a></li>
+<li class="toc-entry toc-h3"><a href="#verifying-web-application-via-docker-commands">Verifying Web Application via Docker commands</a></li>
+<li class="toc-entry toc-h3"><a href="#preparing-the-docker-web-application-for-internet-access">Preparing the Docker Web Application for Internet Access</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#dns-provider-and-setup">DNS provider and setup</a></li>
+<li class="toc-entry toc-h4"><a href="#nginx-install-configuration-and-services">Nginx install, configuration, and services</a></li>
+<li class="toc-entry toc-h4"><a href="#testing-http-endpoint">Testing HTTP endpoint</a></li>
+<li class="toc-entry toc-h4"><a href="#certbot-install-and-configuration">Certbot install and configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h2 id="deployment-overview">
+<a class="anchor" href="#deployment-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deployment Overview</h2>
+<p>Deploying a Web Application enables a Server to serve the components of a Web Application to clients. Deployment is the tools and service used to enable the Web Application on the Internet.  The process of can use many different cloud servers, as well as choice in tools and services.</p>
+
+<ul>
+  <li>EC2: Amazon Web Services is a cloud computing platform that the PUSD district has provided for us to serve our Web Application.</li>
+  <li>GitHub: At this point in time, we should be aware that we are using GitHub is an open platform to share our Web Application code on the Internet.</li>
+  <li>Docker and docker-compose: To host a Web Application you need to prepare an environment that contains the Web Application code and all the dependencies (requirements.txt for Python)  Docker is an open platform for developing, shipping, and running applications.</li>
+  <li>Nginx: To find a Web Application on a server, there needs to be a process to listen for the Web request and direct it to the Web Application.  Nginx is an open source software for web serving, reverse proxy, caching, load balancing, media streaming, and more.</li>
+  <li>Certbot: Web traffic on internet is reliably served over Secure Hyper Text Transfer Protocol (https).  Certbot is a free, open source software tool for automatically using Let’s Encrypt certifications</li>
+  <li>DNS: Natively, the web works off of IP addresses.  Domain Name Services (DNS) allows the assignment of a friendly name to our Web Server.  This name is built into Nginx/Certbot configuration files.  Freenom is the service used to register the nighthawkcodingsociety.com domain.</li>
+</ul>
+
+<h3 id="keyvalues-required-as-you-go-through-these-procedures">
+<a class="anchor" href="#keyvalues-required-as-you-go-through-these-procedures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key/Values required as you go through these procedures</h3>
+<p>Listed are Keys, you need to obtain Values.  It is important that you recognize the sample Values as you work through these procedures, then replace them with the Values that are specific to your use case.</p>
+
+<ul>
+  <li>GitHub HTTPS link:</li>
+  <li>IAM user:</li>
+  <li>EC2 name:</li>
+  <li>EC2 Public IPs:</li>
+  <li>DNS Name:</li>
+  <li>DNS Subdomain name(s)</li>
+  <li>Docker Port:</li>
+  <li>docker-compose, proxy pass Port:</li>
+  <li>docker-compose, docker Image:</li>
+  <li>Nginx server file(s):</li>
+</ul>
+
+<h3 id="amazon-web-services-aws-electric-cloud-compute-ec2-setup">
+<a class="anchor" href="#amazon-web-services-aws-electric-cloud-compute-ec2-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amazon Web Services (AWS): Electric Cloud Compute (EC2) Setup</h3>
+<p>Preparing and AWS EC2 instance is the process of creating a cloud computer.  This process starts by logging into your AWS IAM user, searching for EC2.</p>
+<ul>
+  <li>To get started, launch a new AWS EC2 instance to learn process and understand how to work with Linux. here are some key considerations.
+    <ul>
+      <li>Choose an Amazon Machine Image (AMI), the class will be using Ubuntu you should check on last verified version with a Teacher before proceeding</li>
+      <li>When it comes to picking memory or disk it is VERY important to pick Free Tier.  As stated, this will only be used for testing and then it will be disposed for cost efficiency.</li>
+      <li>When presented with access dialog for http and https, make sure you check these boxes.  Remember you are making a Web application that will run over http and https.</li>
+      <li>Name the security group (.pem) file after your team.  It may be necessary to use SSH to access your EC2 instance.</li>
+      <li>The remainder of the steps you can use the defaults, refer to AWS documentation for guidance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html</li>
+      <li>At the end of this process you need to “Connect to Instance”. This will provide you a terminal like experience.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="install-packages">
+<a class="anchor" href="#install-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install packages</h3>
+<p>Terminal commands are shown, these commands will be run from Terminal after you connect to your EC2 name.</p>
+
+<h4 id="updateupgrade-all-packages-on-your-ec2">
+<a class="anchor" href="#updateupgrade-all-packages-on-your-ec2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update/Upgrade all packages on your EC2</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt update<span class="p">;</span> <span class="nb">sudo </span>apt upgrade
+</code></pre></div></div>
+
+<h4 id="install-java-runtime-environment">
+<a class="anchor" href="#install-java-runtime-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Java Runtime Environment</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>default-jre
+<span class="nv">$ </span>java <span class="nt">-version</span>
+</code></pre></div></div>
+
+<h4 id="install-java-development-kit">
+<a class="anchor" href="#install-java-development-kit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Java Development Kit</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>default-jdk
+<span class="nv">$ </span>javac <span class="nt">-version</span>
+</code></pre></div></div>
+
+<h4 id="maven-is-required-to-build-project">
+<a class="anchor" href="#maven-is-required-to-build-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maven is required to build project</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt update
+<span class="nv">$ </span><span class="nb">sudo </span>apt upgrade
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>maven
+<span class="nv">$ </span>mvn <span class="nt">-version</span>
+</code></pre></div></div>
+
+<h3 id="clone-and-change-directory-to-project-location">
+<a class="anchor" href="#clone-and-change-directory-to-project-location" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clone and Change Directory to project location</h3>
+<p>These commands move your Web Application code onto you EC2 cloud computer</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span>
+<span class="nv">$ </span>git clone https://github.com/nighthawkcoders/spring_portfolio.git
+</code></pre></div></div>
+
+<h3 id="build-the-web-service">
+<a class="anchor" href="#build-the-web-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build the Web Service</h3>
+<p>These steps will require you test Maven build prior to the final deployment process.</p>
+
+<ul>
+  <li>Maven Build and Jar package command
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/spring_portfolio
+<span class="nv">$ </span>./mvnw package
+</code></pre></div>    </div>
+
+    <ul>
+      <li>If Maven fails, try this and repeat Maven command
+        <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> dos2unix
+<span class="nv">$ </span>dos2unix ./mvnw
+<span class="nv">$ </span><span class="nb">chmod</span> +x ./mvnw
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Run Java Application
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span>
+<span class="nv">$ </span>java <span class="nt">-jar</span> target/spring-0.0.1-SNAPSHOT.jar
+</code></pre></div>    </div>
+  </li>
+  <li>At this point we will type ctrl+c as we will now run a Docker File to do this step</li>
+</ul>
+
+<h3 id="create-dockerfile-to-run-web-service">
+<a class="anchor" href="#create-dockerfile-to-run-web-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Dockerfile to run Web Service</h3>
+<p>A Dockerfile is a configuration used to run the Web Service.  This is placed in a file called Dockerfile.  It is best to add this to VS Code and pull it, or you can update in place with nano, vi, or vim editor and use command line commands to push it into your repository.  The Dockerfile should be considered Code!</p>
+<ul>
+  <li>Edit the Dockerfile
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano Dockerfile
+</code></pre></div>    </div>
+  </li>
+  <li>Insert the Dockerfile commands, note that they are similar to Bash commands performed earlier.  Follow prompts on screen to save file when complete, look for Key/Value (GitHub HTTPS link) that requires change for your project.
+    <div class="language-dockerfile highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="c"># syntax=docker/dockerfile:1</span>
+<span class="k">FROM</span><span class="s"> openjdk:16-alpine3.13</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+<span class="k">RUN </span>apk update <span class="o">&amp;&amp;</span> apk upgrade <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  apk add <span class="nt">--no-cache</span> git 
+<span class="k">RUN </span>git clone https://github.com/nighthawkcoders/spring_portfolio.git /app
+<span class="k">RUN </span>./mvnw package
+<span class="k">CMD</span><span class="s"> ["java", "-jar", "target/spring-0.0.1-SNAPSHOT.jar"]</span>
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="create-docker-compose-file-share-web-service">
+<a class="anchor" href="#create-docker-compose-file-share-web-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create docker-compose file share Web Service</h3>
+<p>A docker-compose file is a configuration used to share your Docker Web Service and resources with the Linux system.  This file enable Linux to have access to the container and the persistent data application via the /volumes location.</p>
+
+<p>Once again it is best to add the docker-compose.yml in VS Code and pull it.  You can edit it on the machine itself using vi, vim, or nano.</p>
+<ul>
+  <li>Edit docker-compose.yml
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano docker-compose.yml
+</code></pre></div>    </div>
+  </li>
+  <li>Insert the docker-compose.yml Keys/Values.
+    <div class="language-yml highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
+<span class="na">services</span><span class="pi">:</span>
+<span class="na">web</span><span class="pi">:</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">java_springv1</span>
+  <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">8085:8080"</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">persistent_volume:/app/volumes</span>
+<span class="na">volumes</span><span class="pi">:</span>
+<span class="na">persistent_volume</span><span class="pi">:</span>
+  <span class="na">driver</span><span class="pi">:</span> <span class="s">local</span>
+  <span class="na">driver_opts</span><span class="pi">:</span>
+    <span class="na">o</span><span class="pi">:</span> <span class="s">bind</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">none</span>
+    <span class="na">device</span><span class="pi">:</span> <span class="s">/home/ubuntu/spring_portfolio/volumes</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="running-docker-using-docker-composeyml">
+<a class="anchor" href="#running-docker-using-docker-composeyml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Docker using docker-compose.yml</h3>
+<p>At this point, it is best to review complete files on GitHub and for Docker and docker-compose: https://github.com/nighthawkcoders/spring_portfolio.   Review the Key/Values mentioned in this document.  Make sure your Docker and docker-compose files a personalized to your project.</p>
+
+<ul>
+  <li>Make sure you are in project directory
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/spring_portfolio/
+</code></pre></div>    </div>
+  </li>
+  <li>Run docker-compose
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Output from docker-compose.  When running this command, docker-compose will run all the Docker steps and build a Web Application running in a Docker container, a virtual environment.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Creating network <span class="s2">"spring_portfolio_default"</span> with the default driver
+Building web
+Step 1/9 : FROM openjdk:16-alpine3.13
+ <span class="nt">---</span><span class="o">&gt;</span> d0ce03c9330c
+Step 2/9 : WORKDIR /app
+
+.... LOTS of STEPs and OUTPUT ...
+
+Successfully built 68d68ad9699b
+Successfully tagged ava_springv1:latest
+WARNING: Image <span class="k">for </span>service web was built because it did not already exist. To rebuild this image you must use <span class="sb">`</span>docker-compose build<span class="sb">`</span> or <span class="sb">`</span>docker-compose up <span class="nt">--build</span><span class="sb">`</span><span class="nb">.</span>
+Creating flask_portfolio_web_1 ... <span class="k">done</span>
+</code></pre></div></div>
+
+<h3 id="verifying-web-application-via-docker-commands">
+<a class="anchor" href="#verifying-web-application-via-docker-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Verifying Web Application via Docker commands</h3>
+<p>Here is a look at some of the commands behind the scenes.  None of these are required to get things working, but show the results of the Docker and docker-compose.yml files and commands.</p>
+
+<ul>
+  <li>docker-compose ps   The running Web process, “ps” is a linux command or option that provides information related to the processes on a system.  Look at headings in relation to outputs of the docker-compose process.
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> ubuntu@ip-172-31-1-138:~/flask_portfolio<span class="nv">$ </span>docker-compose ps
+      Name                 Command        State                    Ports                  
+<span class="nt">--------------------------------------------------------------------------------------------</span>
+ava_springv1           gunicorn main:app   Up      0.0.0.0:8085-&gt;8080/tcp,:::8085-&gt;8080/tcp
+</code></pre></div>    </div>
+  </li>
+  <li>docker ps   A more comprehensive list of all the docker processes on the system.  In this process reports, many of the alternate projects running on this AWS server are show.  The flask_portfolio_web_1 process is the items specific to this tutorial.
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>buntu@ip-172-31-1-138:~/flask_portfolio<span class="nv">$ </span>docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+749a93bc11ce   flask_port_v1   <span class="s2">"gunicorn main:app"</span>      45 minutes ago   Up 45 minutes   0.0.0.0:8086-&gt;8080/tcp, :::8086-&gt;8080/tcp   flask_portfolio_web_1
+89155782b853   java_springv1   <span class="s2">"java -jar target/sp…"</span>   6 days ago       Up 6 days       0.0.0.0:8085-&gt;8080/tcp, :::8085-&gt;8080/tcp   spring_portfolio_web_1
+9415d6397d2e   python_cspv1    <span class="s2">"gunicorn main:app"</span>      2 weeks ago      Up 2 weeks      0.0.0.0:8082-&gt;8080/tcp, :::8082-&gt;8080/tcp   nighthawk_csp_web_1
+4bf324458bf6   python_laxv1    <span class="s2">"gunicorn main:app"</span>      5 weeks ago      Up 5 weeks      0.0.0.0:8084-&gt;8080/tcp, :::8084-&gt;8080/tcp   lax_web_1
+7a6dff6425e9   python_ctev1    <span class="s2">"gunicorn main:app"</span>      5 weeks ago      Up 5 weeks      0.0.0.0:8083-&gt;8080/tcp, :::8083-&gt;8080/tcp   cte_web_1
+abd77b8e77af   java_csav2      <span class="s2">"java -jar target/cs…"</span>   5 weeks ago      Up 5 weeks      0.0.0.0:8081-&gt;8080/tcp, :::8081-&gt;8080/tcp   nighthawk_csa_web_1
+</code></pre></div>    </div>
+  </li>
+  <li>docker images   This lists all of the docker images, or containers, that are used to serve the process shown above.  The flask_port_v1 is the image created from the Docker file created in this tutorial.  The image contains the running Web application.
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>ubuntu@ip-172-31-1-138:~/flask_portfolio<span class="nv">$ </span>docker images
+REPOSITORY      TAG             IMAGE ID       CREATED          SIZE
+flask_port_v1   latest          68d68ad9699b   51 minutes ago   1.01GB
+java_springv1   latest          e85a584b1836   6 days ago       523MB
+python_laxv1    latest          713c84a30d3b   5 weeks ago      1.16GB
+python_ctev1    latest          1608eaee06c7   5 weeks ago      1.18GB
+python_cspv1    latest          b9bb27be863b   5 weeks ago      1.12GB
+java_csav2      latest          4055a9fd5ea7   5 weeks ago      570MB
+python          3.9             d0ce03c9330c   7 weeks ago      915MB
+alpine          latest          e66264b98777   8 weeks ago      5.53MB
+openjdk         16-alpine3.13   2aa8569968b8   17 months ago    324MB
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="preparing-the-docker-web-application-for-internet-access">
+<a class="anchor" href="#preparing-the-docker-web-application-for-internet-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preparing the Docker Web Application for Internet Access</h3>
+<p>There are a couple of steps to this preparation. We need to direct the internet to the Server running the Web Application, this is done using Domain Name Service (DNS).   After being directed to the Web Server, the server needs to respond to the Hyper Text Transfer Protocol (HTTP), this will be manged by Nginx.   Additionally, we will be required to support Secure HTTP (HTTPS), a utility called Certbot will augment our Nginx configuration with a certificate.</p>
+
+<h4 id="dns-provider-and-setup">
+<a class="anchor" href="#dns-provider-and-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>DNS provider and setup</h4>
+<p>Each student scrum team is required to learn how to obtain a DNS provider and setup an independent domain.  However, the final set up will be using a Subdomain under nighthawkcodingsociety.com.</p>
+
+<p>A picture is included to show key elements in setting up a domain with a DNS provider.  The nighthawkcodingsociety.com is using Freenom as its service provider.  As you build your own DNS server you will need to obtain your own IP address and domain.</p>
+
+<p>This illustration is dependent on…</p>
+<ul>
+  <li>EC2 Public IPs: 3.233.212.71</li>
+  <li>DNS Name: nighthawkcodingsociety.com</li>
+  <li>DNS Subdomain name(s): battleship.nighthawkcodingsociety.com. cowboys.nighthawkcodingsociety.com</li>
+</ul>
+
+<p>A minimum configuration will have the two “A” type definitions using you Public IP address.  These two are resolved with a single Web Application.  The “CNAME” type is used for subdomains, these will resolve to a different Web Application.</p>
+
+<p>&lt;img atl=”Setup a Domain” src=”/APCSA/images/freenom.png” title=”DNS Provider”</p>
+
+<h4 id="nginx-install-configuration-and-services">
+<a class="anchor" href="#nginx-install-configuration-and-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nginx install, configuration, and services</h4>
+<p>Each student scrum team will perform Nginx installation and setup on an AWS EC2 test server.  The final configuration will be on AWS server managed by Teachers or Student DevOps Engineers.</p>
+
+<p>Enable Nginx to retrieve Python Web Application on internet request (Reverse Proxy)! Make a server file located at /etc/nginx/sites-available/nighthawk.</p>
+
+<ul>
+  <li>Install Nginx on Ubuntu servers
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>nginx
+</code></pre></div>    </div>
+  </li>
+  <li>Go to location of Nginx server configuration files
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /etc/nginx/sites-available
+</code></pre></div>    </div>
+  </li>
+  <li>Open editor to Create your own “Nginx server configuration”
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano nighthawk
+</code></pre></div>    </div>
+  </li>
+  <li>Edit your own Nginx server configuration making modifications to:
+    <ul>
+      <li>DNS Name(s): nighthawkcodingsociety.com www.nighthawkcodingsociety.com</li>
+      <li>docker-compose, proxy pass Port: 8086</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen 80;
+    listen [::]:80;
+    server_name nighthawkcodingsociety.com www.nighthawkcodingsociety.com;
+
+    location / {
+        proxy_pass http://localhost:8086;
+        # Simple requests
+        if ($request_method ~* "(GET|POST)") {
+                add_header "Access-Control-Allow-Origin"  *;
+        }
+
+        # Preflight requests
+        if ($request_method = OPTIONS ) {
+                add_header "Access-Control-Allow-Origin"  *;
+                add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
+                add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
+                return 200;
+        }
+    }
+}
+</code></pre></div></div>
+
+<ul>
+  <li>Activate/enabled Nginx server configuration:
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /etc/nginx/sites-available/nighthawk /etc/nginx/sites-enabled
+<span class="nv">$ </span><span class="nb">sudo </span>nginx <span class="nt">-t</span>
+</code></pre></div>    </div>
+  </li>
+  <li>If there are no errors, restart NGINX so the server is an endpoint to the internet:
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl restart nginx
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="testing-http-endpoint">
+<a class="anchor" href="#testing-http-endpoint" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing HTTP endpoint</h4>
+<p>Before finishing, this is a good opportunity to test everything you have done.</p>
+
+<ul>
+  <li>Direct Test of Web Application Endpoint.  This should return HTML related to the home page of the Web site.  If this fails, you need to review Docker and docker-compose configurations.
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl http://localhost:8086<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Testing unsecure HTTP endpoint on the internet.  Go to a browser an type your DNS domain: http://nighthawkcodingsociety.com.
+    <ul>
+      <li>Timeout.  This means something is wrong with EC2 Public IP.</li>
+      <li>Nginx Default page.  This means DNS is working, but something is wrong with you Nginx configuration.</li>
+      <li>Broken Gateway.  This means Nginx is working, but something is wrong with Web Application endpoint on machine, if this fails something is wrong with Web Application.  This requires you to look at Docker and docker-compose configuration.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="certbot-install-and-configuration">
+<a class="anchor" href="#certbot-install-and-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Certbot install and configuration</h4>
+<p>Each student scrum team will learn Certbot on on AWS EC2 test server, establish working https web application.  The final configuration will be on AWS server managed by Teachers or Student DevOps Engineers.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>certbot <span class="nt">--nginx</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator nginx, Installer nginx
+
+Which names would you like to activate HTTPS for?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: nighthawkcodingsociety.com
+2: csa.nighthawkcodingsociety.com
+3: csp.nighthawkcodingsociety.com
+4: flm.nighthawkcodingsociety.com
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate numbers separated by commas and/or spaces, or leave input
+blank to select all options shown (Enter 'c' to cancel):    
+Cert not yet due for renewal
+
+You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+(ref: /etc/letsencrypt/renewal/nighthawkcodingsociety.com-0001.conf)
+
+What would you like to do?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Attempt to reinstall this existing certificate
+2: Renew &amp; replace the cert (limit ~5 per 7 days)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Renewing an existing certificate
+Performing the following challenges:
+http-01 challenge for nighthawkcodingsociety.com
+http-01 challenge for csa.nighthawkcodingsociety.com
+http-01 challenge for cso.nighthawkcodingsociety.com
+http-01 challenge for flm.nighthawkcodingsociety.com
+Waiting for verification...
+Cleaning up challenges
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_society
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_csa
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_csp
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/nighthawk_flm
+
+Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: No redirect - Make no further changes to the webserver configuration.
+2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+new sites, or if you're confident your site works on HTTPS. You can undo this
+change by editing your web server's configuration.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_society
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_csa
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_csp
+Traffic on port 80 already redirecting to ssl in /etc/nginx/sites-enabled/nighthawk_flm
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Your existing certificate has been successfully renewed, and the new certificate
+has been installed.
+
+The new certificate covers the following domains:
+https://nighthawkcodingsociety.com, 
+https://csa.nighthawkcodingsociety.com, 
+https://csp.nighthawkcodingsociety.com, and
+https://flm.nighthawkcodingsociety.com,
+
+You should test your configuration at:
+https://www.ssllabs.com/ssltest/analyze.html?d=nighthawkcodingsociety.com
+https://www.ssllabs.com/ssltest/analyze.html?d=csa.nighthawkcodingsociety.com
+https://www.ssllabs.com/ssltest/analyze.html?d=csp.nighthawkcodingsociety.com
+https://www.ssllabs.com/ssltest/analyze.html?d=flm.nighthawkcodingsociety.com
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/nighthawkcodingsociety.com-0001/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/nighthawkcodingsociety.com-0001/privkey.pem
+   Your cert will expire on 2022-03-06. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the "certonly" option. To non-interactively renew *all* of
+   your certificates, run "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+</code></pre></div></div>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/APCSA"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/APCSA/tutorial/deploy" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="nighthawkcoders"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="NighthawkCoding"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use></svg></a></li><li><a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="YouTube"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
