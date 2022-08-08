@@ -1,9 +1,11 @@
 ---
 toc: true
 layout: post
-description: 
+title: Spring Frontend Development
+description: Tour of frontend development for Java Spring.  All frameworks for web development have a template engine.  Spring template engine is Thymeleaf and like all template engines it is used to process and creating HTML and text for a Web page.
 categories: [techtalk]
-title: TT 1.2.0 Frontend Development - Tour of Thymeleaf and Layouts
+permalink: /techtalk/spring_thymeleaf
+image: /images/spring_thymeleaf.png
 ---
 
 ## Tour of Frontend
