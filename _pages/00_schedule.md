@@ -60,7 +60,7 @@ title: Schedule
         <td>5</td>
         <td><a href="">Test Driven Results</a></td>
         <td><a href="">Writing Classes</a></td>
-        <td><a href="{{site.baseurl}}/spring_thymeleaf">Spring Frontend using Thymeleaf</a></td>
+        <td><a href="{{site.baseurl}}/techtalk/spring_thymeleaf">Spring Frontend using Thymeleaf</a></td>
         <td>TBD</td>
     </tr>
 
