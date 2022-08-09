@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Java Backend Development - Spring Boot | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Java Backend Development - Spring Boot" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the complicated infrastructure problems so you can focus on the purpose of your application. Spring Boot is a micro Service that is used to build stand-alone application." />
+<meta property="og:description" content="The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the complicated infrastructure problems so you can focus on the purpose of your application. Spring Boot is a micro Service that is used to build stand-alone application." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/techtalk/spring_boot" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/techtalk/spring_boot" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/spring_boot.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-16T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/spring_boot.png" />
+<meta property="twitter:title" content="Java Backend Development - Spring Boot" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-16T00:00:00-05:00","datePublished":"2022-06-16T00:00:00-05:00","description":"The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the complicated infrastructure problems so you can focus on the purpose of your application. Spring Boot is a micro Service that is used to build stand-alone application.","headline":"Java Backend Development - Spring Boot","image":"https://nighthawkcoders.github.io/APCSA/images/spring_boot.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/techtalk/spring_boot"},"url":"https://nighthawkcoders.github.io/APCSA/techtalk/spring_boot"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Tags</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Java Backend Development - Spring Boot</h1><p class="page-description">The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the complicated infrastructure problems so you can focus on the purpose of your application.  Spring Boot is a micro Service that is used to build stand-alone application.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-16T00:00:00-05:00" itemprop="datePublished">
+        Jun 16, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/APCSA/categories/#techtalk">techtalk</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#tour-of-backend">Tour of Backend</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#mainjava">Main.java</a></li>
+<li class="toc-entry toc-h3"><a href="#birdsjava">Birds.java</a></li>
+<li class="toc-entry toc-h3"><a href="#greetjava">Greet.java</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#hacks">Hacks</a></li>
+</ul><h2 id="tour-of-backend">
+<a class="anchor" href="#tour-of-backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tour of Backend</h2>
+<p>The backend description for this blog is minimal as there is NO backend business logic, this will come with a blog focussing on Spring MVC.  Mastering Spring simple definitions is critical as the backend will get much more complicated.</p>
+
+<h3 id="mainjava">
+<a class="anchor" href="#mainjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main.java</h3>
+<p>Main.java contains the Class that is used to bootstrap and launch a Spring application from a Java main method.  By default it will load index.html.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @SpringBootApplication annotation is key to building web applications with Java https://spring.io/projects/spring-boot</span>
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="c1">// Starts a spring application as a stand-alone application from the main method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Main</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="birdsjava">
+<a class="anchor" href="#birdsjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Birds.java</h3>
+<p>This is about as simple as an @Controller can get, it loads a page for view only.  Note the @GetMapping which is used to associate a Web URL (/birds) with a Java Method (public String birds())</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>  <span class="c1">// HTTP requests are handled as a controller, using the @Controller annotation</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Birds</span> <span class="o">{</span>
+
+    <span class="c1">// CONTROLLER handles GET request for /birds, maps it to birds() method</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/birds"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">birds</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="c1">// load HTML VIEW (birds.html)</span>
+        <span class="k">return</span> <span class="s">"birds"</span><span class="o">;</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="greetjava">
+<a class="anchor" href="#greetjava" aria-hidden="true"><span class="octicon octicon-link"></span></a>Greet.java</h3>
+<p>Purpose of Greet is to allow user to change Hello, World! greeting.  This page is VERY important to learn in order to master passing data from frontend to backend using @RequestParam with associated keys and values.  The key “name” HTML input and is mapped to the Java using wrapper Class, String name.  In the method, String name is made back into key value using model.addAttribute(“name”, name).   In this example, nothing is altered in, but this provides feedback and response framework that can be used for more sophisticated applications.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>  <span class="c1">// HTTP requests are handled as a controller, using the @Controller annotation</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Greet</span> <span class="o">{</span>
+
+    <span class="c1">// @GetMapping handles GET request for /greet, maps it to greeting() method</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/greet"</span><span class="o">)</span>
+    <span class="c1">// @RequestParam handles variables binding to frontend, defaults, etc</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">greeting</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">"name"</span><span class="o">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">false</span><span class="o">,</span> <span class="n">defaultValue</span><span class="o">=</span><span class="s">"World"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// model attributes are visible to Thymeleaf when HTML is "pre-processed"</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+
+        <span class="c1">// load HTML VIEW (greet.html)</span>
+        <span class="k">return</span> <span class="s">"greet"</span><span class="o">;</span> 
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="hacks">
+<a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h2>
+<p>Using creativity and research, can you come up with something that alters Hello, World application.  Perhaps a calculation, like counting words or letters in a phrase.</p>
+
+  </div><a class="u-url" href="/APCSA/techtalk/spring_boot" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="nighthawkcoders"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="NighthawkCoding"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use></svg></a></li><li><a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="YouTube"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
