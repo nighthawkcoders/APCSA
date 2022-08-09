@@ -4,7 +4,7 @@ layout: post
 description: Innovation is a time to explore, dream, and learn to code.  Look at what you need to accomplish in the Trimester, based off of what you know and what you think you need to learn to be successful in the class.  Create a Product Backlog and start a sprint now, brainstorm a couple of times a week, and start iterative development.
 categories: [tri1]
 title: Innovation Sprint - Technologies in Java Web Apps
-image: /images/innovation_spring.png
+image: /images/innovation_sprint.png
 ---
 
 # Innovation Sprint (Weeks 1 and 2)
