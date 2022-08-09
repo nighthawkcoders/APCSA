@@ -97,8 +97,8 @@ title: Schedule
         <td>1</td>
         <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-innovation.html">Innovation Week 1</a></td>
         <td><a href="{{site.baseurl}}/unit/1">Primitives</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/2022/06/16/TT101-roles.html">Roles and Agile</a>, 
-            <a href="{{site.baseurl}}/techtalk/2022/06/16/TT111-fastpages.html">Fastpages</a>
+        <td><a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>, 
+            <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
         </td> 
         <td>TBD</td>
     </tr>
@@ -107,7 +107,7 @@ title: Schedule
         <td>0</td>
         <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-introduction.html">Overview</a></td>
         <td><a href="{{site.baseurl}}/unit/0">Anatomy of Java</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/2022/06/16/TT100-tools.html">Tools and Equipment</a></td>
+        <td><a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a></td>
         <td>TBD</td>
     </tr>
     
