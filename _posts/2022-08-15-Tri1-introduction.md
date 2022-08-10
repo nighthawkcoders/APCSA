@@ -1,10 +1,11 @@
 ---
 toc: true
 layout: post
+title: Overview Sprint - Java, PBL, and Tools
 description: Introduction to the year.  Introduce Real World projects, philosophies, and objectives of the class.
 image: images/apcsa.png
+permalink: /week/0
 categories: [tri1]
-title: Overview Sprint - Java, PBL, and Tools
 ---
 
 # AP CSA COURSE OUTLINE
@@ -35,9 +36,9 @@ You, your pair, and your Scrum Team will collaboratively Build, deploy and host 
 
 - Feature Considerations for Project
     - Project Requirements
-        - A fun zone, unique idea(s)
-        - Educational zones that capture every key learning objective
-        - A location that highlights individuals, jobs, and technical capabilities
+        - <mark>A fun zone, unique idea(s)</mark>
+        - <mark>Educational zones that capture every key learning objective</mark>
+        - <mark>A location that highlights individuals, jobs, and technical capabilities</mark>
     - Project Technicals
         - Managing PBL Requirement for Project (Issues, Scrum Board)
         - Use of "Java Classes" in backend.

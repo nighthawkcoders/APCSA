@@ -13,7 +13,8 @@ title: Schedule
      <th>Career Tech</th>
      <th>Canvas</th>
     </tr>
-    
+
+ <!--  
     <tr>
         <td>10</td>
         <td><a href=""></a>Analytics</td>
@@ -71,7 +72,7 @@ title: Schedule
         <td><a href="{{site.baseurl}}/data/overview">APIs and Data</a></td>
         <td>TBD</td>
     </tr>
-
+-->
     <tr>
         <td>3</td>
         <td><a href="">Creative Development</a></td>
@@ -105,7 +106,7 @@ title: Schedule
     
     <tr>
         <td>0</td>
-        <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-introduction.html">Overview</a></td>
+        <td><a href="{{site.baseurl}}/week/0">Introduction</a></td>
         <td><a href="{{site.baseurl}}/unit/0">Anatomy of Java</a></td>
         <td><a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a></td>
         <td>TBD</td>
