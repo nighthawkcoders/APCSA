@@ -86,7 +86,7 @@ title: Schedule
 
     <tr>
         <td>2</td>
-        <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-innovation.html">Innovation Week 2</a></td>
+        <td><a href="{{site.baseurl}}/week/2">Innovation Week 2 (Team)</a></td>
         <td><a href="{{site.baseurl}}/unit/2">Using Objects</a></td>
         <td><a href="{{site.baseurl}}/techtalk/2022/06/16/TT110-focus.html">Focus and Habits</a>, 
             <a href="{{site.baseurl}}/frontend/overview">Frontend with Fastpages</a>
@@ -96,7 +96,7 @@ title: Schedule
 
     <tr>
         <td>1</td>
-        <td><a href="{{site.baseurl}}/tri1/2022/06/15/Tri1-innovation.html">Innovation Week 1</a></td>
+        <td><a href="{{site.baseurl}}/week/1">Innovation Week 1 (Pair)</a></td>
         <td><a href="{{site.baseurl}}/unit/1">Primitives</a></td>
         <td><a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>, 
             <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
