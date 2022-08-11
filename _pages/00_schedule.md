@@ -4,7 +4,7 @@ permalink: /schedule
 title: Schedule
 ---
 ## Trimester 1 - Introduction to Tools and Resources
-> To teach Java and build skills for Career Technical Education we will quickly immerse into Tools and Resources.  Week 0-3 are about exposure to Development Environment and Methodologies that we plan to use throughout the year.  
+> To teach Java and build skills for Career Technical Education we will quickly immerse the students into Tools and Resources.  Weeks 0-3 focus on the Development Environment,  Agile Methodologies, and AP Resources that we plan to use throughout the year.  
 
 <table>
     <tr>
