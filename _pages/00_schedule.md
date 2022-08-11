@@ -88,7 +88,7 @@ title: Schedule
 
     <tr>
         <td>3</td>
-        <td><a href="">Creative Development</a></td>
+        <td><a href="{{site.baseurl}}/week/3">Creative Development</a></td>
         <td><a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a></td>
         <td><a href="{{site.baseurl}}/techtalk/deploy">Deployment Guide</a>,
             <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>, and
