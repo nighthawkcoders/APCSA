@@ -49,7 +49,10 @@ title: Schedule
     <tr>
         <td>0</td>
         <td><a href="{{site.baseurl}}/week/0">Introduction</a></td>
-        <td><a href="{{site.baseurl}}/unit/0">Anatomy of Java</a></td>
+        <td>
+            <a href="{{site.baseurl}}/unit/history">Scoring History</a>,
+            <a href="{{site.baseurl}}/unit/0">Anatomy of Java</a>
+        </td>
         <td><a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a></td>
         <td>TBD</td>
     </tr>
