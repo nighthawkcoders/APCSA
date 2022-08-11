@@ -9,7 +9,7 @@ categories: [tri1]
 ---
 
 # Innovation Sprint
-> Focus for the week is to get started on how you will use GitHub Pages and FastPages to capture your learning. Innovation is a time to explore, learn, and obtain skills needed to reach goals.  Work with your pair to expand on your ideas, two heads is better than one.
+> Focus for the week is to get started on how you will use GitHub Pages and FastPages to capture your learning by blogging. Innovation is a time to explore, learn, and obtain skills needed to reach goals.  Work with your pair to expand on your ideas, two heads is better than one.
 - Capturing notes while building Fastpages/GitHub pages yearlong individual posts and notebooks.
 - Review and enhance the Anatomy of Java; code using Java Primitives according to hacks or your own ideas.
 - Establish positive PBL habits: a focused mindset in the classroom, using work habits to achieve success.  Plan your day, maximize your class time.  Anything below 75% productivity could impact your seed.

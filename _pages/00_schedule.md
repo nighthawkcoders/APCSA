@@ -77,7 +77,7 @@ title: Schedule
         <td>3</td>
         <td><a href="">Creative Development</a></td>
         <td><a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a></td>
-        <td><a href="{{site.baseurl}}/tutorial/deploy">AWS, Docker, Nginx</a>,
+        <td><a href="{{site.baseurl}}/techtalk/deploy">AWS, Docker, Nginx</a>,
             <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>, and
             <a href="{{site.baseurl}}/techtalk/rapidapi">RapidAPIs</a>
         </td>
@@ -89,7 +89,7 @@ title: Schedule
         <td><a href="{{site.baseurl}}/week/2">Innovation Week 2 (Team)</a></td>
         <td><a href="{{site.baseurl}}/unit/2">Using Objects</a></td>
         <td><a href="{{site.baseurl}}/techtalk/2022/06/16/TT110-focus.html">Focus and Habits</a>, 
-            <a href="{{site.baseurl}}/frontend/overview">Frontend with Fastpages</a>
+            <a href="{{site.baseurl}}/menu/frontend">Frontend Menu Overview</a>
         </td>
         <td>TBD</td>
     </tr>

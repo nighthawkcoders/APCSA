@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /frontend/overview
+permalink: /menu/frontend
 title: Frontend
 ---
 

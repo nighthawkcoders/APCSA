@@ -2,14 +2,14 @@
 toc: true
 layout: post
 title: Team focused Innovation Sprint
-description: Think about what you need to accomplish in the Trimester, based off of what you know and what you think you need to learn to be successful in the class.  Create a Product Backlog, Brainstorm with Team a couple of times a week, and Start Iterative Development process.
+description: Think about what you need to accomplish in the Trimester based off of what you know, what you have reviewed, and what you think you need to learn to be successful in the class.  Create a Product Backlog, Brainstorm with Team a couple of times a week, and Start Iterative Development process.
 image: /images/innovation_sprint.png
 permalink: /week/2
 categories: [tri1]
 ---
 
 ## Plans Week 2
-Focus on College Board Unit 1 & 2; Individual and Pair Code/Code/Code when schedule allows.
+> Focus on College Board Unit 1 & 2, but do a light review on all 10 units.  Be sure to be planning ahead so you can Code/Code/Code when schedule allows.
 - Monday: Live Review with pairs showing post.  FYI, a Live Review is expecting student to drive dialog and questions.  Learn that Teacher likes: questions, discussion of failures, showing a progressive mindset.
 - Tuesday: Test Prep 2 - Review Unit 1, Discuss Unit 2.
 - Wednesday: Focus and Habits, Code/Code/Code
