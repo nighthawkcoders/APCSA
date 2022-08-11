@@ -22,6 +22,7 @@ categories: [tri1]
         - Work with AP FRQs and MCQs
         - Work with Code.org segments to complement Test Prep
         - Student led Paper FRQs and MCQ analysis exercises
+        - [Review of Scores]({{site.baseurl}}/unit/history)
     - Preparing for Internships, "Real World"
         - Follow practices to becoming a software engineer
         - Collaboratively Build, Deploy and Host Web Pages
