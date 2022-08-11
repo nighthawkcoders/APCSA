@@ -5,7 +5,6 @@ title: Schedule
 ---
 
  <!--  
- ## Trimester 1 - Java
 
 <table>
     <tr>
@@ -75,7 +74,8 @@ title: Schedule
     </tr>
 -->
 
-## Trimester 1 - Introduction to Tools, Development Environment, and Resources
+## Trimester 1 - Introduction to Tools and Resources
+> To teach Java and build skills for Career Technical Education we will quickly immerse into Tools and Resources.  Week 0-3 are about exposure to Development Environment and Methodologies that we plan to use throughout the year.  
 
 <table>
     <tr>
