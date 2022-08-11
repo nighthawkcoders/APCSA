@@ -10,11 +10,11 @@ categories: [tri1]
 
 ## Plans Week 2
 > Focus on College Board Unit 1 & 2, but do a light review on all 10 units.  Be sure to be planning ahead so you can Code/Code/Code when schedule allows.
-- Monday: Live Review with pairs showing post.  FYI, a Live Review is expecting student to drive dialog and questions.  Learn that Teacher likes: questions, discussion of failures, showing a progressive mindset.
+- Monday: Live Review with pairs showing GH Pages _posts.  FYI, a Live Review is expecting student to drive dialog and questions.  Learn that Teacher likes: questions, discussion of failures, showing a progressive mindset.
 - Tuesday: Test Prep 2 - Review Unit 1, Discuss Unit 2.
 - Wednesday: Focus and Habits, Code/Code/Code
 - Thursday: Frontend with Fastpages, Code/Code/Code
-- Friday: Live Review with Scrum Masters and Team, be ready to discuss "Innovation, Collaboration, Planning, and Initial Project" on ...
+- Friday: Cross Over Grading, be ready to discuss "Innovation, Collaboration, Planning, and Initial Project" on ...
     - Fun zone, unique idea(s)
     - Educational zone(s)
     - Individuals jobs and tangibles
@@ -27,4 +27,3 @@ categories: [tri1]
     - Roles Pages
 - Individual
     - _notebooks: "Primitive Data Types"
-
