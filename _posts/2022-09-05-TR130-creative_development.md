@@ -3,7 +3,7 @@ toc: true
 layout: post
 title: Creative Development Sprint
 description: At this point you should have Tools setup, Issues in a sprint, Iterative  and learning/development objectives.  At these early stages of development it is about pair programming, collaborating with each other and teacher, and responding to change.  Go after your fun zone and educational zone, be creative, but also start make a working product.
-image: /images/manifest.jpeg
+image: /images/manifesto.jpeg
 permalink: /week/3
 categories: [tri1]
 ---
