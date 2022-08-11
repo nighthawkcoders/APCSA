@@ -3,7 +3,9 @@ layout: page
 permalink: /schedule
 title: Schedule
 ---
-## Trimester 1
+
+ <!--  
+ ## Trimester 1 - Java
 
 <table>
     <tr>
@@ -14,7 +16,6 @@ title: Schedule
      <th>Canvas</th>
     </tr>
 
- <!--  
     <tr>
         <td>10</td>
         <td><a href=""></a>Analytics</td>
@@ -73,6 +74,18 @@ title: Schedule
         <td>TBD</td>
     </tr>
 -->
+
+## Trimester 1 - Introduction and Tools
+
+<table>
+    <tr>
+     <th>Week</th>
+     <th>Sprint</th>
+     <th>AP Test Prep</th>
+     <th>Career Tech</th>
+     <th>Canvas</th>
+    </tr>
+
     <tr>
         <td>3</td>
         <td><a href="">Creative Development</a></td>
