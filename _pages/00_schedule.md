@@ -3,9 +3,60 @@ layout: page
 permalink: /schedule
 title: Schedule
 ---
+## Trimester 1 - Introduction to Tools and Resources
+> To teach Java and build skills for Career Technical Education we will quickly immerse into Tools and Resources.  Week 0-3 are about exposure to Development Environment and Methodologies that we plan to use throughout the year.  
 
- <!--  
+<table>
+    <tr>
+     <th>Week</th>
+     <th>Sprint</th>
+     <th>AP Test Prep</th>
+     <th>Career Tech</th>
+     <th>Canvas</th>
+    </tr>
 
+    <tr>
+        <td>3</td>
+        <td><a href="{{site.baseurl}}/week/3">Creative Development</a></td>
+        <td><a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a></td>
+        <td><a href="{{site.baseurl}}/techtalk/deploy">Deployment Guide</a>,
+            <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>, and
+            <a href="{{site.baseurl}}/techtalk/rapidapi">RapidAPIs</a>
+        </td>
+        <td>TBD</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td><a href="{{site.baseurl}}/week/2">Innovation Week 2 (Team)</a></td>
+        <td><a href="{{site.baseurl}}/unit/2">Using Objects</a></td>
+        <td><a href="{{site.baseurl}}/techtalk/focus">Focus and Habits</a>, 
+            <a href="{{site.baseurl}}/menu/frontend">Frontend Menu Overview</a>
+        </td>
+        <td>TBD</td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td><a href="{{site.baseurl}}/week/1">Innovation Week 1 (Pair)</a></td>
+        <td><a href="{{site.baseurl}}/unit/1">Primitives</a></td>
+        <td><a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>, 
+            <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
+        </td> 
+        <td>TBD</td>
+    </tr>
+    
+    <tr>
+        <td>0</td>
+        <td><a href="{{site.baseurl}}/week/0">Introduction</a></td>
+        <td><a href="{{site.baseurl}}/unit/0">Anatomy of Java</a></td>
+        <td><a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a></td>
+        <td>TBD</td>
+    </tr>
+    
+</table>
+
+<!-- 
 <table>
     <tr>
      <th>Week</th>
@@ -73,56 +124,3 @@ title: Schedule
         <td>TBD</td>
     </tr>
 -->
-
-## Trimester 1 - Introduction to Tools and Resources
-> To teach Java and build skills for Career Technical Education we will quickly immerse into Tools and Resources.  Week 0-3 are about exposure to Development Environment and Methodologies that we plan to use throughout the year.  
-
-<table>
-    <tr>
-     <th>Week</th>
-     <th>Sprint</th>
-     <th>AP Test Prep</th>
-     <th>Career Tech</th>
-     <th>Canvas</th>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td><a href="{{site.baseurl}}/week/3">Creative Development</a></td>
-        <td><a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/deploy">Deployment Guide</a>,
-            <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>, and
-            <a href="{{site.baseurl}}/techtalk/rapidapi">RapidAPIs</a>
-        </td>
-        <td>TBD</td>
-    </tr>
-
-    <tr>
-        <td>2</td>
-        <td><a href="{{site.baseurl}}/week/2">Innovation Week 2 (Team)</a></td>
-        <td><a href="{{site.baseurl}}/unit/2">Using Objects</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/focus">Focus and Habits</a>, 
-            <a href="{{site.baseurl}}/menu/frontend">Frontend Menu Overview</a>
-        </td>
-        <td>TBD</td>
-    </tr>
-
-    <tr>
-        <td>1</td>
-        <td><a href="{{site.baseurl}}/week/1">Innovation Week 1 (Pair)</a></td>
-        <td><a href="{{site.baseurl}}/unit/1">Primitives</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>, 
-            <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
-        </td> 
-        <td>TBD</td>
-    </tr>
-    
-    <tr>
-        <td>0</td>
-        <td><a href="{{site.baseurl}}/week/0">Introduction</a></td>
-        <td><a href="{{site.baseurl}}/unit/0">Anatomy of Java</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a></td>
-        <td>TBD</td>
-    </tr>
-    
-</table>
