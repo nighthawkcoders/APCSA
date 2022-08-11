@@ -3,6 +3,8 @@ toc: true
 layout: post
 description: 
 categories: [collegeboard]
+permalink: /unit/history
+image: /images/ap_scores.png
 title: History of Student Scoring on AP Exam
 ---
 
