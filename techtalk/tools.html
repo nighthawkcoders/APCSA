@@ -105,7 +105,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#macos-1st-time-developer">MacOS 1st Time Developer</a></li>
 <li class="toc-entry toc-h3"><a href="#windows-1st-time-developer">Windows 1st Time Developer</a></li>
 <li class="toc-entry toc-h3"><a href="#vscode-for-java">VSCode for Java</a></li>
-<li class="toc-entry toc-h3"><a href="#vscode-for-python-optional-but-those-that-took-csp-may-want-it">VSCode for Python (Optional, but those that took CSP may want it)</a></li>
+<li class="toc-entry toc-h3"><a href="#vscode-for-python">VSCode for Python</a></li>
 <li class="toc-entry toc-h3"><a href="#vscode-java-project">VSCode Java Project</a></li>
 <li class="toc-entry toc-h3"><a href="#vscode-fastpages-project">VSCode Fastpages Project</a></li>
 <li class="toc-entry toc-h3"><a href="#vscode-marketplace-and-extensions">VSCode Marketplace and Extensions</a></li>
@@ -225,8 +225,8 @@ window.onload = wrap_img;
   </li>
 </ul>
 
-<h3 id="vscode-for-python-optional-but-those-that-took-csp-may-want-it">
-<a class="anchor" href="#vscode-for-python-optional-but-those-that-took-csp-may-want-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>VSCode for Python (Optional, but those that took CSP may want it)</h3>
+<h3 id="vscode-for-python">
+<a class="anchor" href="#vscode-for-python" aria-hidden="true"><span class="octicon octicon-link"></span></a>VSCode for Python</h3>
 <blockquote>
   <p>Follow instructions to prepare VSCode for Python development.</p>
   <ul>
@@ -257,7 +257,11 @@ window.onload = wrap_img;
       <li>Verify GitHub pages is running</li>
       <li>Install Jupyter Kernel Spec for Java (IJava) on your machine <a href="https://github.com/SpencerPark/IJava#install-pre-built-binary">https://github.com/SpencerPark/IJava#install-pre-built-binary</a>
         <ul>
-          <li>More on Jupyter Kernel if problems occur https://www.geeksforgeeks.org/how-to-install-jupyter-notebook-on-macos/</li>
+          <li>If you have problems with IJava try “–user” option versus procedure recommended “–sys-prefix”.  This installs kernel into the user specific kernelspec location.
+            <ul>
+              <li>python install.py –user</li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li>VSCode Clone new GitHub Project</li>
