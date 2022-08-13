@@ -249,25 +249,32 @@ window.onload = wrap_img;
     <li>Open Command / Powershell to set directory to home (~).  If you are not looking like this you need to back up.
       <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>PS C:<span class="se">\U</span>sers<span class="se">\S</span>hayM&gt; wsl
-<span class="o">(</span>base<span class="o">)</span> shay@MSI:/mnt/c/Users/ShayM<span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="o">(</span>base<span class="o">)</span> shay@MSI:/mnt/c/Users/ShayM<span class="err">$</span>
 </code></pre></div>      </div>
     </li>
-    <li>Install Juypter and check kernels
-(base) shay@MSI:~$ conda –version 
-(base) shay@MSI:~$ conda install jupyter
-(base) shay@MSI:~$ jupyter kernelspec list
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p>Install Juypter and check kernels</p>
+  <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="o">(</span>base<span class="o">)</span> shay@MSI:~<span class="nv">$ </span>conda <span class="nt">--version</span> 
+<span class="o">(</span>base<span class="o">)</span> shay@MSI:~<span class="nv">$ </span>conda <span class="nb">install </span>jupyter <span class="c"># install jupyter</span>
+<span class="o">(</span>base<span class="o">)</span> shay@MSI:~<span class="nv">$ </span>jupyter kernelspec list <span class="c"># list installed kernels</span>
 Available kernels:
-python3    /home/shay/.local/share/jupyter/kernels/python3
-pip install bash_kernel # install bash kernel
-python -m bash_kernel.install  # build the kernel
-      <div class="language-plaintext highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>Install Bash kernel.
-```base
-PS C:\Users\ShayM&gt; wsl
+  python3    /home/shay/.local/share/jupyter/kernels/python3
+pip <span class="nb">install </span>bash_kernel <span class="c"># install bash kernel</span>
+python <span class="nt">-m</span> bash_kernel.install  <span class="c"># build the kernel</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>Install Bash kernel.</p>
+  <pre><code class="language-base">PS C:\Users\ShayM&gt; wsl
 (base) shay@MSI:/mnt/c/Users/ShayM$ cd ~
 (base) shay@MSI:~$ pip install bash_kernel
 Collecting bash_kernel
-Downloading bash_kernel-0.7.2-py2.py3-none-any.whl (15 kB)
+  Downloading bash_kernel-0.7.2-py2.py3-none-any.whl (15 kB)
 Requirement already satisfied: pexpect&gt;=4.0 in ./anaconda3/lib/python3.9/site-packages (from bash_kernel) (4.8.0)
 Requirement already satisfied: ptyprocess&gt;=0.5 in ./anaconda3/lib/python3.9/site-packages (from pexpect&gt;=4.0-&gt;bash_kernel) (0.7.0)
 Installing collected packages: bash-kernel
@@ -276,11 +283,9 @@ Successfully installed bash-kernel-0.7.2
 Installing IPython kernel spec
 (base) shay@MSI:~$ jupyter kernelspec list
 Available kernels:
-bash       /home/shay/.local/share/jupyter/kernels/bash
-python3    /home/shay/.local/share/jupyter/kernels/python3
-</code></pre></div>      </div>
-    </li>
-  </ul>
+  bash       /home/shay/.local/share/jupyter/kernels/bash
+  python3    /home/shay/.local/share/jupyter/kernels/python3
+</code></pre>
 </blockquote>
 
 <blockquote>
@@ -301,20 +306,18 @@ Available kernels:
 
 <blockquote>
   <p>Install Java kernel.</p>
-  <ul>
-    <li>Download and extract release
-      <div class="language-bash highlighter-rouge">
+  <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip
 <span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>unzip
 <span class="nv">$ </span>python install.py <span class="nt">--user</span>
 <span class="nv">$ </span>jupyter kernelspec list
 Available kernels:
-bash          /home/shay/.local/share/jupyter/kernels/bash
-java          /home/shay/.local/share/jupyter/kernels/java
-javascript    /home/shay/.local/share/jupyter/kernels/javascript
-python3       /home/shay/.local/share/jupyter/kernels/python3
-</code></pre></div>      </div>
-    </li>
+  bash          /home/shay/.local/share/jupyter/kernels/bash
+  java          /home/shay/.local/share/jupyter/kernels/java
+  javascript    /home/shay/.local/share/jupyter/kernels/javascript
+  python3       /home/shay/.local/share/jupyter/kernels/python3
+</code></pre></div>  </div>
+  <ul>
     <li>Authors GitHub for IJava <a href="https://github.com/SpencerPark/IJava#install-pre-built-binary">https://github.com/SpencerPark/IJava#install-pre-built-binary</a>
 </li>
   </ul>
