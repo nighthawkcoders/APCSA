@@ -242,13 +242,13 @@ window.onload = wrap_img;
 <h3 id="jupyter-install-and-kernels">
 <a class="anchor" href="#jupyter-install-and-kernels" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jupyter Install and Kernels</h3>
 <blockquote>
-  <p>At this point the task is to prepare for Jupyter Notebooks and Kernels.</p>
+  <p>At this point the task is to prepare for Jupyter Notebooks and Kernels.  <mark>You must a new WSL Command / Powershell</mark>.  Now the WSL prompt should be <mark>prefixed with (base)</mark>.  If not, you need to go back to Anaconda install.</p>
   <ul>
-    <li>In new WSL Command / Powershell, the WSL prompt should be <mark>prefixed with (base)</mark>.  If not, you need to go back to Anaconda install.</li>
     <li>Open Command / Powershell to set directory to home (~).  If you are not looking like this you need to back up.
       <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>PS C:<span class="se">\U</span>sers<span class="se">\S</span>hayM&gt; wsl
-<span class="o">(</span>base<span class="o">)</span> shay@MSI:/mnt/c/Users/ShayM<span class="err">$</span>
+<div class="highlight"><pre class="highlight"><code>PS C:<span class="se">\U</span>sers<span class="se">\S</span>hayM&gt; wsl  <span class="c"># Windows prompt</span>
+<span class="o">(</span>base<span class="o">)</span> shay@MSI:/mnt/c/Users/ShayM<span class="nv">$ </span><span class="nb">cd</span> ~ <span class="c"># WSL prompt</span>
+<span class="o">(</span>base<span class="o">)</span> shay@MSI:~<span class="nv">$ </span><span class="c"># WSL home</span>
 </code></pre></div>      </div>
     </li>
   </ul>
