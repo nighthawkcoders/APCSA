@@ -160,6 +160,14 @@ window.onload = wrap_img;
 <h3 id="macos-1st-time-developer">
 <a class="anchor" href="#macos-1st-time-developer" aria-hidden="true"><span class="octicon octicon-link"></span></a>MacOS 1st Time Developer</h3>
 <blockquote>
+  <p>Python2 install on MacOS</p>
+  <ul>
+    <li>Install <a href="https://www.python.org/ftp/python/2.7.18/python-2.7.18-macosx10.9.pkg">Python2</a>
+</li>
+  </ul>
+</blockquote>
+
+<blockquote>
   <p>VSCode install on MacOS.</p>
   <ul>
     <li>Install <a href="https://code.visualstudio.com/docs/setup/mac">VSCode</a>
@@ -201,8 +209,8 @@ window.onload = wrap_img;
 <span class="nv">$ </span>brew update <span class="c"># update package list</span>
 <span class="nv">$ </span>brew upgrade <span class="c"># upgrade packages</span>
 <span class="nv">$ </span>brew <span class="nb">install </span>git  <span class="c"># install latest git</span>
-<span class="nv">$ </span>brew <span class="nb">install </span>python <span class="c"># install python3</span>
-<span class="nv">$ </span>python3 <span class="nt">--version</span> <span class="c"># version of python3 installed</span>
+<span class="nv">$ </span>brew <span class="nb">install </span>python <span class="c"># install python3 for development</span>
+<span class="nv">$ </span>python <span class="nt">--version</span> <span class="c"># version of python3 installed</span>
 <span class="nv">$ </span>brew <span class="nb">install </span>java <span class="c"># openjdk install</span>
 <span class="nv">$ </span>java <span class="nt">--version</span> <span class="c"># version of runtime</span>
 <span class="nv">$ </span>javac <span class="nt">--version</span> <span class="c"># version of compiler</span>
@@ -230,11 +238,13 @@ window.onload = wrap_img;
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt list <span class="c"># list packages</span>
 <span class="nv">$ </span><span class="nb">sudo </span>apt update <span class="c"># update package list</span>
 <span class="nv">$ </span><span class="nb">sudo </span>apt upgrade <span class="c"># upgrade packages</span>
-<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>python3 python3-pip <span class="c"># install python3 and pip3</span>
-<span class="nv">$ </span>python3 <span class="nt">--version</span>  <span class="c"># version of python3 installed</span>
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>python2 <span class="c"># install python2 for package dependencies</span>
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>python3 python3-pip <span class="c"># install python3 and pip3 for development</span>
+<span class="nv">$ </span>python <span class="nt">--version</span>  <span class="c"># version of python3 should be shown</span>
 <span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>default-jdk default-jre  <span class="c"># java install</span>
 <span class="nv">$ </span>java <span class="nt">--version</span>  <span class="c"># java runtime version</span>
 <span class="nv">$ </span>javac <span class="nt">--version</span> <span class="c"># java compiler version</span>
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>unzip  <span class="c"># unzip utility</span>
 </code></pre></div>      </div>
       <p>Anaconda is an environment manager on Ubuntu as well as MacOs, Windows, and other Linux. This will help us manage our projects.</p>
     </li>
@@ -301,8 +311,7 @@ Available kernels:
 <blockquote>
   <p>Install JavaScript kernel.</p>
   <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>python2  <span class="c"># Python2 is required for process</span>
-<span class="nv">$ </span>conda <span class="nb">install </span>nodejs <span class="c"># node is framework for JavaScript kernel</span>
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>conda <span class="nb">install </span>nodejs <span class="c"># node is framework for JavaScript kernel</span>
 <span class="nv">$ </span>npm <span class="nt">-version</span>  <span class="c"># node package manager comes with nodejs</span>
 <span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> ijavascript  <span class="c"># get the kernel</span>
 <span class="nv">$ </span>ijsinstall <span class="c"># install it</span>
@@ -318,7 +327,6 @@ Available kernels:
   <p>Install Java kernel.</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip  <span class="c"># download IJava kernel as zip</span>
-<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>unzip  <span class="c"># unzip to extract IJava kernel</span>
 <span class="nv">$ </span>unzip ijava-1.3.0.zip <span class="c"># unzip downloaded IJava kernel</span>
 <span class="nv">$ </span>python install.py <span class="nt">--user</span> <span class="c"># install IJava kernel</span>
 <span class="nv">$ </span>jupyter kernelspec list <span class="c"># list kernels</span>
