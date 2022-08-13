@@ -185,12 +185,15 @@ window.onload = wrap_img;
   <ul>
     <li>In a Terminal install Git and Python3
       <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>brew list <span class="c"># list packages</span>
-brew update <span class="c"># update package list</span>
-brew upgrade <span class="c"># upgrade packages</span>
-brew <span class="nb">install </span>git  <span class="c"># install latest git</span>
-brew <span class="nb">install </span>python <span class="c"># install python3</span>
-python3 <span class="nt">--version</span> <span class="c"># version of python3 installed</span>
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew list <span class="c"># list packages</span>
+<span class="nv">$ </span>brew update <span class="c"># update package list</span>
+<span class="nv">$ </span>brew upgrade <span class="c"># upgrade packages</span>
+<span class="nv">$ </span>brew <span class="nb">install </span>git  <span class="c"># install latest git</span>
+<span class="nv">$ </span>brew <span class="nb">install </span>python <span class="c"># install python3</span>
+<span class="nv">$ </span>python3 <span class="nt">--version</span> <span class="c"># version of python3 installed</span>
+<span class="nv">$ </span>brew <span class="nb">install </span>java <span class="c"># openjdk install</span>
+<span class="nv">$ </span>java <span class="nt">--version</span> <span class="c"># version of runtime</span>
+<span class="nv">$ </span>javac <span class="nt">--version</span> <span class="c"># version of compiler</span>
 </code></pre></div>      </div>
       <p>Anaconda is Environment Manager on MaOS as well as Windows and Linux. This will help us manage our projects.</p>
     </li>
@@ -228,10 +231,10 @@ python3 <span class="nt">--version</span> <span class="c"># version of python3 i
     </li>
     <li>We need to find the link for latest Linux-x86 distribution at the bottom of this page: https://www.anaconda.com/products/distribution.  In a WSL Command / Powershell you will do the following replacing location and command according to data in copied link.
       <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~
-wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="nv">$ </span>wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
 <span class="c"># Answer yes to all the prompts</span>
-./Anaconda3-2022.05-Linux-x86_64.sh
+<span class="nv">$ </span>./Anaconda3-2022.05-Linux-x86_64.sh
 </code></pre></div>      </div>
     </li>
   </ul>
