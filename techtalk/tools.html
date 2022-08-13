@@ -261,7 +261,7 @@ python3    /home/shay/.local/share/jupyter/kernels/python3
 pip install bash_kernel # install bash kernel
 python -m bash_kernel.install  # build the kernel
       <div class="language-plaintext highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>Install Bash kernel
+<div class="highlight"><pre class="highlight"><code>Install Bash kernel.
 ```base
 PS C:\Users\ShayM&gt; wsl
 (base) shay@MSI:/mnt/c/Users/ShayM$ cd ~
@@ -284,7 +284,7 @@ python3    /home/shay/.local/share/jupyter/kernels/python3
 </blockquote>
 
 <blockquote>
-  <p>Install JavaScript kernel.  The outputs from these are verbose so everthing is abbreviated to commands.</p>
+  <p>Install JavaScript kernel.</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>python2  <span class="c"># Python2 is required for process</span>
 <span class="nv">$ </span>conda <span class="nb">install </span>nodejs <span class="c"># node is framework for JavaScript kernel</span>
@@ -300,9 +300,24 @@ Available kernels:
 </blockquote>
 
 <blockquote>
-  <p>Install Java kernel. Install Jupyter Kernel Spec for Java (IJava) on your machine <a href="https://github.com/SpencerPark/IJava#install-pre-built-binary">https://github.com/SpencerPark/IJava#install-pre-built-binary</a>
-    - If you have problems with IJava try “–user” option versus procedure recommended “–sys-prefix”.  This installs kernel into the user specific kernelspec location.
-        - python install.py –user</p>
+  <p>Install Java kernel.</p>
+  <ul>
+    <li>Download and extract release
+      <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>unzip
+<span class="nv">$ </span>python install.py <span class="nt">--user</span>
+<span class="nv">$ </span>jupyter kernelspec list
+Available kernels:
+bash          /home/shay/.local/share/jupyter/kernels/bash
+java          /home/shay/.local/share/jupyter/kernels/java
+javascript    /home/shay/.local/share/jupyter/kernels/javascript
+python3       /home/shay/.local/share/jupyter/kernels/python3
+</code></pre></div>      </div>
+    </li>
+    <li>Authors GitHub for IJava <a href="https://github.com/SpencerPark/IJava#install-pre-built-binary">https://github.com/SpencerPark/IJava#install-pre-built-binary</a>
+</li>
+  </ul>
 </blockquote>
 
 <h3 id="vscode-for-java">
