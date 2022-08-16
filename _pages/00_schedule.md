@@ -54,7 +54,7 @@ title: Schedule
             <a href="{{site.baseurl}}/unit/0">Anatomy of Java</a>
         </td>
         <td><a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a></td>
-        <td>TBD</td>
+        <td><a href="https://poway.instructure.com/courses/127262/assignments/2206681">Tool Setup</a></td>
     </tr>
     
 </table>
