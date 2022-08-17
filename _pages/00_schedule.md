@@ -43,7 +43,7 @@ title: Schedule
         <td><a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>, 
             <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
         </td> 
-        <td>TBD</td>
+        <td><a href="https://poway.instructure.com/courses/127262/assignments/2295018">Innovation - Primitives</a></td>
     </tr>
     
     <tr>
