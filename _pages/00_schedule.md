@@ -40,8 +40,10 @@ title: Schedule
         <td>1</td>
         <td><a href="{{site.baseurl}}/week/1">Innovation Week 1 (Pair)</a></td>
         <td><a href="{{site.baseurl}}/unit/1">Primitives</a></td>
-        <td><a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>, 
-            <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
+        <td>
+            <a href="{{site.baseurl}}/techtalk/bash">Bash and Checks</a>,
+            <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>,
+            <a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>
         </td> 
         <td><a href="https://poway.instructure.com/courses/127262/assignments/2295018">Innovation - Primitives</a></td>
     </tr>
