@@ -39,7 +39,10 @@ title: Schedule
     <tr>
         <td>1</td>
         <td><a href="{{site.baseurl}}/week/1">Innovation Week 1 (Pair)</a></td>
-        <td><a href="{{site.baseurl}}/unit/1">Primitives</a></td>
+        <td>
+            <a href="{{site.baseurl}}/unit/1">Primitives</a>,
+            <a href="{{site.baseurl}}/collegeboard/anthony-and-sahil">Reflections on Computer Science</a>
+        </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/bash">Bash and Checks</a>,
             <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>,
