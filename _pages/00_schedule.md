@@ -4,7 +4,7 @@ permalink: /schedule
 title: Schedule
 ---
 ## Introduction to Tools and Resources
-> To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging.  The early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, and Programming Java with Jupyter Notebooks.  
+> To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging.  The early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks.  
 
 <table>
     <tr>
@@ -58,6 +58,7 @@ title: Schedule
             <a href="{{site.baseurl}}/menu/frontend">Fastpages "Frontend" Menu</a>
         </td>
         <td>
+            <a href="{{apcsp}}/points/2">Innovation Points</a>
         </td>
     </tr>
 
