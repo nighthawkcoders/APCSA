@@ -56,7 +56,7 @@ title: Schedule
             <a href="http://code.org/">Code.org Unit 1 OOP (6-12)</a>
         </td>
         <td>
-            <a href="{{site.baseurl}}/menu/frontend">Frontend Menu Overview</a>
+            <a href="{{site.baseurl}}/menu/frontend">Fastpages "Frontend" Menu</a>
         </td>
         <td>
         </td>
