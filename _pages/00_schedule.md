@@ -4,7 +4,7 @@ permalink: /schedule
 title: Schedule
 ---
 ## Introduction to Tools and Resources
-> To learn Java and build skills for Career Technical Education we will quickly immerse the students into Tools and Resources.  The early weeks will focus on the Development Environment, Code.org resources, and introduction to Java Programming through Jupyter Notebooks.  
+> To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging.  The early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, and Programming Java with Jupyter Notebooks.  
 
 <table>
     <tr>
