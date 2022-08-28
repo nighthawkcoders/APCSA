@@ -193,12 +193,12 @@ title: Schedule
     <tr>
         <td>10</td>
         <td>
+            <a href="">Recursion❗️</a>
+        </td>
+        <td>
+        </td>
+        <td>
             <a href="">Analytics❗️</a>
-        </td>
-        <td>
-        </td>
-        <td>
-            <a href="">Recursion</a>
         </td>
         <td>
             <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-7-Sorts">Intro to Sorts</a>
