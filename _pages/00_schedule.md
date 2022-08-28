@@ -118,7 +118,7 @@ title: Schedule
     <tr>
         <td>6</td>
         <td>
-            <a href="">Array</a>
+            <a href="">Array❗️</a>
         </td>
         <td>
             <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
