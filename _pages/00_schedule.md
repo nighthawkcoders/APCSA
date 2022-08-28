@@ -88,6 +88,7 @@ title: Schedule
         </td>
             <a href="{{site.baseurl}}/unit/history">Scoring History</a>
         <td>
+            <a href="{{site.baseurl}}/collegeboard/history">Scoring History</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/unit/0">Anatomy of Java</a>
