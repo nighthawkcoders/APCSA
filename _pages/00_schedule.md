@@ -54,6 +54,7 @@ title: Schedule
             <a href="{{site.baseurl}}/week/2">Innovation Week 2 (Team)</a>
         </td>
         <td>
+            <a href="{{site.baseurl}}/collegeboard/anthony-and-sahil">Reflections on Computer Science</a>
             Alumni Panel (extra credit)
         </td>
         <td>
@@ -73,7 +74,7 @@ title: Schedule
 
     <tr>
         <td>
-            1 🚧
+            1 💰
         </td>
         <td>
             <a href="{{site.baseurl}}/week/1">Innovation Week 1 (Pair)</a>
@@ -172,7 +173,7 @@ title: Schedule
             <a href="">Iteration❗️</a>
         </td>
         <td>
-            <a href="{{site.baseurl}}/collegeboard/anthony-and-sahil">Reflections on Computer Science</a>
+            
         </td>
         <td>
             <a href="https://csa.nighthawkcodingsociety.com/mvc/fibonacci">Iteration 3 ways</a>
