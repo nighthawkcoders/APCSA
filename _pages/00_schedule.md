@@ -3,6 +3,9 @@ layout: page
 permalink: /schedule
 title: Schedule
 ---
+{% assign apcsa = "https://nighthawkcoders.github.io/APCSA" %}
+{% assign code-org = "https://studio.code.org/courses/csa-2022?section_id=4160330" %}
+
 ## Introduction to Tools and Resources
 > To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging.  The early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks.  
 
@@ -52,13 +55,13 @@ title: Schedule
         <td>
             <a href="{{site.baseurl}}/unit/2">Using Objects</a>
             <br>
-            <a href="http://code.org/">Code.org Unit 1 OOP (Finish It!)</a>
+            <a href="{{code.org}}">Code.org Unit 1 OOP (Finish It!)</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/menu/frontend">Fastpages "Frontend" Menu</a>
         </td>
         <td>
-            <a href="{{apcsp}}/points/2">Innovation Points</a>
+            <a href="{{apcsa}}/points/2">Innovation Points</a>
         </td>
     </tr>
 
@@ -75,7 +78,7 @@ title: Schedule
         <td>
             <a href="{{site.baseurl}}/unit/1">Primitives</a>
             <br>
-            <a href="http://code.org/">Code.org Unit 1 OOP (1-5)</a>
+            <a href="{{code.org}}">Code.org Unit 1 OOP (1-5)</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/bash">Bash and Checks</a>
