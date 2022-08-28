@@ -29,13 +29,14 @@ categories: [tri1]
 ### Live Grading Presentation.  
 > Each individual needs to perform their own work. However, I would like to see a plan that show you worked with Pair and/or Team.  The presentation can be according to your own style, but consider the following...
 - Note.  A Live Review is expecting students to drive dialog and questions.  Additionally, learn that Teacher likes: questions, discussion of failures, showing a progressive mindset.
-- Individual.  A blog that highlights learnings and takeaways from Code.org
-- Pair/Team.  A blog that shows Math Library Project / Or Idea of Choice
-    - A shared repository, team or pair.  My suggestion is using Spring Portfolio project as template, as this is the start to a backend project.   In my projects, I have placed "hacks" directory inside of Spring project and it has worked fine. 
-    - Issues or Blag that show you have planned and to divides up work
-    - Jupyter notebook or Posts that highlights key portions of code and enables me to find or run it quickly.
-- Review Ticket. Every time requirements.
-    - Create Comment in this Blog.  Crossover grades, Crossover Comments, and Blog(s) used during week.
-    - Be prepared to go fast, but show everything in under 5 minutes.  3.5 minutes is preferred time for 4 people.
-    - Jupyter Notebooks contain comments and Markdown cells
-    - Output of Jupyter code is required in Blogs
+- Individual.  Blogging or Issues that highlights key learnings and takeaways from Code.org
+- Pair/Team.  Blogging or Issues that shows Math Library Project / Or Idea of Choice
+    - A shared repository, team or pair.  My suggestion is using Spring Portfolio project as template, as this is the start to a backend project.   In my projects, I have placed "hacks" directory inside of Spring project and it has worked fine.  Later you may want to expand on ideas and make them serviceable via APIs.
+    - Issues or Blog that show you have planned to divide up work between pair and team
+    - Jupyter notebook or Posts that highlights key code requirements, consideration should be made to find or run it quickly.
+- Review and Review Ticket. 
+    - Every time requirements.
+        - Create Comment in this Points Blog.  Include crossover grades, crossover comments, and blog(s) used during week.
+        - Be prepared to present fast, be clear, and show everything in under 5 minutes.  3.5 minutes is preferred time for 4 people.
+        - Jupyter Notebooks contain comments and markdown cells that describe work.
+        - Output of Jupyter Notebook is required when posting the Blog.
