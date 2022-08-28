@@ -29,7 +29,6 @@ title: Schedule
         <td>
             <a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a>
             <br>
-            <a href="http://code.org/">Code.org Unit 1 OOP (Finish it!)</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>
@@ -53,7 +52,7 @@ title: Schedule
         <td>
             <a href="{{site.baseurl}}/unit/2">Using Objects</a>
             <br>
-            <a href="http://code.org/">Code.org Unit 1 OOP (6-12)</a>
+            <a href="http://code.org/">Code.org Unit 1 OOP (Finish It!)</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/menu/frontend">Fastpages "Frontend" Menu</a>
