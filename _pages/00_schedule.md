@@ -86,7 +86,6 @@ title: Schedule
         <td>
             <a href="{{site.baseurl}}/week/0">Introduction</a>
         </td>
-            <a href="{{site.baseurl}}/unit/history">Scoring History</a>
         <td>
             <a href="{{site.baseurl}}/collegeboard/history">Scoring History</a>
         </td>
