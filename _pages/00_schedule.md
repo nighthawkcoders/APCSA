@@ -16,7 +16,7 @@ title: Schedule
      <th>Human Prep</th>
      <th>AP Test Prep</th>
      <th>Career Tech</th>
-     <th>Canvas</th>
+     <th>Points</th>
     </tr>
 
     <tr>
@@ -61,7 +61,7 @@ title: Schedule
             <a href="{{site.baseurl}}/menu/frontend">Fastpages "Frontend" Menu</a>
         </td>
         <td>
-            <a href="{{apcsa}}/points/2">Innovation Points</a>
+            <a href="{{apcsa}}/points/2">Innovation - Using Objects</a>
         </td>
     </tr>
 
@@ -123,7 +123,7 @@ title: Schedule
      <th>Human Prep</th>
      <th>AP Test Prep</th>
      <th>Career Tech</th>
-     <th>Canvas</th>
+     <th>Points</th>
     </tr>
 
     <tr>
@@ -191,7 +191,7 @@ title: Schedule
      <th>Human Prep</th>
      <th>AP Test Prep</th>
      <th>Career Tech</th>
-     <th>Canvas</th>
+     <th>Points</th>
     </tr>
 
     <tr>

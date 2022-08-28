@@ -2,7 +2,7 @@
 toc: true
 comments: true
 layout: post
-title: Using Objects Points
+title: Innovation - Using Objects Points
 description: Don't do it alone.  4 person grading.
 permalink: /points/2
 image: /images/points.jpeg
