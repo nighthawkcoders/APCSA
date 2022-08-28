@@ -23,7 +23,7 @@ title: Schedule
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/focus">Focus and Habits</a> 
-        </th>
+        </td>
         <td>
             <a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a>
             <br>
