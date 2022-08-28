@@ -17,7 +17,9 @@ title: Schedule
     </tr>
 
     <tr>
-        <td>3</td>
+        <td>
+            3
+        </td>
         <td>
             <a href="{{site.baseurl}}/week/3">Creative Development</a>
         </td>
@@ -39,7 +41,9 @@ title: Schedule
     </tr>
 
     <tr>
-        <td>2</td>
+        <td>
+            2 🚧
+        </td>
         <td>
             <a href="{{site.baseurl}}/week/2">Innovation Week 2 (Team)</a>
         </td>
@@ -59,7 +63,9 @@ title: Schedule
     </tr>
 
     <tr>
-        <td>1</td>
+        <td>
+            1 🚧
+        </td>
         <td>
             <a href="{{site.baseurl}}/week/1">Innovation Week 1 (Pair)</a>
         </td>
@@ -82,7 +88,9 @@ title: Schedule
     </tr>
     
     <tr>
-        <td>0</td>
+        <td>
+            0 💰
+        </td>
         <td>
             <a href="{{site.baseurl}}/week/0">Introduction</a>
         </td>
