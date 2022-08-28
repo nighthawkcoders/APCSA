@@ -34,7 +34,8 @@ title: Schedule
             <br>
             <a href="{{site.baseurl}}/techtalk/deploy">Deployment Guide</a>
         </td>
-        <td>TBD</td>
+        <td>
+        </td>
     </tr>
 
     <tr>
@@ -53,7 +54,8 @@ title: Schedule
         <td>
             <a href="{{site.baseurl}}/menu/frontend">Frontend Menu Overview</a>
         </td>
-        <td>TBD</td>
+        <td>
+        </td>
     </tr>
 
     <tr>
