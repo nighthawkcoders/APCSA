@@ -157,13 +157,13 @@ title: Schedule
     <tr>
         <td>5</td>
         <td>
-            <a href="">Writing Classes❗️</a>
+            <a href="">Iteration and Writing Classes❗️</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>
         </td>
         <td>
-            Code.org Unit 3
+            <a href="https://csa.nighthawkcodingsociety.com/mvc/fibonacci">Classes/Iteration 3 ways</a>        
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/spring_thymeleaf">Spring Thymeleaf - Frontend</a>
@@ -174,13 +174,13 @@ title: Schedule
     <tr>
         <td>4</td>
         <td>
-            <a href="">Iteration❗️</a>
+            <a href="">Innovation Week and Ketchup</a>
         </td>
         <td>
-            
+            No Activity
         </td>
         <td>
-            <a href="https://csa.nighthawkcodingsociety.com/mvc/fibonacci">Iteration 3 ways</a>
+            No Activity
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/rapidapi">RapidAPIs</a>
