@@ -34,12 +34,12 @@ title: Schedule
         </td>
         <td>
             <a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a>
-            <br>
+            <br/>
             <a href="{{ap-class}}/?unit=3">AP Classroom</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>
-            <br>
+            <br/>
             <a href="{{site.baseurl}}/techtalk/deploy">Deployment Guide</a>
         </td>
         <td>
@@ -59,7 +59,7 @@ title: Schedule
         </td>
         <td>
             <a href="{{site.baseurl}}/unit/2">Using Objects</a>
-            <br>
+            <br/>
             <a href="{{code.org}}">Code.org Unit 1 OOP (Finish It!)</a>
         </td>
         <td>
@@ -67,7 +67,7 @@ title: Schedule
         </td>
         <td>
             <a href="{{apcsa}}/points/2">Blog</a>, <a href="{{issues}}/13">Issue</a>
-            <br>
+            <br/>
             <a href="{{canvas}}/assignments/2340368">Canvas</a>
         </td>
     </tr>
@@ -84,15 +84,17 @@ title: Schedule
         </td>
         <td>
             <a href="{{site.baseurl}}/unit/1">Primitives</a>
-            <br>
+            <br/>
             <a href="{{code.org}}">Code.org Unit 1 OOP (1-5)</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/bash">Bash and Checks</a>
-            <br>
+            <br/>
             <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
         </td> 
         <td>
+            <a href="{{apcsa}}/techtalk/fastpages">Blog</a>, <a href="{{issues}}/12">Issue</a>
+            <br/>
             <a href="{{canvas}}/assignments/2295018">Canvas</a>
         </td>
     </tr>
@@ -114,6 +116,8 @@ title: Schedule
             <a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a>
         </td>
         <td>
+            <a href="{{apcsa}}/techtalk/tools">Blog</a>, <a href="{{issues}}/7">Issue</a>
+            <br/>
             <a href="{{canvas}}/assignments/2206681">Canvas</a>
         </td>
     </tr>
