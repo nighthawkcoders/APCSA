@@ -121,11 +121,10 @@ title: Schedule
             <a href="">Array</a>
         </td>
         <td>
-            <a href="">Vision/Prototype Development❗️</a>
+            <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
         </td>
         <td>
-            <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
-            <br>
+            <a href="">Array and Vision/Prototype Development❗️</a>
         </td>
         <td>
             <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-4---String-Ops">String Ops</a>
@@ -138,8 +137,8 @@ title: Schedule
         <td>
             <a href="">Writing Classes❗️</a>
         </td>
-            <a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>
         <td>
+            <a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>
         </td>
         <td>
         </td>
