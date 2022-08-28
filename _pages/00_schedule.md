@@ -4,7 +4,9 @@ permalink: /schedule
 title: Schedule
 ---
 {% assign apcsa = "https://nighthawkcoders.github.io/APCSA" %}
+{% assign issues = "https://github.com/nighthawkcoders/APCSA/issues" %}
 {% assign code-org = "https://studio.code.org/courses/csa-2022?section_id=4160330" %}
+{% assign canvas = "https://poway.instructure.com/courses/127262" %}
 
 ## Introduction to Tools and Resources
 > To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging.  The early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks.  
@@ -61,7 +63,9 @@ title: Schedule
             <a href="{{site.baseurl}}/menu/frontend">Fastpages "Frontend" Menu</a>
         </td>
         <td>
-            <a href="{{apcsa}}/points/2">Innovation - Using Objects</a>
+            <a href="{{apcsa}}/points/2">Blog</a>, <a href="{{issues}}/13">Issue</a>
+            <br>
+            <a href="{{canvas}}/assignments/2340368">Canvas</a>
         </td>
     </tr>
 
@@ -86,7 +90,7 @@ title: Schedule
             <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
         </td> 
         <td>
-            <a href="https://poway.instructure.com/courses/127262/assignments/2295018">Innovation - Primitives</a>
+            <a href="{{canvas}}/assignments/2295018">Canvas</a>
         </td>
     </tr>
     
@@ -107,7 +111,7 @@ title: Schedule
             <a href="{{site.baseurl}}/techtalk/tools">Tools and Equipment</a>
         </td>
         <td>
-            <a href="https://poway.instructure.com/courses/127262/assignments/2206681">Tool Setup</a>
+            <a href="{{canvas}}/assignments/2206681">Canvas</a>
         </td>
     </tr>
     
