@@ -7,6 +7,7 @@ title: Schedule
 {% assign issues = "https://github.com/nighthawkcoders/APCSA/issues" %}
 {% assign code-org = "https://studio.code.org/courses/csa-2022?section_id=4160330" %}
 {% assign canvas = "https://poway.instructure.com/courses/127262" %}
+{% assign ap-class = "https://apclassroom.collegeboard.org/8/home" %}
 
 ## Introduction to Tools and Resources
 > To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging.  The early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks.  
@@ -34,6 +35,7 @@ title: Schedule
         <td>
             <a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a>
             <br>
+            <a href="{{ap-class}}/?unit=3">AP Classroom</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>
