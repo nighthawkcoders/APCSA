@@ -101,7 +101,7 @@ title: Schedule
 </table>
 
 ## Fundamentals to Java Development
-> Using Code.org in the first few weeks, student have been exposed to Classes and Inheritance.  In the next few weeks students will become more familiar with the basics of Java through mini-labs.  Additionally, time will be spent to prepare students for Project Based Learning and working in 4 person projects.  Concluding this period time students should create a Project Plan and start on an end of Trimester N@TM presentation.
+> Using Code.org in the first few weeks, student have been exposed to Classes and Inheritance.  In the next few weeks students will become more familiar with the basics of Java through mini-labs.  Some of these labs should be performed using Java as the backend of a Website. This section will conclude with 4 person Project Plan,  the start of an end of Trimester N@TM project.
 
 <table>
     <tr>
@@ -168,7 +168,7 @@ title: Schedule
 </table>
 
 ## Exploring Java Algorithms and Data
-> By the end of this section students will be aware of all College Board requirements.  Additionally, student will be immersed into PBL and preparing a N@tM project.  
+> By the end of this section students will be aware of all the College Board Units.  Additionally, student will be immersed in using Java as the backend of a Website project.  This section will conclude the Trimester, including a final project for N@tM.  
 
 <table>
 
