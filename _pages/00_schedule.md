@@ -129,10 +129,10 @@ title: Schedule
             <a href="">Array❗️</a>
         </td>
         <td>
-            <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
+            <a href="">Vision/Prototype before Development❗️</a>
         </td>
         <td>
-            <a href="">Array and Vision/Prototype Development❗️</a>
+            <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
         </td>
         <td>
             <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-4---String-Ops">String Ops</a>
@@ -149,6 +149,7 @@ title: Schedule
             <a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>
         </td>
         <td>
+            Code.org Unit 3
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/spring_thymeleaf">Spring Thymeleaf - Frontend</a>
