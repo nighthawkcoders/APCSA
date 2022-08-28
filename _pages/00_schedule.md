@@ -77,7 +77,7 @@ title: Schedule
             <a href="{{site.baseurl}}/techtalk/fastpages">Fastpages</a>
         </td> 
         <td>
-            <a href="https://poway.instructure.com/courses/127262/assignments/2295018">Innovation - Primitives</a></td>
+            <a href="https://poway.instructure.com/courses/127262/assignments/2295018">Innovation - Primitives</a>
         </td>
     </tr>
     
