@@ -36,6 +36,8 @@ title: Schedule
             <a href="{{site.baseurl}}/unit/3">Boolean Expressions and Ifs</a>
             <br/>
             <a href="{{ap-class}}/?unit=3">AP Classroom</a>
+            <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
+            <br/>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/spring_boot">Spring Boot - Backend</a>
@@ -43,6 +45,8 @@ title: Schedule
             <a href="{{site.baseurl}}/techtalk/deploy">Deployment Guide</a>
         </td>
         <td>
+            <a href="{{apcsa}}/points/3">Blog</a>, <a href="{{issues}}/14">Issue</a>
+            <br/>
         </td>
     </tr>
 
@@ -146,8 +150,6 @@ title: Schedule
             <a href="">Prototypes before Development❗️</a>
         </td>
         <td>
-            <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
-            <br/>
             <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-4---String-Ops">String Ops</a>
         </td>
         <td>
