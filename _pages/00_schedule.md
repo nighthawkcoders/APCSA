@@ -143,7 +143,7 @@ title: Schedule
             <a href="">Array❗️</a>
         </td>
         <td>
-            <a href="">Vision/Prototype before Development❗️</a>
+            <a href="">Prototypes before Development❗️</a>
         </td>
         <td>
             <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
