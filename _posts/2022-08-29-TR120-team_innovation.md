@@ -9,9 +9,9 @@ categories: [tri1]
 ---
 
 ## Plans Week 2
-> Focus on College Board Unit 1 & 2, but do a light review on all 10 units.  Be sure to be planning ahead so you can Code/Code/Code when schedule allows.
-- Monday: Review this weeks Points.  Live Review.
-- Tuesday: Test Prep - Using Objects, Review Primitives, Review Code.org
+> Focus on Using objects and finishing up Code.org OOP lesson.
+- Monday: Live Review, look for those who can Review Tomorrow.
+- Tuesday: Test Prep - Using Objects
 - Wednesday: Tech Talk - Discuss Frontend capabilities Fastpages
 - Thursday: Human Day - Anthony and Sahil blogging interests and progress.  
 - Friday: Code, Code, Code
