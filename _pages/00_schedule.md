@@ -151,6 +151,7 @@ title: Schedule
             <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-4---String-Ops">String Ops</a>
         </td>
         <td>
+            Setup Team Repositories, Blog a Plan, Build a Backlog
         </td>
         <td>TBD</td>
     </tr>
