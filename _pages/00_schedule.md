@@ -60,6 +60,7 @@ title: Schedule
         </td>
         <td>
             <a href="{{site.baseurl}}/collegeboard/anthony-and-sahil">Reflections on Computer Science</a>
+            <br/>
             Alumni Panel (extra credit)
         </td>
         <td>
