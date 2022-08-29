@@ -147,9 +147,10 @@ title: Schedule
         </td>
         <td>
             <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a/free-response-questions-by-year">Exam FRQs</a>
+            <br/>
+            <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-4---String-Ops">String Ops</a>
         </td>
         <td>
-            <a href="https://github.com/nighthawkcoders/nighthawk_csa/wiki/Tri-2:-Tech-Talk-4---String-Ops">String Ops</a>
         </td>
         <td>TBD</td>
     </tr>
@@ -177,10 +178,8 @@ title: Schedule
             <a href="">Innovation Week and Ketchup</a>
         </td>
         <td>
-            No Activity
         </td>
         <td>
-            No Activity
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/rapidapi">RapidAPIs</a>
