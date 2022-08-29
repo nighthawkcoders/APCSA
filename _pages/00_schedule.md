@@ -157,7 +157,7 @@ title: Schedule
     <tr>
         <td>5</td>
         <td>
-            <a href="">Iteration and Writing Classes❗️</a>
+            <a href="">Writing Classes with Iteration❗️</a>
         </td>
         <td>
             <a href="{{site.baseurl}}/techtalk/agile">Agile and Roles</a>
