@@ -124,8 +124,8 @@ title: Schedule
     
 </table>
 
-## Fundamentals to Java Development
-> Using Code.org in the first few weeks, student have been exposed to Classes and Inheritance.  In the next few weeks students will become more familiar with the basics of Java through mini-labs.  Some of these labs should be performed using Java as the backend of a Website. This section will conclude with 4 person Project Plan,  the start of an end of Trimester N@TM project.
+## Backend Java Development
+> After using Code.org in the first unit, student have been exposed to Classes and Inheritance.  In this unit students will become more familiar with Java development through mini-labs.  These labs can be run by using Java as the backend of a Website. This section will conclude with 4 person Project Plan,  kicking of the end of trimester N@TM project.
 
 <table>
     <tr>
