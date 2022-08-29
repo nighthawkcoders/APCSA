@@ -12,9 +12,13 @@ categories: [tri1]
 ## Points will be awarded on these three key elements
 
 ### FRQ
-> During the year we want to learn the four types of FRQs. This week we want to focus on the first type. 
+> During the year we want to learn the four types of FRQs. This week we want to focus on the first type.
+
+> Focus and 4 types Types
 - Methods and control structures (Focus)
-    - Pick question type 01 from one of the years posted on the former EXAM page.  Solve the problem, including missing pieces in a Jupyter Notebook.  Make this a quality blog.  My suggestion is Pairs do different FRQs and crossovers do the same, to make grading more valuable.
+    - Pick question type 01 from one of the years posted on the former EXAM page.  Solve the problem, including missing pieces in a Jupyter Notebook.  
+    - Make this a quality blog.  My suggestion is Pairs do different FRQs and crossovers do the same, to make grading more valuable.
+    - Browse through multiple questions, find a question that may be somewhat like a PBL interest.
 - Classes
 - Array/ArrayList
 - 2D Array 
