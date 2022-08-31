@@ -67,7 +67,7 @@ tags: [html, liquid, javascript]
     const BITS = {{ BITS }};
     const MAX = 2 ** BITS - 1;
     const MSG_ON = "Turn on";
-    const IMAGE_ON = "{{site.baseurl}}/images/bulb_on.gif";
+    const IMAGE_ON = "{{site.baseurl}}/images/bulb_on.jpeg";
     const MSG_OFF = "Turn off";
     const IMAGE_OFF = "{{site.baseurl}}/images/bulb_off.jpeg"
 
