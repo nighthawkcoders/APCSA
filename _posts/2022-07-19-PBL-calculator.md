@@ -62,7 +62,7 @@ tags: [javascript, css. dom, getElementID]
 
 /* darkens the background color on hover to create a selecting effect */
 .calculator-button:hover {
-    background-color: #ECD5A4;
+    background-color: #373737;
 }
 
 /* styling for the top bar which shows the results of the calculator */
