@@ -44,7 +44,7 @@ tags: [javascript, css. dom, getElementID]
     width: auto;
     height: auto;
     border-radius: 10px;
-    background-color: #FFE5AE;
+    background-color: #665B45;
     border: 3px solid black;
     font-size: 1.5em;
 
