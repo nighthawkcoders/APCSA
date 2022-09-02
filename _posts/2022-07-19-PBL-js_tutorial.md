@@ -12,7 +12,7 @@ categories: [techtalk]
 
 <div class="container bg-primary">
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
-        <span class="fs-4">JavaScript Tutorialxxx</span>
+        <span class="fs-4">JavaScript Tutorial</span>
     </header>
 </div>
 <!--
