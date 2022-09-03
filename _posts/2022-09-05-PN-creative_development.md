@@ -1,8 +1,8 @@
 ---
 toc: true
 layout: post
-title: Creative Development Sprint
-description: At this point you should be in the development groove, tools understanding and basic of Java are starting to come together.  Now we want to do lesson planning and learn control structures.
+title: Backend Development Sprint
+description: At this point you should be in the development groove, using tools,and understanding the basic of Java.  This week students will formerly learn control structures, which should be easy.  Thus, we will start looking deeper at backend development, spring, and deployment.
 image: /images/manifesto.jpeg
 permalink: /week/3
 categories: [tri1]
@@ -12,9 +12,9 @@ week: 3
 
 ## Plans Week 3
 > Focus on lesson building and college board exam questions.
-- Monday:  Live Review.
-- Tuesday: Test Prep - Control Structures.
-- Wednesday: Spring Backend, Code/Code/Code
-- Thursday: Human Day, FRQ review
-- Friday: Deployment, Code/Code/Code
+- Monday:  Holiday
+- Tuesday: Test Prep - Control Structures. Live Review.
+- Wednesday: Career Tech - Java Backend and Deployment
+- Thursday: Human Day - Focus, FRQ review
+- Friday: Code, Code, Code
     

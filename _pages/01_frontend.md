@@ -2,6 +2,8 @@
 layout: default
 permalink: /frontend/overview
 title: Frontend
+type: pbl
+week: 2
 ---
 
 {% include nav_frontend.html %}
