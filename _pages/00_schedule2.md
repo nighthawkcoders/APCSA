@@ -18,7 +18,8 @@ search_exclude: true
 {% assign intro = null | compact %}
 
 {% for i in (0..5) -%}
-  {% assign pt = null | compact %}
+  {% assign pt = "" | split:"" %}
+
   {% assign ap = null | compact %}
   {% assign tt = null | compact %}
   {% assign hm = null | compact %}
@@ -31,7 +32,8 @@ search_exclude: true
 
     {% if i == week %} 
       {% if post.type == "plan" %}
-          {% assign pt = pt | concat:title | concat:url  %}
+          {% assign pt = pt | push: title %}
+          {% assign pt = pt | push: url %}
       {% elsif post.type == "ap" %}
           {% assign ap = ap | concat:title | concat:url  %}
       {% elsif post.type == "pbl" %}
@@ -48,7 +50,7 @@ search_exclude: true
 
   <tr>
   <td> {{i}} </td> 
-  <td> {%for p in pt%} {{p}} <br/> {% endfor %} </td>
+  <td> <a href="{{site.baseurl}}/{{pt[1]}}">{{pt[0]}}</a> <br/> </td>
   <td> {%for a in ap%} {{a}} <br/> {% endfor %} </td>
   <td> {%for t in tt%} {{t}} <br/> {% endfor %} </td>
   <td> {%for h in hm%} {{h}} <br/> {% endfor %} </td>
