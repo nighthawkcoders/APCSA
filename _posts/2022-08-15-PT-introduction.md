@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-title: Introduction Sprint - Java, PBL, and Tools
+title: Introduction Sprint
 description: Introduction to the year.  Introduce Real World projects, philosophies, and objectives of the class. Immerse into Development Tools.
 image: images/apcsa.png
 permalink: /week/0
@@ -9,6 +9,8 @@ categories: [tri1]
 type: plan
 week: 0
 ---
+
+[Points Link](https://github.com/nighthawkcoders/APCSA/issues/7)
 
 # AP CSA COURSE OUTLINE
 - Methodology.  
