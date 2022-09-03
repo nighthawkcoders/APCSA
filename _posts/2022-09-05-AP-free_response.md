@@ -2,13 +2,13 @@
 toc: true
 comments: true
 layout: post
-title:  Free Response Question Type 01 
+title:  Free Response Question No. 1 
 description: The focus of the week is preparing for the first type of FRQ question.
 permalink: /points/3
 image: /images/points.jpeg
 categories: [ap]
 type: ap
-week: 3
+week: 4
 ---
 
 ## Points will be awarded on these three key elements

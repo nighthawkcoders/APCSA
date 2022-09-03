@@ -17,7 +17,7 @@ search_exclude: true
 <table>
 {% assign intro = null | compact %}
 
-{% for i in (0..3) -%}
+{% for i in (0..5) -%}
   {% assign pt = null | compact %}
   {% assign ap = null | compact %}
   {% assign tt = null | compact %}
@@ -29,18 +29,17 @@ search_exclude: true
     {% assign title = post.title | compact %}
     {% assign url = post.url | compact %}
 
-
     {% if i == week %} 
       {% if post.type == "plan" %}
-          {% assign pt = pt | concat:title | concat:url %}
+          {% assign pt = pt | concat:title | concat:url  %}
       {% elsif post.type == "ap" %}
-          {% assign ap = ap | concat:title | concat:url %}
+          {% assign ap = ap | concat:title | concat:url  %}
       {% elsif post.type == "pbl" %}
-          {% assign tt = tt | concat:title | concat:url %}
+          {% assign tt = tt | concat:title | concat:url  %}
       {% elsif post.type == "human" %}
-          {% assign hm = hm | concat:title | concat:url %}
+          {% assign hm = hm | concat:title | concat:url  %}
       {% else %}
-          {% assign uk = uk | concat:title | concat:url %}
+          {% assign uk = uk | concat:title | concat:url  %}
       {% endif %}
     {% endif %}
   {% endfor %}
@@ -49,7 +48,7 @@ search_exclude: true
 
   <tr>
   <td> {{i}} </td> 
-  <td> {%for p in pt%} {{p}}<br/> {% endfor %} </td>
+  <td> {%for p in pt%} {{p}} <br/> {% endfor %} </td>
   <td> {%for a in ap%} {{a}} <br/> {% endfor %} </td>
   <td> {%for t in tt%} {{t}} <br/> {% endfor %} </td>
   <td> {%for h in hm%} {{h}} <br/> {% endfor %} </td>
@@ -58,6 +57,7 @@ search_exclude: true
 {% endfor %}
 
 </table>
+
 
 {% comment %}
 
@@ -74,4 +74,3 @@ search_exclude: true
     Page : {{ post.content }}
 
 {% endcomment %}
-
