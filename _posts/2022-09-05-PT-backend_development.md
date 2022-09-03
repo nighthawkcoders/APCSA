@@ -2,7 +2,7 @@
 toc: true
 comments: true
 layout: post
-title: Backend Development Sprint
+title: Backend Development
 description: At this point you should be in the development groove, using tools,and understanding the basic of Java.  This week students will formerly learn control structures, which should be easy.  Thus, we will start looking deeper at backend development, spring, and deployment.
 image: /images/manifesto.jpeg
 permalink: /week/3

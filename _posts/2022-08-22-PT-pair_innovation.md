@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-title: Innovation Sprint - Pair Focus
+title: Innovation - Pair Focus
 description: Innovation is a time to explore, dream, and learn to code.  Think about College Board, Personal interests, and Teacher expectations.  
 image: /images/pair_programming.png
 permalink: /week/1
