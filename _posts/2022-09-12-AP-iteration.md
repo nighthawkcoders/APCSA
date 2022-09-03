@@ -253,8 +253,9 @@ No more monkeys jumping on the bed
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Hacks-(Mini-lab)">Hacks (Mini-lab)<a class="anchor-link" href="#Hacks-(Mini-lab)"> </a></h2><blockquote><p>Build you own Jupyter Notebook.  Feel free to use any ASCII art of your choice, there are some much better ones <a href="https://www.asciiart.eu/animals/monkeys">here</a>.  My little guys were made up out of my head.- Print monkeys horizontally versus vertically.</p>
+<h2 id="Hacks-(Mini-lab)">Hacks (Mini-lab)<a class="anchor-link" href="#Hacks-(Mini-lab)"> </a></h2><blockquote><p>Build you own Jupyter Notebook.  Feel free to use any ASCII art of your choice, there are some much better ones <a href="https://www.asciiart.eu/animals/monkeys">here</a>.  My little guys were made up out of my head while looking at unicode characters.</p>
 <ul>
+<li>Print monkeys horizontally versus vertically.</li>
 <li>Build more or entire rhyme for the "Monkey Jumpers" countdown poem</li>
 <li>Add names or other properties to the monkeys</li>
 </ul>
