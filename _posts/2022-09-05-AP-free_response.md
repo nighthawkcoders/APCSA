@@ -6,7 +6,9 @@ title:  Free Response Question Type 01
 description: The focus of the week is preparing for the first type of FRQ question.
 permalink: /points/3
 image: /images/points.jpeg
-categories: [tri1]
+categories: [ap]
+type: ap
+week: 3
 ---
 
 ## Points will be awarded on these three key elements

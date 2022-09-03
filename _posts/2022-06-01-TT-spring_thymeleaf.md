@@ -6,6 +6,8 @@ description: Tour of frontend development using the Java Spring framework.  All 
 categories: [techtalk]
 permalink: /techtalk/spring_thymeleaf
 image: /images/spring_thymeleaf.png
+type: pbl
+week: 5
 ---
 
 ## Tour of Frontend

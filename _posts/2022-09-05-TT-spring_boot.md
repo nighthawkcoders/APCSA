@@ -6,6 +6,9 @@ description: The Spring Framework is a Java platform that provides comprehensive
 permalink: /techtalk/spring_boot
 image: /images/spring_boot.png
 categories: [techtalk]
+tags: [spring, spring boot]
+type: pbl
+week: 3
 ---
 
 ## Tour of Backend

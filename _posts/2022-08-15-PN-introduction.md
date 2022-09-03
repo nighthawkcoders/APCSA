@@ -6,6 +6,8 @@ description: Introduction to the year.  Introduce Real World projects, philosoph
 image: images/apcsa.png
 permalink: /week/0
 categories: [tri1]
+type: plan
+week: 0
 ---
 
 # AP CSA COURSE OUTLINE

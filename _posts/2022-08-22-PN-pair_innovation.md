@@ -6,6 +6,8 @@ description: Innovation is a time to explore, dream, and learn to code.  Think a
 image: /images/pair_programming.png
 permalink: /week/1
 categories: [tri1]
+type: plan
+week: 1
 ---
 
 # Innovation Sprint

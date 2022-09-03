@@ -6,6 +6,8 @@ description: Think about what you need to accomplish in the Trimester based off 
 image: /images/innovation_sprint.png
 permalink: /week/2
 categories: [tri1]
+type: plan
+week: 2
 ---
 
 ## Plans Week 2

@@ -6,6 +6,8 @@ description: At this point you should be in the development groove, tools unders
 image: /images/manifesto.jpeg
 permalink: /week/3
 categories: [tri1]
+type: plan
+week: 3
 ---
 
 ## Plans Week 3

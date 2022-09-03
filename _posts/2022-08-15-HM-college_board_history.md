@@ -6,6 +6,8 @@ description: History of student scores on exam using results from 2022, 2021, an
 permalink: /unit/history
 image: /images/ap_scores.png
 categories: [units]
+type: human
+week: 0
 ---
 
 ## History of CSA AP Exams

@@ -7,6 +7,8 @@ description: Instructions for Windows users on how to use VSCode with WSL in ord
 permalink: /techtalk/vscode-wsl
 categories: [tri1]
 image: images/wsl.png
+type: pbl
+week: 0
 ---
 
 ## Instructions to Download Visual Studio Code Remote - WSL

@@ -5,6 +5,8 @@ description: Worksheet that was used to calculate profits in 2021.
 categories: [hobby]
 permalink: /hobby/bitcoin
 image: /images/bitcoin.png
+type: hobby
+week: 4
 ---
 
 ### This is only year where my Bitcoin Mine was real consistent.  So far in 2022, the price has dropped significantly.  Plus, I had some issues with the Mine that I did not correct for a couple of months.  I expect to yield 1/2 or less.

@@ -7,6 +7,8 @@ description: Don't do it alone.  4 person grading.
 permalink: /points/2
 image: /images/points.jpeg
 categories: [tri1]
+type: plan
+week: 2
 ---
 
 ## Points will be awarded on these three key elements

@@ -58,6 +58,8 @@ __pycache__/
 *.code-workspace
 
 # Ignore from local build
+settings.ini
+Gemfile.lock
 images/copied_from_nb/
 _posts/2022-06-14-Curriculum-Map-David--2021-2022.md
 _posts/2022-07-06-PBL-FE-js_tutorial.md
@@ -67,7 +69,5 @@ _posts/2022-08-22-TP110-primitives.md
 _posts/2022-08-22-TT110-anthony_and_sahil.md
 _posts/2022-08-22-TT110-bash_tutorial.md
 _posts/2022-08-29-TP120-using_java_objects.md
-_posts/2022-09-05-TP130-boolean_ifs.md
-_posts/2022-09-05-TT130-rapidapi.md
-settings.ini
-Gemfile.lock
+_posts/2022-09-05-TT-03-rapidapi.md
+_posts/2022-09-05-AP-03-boolean_ifs.md
