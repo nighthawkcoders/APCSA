@@ -443,6 +443,15 @@
   
 
   
+      ,"page1": {
+          "title": "Trimester 1",
+          "content": ". Unit 1: Introduction to Tools and Resources . To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging. These early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks. . . Week Theme/Points AP Test Prep Career Tech Human Prep . 0 | - Introduction Sprint - Java, PBL, and Tools | - Anatomy of Java | - Tools and Equipment - VSCode Download with WSL | - Student Scoring on AP Exam | . 1 | - Pair focused Innovation Sprint | - Primitive Data Types | - Bash Tutorial | | . 2 | - Innovation - Using Objects Points - Team focused Innovation Sprint | - Using Objects | - Fastpages Frontend Development - Tour of GitHub Pages | - Anthony and Sahil&#39;s Reflections on Computer Science | . 3 | - Creative Development Sprint | - Boolean Expressions and If Statements | - Java Backend Development - Spring Boot - Deployment Guide | - Focus and Habits - Yale Professor on Successful People | . . Unit 2: Backend Java Development . After using Code.org in the first unit, students have been introduced to Classes and Inheritance. In this unit students will become more familiar with Java development through mini-labs. These labs will focus on AP required aspects of Java, additionally they can be setup as the backend of Desktop App or WebSite. This unit concludes with 4 person Project Plan, kicking off the end of trimester N@TM project. . . Week Theme/Points AP Test Prep Career Tech Human Prep . 4 | | - Free Response Question No. 1 | - Java RapidAPI - JavaScript Tutorial | | . 5 | | | - Java Frontend Development - Spring/Thymeleaf | - Agile, Roles, Issues, and Scrum Board | . 6 | | | | | . 7 | | | | | . . Unit 3: Exploring Java Algorithms and Data . By the end of this unit students will be aware of all the College Board Units. Additionally, student will be immersed in using Java as the backend of a Website project. This section will conclude Trimester 1, which includes a final project for N@tM. . . Week Theme/Points AP Test Prep Career Tech Human Prep . 8 | | | | | . 9 | | | | | . 10 | | | | | . 11 | | | | | .",
+          "url": "https://nighthawkcoders.github.io/APCSA/tri-1/",
+          "relUrl": "/tri-1/",
+          "date": ""
+      }
+      
+  
 
   
       ,"page2": {
