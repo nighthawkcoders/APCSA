@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-title: Pair focused Innovation Sprint
+title: Innovation Sprint - Pair Focus
 description: Innovation is a time to explore, dream, and learn to code.  Think about College Board, Personal interests, and Teacher expectations.  
 image: /images/pair_programming.png
 permalink: /week/1
@@ -9,6 +9,8 @@ categories: [tri1]
 type: plan
 week: 1
 ---
+
+[Points Link](https://github.com/nighthawkcoders/APCSA/issues/12)
 
 # Innovation Sprint
 > Focus for the week is to get started on how you will use GitHub Pages and FastPages to capture your learning by blogging. Innovation is a time to explore, learn, and obtain skills needed to reach goals.  Work with your pair to expand on your ideas, two heads is better than one.

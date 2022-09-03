@@ -2,14 +2,22 @@
 toc: true
 comments: true
 layout: post
-title: Innovation - Using Objects Points
-description: Don't do it alone.  4 person grading.
+title: Using Objects Sprint
+description: Don't do it alone.  4 person grading.  Think about what you need to accomplish in the Trimester based off of what you know, what you have reviewed, and what you think you need to learn to be successful in the class.  Create a Blog or Issue, Brainstorm with Team and/or Pair a couple of times in a week, and start the Iterative Development process.  Use the Blog or Issus as your final Review Ticket.
 permalink: /points/2
 image: /images/points.jpeg
 categories: [tri1]
 type: plan
 week: 2
 ---
+
+## Plans Week 2
+> Focus on Using objects and finishing up Code.org OOP lesson.
+- Monday: Live Review
+- Tuesday: Test Prep - Using Objects
+- Wednesday: Tech Talk - Frontend
+- Thursday: Human Day - Anthony and Sahil blog  
+- Friday: Code, Code, Code
 
 ## Points will be awarded on these three key elements
 
@@ -30,7 +38,7 @@ week: 2
 
 ### Live Grading Presentation.  
 > Each individual needs to perform their own work. However, I would like to see a plan that show you worked with Pair and/or Team.  The presentation can be according to your own style, but consider the following...
-- Note.  A Live Review is expecting students to drive dialog and questions.  Additionally, learn that Teacher likes: questions, discussion of failures, showing a progressive mindset.
+- A Live Review is expecting students to drive dialog and questions.  Additionally, learn that Teacher likes: questions, discussion of failures, showing a progressive mindset.
 - Individual.  Blogging or Issues that highlights key learnings and takeaways from Code.org
 - Pair/Team.  Blogging or Issues that shows Math Library Project / Or Idea of Choice
     - A shared repository, team or pair.  My suggestion is using Spring Portfolio project as template, as this is the start to a backend project.   In my projects, I have placed "hacks" directory inside of Spring project and it has worked fine.  Later you may want to expand on ideas and make them serviceable via APIs.
