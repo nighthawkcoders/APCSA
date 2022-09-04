@@ -5,6 +5,7 @@ description: Serving Fastpages locally using Docker.  This allows local machine 
 categories: [markdown]
 title: Fastpages local server
 author: Ellen Xu
+image: /images/fastpages_docker.png
 type: pbl
 week: 3
 ---
