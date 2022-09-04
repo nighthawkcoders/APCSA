@@ -1,8 +1,8 @@
 ---
 toc: true
 layout: post
-title: Java Backend Development - Spring Boot
-description: The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the complicated infrastructure problems so you can focus on the purpose of your application.  Spring Boot is a micro Service that is used to build stand-alone application.
+title: Java Spring Backend
+description: The Spring Framework is the backend Java development platform that provides comprehensive support for Java applications. Spring handles the complicated infrastructure problems so students can focus on the purpose of your application.  Spring Boot is a micro Service that is used to build stand-alone application.
 permalink: /techtalk/spring_boot
 image: /images/spring_boot.png
 categories: [techtalk]

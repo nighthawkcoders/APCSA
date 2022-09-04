@@ -1,10 +1,12 @@
 ---
 toc: true
 layout: post
-description: Serving fastpages locally using docker.
+description: Serving Fastpages locally using Docker.  This allows local machine testing of each change of code without the delay of GitHub Actions.  
 categories: [markdown]
-title: Docker server
+title: Fastpages local server
 author: Ellen Xu
+type: pbl
+week: 3
 ---
 
 It's often useful to test pages locally before deploying, as it can save time and be helpful for testing quick changes/debugging. In this blog we'll learn how to deploy fastpages locally using Docker.
@@ -62,10 +64,15 @@ It should ask you to reload and if you run the command again it should work now.
 After running, make look for link to run Server. For me, this was http://127.0.0.1:4000/{repo name}:
 > Server address: http://127.0.0.1:4000/
 
-To stop server and build again after making edits:
 > Server running... press ctrl-c to stop.
 
-Repeat make server if you have made updates to your blog and want to serve locally again.
+Shift-click server address to launch in Browser.  
+
+<mark>Leave the server running!!!</mark> Make edits and save the file.  On each save, watch terminal in VSCode to see updates and regeneration of WebSite.  
+
+<mark>Refresh or click to Web page of change and you will see updates instantly</mark>.  Refer to VSCode terminal to see any error encountered when running your server.  As indicated ctrl-c will stop the server, however, I have left it running for hours of edits, testing, and commits to GitHub.
+
+Alert, when you are satisfied with local changes... <mark>you must ✔️Commit to GitHub</mark>.  The local server is used to preview and test change prior to commit.  Only after commit, will others be able to see your changes.
 
 ![image](https://user-images.githubusercontent.com/56745453/186968485-a2d02d10-d53a-4b88-b6b1-bbcc2f69d1cc.png)
 
@@ -73,22 +80,22 @@ Repeat make server if you have made updates to your blog and want to serve local
 
 A side effect of building locally is that it converts all the .ipynb and .docx files to .md. This means that some files will have duplicates after building -- one in .ipynb or .docx, another in .md form.
 
-To avoid duplicates when pushing to github, add the files to your .gitignore (courtesy of Mr. M for pointing this out):
+To avoid duplicates masters when pushing to github, add the  md generated files from to the .gitignore.   This can be done by right clicking md file when preparing commits. Below is a sample .gitignore.  The 1st three lines should be universal to all fastpages projects, the other files are specific to your project.
 
 ```
 # Ignore from local build
-
-images/copied_from_nb/  # images folder
-_posts/2022-06-14-Curriculum-Map-David--2021-2022.md    # example of markdown files from build
-_posts/2022-07-06-PBL-FE-js_tutorial.md
-_posts/2022-08-15-TP100-anatomy.md
-_posts/2022-08-15-TT000-windowsinstall.md
-_posts/2022-08-22-TP110-primitives.md
-_posts/2022-08-22-TT110-anthony_and_sahil.md
-_posts/2022-08-22-TT110-bash_tutorial.md
-_posts/2022-08-29-TP120-using_java_objects.md
-_posts/2022-09-05-TP130-boolean_ifs.md
-_posts/2022-09-05-TT130-rapidapi.md
+settings.ini
+Gemfile.lock
+images/copied_from_nb/
+_posts/2022-08-15-AP-anatomy.md
+_posts/2022-08-22-HM-anthony_and_sahil.md
+_posts/2022-08-22-TT-darkmode.md
+_posts/2022-08-22-AP-primitives.md
+_posts/2022-08-22-TT-bash_tutorial.md
+_posts/2022-08-29-AP-using_java_objects.md
+_posts/2022-09-05-AP-boolean_ifs.md
+_posts/2022-09-19-TT-js_tutorial.md
+_posts/2022-09-26-TT-rapidapi.md
 ```
 
 ### Resources
