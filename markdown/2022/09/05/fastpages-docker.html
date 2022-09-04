@@ -4,22 +4,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Docker server | APCSA</title>
+<title>Fastpages local server | APCSA</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Docker server" />
+<meta property="og:title" content="Fastpages local server" />
 <meta name="author" content="Ellen Xu" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Serving fastpages locally using docker." />
-<meta property="og:description" content="Serving fastpages locally using docker." />
-<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/markdown/2022/08/26/docker-server.html" />
-<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/markdown/2022/08/26/docker-server.html" />
+<meta name="description" content="Serving Fastpages locally using Docker. This allows local machine testing of each change of code without the delay of GitHub Actions." />
+<meta property="og:description" content="Serving Fastpages locally using Docker. This allows local machine testing of each change of code without the delay of GitHub Actions." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/markdown/2022/09/05/fastpages-docker.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/markdown/2022/09/05/fastpages-docker.html" />
 <meta property="og:site_name" content="APCSA" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-26T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-09-05T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Docker server" />
+<meta property="twitter:title" content="Fastpages local server" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ellen Xu"},"dateModified":"2022-08-26T00:00:00-05:00","datePublished":"2022-08-26T00:00:00-05:00","description":"Serving fastpages locally using docker.","headline":"Docker server","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/markdown/2022/08/26/docker-server.html"},"url":"https://nighthawkcoders.github.io/APCSA/markdown/2022/08/26/docker-server.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ellen Xu"},"dateModified":"2022-09-05T00:00:00-05:00","datePublished":"2022-09-05T00:00:00-05:00","description":"Serving Fastpages locally using Docker. This allows local machine testing of each change of code without the delay of GitHub Actions.","headline":"Fastpages local server","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/markdown/2022/09/05/fastpages-docker.html"},"url":"https://nighthawkcoders.github.io/APCSA/markdown/2022/09/05/fastpages-docker.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -74,15 +74,15 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Docker server</h1><p class="page-description">Serving fastpages locally using docker.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-26T00:00:00-05:00" itemprop="datePublished">
-        Aug 26, 2022
+    <h1 class="post-title p-name" itemprop="name headline">Fastpages local server</h1><p class="page-description">Serving Fastpages locally using Docker.  This allows local machine testing of each change of code without the delay of GitHub Actions.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-05T00:00:00-05:00" itemprop="datePublished">
+        Sep 5, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">Ellen Xu</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -183,12 +183,17 @@ Mac: https://docs.docker.com/desktop/install/mac-install/.</p>
   <p>Server address: http://127.0.0.1:4000/</p>
 </blockquote>
 
-<p>To stop server and build again after making edits:</p>
 <blockquote>
   <p>Server running… press ctrl-c to stop.</p>
 </blockquote>
 
-<p>Repeat make server if you have made updates to your blog and want to serve locally again.</p>
+<p>Shift-click server address to launch in Browser.</p>
+
+<p><mark>Leave the server running!!!</mark> Make edits and save the file.  On each save, watch terminal in VSCode to see updates and regeneration of WebSite.</p>
+
+<p><mark>Refresh or click to Web page of change and you will see updates instantly</mark>.  Refer to VSCode terminal to see any error encountered when running your server.  As indicated ctrl-c will stop the server, however, I have left it running for hours of edits, testing, and commits to GitHub.</p>
+
+<p>Alert, when you are satisfied with local changes… <mark>you must ✔️Commit to GitHub</mark>.  The local server is used to preview and test change prior to commit.  Only after commit, will others be able to see your changes.</p>
 
 <p><img src="https://user-images.githubusercontent.com/56745453/186968485-a2d02d10-d53a-4b88-b6b1-bbcc2f69d1cc.png" alt="image"></p>
 
@@ -197,21 +202,21 @@ Mac: https://docs.docker.com/desktop/install/mac-install/.</p>
 
 <p>A side effect of building locally is that it converts all the .ipynb and .docx files to .md. This means that some files will have duplicates after building – one in .ipynb or .docx, another in .md form.</p>
 
-<p>To avoid duplicates when pushing to github, add the files to your .gitignore (courtesy of Mr. M for pointing this out):</p>
+<p>To avoid duplicates masters when pushing to github, add the  md generated files from to the .gitignore.   This can be done by right clicking md file when preparing commits. Below is a sample .gitignore.  The 1st three lines should be universal to all fastpages projects, the other files are specific to your project.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Ignore from local build
-
-images/copied_from_nb/  # images folder
-_posts/2022-06-14-Curriculum-Map-David--2021-2022.md    # example of markdown files from build
-_posts/2022-07-06-PBL-FE-js_tutorial.md
-_posts/2022-08-15-TP100-anatomy.md
-_posts/2022-08-15-TT000-windowsinstall.md
-_posts/2022-08-22-TP110-primitives.md
-_posts/2022-08-22-TT110-anthony_and_sahil.md
-_posts/2022-08-22-TT110-bash_tutorial.md
-_posts/2022-08-29-TP120-using_java_objects.md
-_posts/2022-09-05-TP130-boolean_ifs.md
-_posts/2022-09-05-TT130-rapidapi.md
+settings.ini
+Gemfile.lock
+images/copied_from_nb/
+_posts/2022-08-15-AP-anatomy.md
+_posts/2022-08-22-HM-anthony_and_sahil.md
+_posts/2022-08-22-TT-darkmode.md
+_posts/2022-08-22-AP-primitives.md
+_posts/2022-08-22-TT-bash_tutorial.md
+_posts/2022-08-29-AP-using_java_objects.md
+_posts/2022-09-05-AP-boolean_ifs.md
+_posts/2022-09-19-TT-js_tutorial.md
+_posts/2022-09-26-TT-rapidapi.md
 </code></pre></div></div>
 
 <h3 id="resources">
@@ -219,7 +224,7 @@ _posts/2022-09-05-TT130-rapidapi.md
 
 <p>https://github.com/fastai/fastpages/blob/master/_fastpages_docs/DEVELOPMENT.md</p>
 
-  </div><a class="u-url" href="/APCSA/markdown/2022/08/26/docker-server.html" hidden></a>
+  </div><a class="u-url" href="/APCSA/markdown/2022/09/05/fastpages-docker.html" hidden></a>
 </article>
 
       </div>
