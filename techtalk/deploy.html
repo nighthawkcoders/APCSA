@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="AWS Deployment Guide" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx" />
-<meta property="og:description" content="Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx" />
+<meta name="description" content="Description of key methods process used to deploy a Spring/Java website; AWS EC2, Docker, docker-compose, and Nginx" />
+<meta property="og:description" content="Description of key methods process used to deploy a Spring/Java website; AWS EC2, Docker, docker-compose, and Nginx" />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/techtalk/deploy" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/techtalk/deploy" />
 <meta property="og:site_name" content="APCSA" />
@@ -20,7 +20,7 @@
 <meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/aws.png" />
 <meta property="twitter:title" content="AWS Deployment Guide" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-05T00:00:00-05:00","datePublished":"2022-09-05T00:00:00-05:00","description":"Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx","headline":"AWS Deployment Guide","image":"https://nighthawkcoders.github.io/APCSA/images/aws.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/techtalk/deploy"},"url":"https://nighthawkcoders.github.io/APCSA/techtalk/deploy"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-05T00:00:00-05:00","datePublished":"2022-09-05T00:00:00-05:00","description":"Description of key methods process used to deploy a Spring/Java website; AWS EC2, Docker, docker-compose, and Nginx","headline":"AWS Deployment Guide","image":"https://nighthawkcoders.github.io/APCSA/images/aws.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/techtalk/deploy"},"url":"https://nighthawkcoders.github.io/APCSA/techtalk/deploy"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -75,7 +75,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">AWS Deployment Guide</h1><p class="page-description">Description of key methods process used to deploy a Flask/Python website; AWS EC2, Docker, docker-compose, and Nginx</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-05T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">AWS Deployment Guide</h1><p class="page-description">Description of key methods process used to deploy a Spring/Java website; AWS EC2, Docker, docker-compose, and Nginx</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-05T00:00:00-05:00" itemprop="datePublished">
         Sep 5, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -133,7 +133,7 @@ window.onload = wrap_img;
 <ul>
   <li>EC2: Amazon Web Services is a cloud computing platform that the PUSD district has provided for us to serve our Web Application.</li>
   <li>GitHub: At this point in time, we should be aware that we are using GitHub is an open platform to share our Web Application code on the Internet.</li>
-  <li>Docker and docker-compose: To host a Web Application you need to prepare an environment that contains the Web Application code and all the dependencies (requirements.txt for Python)  Docker is an open platform for developing, shipping, and running applications.</li>
+  <li>Docker and docker-compose: To host a Web Application you need to prepare an environment that contains the Web Application code and all the dependencies (POM.xml for Java)  Docker is an open platform for developing, shipping, and running applications.</li>
   <li>Nginx: To find a Web Application on a server, there needs to be a process to listen for the Web request and direct it to the Web Application.  Nginx is an open source software for web serving, reverse proxy, caching, load balancing, media streaming, and more.</li>
   <li>Certbot: Web traffic on internet is reliably served over Secure Hyper Text Transfer Protocol (https).  Certbot is a free, open source software tool for automatically using Let’s Encrypt certifications</li>
   <li>DNS: Natively, the web works off of IP addresses.  Domain Name Services (DNS) allows the assignment of a friendly name to our Web Server.  This name is built into Nginx/Certbot configuration files.  Freenom is the service used to register the nighthawkcodingsociety.com domain.</li>
@@ -383,6 +383,7 @@ openjdk         16-alpine3.13   2aa8569968b8   17 months ago    324MB
 <p>This illustration is dependent on…</p>
 <ul>
   <li>EC2 Public IPs: 3.233.212.71</li>
+  <li>Docker Compose Port: 8085</li>
   <li>DNS Name: nighthawkcodingsociety.com</li>
   <li>DNS Subdomain name(s): battleship.nighthawkcodingsociety.com. cowboys.nighthawkcodingsociety.com</li>
 </ul>
@@ -395,7 +396,7 @@ openjdk         16-alpine3.13   2aa8569968b8   17 months ago    324MB
 <a class="anchor" href="#nginx-install-configuration-and-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nginx install, configuration, and services</h4>
 <p>Each student scrum team will perform Nginx installation and setup on an AWS EC2 test server.  The final configuration will be on AWS server managed by Teachers or Student DevOps Engineers.</p>
 
-<p>Enable Nginx to retrieve Python Web Application on internet request (Reverse Proxy)! Make a server file located at /etc/nginx/sites-available/nighthawk.</p>
+<p>Enable Nginx to retrieve Java Web Application on internet request (Reverse Proxy)! Make a server file located at /etc/nginx/sites-available/nighthawk.</p>
 
 <ul>
   <li>Install Nginx on Ubuntu servers
@@ -413,44 +414,82 @@ openjdk         16-alpine3.13   2aa8569968b8   17 months ago    324MB
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano nighthawk
 </code></pre></div>    </div>
   </li>
-  <li>Edit your own Nginx server configuration making modifications to:
+  <li>Edit your own Nginx server configuration making modifications to <mark>primary server</mark> file (1 required):
     <ul>
       <li>DNS Name(s): nighthawkcodingsociety.com www.nighthawkcodingsociety.com</li>
-      <li>docker-compose, proxy pass Port: 8086</li>
+      <li>docker-compose, proxy pass Port: 8085</li>
     </ul>
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
-    listen 80;
-    listen [::]:80;
-    server_name nighthawkcodingsociety.com www.nighthawkcodingsociety.com;
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">nighthawkcodingsociety.com</span> <span class="s">www.nighthawkcodingsociety.com</span><span class="p">;</span>
 
-    location / {
-        proxy_pass http://localhost:8086;
-        # Simple requests
-        if ($request_method ~* "(GET|POST)") {
-                add_header "Access-Control-Allow-Origin"  *;
-        }
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8085</span><span class="p">;</span>
+        <span class="c1"># Simple requests</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">~</span><span class="sr">*</span> <span class="s">"(GET|POST)")</span> <span class="p">{</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">*</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        # Preflight requests
-        if ($request_method = OPTIONS ) {
-                add_header "Access-Control-Allow-Origin"  *;
-                add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
-                add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
-                return 200;
-        }
-    }
-}
+        <span class="c1"># Preflight requests</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">=</span> <span class="s">OPTIONS</span> <span class="s">)</span> <span class="p">{</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">*</span><span class="p">;</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Methods"</span> <span class="s">"GET,</span> <span class="s">POST,</span> <span class="s">OPTIONS,</span> <span class="s">HEAD"</span><span class="p">;</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Headers"</span> <span class="s">"Authorization,</span> <span class="s">Origin,</span> <span class="s">X-Requested-With,</span> <span class="s">Content-Type,</span> <span class="s">Accept"</span><span class="p">;</span>
+                <span class="kn">return</span> <span class="mi">200</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Or, or in addition, edit your own Nginx server configuration making modifications to <mark>subdomain</mark> file (0 to many):
+    <ul>
+      <li>DNS Name(s): spring.nighthawkcodingsociety.com</li>
+      <li>docker-compose, proxy pass Port: 8085</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">spring.nighthawkcodingsociety.com</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8085</span><span class="p">;</span>
+        <span class="c1"># Simple requests</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">~</span><span class="sr">*</span> <span class="s">"(GET|POST)")</span> <span class="p">{</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">*</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Preflight requests</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">=</span> <span class="s">OPTIONS</span> <span class="s">)</span> <span class="p">{</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">*</span><span class="p">;</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Methods"</span> <span class="s">"GET,</span> <span class="s">POST,</span> <span class="s">OPTIONS,</span> <span class="s">HEAD"</span><span class="p">;</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Headers"</span> <span class="s">"Authorization,</span> <span class="s">Origin,</span> <span class="s">X-Requested-With,</span> <span class="s">Content-Type,</span> <span class="s">Accept"</span><span class="p">;</span>
+                <span class="kn">return</span> <span class="mi">200</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <ul>
   <li>Activate/enabled Nginx server configuration:
-    <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /etc/nginx/sites-available/nighthawk /etc/nginx/sites-enabled
-<span class="nv">$ </span><span class="nb">sudo </span>nginx <span class="nt">-t</span>
-</code></pre></div>    </div>
+    <ul>
+      <li>nginx configuration file: nighthawk</li>
+    </ul>
   </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /etc/nginx/sites-available/nighthawk /etc/nginx/sites-enabled
+<span class="nv">$ </span><span class="nb">sudo </span>nginx <span class="nt">-t</span>
+</code></pre></div></div>
+
+<ul>
   <li>If there are no errors, restart NGINX so the server is an endpoint to the internet:
     <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl restart nginx
@@ -465,10 +504,10 @@ openjdk         16-alpine3.13   2aa8569968b8   17 months ago    324MB
 <ul>
   <li>Direct Test of Web Application Endpoint.  This should return HTML related to the home page of the Web site.  If this fails, you need to review Docker and docker-compose configurations.
     <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl http://localhost:8086<span class="p">;</span>
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl http://localhost:8085<span class="p">;</span>
 </code></pre></div>    </div>
   </li>
-  <li>Testing unsecure HTTP endpoint on the internet.  Go to a browser an type your DNS domain: http://nighthawkcodingsociety.com.
+  <li>Testing unsecure HTTP endpoint on the internet.  Go to a browser an type your DNS domain: <code class="language-plaintext highlighter-rouge">http://nighthawkcodingsociety.com</code>.
     <ul>
       <li>Timeout.  This means something is wrong with EC2 Public IP.</li>
       <li>Nginx Default page.  This means DNS is working, but something is wrong with you Nginx configuration.</li>
