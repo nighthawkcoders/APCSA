@@ -149,7 +149,7 @@
 <lastmod>2022-09-05T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://nighthawkcoders.github.io/APCSA/unit/3</loc>
+<loc>https://nighthawkcoders.github.io/APCSA/unit/4</loc>
 <lastmod>2022-09-12T00:00:00-05:00</lastmod>
 </url>
 <url>
@@ -163,6 +163,10 @@
 <url>
 <loc>https://nighthawkcoders.github.io/APCSA/techtalk/spring_thymeleaf</loc>
 <lastmod>2022-09-12T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://nighthawkcoders.github.io/APCSA/unit/5</loc>
+<lastmod>2022-09-19T00:00:00-05:00</lastmod>
 </url>
 <url>
 <loc>https://nighthawkcoders.github.io/APCSA/techtalk/github</loc>
@@ -209,5 +213,8 @@
 </url>
 <url>
 <loc>https://nighthawkcoders.github.io/APCSA/page3/</loc>
+</url>
+<url>
+<loc>https://nighthawkcoders.github.io/APCSA/page4/</loc>
 </url>
 </urlset>
