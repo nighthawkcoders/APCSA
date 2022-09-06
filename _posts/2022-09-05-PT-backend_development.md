@@ -29,7 +29,7 @@ week: 3
 
 ### Iteration in Spring Boot - .5
 > The hack on this lesson provides some flexibility.  However, with the theme of iteration we are looking for something alters or counts using iteration.
-- Build your own word counter using a space as separator,  FYI, sing built in does not teach iteration.
+- Build your own word counter using a space as separator,  FYI, using a built method does not teach iteration.
 - Idea and inputs of choice.  Find something from another class that helps you study for it.
 
 ### Deployment on AWS - 1
