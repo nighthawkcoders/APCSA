@@ -5,7 +5,7 @@ title: Iteration with 2D Array
 toc: true
 categories: [units]
 image: /images/boolean.png
-permalink: /unit/3
+permalink: /unit/4
 type: ap
 week: 4
 nb_path: _notebooks/2022-09-12-AP-iteration.ipynb
@@ -31,7 +31,6 @@ layout: notebook
 <div class=" highlight hl-java"><pre><span></span><span class="cm">/*</span>
 <span class="cm"> * Creator: Nighthawk Coding Society</span>
 <span class="cm"> * Mini Lab Name: Hello Series,featuring Monkey Jumpers</span>
-<span class="cm"> * Level: Beginner</span>
 <span class="cm"> */</span>
 
 <span class="cm">/**</span>
