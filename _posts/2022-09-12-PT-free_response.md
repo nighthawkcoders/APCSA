@@ -11,7 +11,7 @@ type: plan
 week: 4
 ---
 
-## Plans Week 2
+## Plans Week 4
 > Focus on FRQ No. 1 - Methods and Control Structures.
 - Monday: Live Review
 - Tuesday: Test Prep - FRQ review
