@@ -13,12 +13,19 @@ week: 5
 
 ![uml]({{site.baseurl}}/images/UML_logo.png)
 
-## Project Ideas
-> Look for a real need, Teacher/Student need, Educational Study or Simulation, Campus Club, Campus Interest, Business Interest, Charitable Organization, etc.  Of course, the greatest interest is <mark>Student Interest</mark>.  It does not work if only one student is interested.
-- Starting Objective is to begin a code base.  Part of the vision is to  build skills for AP and Teacher requirements.  
-- Be sure to pick something that you don't burn out on after a couple of weeks.  If you are a couple days into something and it is not working it is best to change. 
-- IMO, it is much more interesting to work on something that has 3rd party interest and that you can ultimately acquire a 3rd party interest.  Working to acquire accolades is a big motivator.
+## Project Planning
+> Look for a real need, Teacher/Student need, Educational Study or Simulation, Campus Club, Campus Interest, Business Interest, Charitable Organization, etc.  Of course, the greatest interest is <mark>Student Interest</mark>.  The project will not work if only one student is interested.
+    - Program Purpose and Function.  Think about inputs, outputs, UI, and data that will be in the program.
+    - Be sure to pick something that you don't burn out on after a couple of weeks.  If you are a couple days into something and it is not working it is best to change. 
+    - IMO, it is much more interesting to work on something that has 3rd party interest or that you design something with intention to acquire a 3rd party interest.  Working on something to acquire accolades is a big motivator.
+- Begin a code base.  Some of ideation may come in play with code.  This could also be done in Jupyter Notebooks.
+- Data Abstraction.  UML is pictured in article.  Think about how data will be formed and managed.
+- Managing Complexity.  Think about frontend and backend portions of the system.  Remember this is a Java course, so data needs to be managed in Java.
+- Object Oriented Design and Procedural Abstraction.   Design some of the key objects of the system.  Think about the key elements of User Design.  This should help you divide work amongst team.   Effectually, you will be creating the sub systems of the system in this design effort.
+- Algorithm Implementation.  The key aspects of your project and its algorithms must be considered, prototyped early.  This will help you understand capabilities of team and some of the longer/research required activities.
+- Testing.  Be sure that you are performing iteration and testing as you go.  Do not stack things up or integrate infrequently.  Develop, Integrate, Test weekly!!!  Also, think about the things that needs to be tested.  Think about how to put data into the system auto magically to ensure quality is produced and everything is easily validated.
 
+## Teacher Needs
 > PBL. Concept/Idea in CSA Education.  This could be achieved using Blogging and Jupyter.  Some have said, it is possible to pass the AP exam in 1 month of study.  This would be 30 lessons / 1 hour lessons.
 - Highlight all 10 Units from CB.
 - Remake CB site to be Student Friendly, More Code, and less Video.
