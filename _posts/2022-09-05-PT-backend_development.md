@@ -22,7 +22,7 @@ week: 3
 ## Points will be awarded on these weighted elements
 
 ### More with Greet in Spring Boot
-> The hack on this lesson provides some flexibility.  
+> The hack on this blg provides some flexibility.  
 
 ### Deployment on AWS
 > Deployment is required for API and other labs that we are intending to do shortly. Each individual needs to show success in deployment.
