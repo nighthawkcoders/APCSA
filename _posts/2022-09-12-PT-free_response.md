@@ -28,16 +28,19 @@ week: 4
     - Pick question type 01 from one of the years posted on the former EXAM page.  Solve the problem, including missing pieces in a Jupyter Notebook.  
     - Make this a quality blog.  My suggestion is Pairs do different FRQs and crossovers do the same, to make grading more valuable.
     - Browse through multiple questions, find a question that may be somewhat like a PBL interest.
+
+> Future FRQs
 - FRQ No. 2: Classes
 - FRQ No. 3: Array/ArrayList
 - FRQ No. 4: 2D Array 
 
-### Java Lesson
-> As a team prepare a lesson on Units #1, #3, or #4.   The lesson should be focused on "Methods and Control structures" FRQ.
-- Read Hacks from previous and review future lessons on College Board or other resources to assist with this process
-- Jupyter Notebook expected to be a part of the presentation.
+### Iteration Mini-lab - 1
+> It is really import that student learn to iterate through Arrays, ArrayLists, and 2D arrays.  The most important aspect of this lesson, all which can pop up in testing...
+- Change or add data to the 2D arrays
+- Displaying vertically and horizontally
+- Display backwards or upside down
 
-### Live Grading Presentation.  
+## Live Grading Presentation.  
 > On Live grading day you will present to another Table/Team prior to presenting to the Teacher.  Each team will have 15 minutes to go over their lesson.
 - Crossover Team Review and Review Ticket. 
     
