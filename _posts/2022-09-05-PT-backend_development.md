@@ -21,8 +21,8 @@ week: 3
 
 ## Points will be awarded on these weighted elements
 
-### More with Greet in Spring Boot
-> The hack on this blg provides some flexibility.  
+### Lesson on ifs and expressions
+> The hack on the blog provides guidance.  
 
 ### Deployment on AWS
 > Deployment is required for API and other labs that we are intending to do shortly. Each individual needs to show success in deployment.
