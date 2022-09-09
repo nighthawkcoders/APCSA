@@ -313,7 +313,7 @@ window.onload = wrap_img;
   </li>
   <li>Run docker-compose
     <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>docker-compose up <span class="nt">-d</span>
 </code></pre></div>    </div>
   </li>
   <li>Output from docker-compose.  When running this command, docker-compose will run all the Docker steps and build a Web Application running in a Docker container, a virtual environment.</li>
@@ -525,7 +525,10 @@ openjdk         16-alpine3.13   2aa8569968b8   17 months ago    324MB
 <a class="anchor" href="#certbot-install-and-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Certbot install and configuration</h4>
 <p>Each student scrum team will learn Certbot on on AWS EC2 test server, establish working https web application.  The final configuration will be on AWS server managed by Teachers or Student DevOps Engineers.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>certbot <span class="nt">--nginx</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>snap <span class="nb">install </span>core<span class="p">;</span> <span class="nb">sudo </span>snap refresh core
+<span class="nv">$ </span><span class="nb">sudo </span>snap <span class="nb">install</span> <span class="nt">--classic</span> certbot
+<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /snap/bin/certbot /usr/bin/certbot
+<span class="nv">$ </span><span class="nb">sudo </span>certbot <span class="nt">--nginx</span>
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Saving debug log to /var/log/letsencrypt/letsencrypt.log
