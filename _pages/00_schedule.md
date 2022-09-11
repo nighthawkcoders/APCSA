@@ -23,7 +23,7 @@ title: Schedule
       {% assign start = 4 %}
       {% assign end = 7 %}
 ## Unit {{unit}}: Java Mini-labs
-  > After using Code.org in the first unit, students have been introduced to Classes and Inheritance.  In this unit students will become more familiar with Java development through mini-labs.  These labs will focus on AP required aspects of Java, additionally they can be used to setup as the backend of Desktop App or WebSite. This unit concludes with 4 person Project Plan,  kicking off the end of trimester N@TM project.
+  > After using Code.org in the first unit, students have been introduced to Classes and Inheritance.  In this unit students will become more familiar with Java development through mini-labs.  These labs will focus on AP required aspects of Java, additionally they can be used as code to support the backend of a Desktop App or WebSite. This unit concludes with 4 person Project Plan, kicking off the end of trimester N@TM project.
 
   {% elsif unit == "3" %} 
       {% assign start = 8 %}
