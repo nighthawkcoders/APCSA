@@ -9,22 +9,23 @@ title: Schedule
 {% assign all = all | concat:site.posts | concat:site.pages %}
 
 <!-- Setup 3 Units in Trimester 1 -->
-{% for unit in (1..3) %}
+{% assign units = "2,1,3" | split: ',' %}
+{% for unit in units %}
 
   <!-- Each Unit has a range of weeks and a heading -->
-  {% if unit == 1 %} 
+  {% if unit == "1" %} 
       {% assign start = 0 %}
       {% assign end = 3 %}
 ## Unit {{unit}}: Introduction to Tools and Resources
   > To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging.  These early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks.
 
-  {% elsif unit == 2 %} 
+  {% elsif unit == "2" %} 
       {% assign start = 4 %}
       {% assign end = 7 %}
 ## Unit {{unit}}: Java Mini-labs
   > After using Code.org in the first unit, students have been introduced to Classes and Inheritance.  In this unit students will become more familiar with Java development through mini-labs.  These labs will focus on AP required aspects of Java, additionally they can be used to setup as the backend of Desktop App or WebSite. This unit concludes with 4 person Project Plan,  kicking off the end of trimester N@TM project.
 
-  {% elsif unit == 3 %} 
+  {% elsif unit == "3" %} 
       {% assign start = 8 %}
       {% assign end = 11 %}
 ## Unit {{unit}}: N@tM Project
