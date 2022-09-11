@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      18 min read
     
 </span></p>
 
@@ -124,6 +124,13 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#certbot-install-and-configuration">Certbot install and configuration</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#update-deployment">Update Deployment</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#goto-project-directory">Goto Project directory</a></li>
+<li class="toc-entry toc-h3"><a href="#shutdown-process-and-update-source">Shutdown process and update source</a></li>
+<li class="toc-entry toc-h3"><a href="#rebuild-and-restart-web-application">Rebuild and Restart Web Application</a></li>
 </ul>
 </li>
 </ul><h2 id="deployment-overview">
@@ -611,6 +618,134 @@ IMPORTANT NOTES:
    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
    Donating to EFF:                    https://eff.org/donate-le
 </code></pre></div></div>
+
+<h2 id="update-deployment">
+<a class="anchor" href="#update-deployment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update Deployment</h2>
+<blockquote>
+  <p>This procedure is a very short, as much of the deployment performed is persistent on your EC2/Ubuntu.</p>
+</blockquote>
+
+<h3 id="goto-project-directory">
+<a class="anchor" href="#goto-project-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Goto Project directory</h3>
+
+<blockquote>
+  <p>Check your docker processes.  Make sure git has nothing to commit.</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/spring_portfolio/
+<span class="nv">$ </span>docker-compose ps
+         Name                       Command               State                    Ports                  
+<span class="nt">----------------------------------------------------------------------------------------------------------</span>
+spring_portfolio_web_1   java <span class="nt">-jar</span> target/spring-0. ...   Up      0.0.0.0:8085-&gt;8080/tcp,:::8085-&gt;8080/tcp
+
+<span class="nv">$ </span>docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED        STATUS        PORTS                                       NAMES
+89155782b853   java_springv1   <span class="s2">"java -jar target/sp…"</span>   8 weeks ago    Up 8 weeks    0.0.0.0:8085-&gt;8080/tcp, :::8085-&gt;8080/tcp   spring_portfolio_web_1
+
+<span class="nv">$ </span>git status
+On branch master
+Your branch is up to <span class="nb">date </span>with <span class="s1">'origin/master'</span><span class="nb">.</span>
+
+nothing to commit, working tree clean
+</code></pre></div></div>
+
+<h3 id="shutdown-process-and-update-source">
+<a class="anchor" href="#shutdown-process-and-update-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shutdown process and update source</h3>
+
+<blockquote>
+  <p>Stop docker processes and git pull</p>
+  <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">kill
+</span>Killing spring_portfolio_web_1 ... <span class="k">done</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>At this point your server is down, look at it from browser</p>
+  <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>502 Bad Gateway
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>Update code</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ubuntu@ip-172-31-1-138:~/spring_portfolio<span class="nv">$ </span>git pull
+remote: Enumerating objects: 11, <span class="k">done</span><span class="nb">.</span>
+remote: Counting objects: 100% <span class="o">(</span>11/11<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
+remote: Compressing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
+remote: Total 6 <span class="o">(</span>delta 2<span class="o">)</span>, reused 6 <span class="o">(</span>delta 2<span class="o">)</span>, pack-reused 0
+Unpacking objects: 100% <span class="o">(</span>6/6<span class="o">)</span>, 562 bytes | 562.00 KiB/s, <span class="k">done</span><span class="nb">.</span>
+From https://github.com/nighthawkcoders/spring_portfolio
+   c308ee0..c1f06f1  master     -&gt; origin/master
+Updating c308ee0..c1f06f1
+Fast-forward
+ src/main/resources/application.properties | 4 +++-
+ 1 file changed, 3 insertions<span class="o">(</span>+<span class="o">)</span>, 1 deletion<span class="o">(</span>-<span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="rebuild-and-restart-web-application">
+<a class="anchor" href="#rebuild-and-restart-web-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rebuild and Restart Web Application</h3>
+
+<blockquote>
+  <p>Force rebuild of docker container.  This will take several minutes.</p>
+</blockquote>
+
+<ul>
+  <li>Note.  There is extra opportunity here, for a better way, to do this by using cache and having github pull outside of container (volume?)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose build <span class="nt">--no-cache</span>  <span class="c"># this will take several minutes</span>
+Building web
+Step 1/7 : FROM openjdk:16-alpine3.13
+ <span class="nt">---</span><span class="o">&gt;</span> 2aa8569968b8
+Step 2/7 : WORKDIR /app
+ <span class="nt">---</span><span class="o">&gt;</span> Running <span class="k">in </span>327ed1c61755
+Removing intermediate container 327ed1c61755
+ <span class="nt">---</span><span class="o">&gt;</span> 3769ad96350d
+Step 3/7 : RUN apk update <span class="o">&amp;&amp;</span> apk upgrade <span class="o">&amp;&amp;</span>     apk add <span class="nt">--no-cache</span> git
+ <span class="nt">---</span><span class="o">&gt;</span> Running <span class="k">in </span>76646a4afae0
+
+ ... Lots of Output ...
+
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.2.1/plexus-utils-3.2.1.jar <span class="o">(</span>262 kB at 246 kB/s<span class="o">)</span>
+Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.4/org.eclipse.sisu.inject-0.3.4.jar <span class="o">(</span>379 kB at 350 kB/s<span class="o">)</span>
+<span class="o">[</span>INFO] Replacing main artifact with repackaged archive
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] BUILD SUCCESS
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] Total <span class="nb">time</span>:  30.843 s
+<span class="o">[</span>INFO] Finished at: 2022-09-11T19:44:18Z
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+Removing intermediate container f5f06740c57a
+ <span class="nt">---</span><span class="o">&gt;</span> 34e9da840534
+Step 6/7 : CMD <span class="o">[</span><span class="s2">"java"</span>, <span class="s2">"-jar"</span>, <span class="s2">"target/spring-0.0.1-SNAPSHOT.jar"</span><span class="o">]</span>
+ <span class="nt">---</span><span class="o">&gt;</span> Running <span class="k">in </span>5f29b55a0fdc
+Removing intermediate container 5f29b55a0fdc
+ <span class="nt">---</span><span class="o">&gt;</span> e299d92bd2e6
+Step 7/7 : EXPOSE 8080
+ <span class="nt">---</span><span class="o">&gt;</span> Running <span class="k">in </span>12b33cccbf0e
+Removing intermediate container 12b33cccbf0e
+ <span class="nt">---</span><span class="o">&gt;</span> e5b2b8c5644d
+Successfully built e5b2b8c5644d
+Successfully tagged java_springv1:latest
+</code></pre></div></div>
+
+<blockquote>
+  <p>Run docker-compose</p>
+  <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
+Recreating spring_portfolio_web_1 ... <span class="k">done</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>Now server is up, test in Browser for recent change</p>
+  <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Java Home Page
+</code></pre></div>  </div>
+</blockquote>
 
   </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
