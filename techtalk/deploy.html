@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      20 min read
     
 </span></p>
 
@@ -271,7 +271,8 @@ window.onload = wrap_img;
 <span class="k">RUN </span>git clone https://github.com/nighthawkcoders/spring_portfolio.git /app
 <span class="k">RUN </span>./mvnw package
 <span class="k">CMD</span><span class="s"> ["java", "-jar", "target/spring-0.0.1-SNAPSHOT.jar"]</span>
-<span class="k">EXPOSE</span><span class="s"> 8080</span>
+<span class="c"># EXPOSE port that is defined in spring_portfolio.git application.properties</span>
+<span class="k">EXPOSE</span><span class="s"> 8085  </span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -287,25 +288,33 @@ window.onload = wrap_img;
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano docker-compose.yml
 </code></pre></div>    </div>
   </li>
-  <li>Insert the docker-compose.yml Keys/Values.
-    <div class="language-yml highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
-<span class="na">services</span><span class="pi">:</span>
-<span class="na">web</span><span class="pi">:</span>
-  <span class="na">image</span><span class="pi">:</span> <span class="s">java_springv1</span>
-  <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
-  <span class="na">ports</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s2">"</span><span class="s">8085:8080"</span>
-  <span class="na">volumes</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">persistent_volume:/app/volumes</span>
-<span class="na">volumes</span><span class="pi">:</span>
-<span class="na">persistent_volume</span><span class="pi">:</span>
-  <span class="na">driver</span><span class="pi">:</span> <span class="s">local</span>
-  <span class="na">driver_opts</span><span class="pi">:</span>
-    <span class="na">o</span><span class="pi">:</span> <span class="s">bind</span>
-    <span class="na">type</span><span class="pi">:</span> <span class="s">none</span>
-    <span class="na">device</span><span class="pi">:</span> <span class="s">/home/ubuntu/spring_portfolio/volumes</span>
-</code></pre></div>    </div>
+  <li>Change the docker-compose.yml Keys/Values.
+    <ul>
+      <li>ports 8085:nnnn - Left 8085 is port to be used on system, by curl and Nginx config.</li>
+      <li>ports nnnn:8085 - Right 8085 is port exposed by Docker: EXPOSE 8085</li>
+      <li>device /home/ubuntu/spring_portfolio/volumes - is my project defining a volumes directory for database and uploads outside of container
+```yml
+version: ‘3’
+services:
+web:
+  image: java_springv1
+  build: .
+  ports:
+        <ul>
+          <li>“8085:8085”
+volumes:</li>
+          <li>persistent_volume:/app/volumes
+volumes:
+persistent_volume:
+driver: local
+driver_opts:
+o: bind
+type: none
+device: /home/ubuntu/spring_portfolio/volumes
+```</li>
+        </ul>
+      </li>
+    </ul>
   </li>
 </ul>
 
@@ -480,14 +489,14 @@ openjdk         16-alpine3.13   2aa8569968b8   17 months ago    324MB
     <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
         <span class="kn">proxy_pass</span> <span class="s">http://localhost:8085</span><span class="p">;</span>
         <span class="c1"># Simple requests</span>
-        <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">~</span><span class="sr">*</span> <span class="s">"(GET|POST)")</span> <span class="p">{</span>
+        <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">~</span><span class="sr">*</span> <span class="s">"(GET|POST|PUT)")</span> <span class="p">{</span>
                 <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">*</span><span class="p">;</span>
         <span class="p">}</span>
 
         <span class="c1"># Preflight requests</span>
         <span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="p">=</span> <span class="s">OPTIONS</span> <span class="s">)</span> <span class="p">{</span>
                 <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">*</span><span class="p">;</span>
-                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Methods"</span> <span class="s">"GET,</span> <span class="s">POST,</span> <span class="s">OPTIONS,</span> <span class="s">HEAD"</span><span class="p">;</span>
+                <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Methods"</span> <span class="s">"GET,</span> <span class="s">POST,</span> <span class="s">OPTIONS,</span> <span class="s">PUT,</span> <span class="s">HEAD"</span><span class="p">;</span>
                 <span class="kn">add_header</span> <span class="s">"Access-Control-Allow-Headers"</span> <span class="s">"Authorization,</span> <span class="s">Origin,</span> <span class="s">X-Requested-With,</span> <span class="s">Content-Type,</span> <span class="s">Accept"</span><span class="p">;</span>
                 <span class="kn">return</span> <span class="mi">200</span><span class="p">;</span>
         <span class="p">}</span>
