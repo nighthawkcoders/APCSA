@@ -133,30 +133,10 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#rebuild-and-restart-web-application">Rebuild and Restart Web Application</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h1"><a href="#faqs">FAQS</a>
+<li class="toc-entry toc-h2"><a href="#faqs-for-problems">FAQS for Problems</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#running-curl-commands-results-in-curl-52-empty-reply-from-server-error">running curl commands results in curl (52) Empty reply from server error</a></li>
-<li class="toc-entry toc-h4"><a href="#to-fix-this">To fix this:</a></li>
-<li class="toc-entry toc-h4"><a href="#cd-into-your-spring-portfolio">cd into your spring portfolio</a></li>
-<li class="toc-entry toc-h4"><a href="#then">Then,</a></li>
-<li class="toc-entry toc-h4"><a href="#change-the-line">change the line</a></li>
-<li class="toc-entry toc-h4"><a href="#to">to</a></li>
-<li class="toc-entry toc-h4"><a href="#then-save-docker-file-and-close-out-of-it">Then save docker file and close out of it</a></li>
-<li class="toc-entry toc-h4"><a href="#next-run">Next, run</a></li>
-<li class="toc-entry toc-h4"><a href="#note-you-may-need-to-add-sudo-before-the-line">note, you may need to add sudo before the line</a></li>
-<li class="toc-entry toc-h4"><a href="#next-try-to-run-up-commandmight-need-sudo">next try to run up command(might need sudo)</a></li>
-<li class="toc-entry toc-h4"><a href="#if-this-does-not-work-reboot-and-make-a-new-instance-then-try-these-commandsuse-sudo-if-you-started-with-sudo">if this does not work, reboot and make a new instance, then try these commands(use sudo if you started with sudo):</a></li>
-<li class="toc-entry toc-h3"><a href="#remove-container">Remove container</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#if-when-you-list-containers-nothing-comes-up-move-on-to-volume-step">If when you list containers, nothing comes up, move on to volume step</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#remove-volume">Remove volume</a></li>
-<li class="toc-entry toc-h3"><a href="#restart-the-containers-using-the-following-command">Restart the containers using the following command:</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#now-try-running-the-curl-command-again">now try running the curl command again</a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h3"><a href="#docker-file-using-git-alternative">Docker file using Git alternative</a></li>
+<li class="toc-entry toc-h3"><a href="#errors-on-docker-compose-or-curl">Errors on docker-compose or curl</a></li>
 </ul>
 </li>
 </ul><h2 id="deployment-overview">
@@ -755,7 +735,7 @@ Step 7/7 : EXPOSE 8080
 Removing intermediate container 12b33cccbf0e
  <span class="nt">---</span><span class="o">&gt;</span> e5b2b8c5644d
 Successfully built e5b2b8c5644d
-Successfully tagged java_springv1:latest
+Successfully tagged java_springv1:latest##
 </code></pre></div></div>
 
 <blockquote>
@@ -771,87 +751,108 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
   <div class="language-plaintext highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>Java Home Page
 </code></pre></div>  </div>
-  <h1 id="faqs">
-<a class="anchor" href="#faqs" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQS</h1>
-  <h4 id="running-curl-commands-results-in-curl-52-empty-reply-from-server-error">
-<a class="anchor" href="#running-curl-commands-results-in-curl-52-empty-reply-from-server-error" aria-hidden="true"><span class="octicon octicon-link"></span></a>running curl commands results in curl (52) Empty reply from server error</h4>
-  <h4 id="to-fix-this">
-<a class="anchor" href="#to-fix-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>To fix this:</h4>
-  <h4 id="cd-into-your-spring-portfolio">
-<a class="anchor" href="#cd-into-your-spring-portfolio" aria-hidden="true"><span class="octicon octicon-link"></span></a>cd into your spring portfolio</h4>
+  <h2 id="faqs-for-problems">
+<a class="anchor" href="#faqs-for-problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQS for Problems</h2>
+</blockquote>
+
+<h3 id="docker-file-using-git-alternative">
+<a class="anchor" href="#docker-file-using-git-alternative" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker file using Git alternative</h3>
+<blockquote>
+  <p>Setup Docker in more classic way using “RUN . /app”.  This allows for “git clone” and “git pull’ to be managed outside of the container.  This will allow Docker to work without rebuilding container from scratch each update.  This allows “docker-compose build” to capitalize on Docker cache for quicker update.</p>
+</blockquote>
+
+<blockquote>
+  <p>cd into your spring portfolio project</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/spring_portfolio
 </code></pre></div>  </div>
-  <h4 id="then">
-<a class="anchor" href="#then" aria-hidden="true"><span class="octicon octicon-link"></span></a>Then,</h4>
+  <p>edit Dockerfile</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano Dockerfile
 </code></pre></div>  </div>
-  <h4 id="change-the-line">
-<a class="anchor" href="#change-the-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>change the line</h4>
+  <p>change this line from</p>
   <div class="language-dockerfile highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>git clone https://github.com/nighthawkcoders/spring_portfolio.git /app
 </code></pre></div>  </div>
-  <h4 id="to">
-<a class="anchor" href="#to" aria-hidden="true"><span class="octicon octicon-link"></span></a>to</h4>
+  <p>change to</p>
   <div class="language-dockerfile highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="k">RUN </span><span class="nb">.</span> /app
 </code></pre></div>  </div>
-  <h4 id="then-save-docker-file-and-close-out-of-it">
-<a class="anchor" href="#then-save-docker-file-and-close-out-of-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Then save docker file and close out of it</h4>
-  <h4 id="next-run">
-<a class="anchor" href="#next-run" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next, run</h4>
+</blockquote>
+
+<blockquote>
+  <p>Then save docker file and close out of it</p>
+</blockquote>
+
+<blockquote>
+  <p>Next, build container. This may require “sudo” permission elevation</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose build
 </code></pre></div>  </div>
-  <h4 id="note-you-may-need-to-add-sudo-before-the-line">
-<a class="anchor" href="#note-you-may-need-to-add-sudo-before-the-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>note, you may need to add sudo before the line</h4>
-  <h4 id="next-try-to-run-up-commandmight-need-sudo">
-<a class="anchor" href="#next-try-to-run-up-commandmight-need-sudo" aria-hidden="true"><span class="octicon octicon-link"></span></a>next try to run up command(might need sudo)</h4>
+</blockquote>
+
+<blockquote>
+  <p>Finish, by running container.  The may require “sudo” elevation</p>
   <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>compose up <span class="nt">-d</span>
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
 </code></pre></div>  </div>
-  <h4 id="if-this-does-not-work-reboot-and-make-a-new-instance-then-try-these-commandsuse-sudo-if-you-started-with-sudo">
-<a class="anchor" href="#if-this-does-not-work-reboot-and-make-a-new-instance-then-try-these-commandsuse-sudo-if-you-started-with-sudo" aria-hidden="true"><span class="octicon octicon-link"></span></a>if this does not work, reboot and make a new instance, then try these commands(use sudo if you started with sudo):</h4>
+</blockquote>
+
+<h3 id="errors-on-docker-compose-or-curl">
+<a class="anchor" href="#errors-on-docker-compose-or-curl" aria-hidden="true"><span class="octicon octicon-link"></span></a>Errors on docker-compose or curl</h3>
+<blockquote>
+  <p>if “docker-compose” or “curl” not working and you want to start over.  This will clean existing Docker container and volumes and restart.</p>
+  <ul>
+    <li>If any of these steps fail, try “sudo” prefix to elevate permissions.</li>
+    <li>If commands are incomplete or something is missing continue on.  These commands are intended to cleanup Docker, before restarting.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p>cd into your spring portfolio project</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/project
-<span class="nv">$ </span>docker-compose down  <span class="c"># try sudo if it fails</span>
 </code></pre></div>  </div>
-  <h3 id="remove-container">
-<a class="anchor" href="#remove-container" aria-hidden="true"><span class="octicon octicon-link"></span></a>Remove container</h3>
+</blockquote>
+
+<blockquote>
+  <p>stop docker-compose processes</p>
+  <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose down  <span class="c"># try sudo if it fails</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>Remove container</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker ps  <span class="c"># list all containers</span>
 <span class="nv">$ </span>docker <span class="nb">rm</span> <span class="nt">-f</span> container-name <span class="c"># try sudo if it fails</span>
 </code></pre></div>  </div>
-  <h4 id="if-when-you-list-containers-nothing-comes-up-move-on-to-volume-step">
-<a class="anchor" href="#if-when-you-list-containers-nothing-comes-up-move-on-to-volume-step" aria-hidden="true"><span class="octicon octicon-link"></span></a>If when you list containers, nothing comes up, move on to volume step</h4>
-  <h3 id="remove-volume">
-<a class="anchor" href="#remove-volume" aria-hidden="true"><span class="octicon octicon-link"></span></a>Remove volume</h3>
+</blockquote>
+
+<blockquote>
+  <p>Remove volume</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume <span class="nb">ls</span> <span class="c"># list all volumes</span>
 <span class="nv">$ </span>docker volume <span class="nb">rm </span>volume-name <span class="c"># try sudo if it fails</span>
 </code></pre></div>  </div>
-  <h3 id="restart-the-containers-using-the-following-command">
-<a class="anchor" href="#restart-the-containers-using-the-following-command" aria-hidden="true"><span class="octicon octicon-link"></span></a>Restart the containers using the following command:</h3>
+</blockquote>
+
+<blockquote>
+  <p>Restart the containers using the following command</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span> <span class="c"># try sudo if it fails</span>
 </code></pre></div>  </div>
-  <h4 id="now-try-running-the-curl-command-again">
-<a class="anchor" href="#now-try-running-the-curl-command-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>now try running the curl command again</h4>
+</blockquote>
+
+<blockquote>
+  <p>Use curl to test</p>
   <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl http://localhost:8085<span class="p">;</span>
 </code></pre></div>  </div>
 </blockquote>
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="nighthawkcoders/APCSA"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script><a class="u-url" href="/APCSA/techtalk/deploy" hidden></a>
+  </div><a class="u-url" href="/APCSA/techtalk/deploy" hidden></a>
 </article>
 
       </div>
