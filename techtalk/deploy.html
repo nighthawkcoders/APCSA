@@ -760,6 +760,10 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
 <a class="anchor" href="#docker-file-change-extracting-git" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker file change, extracting Git</h3>
 <blockquote>
   <p>Setup Docker in more classic way using “RUN . /app”.  This allows for “git clone” and “git pull’ to be managed outside of the container.  This will allow Docker to work without rebuilding container from scratch each update.  This allows “docker-compose build” to capitalize on Docker cache for quicker update.</p>
+  <ul>
+    <li>For Best practice or Docker information:<a href="https://docs.docker.com/develop/dev-best-practices/">https://docs.docker.com/develop/dev-best-practices/</a>
+</li>
+  </ul>
 </blockquote>
 
 <blockquote>
