@@ -135,7 +135,7 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#faqs-for-problems">FAQS for Problems</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#docker-file-using-git-alternative">Docker file using Git alternative</a></li>
+<li class="toc-entry toc-h3"><a href="#docker-file-change-extracting-git">Docker file change, extracting Git</a></li>
 <li class="toc-entry toc-h3"><a href="#errors-on-docker-compose-or-curl">Errors on docker-compose or curl</a></li>
 </ul>
 </li>
@@ -756,8 +756,8 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
 <h2 id="faqs-for-problems">
 <a class="anchor" href="#faqs-for-problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQS for Problems</h2>
 
-<h3 id="docker-file-using-git-alternative">
-<a class="anchor" href="#docker-file-using-git-alternative" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker file using Git alternative</h3>
+<h3 id="docker-file-change-extracting-git">
+<a class="anchor" href="#docker-file-change-extracting-git" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker file change, extracting Git</h3>
 <blockquote>
   <p>Setup Docker in more classic way using “RUN . /app”.  This allows for “git clone” and “git pull’ to be managed outside of the container.  This will allow Docker to work without rebuilding container from scratch each update.  This allows “docker-compose build” to capitalize on Docker cache for quicker update.</p>
 </blockquote>
