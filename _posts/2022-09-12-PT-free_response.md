@@ -15,8 +15,8 @@ week: 4
 > Focus on FRQ No. 1 - Methods and Control Structures.
 - Monday: Live Review
 - Tuesday: Test Prep
-- Wednesday: Tech Talk
-- Thursday: Human Day
+- Wednesday: Career Tech
+- Thursday: Human Prep
 - Friday: Code, Code, Code
 
 
