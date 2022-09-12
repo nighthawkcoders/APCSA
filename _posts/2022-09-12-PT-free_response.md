@@ -14,10 +14,10 @@ week: 4
 ## Plans Week 4
 > Focus on FRQ No. 1 - Methods and Control Structures.
 - Monday: Live Review
-- Tuesday: Test Prep - FRQ review
-- Wednesday: Tech Talk - JavaScript and APIs
-- Thursday: Code, Code, Code
-- Friday: Lesson Planning
+- Tuesday: Test Prep
+- Wednesday: Tech Talk
+- Thursday: Human Day
+- Friday: Code, Code, Code
 
 
 ## Points will be awarded on these three key elements
