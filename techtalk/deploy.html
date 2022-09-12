@@ -267,7 +267,7 @@ window.onload = wrap_img;
 <span class="k">FROM</span><span class="s"> openjdk:16-alpine3.13</span>
 <span class="k">WORKDIR</span><span class="s"> /app</span>
 <span class="k">RUN </span>apk update <span class="o">&amp;&amp;</span> apk upgrade <span class="o">&amp;&amp;</span> <span class="se">\
-</span>  apk add <span class="nt">--no-cache</span> git 
+</span>  apk add <span class="nt">--no-cache</span> git maven
 <span class="k">RUN </span>git clone https://github.com/nighthawkcoders/spring_portfolio.git /app
 <span class="k">RUN </span>./mvnw package
 <span class="k">CMD</span><span class="s"> ["java", "-jar", "target/spring-0.0.1-SNAPSHOT.jar"]</span>
