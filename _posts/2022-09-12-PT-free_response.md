@@ -41,10 +41,10 @@ week: 4
 - Display backwards or upside down
 
 ## Live Grading Presentation.  
-> On Live grading day each team will present to 3 other Tables/Teams while presenting to the Teacher.  Each team will have 10 minutes to go over their lesson.
+> On Live grading day each team will present to 3 other Tables/Teams while presenting to the Teacher.  Each team will have 10 minutes to go over their FRQ, Mini-lab.
 - Crossover Team Review and Review Ticket. 
     
-> Presentation.  Introduce lesson and introduce how you plan to present the Lesson(s).  
+> Presentation.  Introduce lesson and introduce how you plan to present the Material(s).  
 - Have parts that each person will go over.
 - Consider an activity or illustration other than Code, Code, Code to learn about Methods and Control Structures.
 - Outside sources can be used to complement the lesson: College Board, Khan Academy, Code.org
