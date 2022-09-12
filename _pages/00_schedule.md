@@ -8,7 +8,7 @@ title: Schedule
 {% assign all = null | compact %}
 {% assign all = all | concat:site.posts | concat:site.pages %}
 
-<!-- Setup 3 Units in Trimester 1 -->
+<!-- Setup order for Units -->
 {% assign units = "2,1,3" | split: ',' %}
 {% for unit in units %}
 

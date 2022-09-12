@@ -2,6 +2,8 @@
 layout: default
 permalink: /api/overview
 title: API
+type: pbl
+week: 7
 ---
 
 {% include nav_data.html %}

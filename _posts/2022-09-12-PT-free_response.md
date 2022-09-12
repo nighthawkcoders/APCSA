@@ -41,16 +41,16 @@ week: 4
 - Display backwards or upside down
 
 ## Live Grading Presentation.  
-> On Live grading day you will present to another Table/Team prior to presenting to the Teacher.  Each team will have 15 minutes to go over their lesson.
+> On Live grading day each team will present to 3 other Tables/Teams while presenting to the Teacher.  Each team will have 10 minutes to go over their lesson.
 - Crossover Team Review and Review Ticket. 
     
-> Live Review.  Describe and introduce how you presented the Lesson(s).  
-- Describe parts each person went over.
+> Presentation.  Introduce lesson and introduce how you plan to present the Lesson(s).  
+- Have parts that each person will go over.
 - Consider an activity or illustration other than Code, Code, Code to learn about Methods and Control Structures.
-- Outside sources can be used to complement the lesson
+- Outside sources can be used to complement the lesson: College Board, Khan Academy, Code.org
+- It would be interesting if you adapt Iteration Mini-lab and the Methods and Control Structures question to work together.  This would show your ability to plan and produce something useful.
 
 > Every time Teacher Live Review requirements.
-    - Create Comment in this Points Blog.  Include crossover grades, crossover comments, and blog(s) used during week.
-    - Be prepared to present fast, be clear, and show everything in under 5 minutes.  3.5 minutes is preferred time for 4 people.
-    - Jupyter Notebooks contain comments and markdown cells that describe work.
-    - Output of Jupyter Notebook is required when posting the Blog.
+- Create Comment in this Points Blog.  Include crossover grades, crossover comments, and blog(s) used during week.
+- Jupyter Notebooks contain comments and markdown cells that describe work.
+- Output of Jupyter Notebook is required when posting the Blog.
