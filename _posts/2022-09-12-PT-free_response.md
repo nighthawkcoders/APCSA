@@ -4,7 +4,7 @@ comments: true
 layout: post
 title:  Free Response Question No. 1 
 description: The focus of the week is preparing for the first type of FRQ question tested by College Board.  A great deal of energy should be spent on researching and preparing a lesson on the Methods and Control Structures topic.
-permalink: /points/3
+permalink: /points/4
 image: /images/points.jpeg
 categories: [ap]
 type: plan
