@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -612,6 +612,59 @@ object ; { name: &#39;Mr M&#39;, ghID: &#39;jm1021&#39;, classOf: 1977, role: &#
 &lt;/div&gt;
 
 &lt;/div&gt;
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Timer">Timer<a class="anchor-link" href="#Timer"> </a></h1><p>There are ways to setup a delay.</p>
+<p><a href="http://n-riesco.github.io/ijavascript/doc/async.ipynb.html?ref=morioh.com&amp;utm_source=morioh.com">Reference</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-javascript"><pre><span></span><span class="nx">$$</span><span class="p">.</span><span class="k">async</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">cell1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">$$</span><span class="o">:</span> <span class="nx">$$</span><span class="p">,</span>
+    <span class="nx">console</span><span class="o">:</span> <span class="nx">console</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$$</span><span class="p">.</span><span class="nx">clear</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+    <span class="nx">cell1</span><span class="p">.</span><span class="nx">$$</span><span class="p">.</span><span class="nx">sendResult</span><span class="p">(</span><span class="s2">&quot;Goodbye!&quot;</span><span class="p">);</span>
+<span class="p">},</span> <span class="mf">2000</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Goodbye!&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
     
 
 &lt;/div&gt;
