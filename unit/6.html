@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Iteration with 2D Array | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Iteration with 2D Array" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Provided code is to assist in changing Images. Mini-labs will be provided" />
+<meta property="og:description" content="Provided code is to assist in changing Images. Mini-labs will be provided" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/unit/6" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/unit/6" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/monalisa.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-26T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/monalisa.png" />
+<meta property="twitter:title" content="Iteration with 2D Array" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-26T00:00:00-05:00","datePublished":"2022-09-26T00:00:00-05:00","description":"Provided code is to assist in changing Images. Mini-labs will be provided","headline":"Iteration with 2D Array","image":"https://nighthawkcoders.github.io/APCSA/images/monalisa.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/unit/6"},"url":"https://nighthawkcoders.github.io/APCSA/unit/6"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Tags</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Iteration with 2D Array</h1><p class="page-description">Provided code is to assist in changing Images.  Mini-labs will be provided</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-26T00:00:00-05:00" itemprop="datePublished">
+        Sep 26, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      15 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/APCSA/categories/#units">units</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/nighthawkcoders/APCSA/tree/master/_notebooks/2022-09-26-AP-images.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/APCSA/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/nighthawkcoders/APCSA/master?filepath=_notebooks%2F2022-09-26-AP-images.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/nighthawkcoders/APCSA/blob/master/_notebooks/2022-09-26-AP-images.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2FAPCSA%2Fblob%2Fmaster%2F_notebooks%2F2022-09-26-AP-images.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/APCSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-09-26-AP-images.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="cm">/******************************************************************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *  Data type for manipulating individual pixels of an image. The original</span>
+<span class="cm"> *  image can be read from a file in JPG, GIF, or PNG format, or the</span>
+<span class="cm"> *  user can create a blank image of a given dimension. Includes methods for</span>
+<span class="cm"> *  displaying the image in a window on the screen or saving to a file.</span>
+<span class="cm"> *</span>
+<span class="cm"> * </span>
+<span class="cm"> *  Remarks</span>
+<span class="cm"> *  -------</span>
+<span class="cm"> *   - pixel (x, y) is column x and row y, where (0, 0) is upper left</span>
+<span class="cm"> *</span>
+<span class="cm"> ******************************************************************************/</span>
+
+<span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.FileDialog</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Toolkit</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.KeyEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.image.BufferedImage</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.imageio.ImageIO</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.ImageIcon</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JLabel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JMenu</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JMenuBar</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JMenuItem</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.KeyStroke</span><span class="p">;</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> *  This class provides methods for manipulating individual pixels of</span>
+<span class="cm"> *  an image using the RGB color format. The alpha component (for transparency)</span>
+<span class="cm"> *  is not currently supported.</span>
+<span class="cm"> *  The original image can be read from a {@code PNG}, {@code GIF},</span>
+<span class="cm"> *  or {@code JPEG} file or the user can create a blank image of a given dimension.</span>
+<span class="cm"> *  This class includes methods for displaying the image in a window on</span>
+<span class="cm"> *  the screen or saving it to a file.</span>
+<span class="cm"> *  &lt;p&gt;</span>
+<span class="cm"> *  Pixel (&lt;em&gt;col&lt;/em&gt;, &lt;em&gt;row&lt;/em&gt;) is column &lt;em&gt;col&lt;/em&gt; and row &lt;em&gt;row&lt;/em&gt;.</span>
+<span class="cm"> *  By default, the origin (0, 0) is the pixel in the top-left corner,</span>
+<span class="cm"> *  which is a common convention in image processing.</span>
+<span class="cm"> *  The method {@link #setOriginLowerLeft()} change the origin to the lower left.</span>
+<span class="cm"> *  &lt;p&gt;</span>
+<span class="cm"> *  The {@code get()} and {@code set()} methods use {@link Color} objects to get</span>
+<span class="cm"> *  or set the color of the specified pixel.</span>
+<span class="cm"> *  The {@code getRGB()} and {@code setRGB()} methods use a 32-bit {@code int}</span>
+<span class="cm"> *  to encode the color, thereby avoiding the need to create temporary</span>
+<span class="cm"> *  {@code Color} objects. The red (R), green (G), and blue (B) components </span>
+<span class="cm"> *  are encoded using the least significant 24 bits.</span>
+<span class="cm"> *  Given a 32-bit {@code int} encoding the color, the following code extracts</span>
+<span class="cm"> *  the RGB components:</span>
+<span class="cm"> * &lt;blockquote&gt;&lt;pre&gt;</span>
+<span class="cm"> *  int r = (rgb &amp;gt;&amp;gt; 16) &amp;amp; 0xFF;</span>
+<span class="cm"> *  int g = (rgb &amp;gt;&amp;gt;  8) &amp;amp; 0xFF;</span>
+<span class="cm"> *  int b = (rgb &amp;gt;&amp;gt;  0) &amp;amp; 0xFF;</span>
+<span class="cm"> *  &lt;/pre&gt;&lt;/blockquote&gt; </span>
+<span class="cm"> *  Given the RGB components (8-bits each) of a color,</span>
+<span class="cm"> *  the following statement packs it into a 32-bit {@code int}:</span>
+<span class="cm"> * &lt;blockquote&gt;&lt;pre&gt;</span>
+<span class="cm"> *  int rgb = (r &amp;lt;&amp;lt; 16) + (g &amp;lt;&amp;lt; 8) + (b &amp;lt;&amp;lt; 0);</span>
+<span class="cm"> * &lt;/pre&gt;&lt;/blockquote&gt; </span>
+<span class="cm"> *  &lt;p&gt;</span>
+<span class="cm"> *  A &lt;em&gt;W&lt;/em&gt;-by-&lt;em&gt;H&lt;/em&gt; picture uses ~ 4 &lt;em&gt;W H&lt;/em&gt; bytes of memory,</span>
+<span class="cm"> *  since the color of each pixel is encoded as a 32-bit &lt;code&gt;int&lt;/code&gt;.</span>
+<span class="cm"> *  &lt;p&gt;</span>
+<span class="cm"> *  For additional documentation, see</span>
+<span class="cm"> *  &lt;a href="https://introcs.cs.princeton.edu/31datatype"&gt;Section 3.1&lt;/a&gt; of</span>
+<span class="cm"> *  &lt;i&gt;Computer Science: An Interdisciplinary Approach&lt;/i&gt;</span>
+<span class="cm"> *  by Robert Sedgewick and Kevin Wayne.</span>
+<span class="cm"> *  See {@link GrayscalePicture} for a version that supports grayscale images.</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @author Robert Sedgewick</span>
+<span class="cm"> *  @author Kevin Wayne</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Picture</span> <span class="kd">implements</span> <span class="n">ActionListener</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">BufferedImage</span> <span class="n">image</span><span class="p">;</span>               <span class="c1">// the rasterized image</span>
+    <span class="kd">private</span> <span class="n">JFrame</span> <span class="n">frame</span><span class="p">;</span>                      <span class="c1">// on-screen view</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">filename</span><span class="p">;</span>                   <span class="c1">// name of file</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isOriginUpperLeft</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  <span class="c1">// location of origin</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>           <span class="c1">// width and height</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Creates a {@code width}-by-{@code height} picture, with {@code width} columns</span>
+<span class="cm">     * and {@code height} rows, where each pixel is black.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param width the width of the picture</span>
+<span class="cm">     * @param height the height of the picture</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code width} is negative or zero</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code height} is negative or zero</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Picture</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">width</span>  <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"width must be positive"</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">height</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"height must be positive"</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span>  <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedImage</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">BufferedImage</span><span class="p">.</span><span class="na">TYPE_INT_RGB</span><span class="p">);</span>
+        <span class="c1">// set to TYPE_INT_ARGB here and in next constructor to support transparency</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Creates a new picture that is a deep copy of the argument picture.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param  picture the picture to copy</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code picture} is {@code null}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Picture</span><span class="p">(</span><span class="n">Picture</span> <span class="n">picture</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">picture</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"constructor argument is null"</span><span class="p">);</span>
+
+        <span class="n">width</span>  <span class="o">=</span> <span class="n">picture</span><span class="p">.</span><span class="na">width</span><span class="p">();</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">picture</span><span class="p">.</span><span class="na">height</span><span class="p">();</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedImage</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">BufferedImage</span><span class="p">.</span><span class="na">TYPE_INT_RGB</span><span class="p">);</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">picture</span><span class="p">.</span><span class="na">filename</span><span class="p">;</span>
+        <span class="n">isOriginUpperLeft</span> <span class="o">=</span> <span class="n">picture</span><span class="p">.</span><span class="na">isOriginUpperLeft</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">();</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">();</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+                <span class="n">image</span><span class="p">.</span><span class="na">setRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">picture</span><span class="p">.</span><span class="na">image</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">));</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Creates a picture by reading an image from a file or URL.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param  name the name of the file (.png, .gif, or .jpg) or URL.</span>
+<span class="cm">     * @throws IllegalArgumentException if cannot read image</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code name} is {@code null}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Picture</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"constructor argument is null"</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">filename</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// try to read from file in working directory</span>
+            <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">isFile</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">else</span> <span class="p">{</span>
+
+                <span class="c1">// resource relative to .class file</span>
+                <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="n">getClass</span><span class="p">().</span><span class="na">getResource</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+
+                <span class="c1">// resource relative to classloader root</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">url</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">url</span> <span class="o">=</span> <span class="n">getClass</span><span class="p">().</span><span class="na">getClassLoader</span><span class="p">().</span><span class="na">getResource</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="c1">// or URL from web</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">url</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="n">image</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">image</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"could not read image: "</span> <span class="o">+</span> <span class="n">name</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="n">width</span>  <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"could not open image: "</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">ioe</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Creates a picture by reading the image from a PNG, GIF, or JPEG file.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param file the file</span>
+<span class="cm">     * @throws IllegalArgumentException if cannot read image</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code file} is {@code null}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Picture</span><span class="p">(</span><span class="n">File</span> <span class="n">file</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"constructor argument is null"</span><span class="p">);</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"could not open file: "</span> <span class="o">+</span> <span class="n">file</span><span class="p">,</span> <span class="n">ioe</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">image</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"could not read file: "</span> <span class="o">+</span> <span class="n">file</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">width</span>  <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Returns a {@link JLabel} containing this picture, for embedding in a {@link JPanel},</span>
+<span class="cm">     * {@link JFrame} or other GUI widget.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return the {@code JLabel}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">JLabel</span> <span class="nf">getJLabel</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">image</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>         <span class="c1">// no image available</span>
+        <span class="n">ImageIcon</span> <span class="n">icon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ImageIcon</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="n">icon</span><span class="p">);</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Sets the origin to be the upper left pixel. This is the default.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setOriginUpperLeft</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">isOriginUpperLeft</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Sets the origin to be the lower left pixel.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setOriginLowerLeft</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">isOriginUpperLeft</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Displays the picture in a window on the screen.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="c1">// create the GUI for viewing the image if needed</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">();</span>
+
+            <span class="n">JMenuBar</span> <span class="n">menuBar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuBar</span><span class="p">();</span>
+            <span class="n">JMenu</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenu</span><span class="p">(</span><span class="s">"File"</span><span class="p">);</span>
+            <span class="n">menuBar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">menu</span><span class="p">);</span>
+            <span class="n">JMenuItem</span> <span class="n">menuItem1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JMenuItem</span><span class="p">(</span><span class="s">" Save...   "</span><span class="p">);</span>
+            <span class="n">menuItem1</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+            <span class="c1">// use getMenuShortcutKeyMaskEx() in Java 10 (getMenuShortcutKeyMask() deprecated)           </span>
+            <span class="n">menuItem1</span><span class="p">.</span><span class="na">setAccelerator</span><span class="p">(</span><span class="n">KeyStroke</span><span class="p">.</span><span class="na">getKeyStroke</span><span class="p">(</span><span class="n">KeyEvent</span><span class="p">.</span><span class="na">VK_S</span><span class="p">,</span>
+                                     <span class="n">Toolkit</span><span class="p">.</span><span class="na">getDefaultToolkit</span><span class="p">().</span><span class="na">getMenuShortcutKeyMask</span><span class="p">()));</span>
+            <span class="n">menu</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">menuItem1</span><span class="p">);</span>
+            <span class="n">frame</span><span class="p">.</span><span class="na">setJMenuBar</span><span class="p">(</span><span class="n">menuBar</span><span class="p">);</span>
+
+
+
+            <span class="n">frame</span><span class="p">.</span><span class="na">setContentPane</span><span class="p">(</span><span class="n">getJLabel</span><span class="p">());</span>
+            <span class="c1">// f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+            <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">DISPOSE_ON_CLOSE</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">filename</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="n">frame</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="n">width</span> <span class="o">+</span> <span class="s">"-by-"</span> <span class="o">+</span> <span class="n">height</span><span class="p">);</span>
+            <span class="k">else</span>                  <span class="n">frame</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+            <span class="n">frame</span><span class="p">.</span><span class="na">setResizable</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+            <span class="n">frame</span><span class="p">.</span><span class="na">pack</span><span class="p">();</span>
+            <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// draw</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">repaint</span><span class="p">();</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Returns the height of the picture.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return the height of the picture (in pixels)</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">height</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Returns the width of the picture.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return the width of the picture (in pixels)</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">width</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">width</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">validateRowIndex</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">row</span> <span class="o">&gt;=</span> <span class="n">height</span><span class="p">())</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"row index must be between 0 and "</span> <span class="o">+</span> <span class="p">(</span><span class="n">height</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">row</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">validateColumnIndex</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">col</span> <span class="o">&gt;=</span> <span class="n">width</span><span class="p">())</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"column index must be between 0 and "</span> <span class="o">+</span> <span class="p">(</span><span class="n">width</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">col</span><span class="p">);</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Returns the color of pixel ({@code col}, {@code row}) as a {@link java.awt.Color}.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param col the column index</span>
+<span class="cm">     * @param row the row index</span>
+<span class="cm">     * @return the color of pixel ({@code col}, {@code row})</span>
+<span class="cm">     * @throws IllegalArgumentException unless both {@code 0 &lt;= col &lt; width} and {@code 0 &lt;= row &lt; height}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Color</span> <span class="nf">get</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">row</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">validateColumnIndex</span><span class="p">(</span><span class="n">col</span><span class="p">);</span>
+        <span class="n">validateRowIndex</span><span class="p">(</span><span class="n">row</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="n">rgb</span><span class="p">);</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Returns the color of pixel ({@code col}, {@code row}) as an {@code int}.</span>
+<span class="cm">     * Using this method can be more efficient than {@link #get(int, int)} because</span>
+<span class="cm">     * it does not create a {@code Color} object.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param col the column index</span>
+<span class="cm">     * @param row the row index</span>
+<span class="cm">     * @return the integer representation of the color of pixel ({@code col}, {@code row})</span>
+<span class="cm">     * @throws IllegalArgumentException unless both {@code 0 &lt;= col &lt; width} and {@code 0 &lt;= row &lt; height}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getRGB</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">row</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">validateColumnIndex</span><span class="p">(</span><span class="n">col</span><span class="p">);</span>
+        <span class="n">validateRowIndex</span><span class="p">(</span><span class="n">row</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isOriginUpperLeft</span><span class="p">)</span> <span class="k">return</span> <span class="n">image</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+        <span class="k">else</span>                   <span class="k">return</span> <span class="n">image</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Sets the color of pixel ({@code col}, {@code row}) to given color.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param col the column index</span>
+<span class="cm">     * @param row the row index</span>
+<span class="cm">     * @param color the color</span>
+<span class="cm">     * @throws IllegalArgumentException unless both {@code 0 &lt;= col &lt; width} and {@code 0 &lt;= row &lt; height}</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code color} is {@code null}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="n">Color</span> <span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">validateColumnIndex</span><span class="p">(</span><span class="n">col</span><span class="p">);</span>
+        <span class="n">validateRowIndex</span><span class="p">(</span><span class="n">row</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"color argument is null"</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">color</span><span class="p">.</span><span class="na">getRGB</span><span class="p">();</span>
+        <span class="n">setRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">rgb</span><span class="p">);</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Sets the color of pixel ({@code col}, {@code row}) to given color.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param col the column index</span>
+<span class="cm">     * @param row the row index</span>
+<span class="cm">     * @param rgb the integer representation of the color</span>
+<span class="cm">     * @throws IllegalArgumentException unless both {@code 0 &lt;= col &lt; width} and {@code 0 &lt;= row &lt; height}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setRGB</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rgb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">validateColumnIndex</span><span class="p">(</span><span class="n">col</span><span class="p">);</span>
+        <span class="n">validateRowIndex</span><span class="p">(</span><span class="n">row</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isOriginUpperLeft</span><span class="p">)</span> <span class="n">image</span><span class="p">.</span><span class="na">setRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">rgb</span><span class="p">);</span>
+        <span class="k">else</span>                   <span class="n">image</span><span class="p">.</span><span class="na">setRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rgb</span><span class="p">);</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Returns true if this picture is equal to the argument picture.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param other the other picture</span>
+<span class="cm">     * @return {@code true} if this picture is the same dimension as {@code other}</span>
+<span class="cm">     *         and if all pixels have the same color; {@code false} otherwise</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="o">==</span> <span class="k">this</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">!=</span> <span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="n">Picture</span> <span class="n">that</span> <span class="o">=</span> <span class="p">(</span><span class="n">Picture</span><span class="p">)</span> <span class="n">other</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span><span class="p">()</span>  <span class="o">!=</span> <span class="n">that</span><span class="p">.</span><span class="na">width</span><span class="p">())</span>  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">()</span> <span class="o">!=</span> <span class="n">that</span><span class="p">.</span><span class="na">height</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">();</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">();</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="o">!=</span> <span class="n">that</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Returns a string representation of this picture.</span>
+<span class="cm">     * The result is a &lt;code&gt;width&lt;/code&gt;-by-&lt;code&gt;height&lt;/code&gt; matrix of pixels,</span>
+<span class="cm">     * where the color of a pixel is represented using 6 hex digits to encode</span>
+<span class="cm">     * the red, green, and blue components.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return a string representation of this picture</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+        <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">width</span> <span class="o">+</span><span class="s">"-by-"</span> <span class="o">+</span> <span class="n">height</span> <span class="o">+</span> <span class="s">" picture (RGB values given in hex)\n"</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">rgb</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">isOriginUpperLeft</span><span class="p">)</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">);</span>
+                <span class="k">else</span>                   <span class="n">rgb</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+                <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"#%06X "</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFF</span><span class="p">));</span>
+            <span class="p">}</span>
+            <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"\n"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">trim</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * This operation is not supported because pictures are mutable.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return does not return a value</span>
+<span class="cm">     * @throws UnsupportedOperationException if called</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">UnsupportedOperationException</span><span class="p">(</span><span class="s">"hashCode() is not supported because pictures are mutable"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Saves the picture to a file in either PNG or JPEG format.</span>
+<span class="cm">     * The filetype extension must be either .png or .jpg.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param name the name of the file</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code name} is {@code null}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"argument to save() is null"</span><span class="p">);</span>
+        <span class="n">save</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Saves the picture to a file in a PNG or JPEG image format.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param  file the file</span>
+<span class="cm">     * @throws IllegalArgumentException if {@code file} is {@code null}</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="p">(</span><span class="n">File</span> <span class="n">file</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"argument to save() is null"</span><span class="p">);</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">frame</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+        <span class="n">String</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">filename</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="na">lastIndexOf</span><span class="p">(</span><span class="sc">'.'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s">"jpg"</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span> <span class="o">||</span> <span class="s">"png"</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">suffix</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">file</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Error: filename must end in .jpg or .png"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Opens a save dialog box when the user selects "Save As" from the menu.</span>
+<span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">FileDialog</span> <span class="n">chooser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileDialog</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span>
+                             <span class="s">"Use a .png or .jpg extension"</span><span class="p">,</span> <span class="n">FileDialog</span><span class="p">.</span><span class="na">SAVE</span><span class="p">);</span>
+        <span class="n">chooser</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">chooser</span><span class="p">.</span><span class="na">getFile</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">save</span><span class="p">(</span><span class="n">chooser</span><span class="p">.</span><span class="na">getDirectory</span><span class="p">()</span> <span class="o">+</span> <span class="n">File</span><span class="p">.</span><span class="na">separator</span> <span class="o">+</span> <span class="n">chooser</span><span class="p">.</span><span class="na">getFile</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+   <span class="cm">/**</span>
+<span class="cm">     * Unit tests this {@code Picture} data type.</span>
+<span class="cm">     * Reads a picture specified by the command-line argument,</span>
+<span class="cm">     * and shows it in a window on the screen.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param args the command-line arguments</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Picture</span> <span class="n">picture</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Picture</span><span class="p">(</span><span class="s">"images/pumpkin.png"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"%d-by-%d\n"</span><span class="p">,</span> <span class="n">picture</span><span class="p">.</span><span class="na">width</span><span class="p">(),</span> <span class="n">picture</span><span class="p">.</span><span class="na">height</span><span class="p">());</span>
+        <span class="n">picture</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/******************************************************************************</span>
+<span class="cm"> *  Copyright 2002-2019, Robert Sedgewick and Kevin Wayne.</span>
+<span class="cm"> *</span>
+<span class="cm"> *  This file is part of algs4.jar, which accompanies the textbook</span>
+<span class="cm"> *</span>
+<span class="cm"> *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,</span>
+<span class="cm"> *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.</span>
+<span class="cm"> *      http://algs4.cs.princeton.edu</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *  algs4.jar is free software: you can redistribute it and/or modify</span>
+<span class="cm"> *  it under the terms of the GNU General Public License as published by</span>
+<span class="cm"> *  the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm"> *  (at your option) any later version.</span>
+<span class="cm"> *</span>
+<span class="cm"> *  algs4.jar is distributed in the hope that it will be useful,</span>
+<span class="cm"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm"> *  GNU General Public License for more details.</span>
+<span class="cm"> *</span>
+<span class="cm"> *  You should have received a copy of the GNU General Public License</span>
+<span class="cm"> *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.</span>
+<span class="cm"> ******************************************************************************/</span>
+
+<span class="c1">// Built in Test</span>
+<span class="n">Picture</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>302-by-265
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Drawing</span> <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Use the Princeton algs4cs Picture library to draw</span>
+<span class="cm">     * this as an RGB color image</span>
+<span class="cm">     * </span>
+<span class="cm">     * @param r A 2D array of the red values between 0 and 0xFF</span>
+<span class="cm">     * @param g A 2D array of the green values between 0 and 0xFF</span>
+<span class="cm">     * @param b A 2D array of the blue values between 0 and 0xFF</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showPic</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">r</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+        <span class="n">Picture</span> <span class="n">pic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Picture</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">r</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span> <span class="o">|</span> <span class="n">g</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span> <span class="o">|</span> <span class="n">b</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">;</span>
+                <span class="n">pic</span><span class="p">.</span><span class="na">setRGB</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">rgb</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">pic</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">videoExample</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Initialize the red, green, and blue channels</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">400</span><span class="o">][</span><span class="mi">500</span><span class="o">]</span><span class="p">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">g</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">400</span><span class="o">][</span><span class="mi">500</span><span class="o">]</span><span class="p">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">400</span><span class="o">][</span><span class="mi">500</span><span class="o">]</span><span class="p">;</span>
+        <span class="c1">// Draw a vertical red rectangle</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">r</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// Draw a horizontal blue rectangle</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// Draw a gray diagonal</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">index</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mh">0xFF</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">r</span><span class="o">[</span><span class="n">index</span><span class="o">][</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+            <span class="n">g</span><span class="o">[</span><span class="n">index</span><span class="o">][</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+            <span class="n">b</span><span class="o">[</span><span class="n">index</span><span class="o">][</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+            <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">showPic</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="cm">/**</span>
+<span class="cm">     * </span>
+<span class="cm">     * @param r 2D array of red components in each pixel</span>
+<span class="cm">     * @param g 2D array of green components in each pixel</span>
+<span class="cm">     * @param b 2D array of blue components in each pixel</span>
+<span class="cm">     * @param cx Center of the circle's x coordinate</span>
+<span class="cm">     * @param cy Center of the circle's y coordinate</span>
+<span class="cm">     * @param radius Radius of the circle</span>
+<span class="cm">     * </span>
+<span class="cm">     * (x-cx)^2 + (y-cy)^2 &lt;= radius^2</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">drawCircle</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">b</span><span class="p">,</span>
+                                  <span class="kt">double</span> <span class="n">cx</span><span class="p">,</span> <span class="kt">double</span> <span class="n">cy</span><span class="p">,</span> <span class="kt">double</span> <span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO: Write a system of loops that draws the appropriate</span>
+        <span class="c1">// circle in magenta</span>
+        
+        <span class="c1">// Loop through every pixel, and check if that pixel is within</span>
+        <span class="c1">// the circle</span>
+        
+        <span class="c1">// Loop through the rows first</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// For each row, loop each column</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+                <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+                <span class="kt">double</span> <span class="n">distSqr</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">cx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">cy</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+                <span class="c1">// Check to see if it's in the circle</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">distSqr</span> <span class="o">&lt;=</span> <span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">// We're in the circle!</span>
+                    <span class="n">r</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+                    <span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Initialize the red, green, and blue channels</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">400</span><span class="o">][</span><span class="mi">500</span><span class="o">]</span><span class="p">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">g</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">400</span><span class="o">][</span><span class="mi">500</span><span class="o">]</span><span class="p">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">400</span><span class="o">][</span><span class="mi">500</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">drawCircle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+        <span class="n">drawCircle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+        <span class="n">drawCircle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">showPic</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">Drawing</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/APCSA/unit/6" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="nighthawkcoders"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="NighthawkCoding"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use></svg></a></li><li><a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="YouTube"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
