@@ -2,7 +2,6 @@
 toc: true
 layout: post
 description: 
-categories: [tri3]
 title: Tri3 Overview - 2022 Spring review 
 type: plan
 week: 25

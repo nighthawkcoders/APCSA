@@ -5,7 +5,6 @@ title: Introduction and Tools
 description: Introduction to the year.  Introduce Real World projects, philosophies, and objectives of the class. Immerse into Development Tools.
 image: images/apcsa.png
 permalink: /week/0
-categories: [tri1]
 type: plan
 week: 0
 ---

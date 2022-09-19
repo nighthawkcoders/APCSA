@@ -5,7 +5,6 @@ title: Innovation - Pair Focus
 description: Innovation is a time to explore, dream, and learn to code.  Think about College Board, Personal interests, and Teacher expectations.  
 image: /images/pair_programming.png
 permalink: /week/1
-categories: [tri1]
 type: plan
 week: 1
 ---

@@ -5,7 +5,6 @@ layout: post
 title: VSCode Download with WSL
 description: Instructions for Windows users on how to use VSCode with WSL in order to add a Linux-based development.
 permalink: /techtalk/vscode-wsl
-categories: [tri1]
 image: images/wsl.png
 type: pbl
 week: 0

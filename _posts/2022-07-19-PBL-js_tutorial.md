@@ -6,7 +6,6 @@ toc: false
 comments: true
 permalink: /frontend/javascript
 image: /images/javascript.png
-categories: [techtalk]
 ---
 {% include nav_frontend.html %}
 

@@ -4,7 +4,6 @@ layout: default
 description: The concept behind making a graphing application using JavaScript canvas.
 permalink: /frontend/graph
 image: /images/graph.png
-categories: [pbl]
 tags: [javascript, canvas]
 ---
 

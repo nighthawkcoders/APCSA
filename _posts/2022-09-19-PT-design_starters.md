@@ -6,7 +6,6 @@ title:  Design Starters
 description: 
 permalink: /points/5
 image: /images/points.jpeg
-categories: [tri1]
 type: plan
 week: 5
 ---

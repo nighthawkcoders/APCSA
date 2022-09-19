@@ -6,7 +6,6 @@ title: Using Objects
 description: Don't do it alone.  4 person grading.  Think about what you need to accomplish in the Trimester based off of what you know, what you have reviewed, and what you think you need to learn to be successful in the class.  Create a Blog or Issue, Brainstorm with Team and/or Pair a couple of times in a week, and start the Iterative Development process.  Use the Blog or Issus as your final Review Ticket.
 permalink: /points/2
 image: /images/points.jpeg
-categories: [tri1]
 type: plan
 week: 2
 ---

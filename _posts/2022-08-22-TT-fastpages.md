@@ -6,7 +6,6 @@ title: Fastpages via GitHub Pages
 description: Tour of Fastpages.  GitHub Pages and Fastpages can change the way you think about information management.  Jupyter notebooks is changing the way people analyze data.  GH pages publishes and deploys a web site for free.  Fastpages provides amazing indexing and tagging capabilities.  Tech transforms the way people think, why would you want to use paper?
 image: images/github_pages.jpeg
 permalink: /techtalk/fastpages
-categories: [techtalk]
 type: pbl
 week: 1
 ---

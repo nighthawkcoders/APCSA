@@ -4,7 +4,6 @@ layout: post
 title: GUI with WSL
 description: How to set up an X11 server to have a GUI run from WSL
 author: Rohan Juneja
-categories: [pbl]
 image: /images/gui_setup.png
 type: pbl
 week: 0

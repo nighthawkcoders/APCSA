@@ -2,7 +2,6 @@
 layout: post
 title: Bitcoin Hobby Mine 2021
 description: Worksheet that was used to calculate profits in 2021.  
-categories: [hobby]
 permalink: /hobby/bitcoin
 image: /images/bitcoin.png
 type: hobby

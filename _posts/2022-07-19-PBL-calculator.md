@@ -4,8 +4,7 @@ title: Calculator Starters
 description: A common way to become familiar with a language is to build a calculator.  This calculator shows off button with actions.
 permalink: /frontend/calculator
 image: /images/calculator.png
-categories: [pbl]
-tags: [javascript, css. dom, getElementID]
+tags: [javascript]
 ---
 
 {% include nav_frontend.html %}
