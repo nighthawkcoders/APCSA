@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Arrays and Images" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Provided code is to assist in changing Images. A Mini-lab will be consider the process of converting an image into ASCII." />
-<meta property="og:description" content="Provided code is to assist in changing Images. A Mini-lab will be consider the process of converting an image into ASCII." />
+<meta name="description" content="Provided code is to assist in changing Images." />
+<meta property="og:description" content="Provided code is to assist in changing Images." />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/unit/6" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/unit/6" />
 <meta property="og:site_name" content="APCSA" />
@@ -20,7 +20,7 @@
 <meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/monalisa.png" />
 <meta property="twitter:title" content="Arrays and Images" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-26T00:00:00-05:00","datePublished":"2022-09-26T00:00:00-05:00","description":"Provided code is to assist in changing Images. A Mini-lab will be consider the process of converting an image into ASCII.","headline":"Arrays and Images","image":"https://nighthawkcoders.github.io/APCSA/images/monalisa.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/unit/6"},"url":"https://nighthawkcoders.github.io/APCSA/unit/6"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-26T00:00:00-05:00","datePublished":"2022-09-26T00:00:00-05:00","description":"Provided code is to assist in changing Images.","headline":"Arrays and Images","image":"https://nighthawkcoders.github.io/APCSA/images/monalisa.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/unit/6"},"url":"https://nighthawkcoders.github.io/APCSA/unit/6"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -75,7 +75,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Arrays and Images</h1><p class="page-description">Provided code is to assist in changing Images.  A Mini-lab will be consider the process of converting an image into ASCII.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-26T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Arrays and Images</h1><p class="page-description">Provided code is to assist in changing Images.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-26T00:00:00-05:00" itemprop="datePublished">
         Sep 26, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -214,6 +214,8 @@ window.onload = wrap_img;
 <h2 id="Image-Scaling-and-ASCII-Conversion">
 <a class="anchor" href="#Image-Scaling-and-ASCII-Conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Image Scaling and ASCII Conversion<a class="anchor-link" href="#Image-Scaling-and-ASCII-Conversion"> </a>
 </h2>
+<p>In this example we print out a row of text for each row in the image. However, it seems as if the image is too tall. To address this problem, try to output a single character per block of pixels. In particular, average the grayscale values in a rectangular block that’s twice as tall as it is wide, and print out a single character for this block.</p>
+
 </div>
 </div>
 </div>
@@ -267,10 +269,7 @@ window.onload = wrap_img;
         <span class="k">this</span><span class="p">.</span><span class="na">setStats</span><span class="p">();</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printStats</span><span class="p">(</span><span class="n">String</span> <span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">msg</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">bytes</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="s">"x"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">+</span> <span class="s">"  "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">inFile</span><span class="p">);</span>
-    <span class="p">}</span>
-
+    
     <span class="c1">// An image contains metadata, namely size, width, and height</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setStats</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">BufferedImage</span> <span class="n">img</span><span class="p">;</span>
@@ -283,18 +282,21 @@ window.onload = wrap_img;
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">}</span>
     <span class="p">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">BufferedImage</span> <span class="nf">convertToBufferedImage</span><span class="p">(</span><span class="n">Image</span> <span class="n">img</span><span class="p">)</span> <span class="p">{</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">img</span> <span class="k">instanceof</span> <span class="n">BufferedImage</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="p">(</span><span class="n">BufferedImage</span><span class="p">)</span> <span class="n">img</span><span class="p">;</span>
-        <span class="p">}</span>
+    <span class="c1">// Console print of data</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printStats</span><span class="p">(</span><span class="n">String</span> <span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">msg</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">bytes</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="s">"x"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">+</span> <span class="s">"  "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">inFile</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Convert scaled image into buffered image</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">BufferedImage</span> <span class="nf">convertToBufferedImage</span><span class="p">(</span><span class="n">Image</span> <span class="n">img</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="c1">// Create a buffered image with transparency</span>
         <span class="n">BufferedImage</span> <span class="n">bi</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedImage</span><span class="p">(</span>
                 <span class="n">img</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(</span><span class="kc">null</span><span class="p">),</span> <span class="n">img</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(</span><span class="kc">null</span><span class="p">),</span>
                 <span class="n">BufferedImage</span><span class="p">.</span><span class="na">TYPE_INT_ARGB</span><span class="p">);</span>
 
+        <span class="c1">// magic?</span>
         <span class="n">Graphics2D</span> <span class="n">graphics2D</span> <span class="o">=</span> <span class="n">bi</span><span class="p">.</span><span class="na">createGraphics</span><span class="p">();</span>
         <span class="n">graphics2D</span><span class="p">.</span><span class="na">drawImage</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
         <span class="n">graphics2D</span><span class="p">.</span><span class="na">dispose</span><span class="p">();</span>
@@ -302,6 +304,7 @@ window.onload = wrap_img;
         <span class="k">return</span> <span class="n">bi</span><span class="p">;</span>
     <span class="p">}</span>
     
+    <span class="c1">// Scale or reduce to "scale" percentage provided</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span><span class="kt">int</span> <span class="n">scale</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
         <span class="n">Image</span> <span class="n">resizedImg</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  
@@ -328,6 +331,7 @@ window.onload = wrap_img;
         <span class="k">this</span><span class="p">.</span><span class="na">setStats</span><span class="p">();</span>
     <span class="p">}</span>
     
+    <span class="c1">// convert every pixel to an ascii character (ratio does not seem correct)</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">convertToAscii</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
         <span class="n">PrintWriter</span> <span class="n">asciiPrt</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -372,6 +376,7 @@ window.onload = wrap_img;
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="c1">// conversion table, there may be better out there ie https://www.billmongan.com/Ursinus-CS173-Fall2020/Labs/ASCIIArt</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">asciiChar</span><span class="p">(</span><span class="kt">double</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">" "</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">g</span> <span class="o">&gt;=</span> <span class="mi">240</span><span class="p">)</span> <span class="p">{</span>
@@ -396,6 +401,7 @@ window.onload = wrap_img;
         <span class="k">return</span> <span class="n">str</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="c1">// tester/driver</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
         <span class="n">Pics</span> <span class="n">monaLisa</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"MonaLisa"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
         <span class="n">monaLisa</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
@@ -424,9 +430,9 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Original: 499298 389x413  images/MonaLisa.png
-Scaled: 55625 128x136  images/tmp/MonaLisa.png
+Scaled: 147 128x136  images/tmp/MonaLisa.png
 Original: 39392 302x265  images/pumpkin.png
-Scaled: 10497 100x87  images/tmp/pumpkin.png
+Scaled: 114 100x87  images/tmp/pumpkin.png
 </pre>
 </div>
 </div>
