@@ -33,5 +33,4 @@ week: 5
 - Focus will be on Team Design reviews.  Technical objective should include
     - Frontend and Backend in different Web Applications
     - Large amounts of data (100's to 1000's of rows), usage of APIs recommended
-    - Data Model with extended Class, 2D array, ArrayList, ...
 - Grades and reviews on Fibo and JavaScript prior to meeting. .9/1 x 2
