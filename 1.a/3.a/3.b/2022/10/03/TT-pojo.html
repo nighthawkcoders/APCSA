@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>POJO, JPA, API, FE | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="POJO, JPA, API, FE" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Define a POJO, essentially an class with @Entity properties that enables it to be used with Spring Boot in the process of making a database. Continue by creating JPA, API and Frontend (FE)." />
+<meta property="og:description" content="Define a POJO, essentially an class with @Entity properties that enables it to be used with Spring Boot in the process of making a database. Continue by creating JPA, API and Frontend (FE)." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/1.a/3.a/3.b/2022/10/03/TT-pojo.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/1.a/3.a/3.b/2022/10/03/TT-pojo.html" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/pojo_jpa.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-03T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/pojo_jpa.png" />
+<meta property="twitter:title" content="POJO, JPA, API, FE" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-03T00:00:00-05:00","datePublished":"2022-10-03T00:00:00-05:00","description":"Define a POJO, essentially an class with @Entity properties that enables it to be used with Spring Boot in the process of making a database. Continue by creating JPA, API and Frontend (FE).","headline":"POJO, JPA, API, FE","image":"https://nighthawkcoders.github.io/APCSA/images/pojo_jpa.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/1.a/3.a/3.b/2022/10/03/TT-pojo.html"},"url":"https://nighthawkcoders.github.io/APCSA/1.a/3.a/3.b/2022/10/03/TT-pojo.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Skills</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">POJO, JPA, API, FE</h1><p class="page-description">Define a POJO, essentially an class with @Entity properties that enables it to be used with Spring Boot in the process of making a database.  Continue by creating JPA, API and Frontend (FE).</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-03T00:00:00-05:00" itemprop="datePublished">
+        Oct 3, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/APCSA/categories/#1.A">1.A</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/APCSA/categories/#3.A">3.A</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/APCSA/categories/#3.B">3.B</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#java-database">Java Database</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#pojo-and-entity-definition">POJO and @Entity Definition</a></li>
+<li class="toc-entry toc-h3"><a href="#java-persistence-api-jpa">Java Persistence API (JPA)</a></li>
+<li class="toc-entry toc-h3"><a href="#list-and-arraylist">List and ArrayList</a></li>
+<li class="toc-entry toc-h3"><a href="#controller-and-apis">Controller and APIs</a></li>
+<li class="toc-entry toc-h3"><a href="#front-end">Front End</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#hacks">Hacks</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul><p><a href="https://github.com/nighthawkcoders/spring_portfolio/tree/master/src/main/java/com/nighthawk/spring_portfolio/mvc/jokes">GitHub Project Files</a></p>
+
+<h2 id="java-database">
+<a class="anchor" href="#java-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Java Database</h2>
+<p>A POJO is the foundation for making an Entity that is turned into a Database.  The Java Persistent API (JPA) allows Developer to interact with the Database with fairly straightforward code.  An API allows you to share and store data from your community of users.  The pieces are described in this blog.</p>
+
+<p><img src="/APCSA/images/pojo_jpa.png" alt="Architectural Picture"></p>
+
+<h3 id="pojo-and-entity-definition">
+<a class="anchor" href="#pojo-and-entity-definition" aria-hidden="true"><span class="octicon octicon-link"></span></a>POJO and @Entity Definition</h3>
+<blockquote>
+  <p>This code shows power of Spring Annotations and Java, with a little bit of code a Developer is opening up persistent data storage, a database.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">lombok.AllArgsConstructor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.NoArgsConstructor</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.*</span><span class="o">;</span>
+
+<span class="nd">@Data</span>  <span class="c1">// Annotations to simplify writing code (ie constructors, setters)</span>
+<span class="nd">@NoArgsConstructor</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@Entity</span> <span class="c1">// Annotation to simplify creating an entity, which is a lightweight persistence domain object. Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Jokes</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>  <span class="c1">// Unique identifier</span>
+
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">true</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">joke</span><span class="o">;</span>  <span class="c1">// The Joke</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">haha</span><span class="o">;</span>  <span class="c1">// Store joke likes</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">boohoo</span><span class="o">;</span>  <span class="c1">// Store joke jeers</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="java-persistence-api-jpa">
+<a class="anchor" href="#java-persistence-api-jpa" aria-hidden="true"><span class="octicon octicon-link"></span></a>Java Persistence API (JPA)</h3>
+<blockquote>
+  <p>The JPA is created to access the database. The JokesJpaRepository interface extends JpaRepository.  This allows the developer access predefined and additionally define  useful interfaces to access their persistent storage.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
+
+<span class="c1">// JPA is an object-relational mapping (ORM) to persistent data, originally relational databases (SQL). Today JPA implementations has been extended for NoSQL.</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">JokesJpaRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="c1">// JPA has many built in methods, these few have been prototyped for this application</span>
+    <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">String</span> <span class="nc">Joke</span><span class="o">);</span>
+
+    <span class="c1">// A</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;</span> <span class="nf">findAllByOrderByJokeAsc</span><span class="o">();</span>  <span class="c1">// returns a List of Jokes in Ascending order</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;</span> <span class="nf">findByJokeIgnoreCase</span><span class="o">(</span><span class="nc">String</span> <span class="n">joke</span><span class="o">);</span>  <span class="c1">// look to see if Joke(s) exist</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="list-and-arraylist">
+<a class="anchor" href="#list-and-arraylist" aria-hidden="true"><span class="octicon octicon-link"></span></a>List and ArrayList</h3>
+<blockquote>
+  <p>List is a super class to ArrayList.  This illustration shows relationship.  In the JPA code you can see that List of Jokes is common result from JPA.  As a database is a series of rows, accessing a List or and ArrayList is done through similar iteration.  Here is illustration of <a href="https://www.geeksforgeeks.org/difference-between-list-and-arraylist-in-java/">List and ArrayList from GeeksForGeeks</a></p>
+</blockquote>
+
+<p><img src="/APCSA/images/list.png" alt="List ArrayList"></p>
+
+<h3 id="controller-and-apis">
+<a class="anchor" href="#controller-and-apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controller and APIs</h3>
+<blockquote>
+  <p>The last backend piece of the process of accessing the database is building out the RESTful API services to access the data.  Below is the JokesApiController, this is commented extensively.  This has many AP and PBL elements.</p>
+  <ul>
+    <li>@Autowired annotation provides full access to JokesJpaRepository, what we made with the code above.  Review repository.<actions>, there are actions for set, get, save and more.</actions>
+</li>
+    <li>@GetMapping and @PutMapping which establishes endpoints for RESTful web services to access the data.</li>
+    <li>API data structuring elements @PathVariable and “return new ResponseEntity” these are keys for obtaining and returning data from the accessor.</li>
+  </ul>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.http.HttpStatus</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.http.ResponseEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+
+<span class="nd">@RestController</span> <span class="c1">// annotation to simplify the creation of RESTful web services</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/api/jokes"</span><span class="o">)</span>  <span class="c1">// all requests in file begin with this URI</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JokesApiController</span> <span class="o">{</span>
+
+    <span class="c1">// Autowired enables Control to connect URI request and POJO Object to easily for Database CRUD operations</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">JokesJpaRepository</span> <span class="n">repository</span><span class="o">;</span>
+
+    <span class="cm">/* GET List of Jokes
+     * @GetMapping annotation is used for mapping HTTP GET requests onto specific handler methods.
+     */</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;&gt;</span> <span class="nf">getJokes</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ResponseEntity returns List of Jokes provide by JPA findAll()</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">ResponseEntity</span><span class="o">&lt;&gt;(</span> <span class="n">repository</span><span class="o">.</span><span class="na">findAll</span><span class="o">(),</span> <span class="nc">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/* Update Like
+     * @PutMapping annotation is used for mapping HTTP PUT requests onto specific handler methods.
+     * @PathVariable annotation extracts the templated part {id}, from the URI
+     */</span>
+    <span class="nd">@PutMapping</span><span class="o">(</span><span class="s">"/like/{id}"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;</span> <span class="nf">setLike</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="cm">/* 
+        * Optional (below) is a container object which helps determine if a result is present. 
+        * If a value is present, isPresent() will return true
+        * get() will return the value.
+        */</span>
+        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">repository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">optional</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>  <span class="c1">// Good ID</span>
+            <span class="nc">Jokes</span> <span class="n">joke</span> <span class="o">=</span> <span class="n">optional</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>  <span class="c1">// value from findByID</span>
+            <span class="n">joke</span><span class="o">.</span><span class="na">setHaha</span><span class="o">(</span><span class="n">joke</span><span class="o">.</span><span class="na">getHaha</span><span class="o">()+</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// increment value</span>
+            <span class="n">repository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">joke</span><span class="o">);</span>  <span class="c1">// save entity</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nc">ResponseEntity</span><span class="o">&lt;&gt;(</span><span class="n">joke</span><span class="o">,</span> <span class="nc">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>  <span class="c1">// OK HTTP response: status code, headers, and body</span>
+        <span class="o">}</span>
+        <span class="c1">// Bad ID</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">ResponseEntity</span><span class="o">&lt;&gt;(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">);</span>  <span class="c1">// Failed HTTP response: status code, headers, and body</span>
+    <span class="o">}</span>
+
+    <span class="cm">/* Update Jeer
+     */</span>
+    <span class="nd">@PutMapping</span><span class="o">(</span><span class="s">"/jeer/{id}"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;</span> <span class="nf">setJeer</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">repository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">optional</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>  <span class="c1">// Good ID</span>
+            <span class="nc">Jokes</span> <span class="n">joke</span> <span class="o">=</span> <span class="n">optional</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+            <span class="n">joke</span><span class="o">.</span><span class="na">setBoohoo</span><span class="o">(</span><span class="n">joke</span><span class="o">.</span><span class="na">getBoohoo</span><span class="o">()+</span><span class="mi">1</span><span class="o">);</span>
+            <span class="n">repository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">joke</span><span class="o">);</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nc">ResponseEntity</span><span class="o">&lt;&gt;(</span><span class="n">joke</span><span class="o">,</span> <span class="nc">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// Bad ID</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">ResponseEntity</span><span class="o">&lt;&gt;(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="front-end">
+<a class="anchor" href="#front-end" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front End</h3>
+<blockquote>
+  <p>This database was setup to allow people to HaHa or Boohoo a collection of Computer Jokes.  The entirety has lot of limitation.</p>
+</blockquote>
+
+<ul>
+  <li>People can vote more than once and in both categories.</li>
+  <li>There is no auto refresh if several are voting and updating as you are looking at your static page.</li>
+  <li>Perhaps Q and A style could hide punch line.</li>
+  <li>Perhaps we could accept new jokes, or have interface for adding them.</li>
+</ul>
+
+<blockquote>
+  <p>Amazingly, though … the front-end code is in a completely different project.  The front end project GETs and PUTs using the back end APIs.  The key element that makes this different than other public APIs, like RapidAPI, is the “reaction” function.  This function updates the elementID of the like or jeer as soon as you impact the button.</p>
+</blockquote>
+
+<p><a href="https://nighthawkcoders.github.io/APCSA/data/jokes">Runtime Link</a></p>
+
+<p><a href="https://github.com/nighthawkcoders/APCSA/blob/master/_posts/2022-07-10-PBL-jokes.md">Frontend Code</a></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Reaction function to likes or jeers user actions</span>
+  <span class="kd">function</span> <span class="nx">reaction</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">put_url</span><span class="p">,</span> <span class="nx">elemID</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// fetch the API</span>
+    <span class="nx">fetch</span><span class="p">(</span><span class="nx">put_url</span><span class="p">,</span> <span class="nx">put_options</span><span class="p">)</span>
+    <span class="c1">// response is a RESTful "promise" on any successful fetch</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// check for response errors</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">PUT API response failure: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span>
+          <span class="k">return</span><span class="p">;</span>  <span class="c1">// api failure</span>
+      <span class="p">}</span>
+      <span class="c1">// valid response will have JSON data</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+          <span class="c1">// Likes or Jeers updated/incremented</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">HAHA</span><span class="p">)</span> <span class="c1">// like data element</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">elemID</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">haha</span><span class="p">;</span>  <span class="c1">// fetched haha data assigned to haha Document Object Model (DOM)</span>
+          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">BOOHOO</span><span class="p">)</span> <span class="c1">// jeer data element</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">elemID</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">boohoo</span><span class="p">;</span>  <span class="c1">// fetched boohoo data assigned to boohoo Document Object Model (DOM)</span>
+          <span class="k">else</span>
+            <span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">unknown type: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">type</span><span class="p">);</span>  <span class="c1">// should never occur</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+    <span class="c1">// catch fetch errors (ie Nginx ACCESS to server blocked)</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">error</span><span class="p">(</span><span class="nx">err</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">put_url</span><span class="p">);</span>
+    <span class="p">});</span>
+    
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="hacks">
+<a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h2>
+<blockquote>
+  <p>AP required.  Review the lambok annotations (https://projectlombok.org/features/).</p>
+  <ul>
+    <li>Write the POJO without using lambok</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p>PBL foundational.  Establish a POJO, JPA and APIs in your own project.  You can begin with Jokes.</p>
+  <ul>
+    <li>Make new POJO attribute.  FYI, as there is not database upgrade.  I suggest deleting /volumes/sqlite.db to ensure schema is updated.</li>
+    <li>Make a new API endpoint.</li>
+    <li>
+<a href="https://www.geeksforgeeks.org/basics-of-api-testing-using-postman/">Test your API using Postman</a>.  You should be able to test with localhost:port.</li>
+    <li>Build frontend in different system.</li>
+  </ul>
+</blockquote>
+
+<h3 id="resources">
+<a class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h3>
+<blockquote>
+  <p>Googling will find some references.</p>
+  <ul>
+    <li>Something free, but different than mine. <a href="https://www.youtube.com/watch?v=8SGI_XS5OPw">Youtube</a>.  Here is another, but maybe less <a href="https://www.youtube.com/watch?v=MaI0_XdpdP8">Youtube</a>
+</li>
+    <li>All of these cost money.  <a href="https://medium.com/javarevisited/5-best-spring-data-jpa-courses-for-java-developers-45e6438be3c9">5 Best Spring Data JPA Courses for Java developers to Learn in 2022</a>.</li>
+  </ul>
+</blockquote>
+
+  </div><a class="u-url" href="/APCSA/1.a/3.a/3.b/2022/10/03/TT-pojo.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="nighthawkcoders"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="NighthawkCoding"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use></svg></a></li><li><a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="YouTube"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
