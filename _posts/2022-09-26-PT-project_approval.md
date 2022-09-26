@@ -3,7 +3,7 @@ toc: true
 comments: true
 layout: post
 title:  Project Approval
-description: 
+description: A 2nd approval for the Trimester 1 project and looking how pairs progressed with Images and RapidAPI.
 permalink: /points/6
 image: /images/points.jpeg
 categories: [1.A]
