@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -144,7 +144,7 @@ window.onload = wrap_img;
 <span class="cm">     @param: none</span>
 <span class="cm">     */</span>
     <span class="kd">public</span> <span class="nf">Fibo</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span> <span class="c1">// telescope to avoid code duplication, using default as 20</span>
+        <span class="k">this</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span> <span class="c1">// telescope to avoid code duplication, using default as 20</span>
     <span class="p">}</span>
 
     <span class="cm">/*</span>
@@ -223,7 +223,7 @@ window.onload = wrap_img;
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FiboFor</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
 
     <span class="kd">public</span> <span class="nf">FiboFor</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+        <span class="kd">super</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="nf">FiboFor</span><span class="p">(</span><span class="kt">int</span> <span class="n">nth</span><span class="p">)</span> <span class="p">{</span>
@@ -232,7 +232,7 @@ window.onload = wrap_img;
 
     <span class="nd">@Override</span>
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"For Extends"</span><span class="p">;</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"For Extends"</span><span class="p">;</span>
         <span class="kt">long</span> <span class="n">limit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
         <span class="c1">// for loops are likely the most common iteration structure, all the looping facts are in one line</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">long</span><span class="o">[]</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span> <span class="n">limit</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="n">f</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">f</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">})</span>
@@ -263,14 +263,17 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Init method = For Extends
-fibonacci Number 5 = 3
-fibonacci List = [0, 1, 1, 2, 3]
-fibonacci Hashmap = {0=[0], 1=[0, 1], 2=[0, 1, 1], 3=[0, 1, 1, 2], 4=[0, 1, 1, 2, 3]}
+fibonacci Number 8 = 13
+fibonacci List = [0, 1, 1, 2, 3, 5, 8, 13]
+fibonacci Hashmap = {0=[0], 1=[0, 1], 2=[0, 1, 1], 3=[0, 1, 1, 2], 4=[0, 1, 1, 2, 3], 5=[0, 1, 1, 2, 3, 5], 6=[0, 1, 1, 2, 3, 5, 8], 7=[0, 1, 1, 2, 3, 5, 8, 13]}
 fibonacci Sequence 1 = [0]
 fibonacci Sequence 2 = [0, 1]
 fibonacci Sequence 3 = [0, 1, 1]
 fibonacci Sequence 4 = [0, 1, 1, 2]
 fibonacci Sequence 5 = [0, 1, 1, 2, 3]
+fibonacci Sequence 6 = [0, 1, 1, 2, 3, 5]
+fibonacci Sequence 7 = [0, 1, 1, 2, 3, 5, 8]
+fibonacci Sequence 8 = [0, 1, 1, 2, 3, 5, 8, 13]
 </pre>
 </div>
 </div>
@@ -291,7 +294,7 @@ fibonacci Sequence 5 = [0, 1, 1, 2, 3]
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FiboStream</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
 
     <span class="kd">public</span> <span class="nf">FiboStream</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+        <span class="kd">super</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="nf">FiboStream</span><span class="p">(</span><span class="kt">int</span> <span class="n">nth</span><span class="p">)</span> <span class="p">{</span>
