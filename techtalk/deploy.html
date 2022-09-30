@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      21 min read
     
 </span></p>
 
@@ -124,11 +124,13 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#goto-project-directory">Goto Project directory</a></li>
 <li class="toc-entry toc-h3"><a href="#shutdown-process-and-update-source">Shutdown process and update source</a></li>
 <li class="toc-entry toc-h3"><a href="#rebuild-and-restart-web-application">Rebuild and Restart Web Application</a></li>
+<li class="toc-entry toc-h3"><a href="#setting-up-automatic-deployment">Setting up automatic deployment</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#faqs-for-problems">FAQS for Problems</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#docker-file-change-extracting-git">Docker file change, extracting Git</a></li>
+<li class="toc-entry toc-h3"><a href="#setting-up-docker-without-sudo">Setting up docker without sudo</a></li>
 <li class="toc-entry toc-h3"><a href="#errors-on-docker-compose-or-curl">Errors on docker-compose or curl</a></li>
 </ul>
 </li>
@@ -310,6 +312,8 @@ device: /home/ubuntu/spring_portfolio/volumes
     </ul>
   </li>
 </ul>
+
+<p>IF you cloned the repository after 9/8 you may have to change ports to 8085:8085</p>
 
 <h3 id="running-docker-using-docker-composeyml">
 <a class="anchor" href="#running-docker-using-docker-composeyml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Docker using docker-compose.yml</h3>
@@ -755,6 +759,27 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
 </code></pre></div>  </div>
 </blockquote>
 
+<h3 id="setting-up-automatic-deployment">
+<a class="anchor" href="#setting-up-automatic-deployment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up automatic deployment</h3>
+<ul>
+  <li>This is how to do autoamtic deployment using GitHub actions, which can run code after a push is made.</li>
+  <li>First, a secret will need to be set up for your SSH key, in the Repository Settings &gt; Secrets create a new secret called SSH_KEY</li>
+  <li>This secret should contain the output of <code class="language-plaintext highlighter-rouge">base64 -w 0 yourkeyfile.pem</code> (this enccodes the key to ensure it uses ASCII characters)</li>
+  <li>GitHub Actions can be specified in the .github/workflows directory. In your repository create a file called .github/workflows/workflow.yml with the following content (this decodes the base64 key and then pulls code, builds docker container, and puts docker container up through SSH)
+    <div class="language-yml highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to Server</span>
+<span class="na">on</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">push</span><span class="pi">]</span>
+<span class="na">jobs</span><span class="pi">:</span>
+<span class="na">AWS-Deploy</span><span class="pi">:</span>
+  <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+  <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">echo $ | base64 -d &gt; key.pem</span>
+    <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">chmod 400 key.pem</span>
+    <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">ssh -i key.pem -o StrictHostKeyChecking=no ubuntu@{your domain/ip} 'cd ~/projects/apcsa_spring; sudo git pull; sudo docker-compose build; sudo docker-compose down; sudo docker-compose up -d'</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
 <h2 id="faqs-for-problems">
 <a class="anchor" href="#faqs-for-problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQS for Problems</h2>
 
@@ -804,6 +829,25 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
 <div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
 </code></pre></div>  </div>
 </blockquote>
+
+<h3 id="setting-up-docker-without-sudo">
+<a class="anchor" href="#setting-up-docker-without-sudo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up docker without sudo</h3>
+<ul>
+  <li>Run the following commands to create a docker group &amp; add your user
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd docker
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+</code></pre></div>    </div>
+  </li>
+  <li>May need to run the following commands if you previously used sudo (to giv3e yourself ownership of .docker)
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown</span> <span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span>:<span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span> /home/<span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span>/.docker <span class="nt">-R</span>
+<span class="nb">sudo chmod </span>g+rwx <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.docker"</span> <span class="nt">-R</span>
+</code></pre></div>    </div>
+  </li>
+  <li>For more information refer <a href="https://docs.docker.com/engine/install/linux-postinstall/">here</a>
+</li>
+</ul>
 
 <h3 id="errors-on-docker-compose-or-curl">
 <a class="anchor" href="#errors-on-docker-compose-or-curl" aria-hidden="true"><span class="octicon octicon-link"></span></a>Errors on docker-compose or curl</h3>
