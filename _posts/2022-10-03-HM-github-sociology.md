@@ -7,7 +7,7 @@ description: GitHub and Git are a social computing tools.  GitHub is a cloud-bas
 image: /images/git.webp
 permalink: /techtalk/github
 type: human
-week: 6
+week: 7
 ---
 
 ![git-pic]({{site.baseurl}}/images/git.webp)
