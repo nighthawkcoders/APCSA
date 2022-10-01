@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Last CB Topic - ArrayList | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Last CB Topic - ArrayList" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This weeks Tech Talk will conclude the introduction to the 10 College Board Units." />
+<meta property="og:description" content="This weeks Tech Talk will conclude the introduction to the 10 College Board Units." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/points/7" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/points/7" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/points.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-03T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/points.jpeg" />
+<meta property="twitter:title" content="Last CB Topic - ArrayList" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-03T00:00:00-05:00","datePublished":"2022-10-03T00:00:00-05:00","description":"This weeks Tech Talk will conclude the introduction to the 10 College Board Units.","headline":"Last CB Topic - ArrayList","image":"https://nighthawkcoders.github.io/APCSA/images/points.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/points/7"},"url":"https://nighthawkcoders.github.io/APCSA/points/7"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/">Skills</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Last CB Topic - ArrayList</h1><p class="page-description">This weeks Tech Talk will conclude the introduction to the 10 College Board Units.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-03T00:00:00-05:00" itemprop="datePublished">
+        Oct 3, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/APCSA/categories/#1.A">1.A</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#plans-week-7">Plans Week 7</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#list-and-arraylists-pair">List and ArrayLists (Pair)</a></li>
+<li class="toc-entry toc-h3"><a href="#try-to-get-a-front-end-to-back-end-example-working-team">Try to get a Front-end to Back-end example working (Team)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#live-grading-presentation">Live Grading Presentation. </a></li>
+</ul><h2 id="plans-week-7">
+<a class="anchor" href="#plans-week-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plans Week 7</h2>
+<blockquote>
+  <p>Focus PBL approval - Focus on Databases, Queries (Lists) and Front-end to Back-end</p>
+  <ul>
+    <li>Monday: Introductions and Scheduling for CB presentations, Live Review</li>
+    <li>Tuesday: Live Review, Tech Talk Part 1 - Overview, POJOS, and Lists</li>
+    <li>Wednesday: Live Review, Tech Talk Part 2 - Frontend to Backend</li>
+    <li>Thursday: Human Prep - GitHub</li>
+    <li>Friday: Code, Code, Code</li>
+  </ul>
+</blockquote>
+
+<h3 id="list-and-arraylists-pair">
+<a class="anchor" href="#list-and-arraylists-pair" aria-hidden="true"><span class="octicon octicon-link"></span></a>List and ArrayLists (Pair)</h3>
+<blockquote>
+  <p>Show usage of Lists interfaces in a Jupyter Notebook example.  Try using List interface and making a ArrayList object.  Consider using an example that will be part of interest or final projects.  This will probably become your favorite Data Structure in Java.</p>
+  <ul>
+    <li>add(int index, element)	This method is used to add an element at a particular index in the list. When a single parameter is passed, it simply adds the element at the end of the list.</li>
+    <li>addAll(int index, Collection collection)	This method is used to add all the elements in the given collection to the list. When a single parameter is passed, it adds all the elements of the given collection at the end of the list.</li>
+    <li>size()	This method is used to return the size of the list.</li>
+    <li>clear()	This method is used to remove all the elements in the list. However, the reference of the list created is still stored.</li>
+    <li>remove(int index)	This method removes an element from the specified index. It shifts subsequent elements(if any) to left and decreases their indexes by 1.</li>
+    <li>remove(element)	This method is used to remove the first occurrence of the given element in the list.</li>
+    <li>get(int index)	This method returns elements at the specified index.</li>
+    <li>set(int index, element)	This method replaces elements at a given index with the new element. This function returns the element which was just replaced by a new element.</li>
+    <li>indexOf(element)	This method returns the first occurrence of the given element or -1 if the element is not present in the list.</li>
+    <li>lastIndexOf(element)	This method returns the last occurrence of the given element or -1 if the element is not present in the list.</li>
+    <li>equals(element)	This method is used to compare the equality of the given element with the elements of the list.</li>
+    <li>hashCode()	This method is used to return the hashcode value of the given list.</li>
+    <li>isEmpty()	This method is used to check if the list is empty or not. It returns true if the list is empty, else false.</li>
+    <li>contains(element)	This method is used to check if the list contains the given element or not. It returns true if the list contains the element.</li>
+    <li>containsAll(Collection collection)	This method is used to check if the list contains all the collection of elements.</li>
+    <li>sort(Comparator comp)	This method is used to sort the elements of the list on the basis of the given comparator.</li>
+  </ul>
+</blockquote>
+
+<h3 id="try-to-get-a-front-end-to-back-end-example-working-team">
+<a class="anchor" href="#try-to-get-a-front-end-to-back-end-example-working-team" aria-hidden="true"><span class="octicon octicon-link"></span></a>Try to get a Front-end to Back-end example working (Team)</h3>
+<blockquote>
+  <p>I am very excited about accessing data from one Web Application to Another.   This is the basis of modern computing ‘microservice architecture’.</p>
+  <ul>
+    <li>Highly maintainable and testable (learn to use Postman for APIs testing, learn to use Jupyter notebook for testing)</li>
+    <li>Loosely coupled (frontend and backend can be developed independently)</li>
+    <li>Independently deployable (frontend and backend are not in same GitHub project)</li>
+    <li>Owned by distinct and small teams (frontend and backend )</li>
+  </ul>
+</blockquote>
+
+<h2 id="live-grading-presentation">
+<a class="anchor" href="#live-grading-presentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Live Grading Presentation. </h2>
+<blockquote>
+  <p>Two teams at a time in review.  The review meeting would consist of 4 x 1.5 minute presentations on Notebooks and 2 x 3 minute presentations on FE to BE.  Optimization is encouraged!!!</p>
+  <ul>
+    <li>5 meetings per class, 20 minutes per meeting.  Meetings will be cutoff and 20 minutes.</li>
+    <li>Scoring .9<em>1 on Notebook, .9</em>1 on Team, .9x1 on Presentation and packing everything into 20 minutes.</li>
+    <li>The review may be more interesting is if you learn how to share microservice capabilities across teams.  That would be impressive.</li>
+  </ul>
+</blockquote>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/APCSA"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/APCSA/points/7" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="nighthawkcoders"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="NighthawkCoding"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use></svg></a></li><li><a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="YouTube"><svg class="svg-icon grey"><use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
