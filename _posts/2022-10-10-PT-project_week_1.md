@@ -34,11 +34,15 @@ week: 8
     - Describe any consideration you have made for customer needs.
     - Indicate accommodations you have made for English Language Learners or those with Disabilities
 - Develop software using programming languages
-    - Identify authoring tools (IDE's) used and key features
+    - Identify authoring tools (IDE's, Docker) used
     - Describe and/or show visuals which interactions and integration of programming languages, protocols, and data within project (Flow Chart/UML).
-    - Describe and/or illustrate key data type, data structures, objects, files, and databases that will be used (Flow Chart/UML).
-    - Describe and/or illustrate key Procedures, Functions, Algorithms that will be required to complete this system.
+    - Describe and/or illustrate key Procedures, Functions, Algorithms that will be required to complete this system (Flow Chart/UML).
     - Be sure to use comments in code to facilitate current and future understanding of the key portions of system.
+- Develop data, data types, databases, and APIs.
+    - Identify authoring tools (IDE's, Postman) used.
+    - Describe and/or illustrate key data types, data structures, objects, files, and databases that will be used (Flow Chart/UML).
+    - Describe use of database, tables, attributes, records, and systems of access (POJOs, JPAs)
+    - Be sure to use comments in code to facilitate current and future understanding of the key portions of data.
 - Test and Demo Software during each Sprint
     - Consider using GitHub Issues to support this process.
     - Develop and describe expectations of each feature.
@@ -46,7 +50,6 @@ week: 8
     - Document accomplishment with tangible evidence.
     - Have feature reviews, demos, and obtain feedback (team and/or customer)
     - Update and derive new features and tasks for next step in Software Development Life Cycle
-
 
 ### Individual Points
 > Each individual should prepare for each Sprint and Reflection meeting on successes or failure within the project.  Highlight things that involve the following...
