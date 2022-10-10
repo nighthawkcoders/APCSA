@@ -58,4 +58,10 @@ week: 8
 - Critical Thinking 
 - Creativity
 
+### Presenter Points
+> Assignments from Student Lectures.
+- Unit 1
+- Unit 2
+
+
 
