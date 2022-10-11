@@ -12,7 +12,7 @@ week: 8
 ## Communication on Machines, Project, Port, Docker Image, and Nginx
 > It would be nice if there were some standards published.  Here are some ideas.  It takes about 15 minutes to plan or hours to fix.  
 
-## P1: nighthawkcodingsociety.tk
+## P1: nighthawkcoders.tk
 
 |Period|Table|Port|Project|image_nm|nginx|subdomain|
 |1|1|8011|T1_|||
@@ -23,7 +23,7 @@ week: 8
 |1|6|8016|T6_|||
 |1|7|8017|T7_fantasy-fb|fantasy-fb_v1|
 
-## P2: nighthawkcodingsociety.ml
+## P2: nighthawkcoding.ml
 
 |Period|Table|Port|Project|image_nm|nginx|subdomain|
 |2|1|8091|t1_juiceVRLD|juiceVRLD_v1||
