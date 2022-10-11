@@ -38,3 +38,15 @@ week: 8
 For NGINX files please start the filename with T# (as Mr. M said).
 
 > I've seen some issues when working with docker containers with duplicate container names in the docker-compose files in different projects. Therefore, please replace "web" in docker-compose with "web_t#" to ensure each container has a unique name (period 2) & replace "javaspring_v1" w/ "javaspring_v1_t#" in docker-compose.yml
+
+## Sample Names from Yeung's CSP
+> Here is project naming example for GitHub Projects P4 and P5 from Mr Yeung
+
+```bash
+ubuntu@ncs-cf:~$ pwd
+/home/ubuntu
+ubuntu@ncs-cf:~$ ls
+T8041_sane             T8044_MVQN     T8047_lash               T8051_ZestyYeung          T8054_Scrum_Daddys  T8057_CASA
+T8042_TAAL             T8045_peacock  T8048_united-rice-cubes  T8052_udderly_delectable  T8055_Sport         T8058_time
+T8043_FriendshipTable  T8046_dogs     T8049_thedreamteam       T8053_Flask_Swag          T8056_berries       T8059_lyntax
+```
