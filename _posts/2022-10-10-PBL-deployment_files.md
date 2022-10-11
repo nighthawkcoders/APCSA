@@ -9,7 +9,7 @@ type: pbl
 week: 8
 ---
 
-## Communication onf Machines
+## Communication on Machines, Project, Port, Docker Image, and Nginx
 > It would be nice if there were some standards published.  Here are some ideas.  It takes about 15 minutes to plan or hours to fix.  
 
 ## P1: nighthawkcodingsociety.tk
