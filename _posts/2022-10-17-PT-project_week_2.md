@@ -13,7 +13,7 @@ week: 9
 
 ## Plans Week 9
 > Focus on PBL - Commitment to your Agile Development process and tangibles.
-- Monday: Review Student Led Homework and Blog
+- Monday: Review Student Led Homework (Period 2?) and Blog
 - Tuesday: Student Presentation
 - Wednesday: Student Presentation
 - Thursday: Show FE to BE working, Script for Video
