@@ -777,7 +777,9 @@
   
 
   
-      ,"page5": {
+
+  
+      ,"page6": {
           "title": "About",
           "content": "This site is built with fastpages . Key Links . GitHub Repos: github.com/nighthawkcoders, Spring Portfolio Template | AWS Deployments: csa.nighthawkcodingsociety.com | Slack: Join Link | 2021-2022 Archives: Fall, Early Winter, Late Winter, Spring | . .",
           "url": "https://nighthawkcoders.github.io/APCSA/about/",
@@ -815,7 +817,7 @@
   
 
   
-      ,"page17": {
+      ,"page18": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nighthawkcoders.github.io/APCSA/robots.txt",
