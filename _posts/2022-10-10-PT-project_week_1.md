@@ -11,6 +11,8 @@ type: plan
 week: 8
 ---
 
+<mark>Cancelled</mark>
+
 ## Plans Week 8
 > Focus on PBL - Commitment to your Agile Development process and tangibles.
 - Monday: Stand-up Meetings, Live Review
