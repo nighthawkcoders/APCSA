@@ -2,7 +2,7 @@
 toc: true
 comments: true
 layout: post
-title:  Project Week 1
+title:  Project Week 2
 description: Scrum Board, Issues, Tangibles
 permalink: /points/9
 image: /images/points.jpeg
