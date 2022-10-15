@@ -6,7 +6,7 @@ title:  Project Week 2
 description: Scrum Board, Issues, Tangibles
 permalink: /points/9
 image: /images/points.jpeg
-categories: [C1.1]
+categories: [C1.1, C1.4]
 type: plan
 week: 9
 ---

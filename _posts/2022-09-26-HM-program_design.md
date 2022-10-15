@@ -6,7 +6,7 @@ title: Program Design
 description: Look for a real need.  Program Design, ideation, and eventual development work a lot better if you have a real need or an idea of purpose.
 permalink: /collegeboard/design
 image: /images/UML_logo.png
-categories: [C2.0, C2.1, C2.2, C2.3, C2.4, C2.5]
+categories: [C1.6, C2.0, C2.1, C2.2, C2.3, C2.4, C2.5]
 type: human
 week: 5
 ---

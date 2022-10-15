@@ -2,9 +2,9 @@
 toc: true
 comments: false
 layout: post
-title:  Deployment Files
+title:  Deployment Files and Conventions
 description: Shared machine will require some standards
-categories: []
+categories: [C1.5]
 type: pbl
 week: 8
 ---
@@ -38,6 +38,9 @@ week: 8
 For NGINX files please start the filename with T# (as Mr. M said).
 
 > I've seen some issues when working with docker containers with duplicate container names in the docker-compose files in different projects. Therefore, please replace "web" in docker-compose with "web_t#" to ensure each container has a unique name (period 2) & replace "javaspring_v1" w/ "javaspring_v1_t#" in docker-compose.yml
+
+## Docker, Issues requirements
+> Using docker-compose.yml establish a method to version and name container.  Consider how this version can be unified with Git and Issues.
 
 ## Sample Names from Yeung's CSP
 > Here is project naming example for GitHub Projects P4 and P5 from Mr Yeung
