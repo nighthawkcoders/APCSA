@@ -631,6 +631,12 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 </code></pre></div></div>
 
+<p>After this is complete, Let’s Encrypt can be set up to renew certificates if expring within 30 days. This is accomplished using cron jobs (periodic jobs). In this case, we will run the job daily which checks &amp; updates the certificates</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab -e # edit crontab file
+
+0 12 * * * /usr/bin/certbot renew --quiet # add this line to the file (runs renew daily)
+</code></pre></div></div>
+
 <h2 id="update-deployment">
 <a class="anchor" href="#update-deployment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update Deployment</h2>
 <blockquote>
