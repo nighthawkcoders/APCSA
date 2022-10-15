@@ -4,6 +4,7 @@ layout: default
 description: A pretty advanced use of JavaScript building classic snake game using menu controls, key events, snake simulation and timers.  
 permalink: /frontend/snake
 image: /images/snake.png
+categories: [C4.9]
 tags: [javascript]
 ---
 
