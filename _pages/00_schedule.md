@@ -9,7 +9,7 @@ title: Schedule
 {% assign all = all | concat:site.posts | concat:site.pages %}
 
 <!-- Setup order for Units -->
-{% assign units = "3,2,1" | split: ',' %}
+{% assign units = "3,2,1,4" | split: ',' %}
 {% for unit in units %}
 
   <!-- Each Unit has a range of weeks and a heading -->
@@ -30,6 +30,12 @@ title: Schedule
       {% assign end = 11 %}
 ## Unit {{unit}}: N@tM Project
   > By the end of this unit students will be aware of all the College Board Units and will have completed their first Project.  Students will be able to write code that completes full stack process of Frontend talking to the Java backend.  This section will conclude with a "required" N@tM open house.  
+      
+  {% elsif unit == "4" %} 
+      {% assign start = 12 %}
+      {% assign end = 12 %}
+## Unit {{unit}}: Finals Week
+  > Quiz and Blog review
       
   {% endif %}
 
