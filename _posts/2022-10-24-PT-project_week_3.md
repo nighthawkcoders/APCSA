@@ -24,7 +24,7 @@ week: 10
 - Production and Theme 1 pt
 - Jobs 1 pt each x 4 (Individual)
 
-## CB Check point (5 points)
+## CB Unit 1 to 5 Check point (5 points)
 - 2 points on presentation
 - .5 points on grading
 - .5 x 5 units
