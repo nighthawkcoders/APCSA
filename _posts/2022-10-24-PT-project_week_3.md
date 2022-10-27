@@ -19,12 +19,4 @@ week: 10
 - Thursday: Student Presentation #7, CB Homework Reviews 1 to 5
 - Friday: Student Presentation #8, CB Homework Reviews 1 to 5
 
-## Videos (5 points)
-> Summary of Points
-- Production and Theme 1 pt
-- Jobs 1 pt each x 4 (Individual)
-
-## CB Unit 1 to 5 Check point (5 points)
-> Summary of Points
-- 2.5 points on presentation
-- .5 x 5 units
+## Commits and Issues Check (seed +, no change, or -)
