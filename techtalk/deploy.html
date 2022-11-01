@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      21 min read
+      20 min read
     
 </span></p>
 
@@ -129,7 +129,6 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#faqs-for-problems">FAQS for Problems</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#docker-file-change-extracting-git">Docker file change, extracting Git</a></li>
 <li class="toc-entry toc-h3"><a href="#setting-up-docker-without-sudo">Setting up docker without sudo</a></li>
 <li class="toc-entry toc-h3"><a href="#errors-on-docker-compose-or-curl">Errors on docker-compose or curl</a></li>
 </ul>
@@ -263,7 +262,7 @@ window.onload = wrap_img;
 <span class="k">WORKDIR</span><span class="s"> /app</span>
 <span class="k">RUN </span>apk update <span class="o">&amp;&amp;</span> apk upgrade <span class="o">&amp;&amp;</span> <span class="se">\
 </span>  apk add <span class="nt">--no-cache</span> git maven
-<span class="k">RUN </span>git clone https://github.com/nighthawkcoders/spring_portfolio.git /app
+<span class="k">COPY</span><span class="s"> . /app</span>
 <span class="k">RUN </span>./mvnw package
 <span class="k">CMD</span><span class="s"> ["java", "-jar", "target/spring-0.0.1-SNAPSHOT.jar"]</span>
 <span class="c"># EXPOSE port that is defined in spring_portfolio.git application.properties</span>
@@ -788,53 +787,6 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
 
 <h2 id="faqs-for-problems">
 <a class="anchor" href="#faqs-for-problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQS for Problems</h2>
-
-<h3 id="docker-file-change-extracting-git">
-<a class="anchor" href="#docker-file-change-extracting-git" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker file change, extracting Git</h3>
-<blockquote>
-  <p>Setup Docker in more classic way using “RUN . /app”.  This allows for “git clone” and “git pull’ to be managed outside of the container.  This will allow Docker to work without rebuilding container from scratch each update.  This allows “docker-compose build” to capitalize on Docker cache for quicker update.</p>
-  <ul>
-    <li>For Best practice or Docker information:<a href="https://docs.docker.com/develop/dev-best-practices/">https://docs.docker.com/develop/dev-best-practices/</a>
-</li>
-  </ul>
-</blockquote>
-
-<blockquote>
-  <p>cd into your spring portfolio project</p>
-  <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/spring_portfolio
-</code></pre></div>  </div>
-  <p>edit Dockerfile</p>
-  <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano Dockerfile
-</code></pre></div>  </div>
-  <p>change this line from</p>
-  <div class="language-dockerfile highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>git clone https://github.com/nighthawkcoders/spring_portfolio.git /app
-</code></pre></div>  </div>
-  <p>change to</p>
-  <div class="language-dockerfile highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="k">COPY</span><span class="s"> . /app</span>
-</code></pre></div>  </div>
-</blockquote>
-
-<blockquote>
-  <p>Then save docker file and close out of it</p>
-</blockquote>
-
-<blockquote>
-  <p>Next, build container. This may require “sudo” permission elevation</p>
-  <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose build
-</code></pre></div>  </div>
-</blockquote>
-
-<blockquote>
-  <p>Finish, by running container.  The may require “sudo” elevation</p>
-  <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose up <span class="nt">-d</span>
-</code></pre></div>  </div>
-</blockquote>
 
 <h3 id="setting-up-docker-without-sudo">
 <a class="anchor" href="#setting-up-docker-without-sudo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up docker without sudo</h3>
