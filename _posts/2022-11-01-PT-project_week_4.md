@@ -11,7 +11,7 @@ type: plan
 week: 11
 ---
 
-## Plans Week 12
+## Plans Week 11
 > N@tM Week
 - Monday: Day Off
 - Tuesday: work day
