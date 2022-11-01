@@ -28,8 +28,8 @@ title: Schedule
   {% elsif unit == "3" %} 
       {% assign start = 8 %}
       {% assign end = 12 %}
-## Unit {{unit}}: N@tM Project
-  > By the end of this unit students will be aware of all the College Board Units.   Student will participate in presentations and live grading.
+## Unit {{unit}}: Individual Project
+  > This Units requirement is to to build individual development skills in Java.  By the end of this unit students will be aware of all the College Board Units and FRQ types.   Student will participate or have participated in presentations and live grading of peers work.  Fastpages Blogs and Jupyter Notebooks is required for all individual.   By the end of this section you should have examples, study materials, and code that show a great deal of effort, understanding, and competency.
       
   {% elsif unit == "4" %} 
       {% assign start = 13 %}
