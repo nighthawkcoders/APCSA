@@ -33,7 +33,7 @@ title: Schedule
       
   {% elsif unit == "4" %} 
       {% assign start = 13 %}
-      {% assign end = 15 %}
+      {% assign end = 16 %}
 ## Unit {{unit}}: Finals Week
   > Quiz and Blog review
       
