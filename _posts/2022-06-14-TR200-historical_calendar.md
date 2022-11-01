@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: 
-title: Tri2 Overview - 2021-2022 Winter review (for Teacher only)
+title: Week of 12/12, 2021-2022 Winter planning (for Teacher only)
 type: plan
 week: 16
 ---
