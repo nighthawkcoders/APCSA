@@ -2,6 +2,28 @@
   
     
         "post0": {
+            "title": "Unit 10 Wed - Recursion",
+            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
+            "url": "https://nighthawkcoders.github.io/APCSA/2022/11/30/AP-unitA.html",
+            "relUrl": "/2022/11/30/AP-unitA.html",
+            "date": " • Nov 30, 2022"
+        }
+        
+    
+  
+    
+        ,"post1": {
+            "title": "Unit 09 Tue - Inheritance",
+            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
+            "url": "https://nighthawkcoders.github.io/APCSA/2022/11/29/AP-unit9.html",
+            "relUrl": "/2022/11/29/AP-unit9.html",
+            "date": " • Nov 29, 2022"
+        }
+        
+    
+  
+    
+        ,"post2": {
             "title": "Units 9-10 lecture, Units 6-10 homework,",
             "content": "Plans Week 14 . Monday, Tuesday: lessons 9, 10 | Wednesday: work day | Thursday, Friday: review blogs 6-10 | . Add FRQs to your study plan . There are four types of FRQs required. Add to your study Guide a Jupyter Notebook FRQ from each of these four types. Make sure you correlate the solution with facts and vocabulary from this study. . Methods and Control Structures question | Class question | Array/ArrayList question | 2D Array question |",
             "url": "https://nighthawkcoders.github.io/APCSA/points/14",
@@ -12,7 +34,29 @@
     
   
     
-        ,"post1": {
+        ,"post3": {
+            "title": "Unit 08 Thu - 2D Array",
+            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
+            "url": "https://nighthawkcoders.github.io/APCSA/2022/11/18/AP-unit8.html",
+            "relUrl": "/2022/11/18/AP-unit8.html",
+            "date": " • Nov 18, 2022"
+        }
+        
+    
+  
+    
+        ,"post4": {
+            "title": "Unit 07 Wed - ArrayList",
+            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
+            "url": "https://nighthawkcoders.github.io/APCSA/2022/11/17/AP-unit7.html",
+            "relUrl": "/2022/11/17/AP-unit7.html",
+            "date": " • Nov 17, 2022"
+        }
+        
+    
+  
+    
+        ,"post5": {
             "title": "Units 1-5 homework, Units 7-8 lecture",
             "content": "Plans Week 13 . Monday: Review vocabulary, Work Day | Tuesday, Wednesday: review blog units 1-5 | Thursday, Friday: lessons | . List of tech terms required to show year-to-date competency . A big emphasis on learning units is learning vocabulary. Incorporate all of these terms into your units of study. . Casting, specifically for Division | Casting, specifically for Truncating or Rounding | Wrapper Classes, why wrap int, double | Concatenation, rules on mixed type Concatenation | Math class, specifically Random usage | Compound Boolean Expression | Truth Tables | De Morgan’s Law | Comparing Numbers | Comparing Strings | Comparing Objects | for loop, enhanced for loop | while loop versus do while loop | nested loops | Creating a Class, describe Naming Conventions | Constructor, describe why there is no return | Accessor methods, relationship to getter | Mutator methods, relationship to setter, describe void return type | Static variables, Class variables | Static methods, Class methods | this Keyword | main method, tester methods | Inheritance, extends | Subclass constructor, super Keyword | Overloading a method, same name different parameters | Overriding a method, same signature of a method | Abstract Class, Abstract Method | Object superclass methods: toString(), compare(), clone() | Late binding of object, referencing superclass object, ie Animal a = new Chicken(); Animal b = new Goat(); | Polymorphism: any of overloading, overriding, late binding | Big O notation for Hash map, Binary Search, Single loop, Nested Loop | .",
             "url": "https://nighthawkcoders.github.io/APCSA/points/13",
@@ -23,7 +67,7 @@
     
   
     
-        ,"post2": {
+        ,"post6": {
             "title": "Finals Week",
             "content": "Plans Week 12 . Finals Week . Monday: Open Study day, Review of Project | Tuesday, Wednesday, Thursday: MCQ Test Review | Friday: No School | . Final Exam (3 points) . Summary of Points . 1.8 of 2 points for scoring above 50% | 1 point on blog | .",
             "url": "https://nighthawkcoders.github.io/APCSA/points/12",
@@ -34,56 +78,12 @@
     
   
     
-        ,"post3": {
-            "title": "Unit 10 Wed - Recursion",
-            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
-            "url": "https://nighthawkcoders.github.io/APCSA/2022/11/03/AP-unitA.html",
-            "relUrl": "/2022/11/03/AP-unitA.html",
-            "date": " • Nov 3, 2022"
-        }
-        
-    
-  
-    
-        ,"post4": {
-            "title": "Unit 09 Tue - Inheritance",
-            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
-            "url": "https://nighthawkcoders.github.io/APCSA/2022/11/02/AP-unit9.html",
-            "relUrl": "/2022/11/02/AP-unit9.html",
-            "date": " • Nov 2, 2022"
-        }
-        
-    
-  
-    
-        ,"post5": {
+        ,"post7": {
             "title": "Project Week 4",
             "content": "Plans Week 12 . N@tM Week . Monday: Day Off | Tuesday: work day | Wednesday: work day | Thursday: work day, N@tM 6 to 7:30pm | Friday: Work on MCQ, Reviews of Project | . N@tM Day (12 points) . Summary of Points . Theme, Presentation and Professionalism Status 1 pt x 4, N@tM is required, capture the moment | Key Technicals BE + DB 1 pt x 5, API’s and Database are required | Key Technicals FE 1 pt x 3, Fetch is required | .",
             "url": "https://nighthawkcoders.github.io/APCSA/points/11",
             "relUrl": "/points/11",
             "date": " • Nov 1, 2022"
-        }
-        
-    
-  
-    
-        ,"post6": {
-            "title": "Unit 08 Thu - 2D Array",
-            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
-            "url": "https://nighthawkcoders.github.io/APCSA/2022/10/27/AP-unit8.html",
-            "relUrl": "/2022/10/27/AP-unit8.html",
-            "date": " • Oct 27, 2022"
-        }
-        
-    
-  
-    
-        ,"post7": {
-            "title": "Unit 07 Wed - ArrayList",
-            "content": "Objectives . Make sure lesson has the following... . Lesson Purpose and Objectives | Review of Unit Materials and Videos from AP Classroom | Key Vocabulary | Key Coding requirements, by interactive coding challenges during lesson | Highlight any Tricks or Gotchas from Unit, could be added to coding challenge | Lesson should be interactive and hopefully fun | 30 minutes of Homework / Hacks | Lesson times is between 20 and 30 minutes | .",
-            "url": "https://nighthawkcoders.github.io/APCSA/2022/10/26/AP-unit7.html",
-            "relUrl": "/2022/10/26/AP-unit7.html",
-            "date": " • Oct 26, 2022"
         }
         
     
@@ -788,7 +788,7 @@
   
       ,"page0": {
           "title": "Schedule",
-          "content": ". Unit 3: Individual Project . This Units requirement is to to build individual development skills in Java. By the end of this unit students will be aware of all the College Board Units and FRQ types. Student will participate or have participated in presentations and live grading of peers work. Fastpages Blogs and Jupyter Notebooks is required for all individual. By the end of this section you should have examples, study materials, and code that show a great deal of effort, understanding, and competency. . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 8 | - Project Week 1 | - Unit 02 Thu - Using Objects - Unit 01 Wed - Primitive Types | - Deployment Files and Conventions | | . 9 | - Project Week 2 | - Unit 05 Thu - Writing Classes - Unit 04 Wed - Iteration - Unit 03 Tue - Boolean Expressions and if Statements | | | . 10 | - Project Week 3 | - Unit 08 Thu - 2D Array - Unit 07 Wed - ArrayList - Unit 06 Tue - Array | | | . 11 | - Project Week 4 | - Unit 10 Wed - Recursion - Unit 09 Tue - Inheritance | | | . 12 | - Finals Week | | | | . . Unit 2: Java Mini-labs . After using Code.org in the first unit, students have been introduced to Classes and Inheritance. In this unit students will become more familiar with Java development through mini-labs. These labs will focus on AP required aspects of Java, additionally they can be used as code to support the backend of a Desktop App or WebSite. This unit concludes with 4 person Project Plan, kicking off the end of trimester N@TM project. Students will be able to write code that completes full stack process of Frontend talking to the Java backend. This section will conclude with a “required” N@tM open house. . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 4 | - Free Response Question No. 1 | - Iteration with 2D Array | - Java Spring/Thymeleaf - Java Spring Backend | - Agile Methodology | . 5 | - Design Starters | - Class running Fibonacci | - JavaScript Tutorial | - Program Design | . 6 | - Project Approval | - Arrays and Images | - Java RapidAPI - API | | . 7 | - Last CB Topic - ArrayList | | - POJO, JPA, API, FE | - GitHub and Git Sociology | . . Unit 1: Introduction to Tools and Resources . To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging. These early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks. . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 0 | - Introduction and Tools | - Anatomy of Java | - VSCode Download with WSL - Tools and Equipment - GUI with WSL | - Student Scoring on AP Exam | . 1 | - Innovation - Pair Focus | - Primitive Data Types | - Fastpages via GitHub Pages - Fastpages Darkmode - Bash and Installation Checks | | . 2 | - Using Objects | - Using Objects - Console Games | - Frontend | - Anthony and Sahil&#39;s Reflections | . 3 | - Backend Development | - Boolean Expressions and If Statements | - Fastpages local server - AWS Deployment Guide | - Focus and Habits | . . Unit 4: Finals Week . Quiz and Blog review . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 13 | - Units 1-5 homework, Units 7-8 lecture - Tri2 Overview - 2021-2022 Winter review | | | | .",
+          "content": ". Unit 3: Individual Project . This Units requirement is to to build individual development skills in Java. By the end of this unit students will be aware of all the College Board Units and FRQ types. Student will participate or have participated in presentations and live grading of peers work. Fastpages Blogs and Jupyter Notebooks is required for all individual. By the end of this section you should have examples, study materials, and code that show a great deal of effort, understanding, and competency. . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 8 | - Project Week 1 | - Unit 02 Thu - Using Objects - Unit 01 Wed - Primitive Types | - Deployment Files and Conventions | | . 9 | - Project Week 2 | - Unit 05 Thu - Writing Classes - Unit 04 Wed - Iteration - Unit 03 Tue - Boolean Expressions and if Statements | | | . 10 | - Project Week 3 | - Unit 08 Thu - 2D Array - Unit 07 Wed - ArrayList - Unit 06 Tue - Array | | | . 11 | - Project Week 4 | - Unit 10 Wed - Recursion - Unit 09 Tue - Inheritance | | | . 12 | - Finals Week | | | | . . Unit 2: Java Mini-labs . After using Code.org in the first unit, students have been introduced to Classes and Inheritance. In this unit students will become more familiar with Java development through mini-labs. These labs will focus on AP required aspects of Java, additionally they can be used as code to support the backend of a Desktop App or WebSite. This unit concludes with 4 person Project Plan, kicking off the end of trimester N@TM project. Students will be able to write code that completes full stack process of Frontend talking to the Java backend. This section will conclude with a “required” N@tM open house. . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 4 | - Free Response Question No. 1 | - Iteration with 2D Array | - Java Spring/Thymeleaf - Java Spring Backend | - Agile Methodology | . 5 | - Design Starters | - Class running Fibonacci | - JavaScript Tutorial | - Program Design | . 6 | - Project Approval | - Arrays and Images | - Java RapidAPI - API | | . 7 | - Last CB Topic - ArrayList | | - POJO, JPA, API, FE | - GitHub and Git Sociology | . . Unit 1: Introduction to Tools and Resources . To learn Java and build skills for Career Technical Education students will quickly immerse into Tools and Resources for Java Development and Fastpages Blogging. These early weeks will focus on the Development Environment, Fastpages Blogging platform, Code.org resources, AP Classroom resources, and Programming Java with Jupyter Notebooks. . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 0 | - Introduction and Tools | - Anatomy of Java | - VSCode Download with WSL - Tools and Equipment - GUI with WSL | - Student Scoring on AP Exam | . 1 | - Innovation - Pair Focus | - Primitive Data Types | - Fastpages via GitHub Pages - Fastpages Darkmode - Bash and Installation Checks | | . 2 | - Using Objects | - Using Objects - Console Games | - Frontend | - Anthony and Sahil&#39;s Reflections | . 3 | - Backend Development | - Boolean Expressions and If Statements | - Fastpages local server - AWS Deployment Guide | - Focus and Habits | . . Unit 4: Finals Week . Quiz and Blog review . . Week Sprint/Points Link AP Test Prep Career Tech Human Prep . 13 | - Units 1-5 homework, Units 7-8 lecture - Tri2 Overview - 2021-2022 Winter review | | | | . 14 | - Units 9-10 lecture, Units 6-10 homework, | | | | . 15 | | | | | .",
           "url": "https://nighthawkcoders.github.io/APCSA/schedule",
           "relUrl": "/schedule",
           "date": ""
