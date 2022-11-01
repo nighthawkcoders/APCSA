@@ -14,13 +14,13 @@ week: 11
 ## Plans Week 12
 > N@tM Week
 - Monday: Day Off
-- Tuesday: Student Presentation #9
-- Wednesday: Student Presentation #10
-- Thursday: N@tM 6 to 7:30pm
-- Friday: Final Exam Open
+- Tuesday: work day
+- Wednesday: work day
+- Thursday: work day, N@tM 6 to 7:30pm
+- Friday: Work on MCQ, Reviews of Project
 
 ## N@tM Day (12 points)
 > Summary of Points
-- Theme, Presentation and Professionalism Status 1 pt x 4 (make sure I see you in class or at the N@tM)
-- Key Technicals BE + DB 1 pt x 5
-- Key Technicals FE 1 pt x 3
+- Theme, Presentation and Professionalism Status 1 pt x 4, N@tM is required, capture the moment
+- Key Technicals BE + DB 1 pt x 5, API's and Database are required
+- Key Technicals FE 1 pt x 3, Fetch is required

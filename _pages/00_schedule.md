@@ -23,17 +23,17 @@ title: Schedule
       {% assign start = 4 %}
       {% assign end = 7 %}
 ## Unit {{unit}}: Java Mini-labs
-  > After using Code.org in the first unit, students have been introduced to Classes and Inheritance.  In this unit students will become more familiar with Java development through mini-labs.  These labs will focus on AP required aspects of Java, additionally they can be used as code to support the backend of a Desktop App or WebSite. This unit concludes with 4 person Project Plan, kicking off the end of trimester N@TM project.
+  > After using Code.org in the first unit, students have been introduced to Classes and Inheritance.  In this unit students will become more familiar with Java development through mini-labs.  These labs will focus on AP required aspects of Java, additionally they can be used as code to support the backend of a Desktop App or WebSite. This unit concludes with 4 person Project Plan, kicking off the end of trimester N@TM project.   Students will be able to write code that completes full stack process of Frontend talking to the Java backend.  This section will conclude with a "required" N@tM open house.
 
   {% elsif unit == "3" %} 
       {% assign start = 8 %}
-      {% assign end = 11 %}
+      {% assign end = 12 %}
 ## Unit {{unit}}: N@tM Project
-  > By the end of this unit students will be aware of all the College Board Units and will have completed their first Project.  Students will be able to write code that completes full stack process of Frontend talking to the Java backend.  This section will conclude with a "required" N@tM open house.  
+  > By the end of this unit students will be aware of all the College Board Units.   Student will participate in presentations and live grading.
       
   {% elsif unit == "4" %} 
-      {% assign start = 12 %}
-      {% assign end = 12 %}
+      {% assign start = 13 %}
+      {% assign end = 13 %}
 ## Unit {{unit}}: Finals Week
   > Quiz and Blog review
       
