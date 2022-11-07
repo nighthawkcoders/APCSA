@@ -125,6 +125,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#shutdown-process-and-update-source">Shutdown process and update source</a></li>
 <li class="toc-entry toc-h3"><a href="#rebuild-and-restart-web-application">Rebuild and Restart Web Application</a></li>
 <li class="toc-entry toc-h3"><a href="#setting-up-automatic-deployment">Setting up automatic deployment</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#faqs-for-problems">FAQS for Problems</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#setting-up-docker-without-sudo">Setting up docker without sudo</a></li>
 <li class="toc-entry toc-h3"><a href="#errors-on-docker-compose-or-curl">Errors on docker-compose or curl</a></li>
 </ul>
 </li>
@@ -764,30 +769,33 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
 <ul>
   <li>This is how to do automatic deployment using GitHub actions, which can run code after a push is made.</li>
   <li>First, a secret will need to be set up for your SSH key, in the Repository Settings &gt; Secrets create a new secret called SSH_KEY</li>
-  <li>This secret should contain the output of <code class="language-plaintext highlighter-rouge">base64 -w 0 yourkeyfile.pem</code> (this encodes the key to ensure it uses ASCII characters)</li>
-  <li>GitHub Actions can be specified in the .github/workflows directory. In your repository create a file called .github/workflows/workflow.yml with the following content (this decodes the base64 key and then pulls code, builds docker container, and puts docker container up through SSH)
-```yml
-name: Deploy to Server
-on: [push]
-jobs:
-AWS-Deploy:
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo $ | base64 -d &gt; key.pem
-    - run: chmod 400 key.pem
-    - run: ssh -i key.pem -o StrictHostKeyChecking=no ubuntu@[your server ip/domain name] ‘cd ~/[your git folder]; git pull; docker-compose down; docker-compose up -d –build’</li>
+  <li>This secret should contain the output of <code class="language-plaintext highlighter-rouge">base64 -w 0 aws_ssh_key.pem</code> (this encodes the key to use base64 ASCII characters)</li>
+  <li>GitHub Actions can be specified in the .github/workflows directory. In your repository create a file called .github/workflows/deploy_project.yml with the following content (this decodes the base64 key, uses SSH to update deployment project and rebuild docker container)</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-## FAQS for Problems 
-
-### Setting up docker without sudo
-- Run the following commands to create a docker group &amp; add your user
-```bash
-sudo groupadd docker
-sudo usermod -aG docker $USER
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to Server</span>
+<span class="na">on</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">push</span><span class="pi">]</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">AWS-Deploy</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">echo $ | base64 -d &gt; key.pem</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">chmod 400 key.pem</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">ssh -i key.pem -o StrictHostKeyChecking=no ubuntu@[your server ip/domain name] 'cd ~/[your git folder]; git pull; docker-compose down; docker-compose up -d --build'</span>
 </code></pre></div></div>
+
+<h2 id="faqs-for-problems">
+<a class="anchor" href="#faqs-for-problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQS for Problems</h2>
+
+<h3 id="setting-up-docker-without-sudo">
+<a class="anchor" href="#setting-up-docker-without-sudo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up docker without sudo</h3>
 <ul>
+  <li>Run the following commands to create a docker group &amp; add your user
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd docker
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+</code></pre></div>    </div>
+  </li>
   <li>May need to run the following commands if you previously used sudo (to giv3e yourself ownership of .docker)
     <div class="language-bash highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown</span> <span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span>:<span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span> /home/<span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span>/.docker <span class="nt">-R</span>
