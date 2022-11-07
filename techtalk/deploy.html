@@ -768,8 +768,8 @@ Recreating spring_portfolio_web_1 ... <span class="k">done</span>
 <a class="anchor" href="#setting-up-automatic-deployment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up automatic deployment</h3>
 <ul>
   <li>This is how to do automatic deployment using GitHub actions, which can run code after a push is made.</li>
-  <li>First, a secret will need to be set up for your SSH key, in the Repository Settings &gt; Secrets create a new secret called SSH_KEY</li>
-  <li>This secret should contain the output of <code class="language-plaintext highlighter-rouge">base64 -w 0 aws_ssh_key.pem</code> (this encodes the key to use base64 ASCII characters)</li>
+  <li>First, a secret will need to be set up from your AWS PEM file for your SSH key, in the Repository Settings &gt; Secrets create a new secret called SSH_KEY</li>
+  <li>This SSH_KEY should contain encoded output of your AWS PEM <code class="language-plaintext highlighter-rouge">base64 -w 0 aws_ssh_key.pem</code> (this encodes the key to use base64 ASCII characters)</li>
   <li>GitHub Actions can be specified in the .github/workflows directory. In your repository create a file called .github/workflows/deploy_project.yml with the following content (this decodes the base64 key, uses SSH to update deployment project and rebuild docker container)</li>
 </ul>
 
