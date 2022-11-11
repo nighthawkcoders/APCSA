@@ -9,7 +9,7 @@ title: Schedule
 {% assign all = all | concat:site.posts | concat:site.pages %}
 
 <!-- Setup order for Units -->
-{% assign units = "3,2,1,4" | split: ',' %}
+{% assign units = "4,3,2,1" | split: ',' %}
 {% for unit in units %}
 
   <!-- Each Unit has a range of weeks and a heading -->
@@ -29,7 +29,7 @@ title: Schedule
       {% assign start = 8 %}
       {% assign end = 12 %}
 ## Unit {{unit}}: Individual Project
-  > This Units requirement is to to build individual development skills in Java.  By the end of this unit students will be aware of all the College Board Units and FRQ types.   Student will participate or have participated in presentations and live grading of peers work.  Fastpages Blogs and Jupyter Notebooks is required for all individual.   By the end of this section you should have examples, study materials, and code that show a great deal of effort, understanding, and competency.
+  > This Units requirement is to to build individual development skills in Java.  By the end of this unit students will be aware of all the College Board Units and FRQ types.   Student will participate or have participated in presentations and live grading of peers work.  Fastpages Blogs and Jupyter Notebooks are required for all individuals.   By the end of this section you should have examples, study materials, and code that show a great deal of effort, understanding, and competency.
       
   {% elsif unit == "4" %} 
       {% assign start = 13 %}
