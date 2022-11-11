@@ -116,10 +116,10 @@ window.onload = wrap_img;
 <a class="anchor" href="#Classes-Background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes Background<a class="anchor-link" href="#Classes-Background"> </a>
 </h2>
 <blockquote>
-<p>The 2019 FRQ #2 describes a problem of a Step Tracker.  The task is to write a StepTracker class.   Included is the constructor and any required instance variables and
+<p>All Classes FRQs relate well to POJOs in PBL.  The 2019 FRQ #2 describes a problem of a Step Tracker.  The task is to write a StepTracker class.   Included is the constructor and any required instance variables and
 methods.</p>
 <ul>
-<li>Assumption would be a integer or long steps instance variable</li>
+<li>Assumption would be a integer or long steps instance variable, also it implies data to track days.</li>
 <li>Constructor:StepTracker tr = new StepTracker(10000);- Get Methods with algorithms: tr.activeDays(); tr.averageSteps(); </li>
 <li>Set Methods: tr.addDailySteps(9000);</li>
 </ul>
@@ -177,6 +177,7 @@ methods.</p>
     <span class="kd">private</span> <span class="n">Date</span> <span class="n">dob</span><span class="p">;</span>
 
     <span class="c1">// Steps attribute</span>
+    <span class="c1">// How is this like FRQ3?</span>
     <span class="kd">private</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">steps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
     
     <span class="c1">// Initializer used when setting database from an API</span>
@@ -188,6 +189,7 @@ methods.</p>
     <span class="p">}</span>
 
     <span class="c1">// A custom getter to return age from dob calculation</span>
+    <span class="c1">// How is this like FRQ1?</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">dob</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">LocalDate</span> <span class="n">birthDay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">dob</span><span class="p">.</span><span class="na">toInstant</span><span class="p">().</span><span class="na">atZone</span><span class="p">(</span><span class="n">ZoneId</span><span class="p">.</span><span class="na">systemDefault</span><span class="p">()).</span><span class="na">toLocalDate</span><span class="p">();</span>
@@ -216,7 +218,7 @@ methods.</p>
 <a class="anchor" href="#Limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations<a class="anchor-link" href="#Limitations"> </a>
 </h2>
 <blockquote>
-<p>Flaws in definition. Quickly in my analysis of this POJO definition, I started to determine there would be some flaws as the definition seems to simple.  For instance...</p>
+<p>Flaws in definition. Quickly in my analysis of this POJO definition, I started to determine there would be some flaws as the definition seems to simple to track days.  For instance...</p>
 <ul>
 <li>How could application determine relationship of Day of Week, Month, Year that steps were taken</li>
 <li>How could application update steps after initial add</li>
@@ -237,7 +239,7 @@ methods.</p>
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
 <blockquote>
-<p>Redefine the POJO to be multiple POJOs.   One POJO contains Person, the second POJO contains Day.  The Collection, List ArrayList in Person would change to be a List of Day(s).  <a href="https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/">Read for Background</a>.  This is great territory to understand Classes and Lists at the same time.
+<p>Build your own POJOs.   In the POJOs you will have a relationship.  For instance, if you redefine the Person POJO to be multiple POJOs, Person and Day.   The POJO Person and the  POJO Day contain relationships.  List is the interface and ArrayList is the implementation.  The Person data with Day would be able to track and change the List of Day(s).  <a href="https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/">Read this article for Background</a>.
 ```java
 // 1 to Many Relationship
 // -----------              -----------
@@ -258,7 +260,7 @@ private List&lt;Day&gt; days = new ArrayList&lt;&gt;();
 <p>}</p>
 <p>@Entity
 public class Day {
-    // attributes
+    // attributes, how would you track days.  perhaps capture date and have many method to calculate this data
     private int year;
     private int day;</p>
 
