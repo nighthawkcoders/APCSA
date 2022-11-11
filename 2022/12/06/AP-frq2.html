@@ -239,42 +239,63 @@ methods.</p>
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
 <blockquote>
-<p>Build your own POJOs.   In the POJOs you will have a relationship.  For instance, if you redefine the Person POJO to be multiple POJOs, Person and Day.   The POJO Person and the  POJO Day contain relationships.  List is the interface and ArrayList is the implementation.  The Person data with Day would be able to track and change the List of Day(s).  <a href="https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/">Read this article for Background</a>.
-```java
-// 1 to Many Relationship
-// -----------              -----------
-// | Person  | -|O-----|-&lt;- | Day     |<br>
-// -----------              -----------</p>
+<p>Build your own POJOs.   In the POJOs you will have a relationship.  For instance, if you redefine the Person POJO to be multiple POJOs, Person and Day.   The POJO Person and the  POJO Day contain relationships.  List is the interface and ArrayList is the implementation.  The Person data with Day would be able to track and change the List of Day(s).  <a href="https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/">Read this article for Background</a>.</p>
 </blockquote>
-<p>@Entity
-public class Person {
-    // Person data</p>
-
-<pre><code>// relationship
-@OneToMany(
-    cascade = CascadeType.ALL,
-    orphanRemoval = true
-)
-private List&lt;Day&gt; days = new ArrayList&lt;&gt;();
-</code></pre>
-<p>}</p>
-<p>@Entity
-public class Day {
-    // attributes, how would you track days.  perhaps capture date and have many method to calculate this data
-    private int year;
-    private int day;</p>
-
-<pre><code>// relationship
-@ManyToOne(fetch = FetchType.LAZY)
-private Person person;
-
-</code></pre>
-<p>}
-```</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="cm">/*</span>
+<span class="cm">1 to Many and Many to 1</span>
+<span class="cm">- 1 Person to Many Day(s) Relationship (Forward)</span>
+<span class="cm">- Many Days to 1 Person Relationship (Reverse)</span>
+<span class="cm">- symbol "-|" means the Day to Person must contain a result</span>
+<span class="cm">- symbol "O&lt;-" means there are zero to many Day(s) were data is collected</span>
+<span class="cm">-----------              -----------</span>
+<span class="cm">| Person  | -|-----O&lt;- | Day     |  </span>
+<span class="cm">-----------              -----------</span>
+<span class="cm">*/</span>
+
+<span class="c1">// Relationship shown, data is incomplete</span>
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    <span class="c1">// Person data</span>
+
+    <span class="c1">// relationship</span>
+    <span class="nd">@OneToMany</span><span class="p">(</span>
+        <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="p">.</span><span class="na">ALL</span><span class="p">,</span>
+        <span class="n">orphanRemoval</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="p">)</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Day</span><span class="o">&gt;</span> <span class="n">days</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Relationship shown, data is incomplete</span>
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Day</span> <span class="p">{</span>
+    <span class="c1">// attributes, how would you track days.  perhaps capture date and have many method to calculate this data</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">year</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">day</span><span class="p">;</span>
+ 
+    <span class="c1">// relationship</span>
+    <span class="nd">@ManyToOne</span><span class="p">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="n">FetchType</span><span class="p">.</span><span class="na">LAZY</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="n">Person</span> <span class="n">person</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
