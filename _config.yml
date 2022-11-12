@@ -46,6 +46,7 @@ minima:
   social_links:
     - { platform: github, user_url: "https://github.com/nighthawkcoders"}
     - { platform: twitter, user_url: "https://twitter.com/NighthawkCoding"}
+    - { platform: youtube, user_url: "https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q"}
 
 
 # Set this to true to get LaTeX math equation support
