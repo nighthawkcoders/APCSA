@@ -37,11 +37,11 @@ url: "https://nighthawkcoders.github.io" # the base hostname & protocol for your
 baseurl: "/APCSA" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
-minima:
-  social_links:
-    twitter: NighthawkCoding
-    github: nighthawkcoders
-    youtube_channel: UClIKOsDS5dsfzFA3zveDT3Q
+#minima:
+#  social_links:
+#    twitter: NighthawkCoding
+#    github: nighthawkcoders
+#   youtube_channel: UClIKOsDS5dsfzFA3zveDT3Q
 
 # Set this to true to get LaTeX math equation support
 use_math: 
