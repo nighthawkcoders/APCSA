@@ -33,7 +33,7 @@ title: Schedule
       
   {% elsif unit == "4" %} 
       {% assign start = 13 %}
-      {% assign end = 16 %}
+      {% assign end = 17 %}
 ## Unit {{unit}}: College Board Study Unit
 > This period will complete formal teaching and grading on the basics of the 10 units.  Also, there will be a review and homework on each of the types of FRQs.
   > Quiz and Blog review

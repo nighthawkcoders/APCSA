@@ -2,9 +2,9 @@
 toc: true
 layout: post
 description: 
-title: Week of 12/12, 2021-2022 Winter planning (for Teacher only)
+title: Teacher Only, 2021-2022 Winter planning
 type: plan
-week: 16
+week: 17
 ---
 
 # Time Box Tri 2
