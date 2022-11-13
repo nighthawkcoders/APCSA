@@ -278,7 +278,7 @@ window.onload = wrap_img;
       <span class="n">year_obj</span><span class="p">.</span><span class="na">setYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>  <span class="c1">// evaluates Leap Year</span>
 
       <span class="c1">// Turn Year Object into JSON</span>
-      <span class="n">ObjectMapper</span> <span class="n">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMapper</span><span class="p">();</span> <span class="c1">// this can throw exception</span>
+      <span class="n">ObjectMapper</span> <span class="n">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMapper</span><span class="p">();</span> <span class="c1">// this possibly could throw exception</span>
       <span class="n">JsonNode</span> <span class="n">json</span> <span class="o">=</span> <span class="n">mapper</span><span class="p">.</span><span class="na">readTree</span><span class="p">(</span><span class="n">year_obj</span><span class="p">.</span><span class="na">isLeapYearToString</span><span class="p">());</span>
 
       <span class="k">return</span> <span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>  <span class="c1">// JSON response, see ExceptionHandlerAdvice for throws</span>
