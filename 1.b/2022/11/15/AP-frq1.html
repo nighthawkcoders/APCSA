@@ -219,19 +219,22 @@ window.onload = wrap_img;
 <h2 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
-<blockquote>
-<p>Layout @RESTController to work with one method from the Class above.</p>
 <ul>
 <li>Perform implementation in Spring project</li>
-<li>Test APIs with Postman and Debugger</li>
-<li>Enhance APCalendar to provide many interesting facts</li>
-</ul>
+<li>Enhance APCalendar to provide interesting facts on years</li>
+<li>Layout @RESTController to work with the methods POJO.</li>
+<li>Test APIs with Browser, Curl and Debugger<blockquote>
 <p>REST Serializing and Deserializing Year objects is necessary.</p>
-<ul>
-<li>
-<a href="https://spring.io/guides/tutorials/rest/">REST documentation</a>- <a href="https://www.tutorialspoint.com/jackson/jackson_objectmapper.htm">Read ObjectMapper</a> and <a href="https://www.tutorialspoint.com/jackson/jackson_object_serialization.htm">Write ObjectMapper</a>. ObjectMapper provides functionality for reading and writing JSON, either to and from basic POJOs (Plain Old Java Objects), or to and from a general-purpose JSON Tree Model (JsonNode).  However, ResponseEntity or toString may work as well.</li>
-</ul>
 </blockquote>
+</li>
+<li>
+<a href="https://www.tutorialspoint.com/jackson/jackson_objectmapper.htm">Read ObjectMapper</a> and <a href="https://www.tutorialspoint.com/jackson/jackson_object_serialization.htm">Write ObjectMapper</a>. ObjectMapper provides functionality for reading and writing JSON, either to and from basic POJOs (Plain Old Java Objects), or to and from a general-purpose JSON Tree Model (JsonNode).&gt; REST Serialization is automatic with JPA</li>
+<li>
+<ul>
+<li><a href="https://spring.io/guides/tutorials/rest/">REST documentation</a></li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -245,28 +248,40 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="kn">package</span> <span class="nn">com.nighthawk.spring_portfolio.mvc.calendar</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">org.springframework.http.HttpStatus</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.http.ResponseEntity</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PathVariable</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="p">;</span>
 
-<span class="c1">// Pseudo Code / Implementation Prototypes </span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.core.JsonProcessingException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.JsonMappingException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.JsonNode</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="p">;</span>
 
+<span class="cm">/** Calendar API</span>
+<span class="cm"> * Calendar Endpoint: /api/calendar/isLeapYear/2022, Returns: {"year":2020,"isLeapYear":false}</span>
+<span class="cm"> */</span>
 <span class="nd">@RestController</span>
 <span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">"/api/calendar"</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CalendarApiController</span> <span class="p">{</span>
+
     <span class="cm">/** GET isLeapYear endpoint</span>
+<span class="cm">     * ObjectMapper throws exceptions which should return 500 error</span>
+<span class="cm">     * @throws JsonProcessingException</span>
+<span class="cm">     * @throws JsonMappingException</span>
 <span class="cm">     */</span>
     <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">"/isLeapYear/{year}"</span><span class="p">)</span>
-    <span class="kd">public</span> <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Year</span><span class="o">&gt;</span> <span class="nf">getIsLeapYear</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// serializing POJO object (ie isLeapYear) to JSON not working</span>
+    <span class="kd">public</span> <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">JsonNode</span><span class="o">&gt;</span> <span class="nf">getIsLeapYear</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">JsonMappingException</span><span class="p">,</span> <span class="n">JsonProcessingException</span> <span class="p">{</span>
+      <span class="c1">// Backend Year Object, evaluates Leap Year</span>
       <span class="n">Year</span> <span class="n">year_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Year</span><span class="p">();</span>
-
       <span class="n">year_obj</span><span class="p">.</span><span class="na">setYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
 
-      <span class="k">return</span> <span class="k">new</span> <span class="n">ResponseEntity</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">year_obj</span><span class="p">,</span> <span class="n">HttpStatus</span><span class="p">.</span><span class="na">OK</span><span class="p">);</span>  <span class="c1">// response not serializing POJO</span>
+      <span class="c1">// Turn Year Object toString into JSON</span>
+      <span class="n">ObjectMapper</span> <span class="n">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMapper</span><span class="p">();</span> <span class="c1">// should move this under Try/Catch, but risk is low</span>
+      <span class="n">JsonNode</span> <span class="n">json</span> <span class="o">=</span> <span class="n">mapper</span><span class="p">.</span><span class="na">readTree</span><span class="p">(</span><span class="n">year_obj</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+      <span class="k">return</span> <span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>  <span class="c1">// JSON response</span>
     <span class="p">}</span>
 
     <span class="c1">// add other methods</span>
@@ -289,40 +304,46 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="kn">package</span> <span class="nn">com.nighthawk.spring_portfolio.mvc.calendar</span><span class="p">;</span>
 
-<span class="c1">// simple POJO for serializing JSON, this could be moved into an entity</span>
-<span class="kd">class</span> <span class="nc">Year</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">year</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isLeapYear</span><span class="p">;</span>
- 
-    <span class="kd">public</span> <span class="nf">Year</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// zero argument constructor</span>
- 
-    <span class="cm">/* year getter/setters */</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getYear</span><span class="p">()</span> <span class="p">{</span>
-       <span class="k">return</span> <span class="n">year</span><span class="p">;</span>
-     <span class="p">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setYear</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">year</span> <span class="o">=</span> <span class="n">year</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setIsLeapYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
-     <span class="p">}</span>
- 
-    <span class="cm">/* isLeapYear getter/setters */</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">getIsLeapYear</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="p">{</span>
-       <span class="k">return</span> <span class="n">APCalendar</span><span class="p">.</span><span class="na">isLeapYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
-     <span class="p">}</span>
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">setIsLeapYear</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// this is private to avoid tampering</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">isLeapYear</span> <span class="o">=</span> <span class="n">APCalendar</span><span class="p">.</span><span class="na">isLeapYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
-     <span class="p">}</span>
- 
-    <span class="cm">/* toString print */</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">(){</span>
-       <span class="k">return</span> <span class="s">"Year [ year: "</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="na">year</span><span class="o">+</span><span class="s">", isLeapYear: "</span><span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">isLeapYear</span><span class="o">+</span> <span class="s">" ]"</span><span class="p">;</span>
-     <span class="p">}</span>	
+<span class="cm">/** Simple POJO </span>
+<span class="cm"> * Used to Interface with APCalendar</span>
+<span class="cm"> * The toString method prepares object for JSON serialization</span>
+<span class="cm"> * Note... this is not an entity</span>
+<span class="cm"> */</span>
 
-     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Year</span> <span class="n">year</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Year</span><span class="p">();</span>
-        <span class="n">year</span><span class="p">.</span><span class="na">setYear</span><span class="p">(</span><span class="mi">2022</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
-     <span class="p">}</span>
+<span class="kd">class</span> <span class="nc">Year</span> <span class="p">{</span>
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">year</span><span class="p">;</span>
+   <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isLeapYear</span><span class="p">;</span>
+
+   <span class="c1">// zero argument constructor</span>
+   <span class="kd">public</span> <span class="nf">Year</span><span class="p">()</span> <span class="p">{}</span> 
+
+   <span class="cm">/* year getter/setters */</span>
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getYear</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">year</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setYear</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">year</span> <span class="o">=</span> <span class="n">year</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">setIsLeapYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="cm">/* isLeapYear getter/setters */</span>
+   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">getIsLeapYear</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">APCalendar</span><span class="p">.</span><span class="na">isLeapYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="kd">private</span> <span class="kt">void</span> <span class="nf">setIsLeapYear</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// this is private to avoid tampering</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">isLeapYear</span> <span class="o">=</span> <span class="n">APCalendar</span><span class="p">.</span><span class="na">isLeapYear</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="cm">/* toString formatted to map to JSON */</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">(){</span>
+      <span class="k">return</span> <span class="p">(</span> <span class="s">"{ \"year\": "</span>  <span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="na">year</span><span class="o">+</span>  <span class="s">", "</span> <span class="o">+</span> <span class="s">"\"isLeapYear\": "</span>  <span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="na">isLeapYear</span><span class="o">+</span> <span class="s">" }"</span> <span class="p">);</span>
+   <span class="p">}</span>	
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Year</span> <span class="n">year</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Year</span><span class="p">();</span>
+      <span class="n">year</span><span class="p">.</span><span class="na">setYear</span><span class="p">(</span><span class="mi">2022</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
+   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
