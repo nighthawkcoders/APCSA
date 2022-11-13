@@ -11,7 +11,7 @@ type: plan
 week: 17
 ---
 
-## Plans Week 16
+## Plans Week 17
 - Monday, Tuesday: Live Reviews, Student Workdays
 - Wednesday, Thursday: Project Ideation Presentations, Student Workdays
 - Friday: Kick ball and Party
