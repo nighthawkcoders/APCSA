@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -116,6 +116,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Sprint-RestController">Sprint RestController </a></li>
 <li class="toc-entry toc-h3"><a href="#Test-RESTController">Test RESTController </a></li>
 <li class="toc-entry toc-h3"><a href="#Collection,-List,-ArrayList,-HashMap">Collection, List, ArrayList, HashMap </a></li>
+<li class="toc-entry toc-h3"><a href="#HashMap">HashMap </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#Hacks">Hacks </a></li>
@@ -192,15 +193,32 @@ methods.</p>
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="kn">package</span> <span class="nn">com.nighthawk.spring_portfolio.mvc.person</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">org.springframework.format.annotation.DateTimeFormat</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">lombok.*</span><span class="p">;</span>
-
-<span class="kn">import</span> <span class="nn">javax.persistence.*</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">javax.validation.constraints.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.time.Period</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.time.ZoneId</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.Email</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.NotEmpty</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.Size</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.hibernate.annotations.Type</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.hibernate.annotations.TypeDef</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.format.annotation.DateTimeFormat</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.vladmihalcea.hibernate.type.json.JsonType</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.AllArgsConstructor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">lombok.NoArgsConstructor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">lombok.NonNull</span><span class="p">;</span>
 
 <span class="cm">/*</span>
 <span class="cm">Person is a POJO, Plain Old Java Object.</span>
@@ -210,10 +228,12 @@ methods.</p>
 <span class="cm">--- @Entity</span>
 <span class="cm"> */</span>
 <span class="nd">@Data</span>
-<span class="nd">@NoArgsConstructor</span>
 <span class="nd">@AllArgsConstructor</span>
+<span class="nd">@NoArgsConstructor</span>
 <span class="nd">@Entity</span>
+<span class="nd">@TypeDef</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"json"</span><span class="p">,</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">JsonType</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    
     <span class="c1">// automatic unique identifier for Person record</span>
     <span class="nd">@Id</span>
     <span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span>
@@ -236,6 +256,10 @@ methods.</p>
 
     <span class="nd">@DateTimeFormat</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="s">"yyyy-MM-dd"</span><span class="p">)</span>
     <span class="kd">private</span> <span class="n">Date</span> <span class="n">dob</span><span class="p">;</span>
+    
+    <span class="nd">@Type</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="s">"json"</span><span class="p">)</span>
+    <span class="nd">@Column</span><span class="p">(</span><span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">"jsonb"</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">stats</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span> 
 
     <span class="c1">// Initializer used when setting database from an API</span>
     <span class="kd">public</span> <span class="nf">Person</span><span class="p">(</span><span class="n">String</span> <span class="n">email</span><span class="p">,</span> <span class="n">String</span> <span class="n">password</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">Date</span> <span class="n">dob</span><span class="p">)</span> <span class="p">{</span>
@@ -450,6 +474,40 @@ methods.</p>
         <span class="c1">// return resulting list and status, error checking should be added</span>
         <span class="k">return</span> <span class="k">new</span> <span class="n">ResponseEntity</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">HttpStatus</span><span class="p">.</span><span class="na">OK</span><span class="p">);</span>
     <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">    The personStats API adds stats by Date to Person table </span>
+<span class="cm">    */</span>
+    <span class="nd">@PostMapping</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/setStats"</span><span class="p">,</span> <span class="n">produces</span> <span class="o">=</span> <span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON_VALUE</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="nf">personStats</span><span class="p">(</span><span class="nd">@RequestBody</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">stat_map</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// find ID</span>
+        <span class="kt">long</span> <span class="n">id</span><span class="o">=</span><span class="n">Long</span><span class="p">.</span><span class="na">parseLong</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="n">stat_map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"id"</span><span class="p">));</span>  
+        <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">repository</span><span class="p">.</span><span class="na">findById</span><span class="p">((</span><span class="n">id</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">optional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>  <span class="c1">// Good ID</span>
+            <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="n">optional</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>  <span class="c1">// value from findByID</span>
+
+            <span class="c1">// Extract Attributes from JSON</span>
+            <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">attributeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">stat_map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span>  <span class="p">{</span>
+                <span class="c1">// Add all attribute other thaN "date" to the "attribute_map"</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"date"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"id"</span><span class="p">))</span>
+                    <span class="n">attributeMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">(),</span> <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Set Date and Attributes to SQL HashMap</span>
+            <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">date_map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+            <span class="n">date_map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">stat_map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"date"</span><span class="p">),</span> <span class="n">attributeMap</span> <span class="p">);</span>
+            <span class="n">person</span><span class="p">.</span><span class="na">setStats</span><span class="p">(</span><span class="n">date_map</span><span class="p">);</span>  <span class="c1">// BUG, needs to be customized to replace if existing or append if new</span>
+            <span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>  <span class="c1">// conclude by writing the stats updates</span>
+
+            <span class="c1">// return Person with update Stats</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">ResponseEntity</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">HttpStatus</span><span class="p">.</span><span class="na">OK</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// return Bad ID</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ResponseEntity</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">);</span> 
+        
+    <span class="p">}</span>
+
 <span class="p">}</span>
 </pre></div>
 
@@ -476,11 +534,13 @@ methods.</p>
 <p>Adding record using Params and GET.
 <img src="/APCSA/images/copied_from_nb/images/postman_add.png" alt="add"></p>
 <p>Listing records using GET.
-<img src="/APCSA/images/copied_from_nb/images/postman_list.png" alt="add"></p>
+<img src="/APCSA/images/copied_from_nb/images/postman_list.png" alt="list"></p>
 <p>Searching records using Body raw and JSON using POST.  This is preferred method to secure transmission
-<img src="/APCSA/images/copied_from_nb/images/postman_search.png" alt="add"></p>
+<img src="/APCSA/images/copied_from_nb/images/postman_search.png" alt="search"></p>
 <p>Delete record using DELETE.
-<img src="/APCSA/images/copied_from_nb/images/postman_delete.png" alt="add"></p>
+<img src="/APCSA/images/copied_from_nb/images/postman_delete.png" alt="delete"></p>
+<p>Setting stats using Body raw and JSON using POST.  This again is preferred method to secure transmission
+<img src="/APCSA/images/copied_from_nb/images/postman_stats.png" alt="stats"></p>
 </blockquote>
 
 </div>
@@ -493,21 +553,29 @@ methods.</p>
 <a class="anchor" href="#Collection,-List,-ArrayList,-HashMap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collection, List, ArrayList, HashMap<a class="anchor-link" href="#Collection,-List,-ArrayList,-HashMap"> </a>
 </h3>
 <blockquote>
-<p>The usage of Collection, List, ArrayList, HashMap enables a POJO to reference other POJOs.  Often in Java you will see these different names, here is brief definition...</p>
+<p>The usage of Collection, List, ArrayList, enables a POJO to reference other POJOs.  Often in Java you will see these different names, here is brief definition...</p>
 <ul>
 <li>A Collection is an interface that defines the highest-level of shared collection behavior, and extends Iterable which allows usage of ForEach loop.</li>
 <li>A List is an interface that defines the highest-level of shared List behavior. The type List has in its contract that all elements have an order, that the order will not change except through intended manipulation.  Key interfaces:A List allows get() the n'th element;  A List defines add() to put new elements at the end. - ArrayList is an implementation of List.  ArrayList should not be used in an API. Its usage should only be used in implementation detail.</li>
-<li>HashMap demands key be unique.  Data is formed in Key/Value pairs.</li>
+</ul>
+</blockquote>
+<h3 id="HashMap">
+<a class="anchor" href="#HashMap" aria-hidden="true"><span class="octicon octicon-link"></span></a>HashMap<a class="anchor-link" href="#HashMap"> </a>
+</h3>
+<blockquote>
+<p>HashMap may be more suited to having days in the same POJO.</p>
+<ul>
+<li>HashMap demands keys in key/value relationship be unique.  Data by date is formed in unique Key/Value pairs.</li>
 </ul>
 </blockquote>
 <h2 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
 <blockquote>
-<p>Start with Person POJO.</p>
+<p>Start with Person POJO.  See HashMap is built in.</p>
 <ul>
 <li>Build other attributes into POJO that where mentioned in project dialog at the beginning of this blog.  Make Issues to describe plan and work.</li>
-<li>Start thinking about building other POJOs (ie Day).   In these POJOs you will have a relationship (see below).  For instance, if you define Day POJO, the POJO Person and the POJO Day will contain relationships.  List is the interface and ArrayList is the implementation.  Start now, we will revisit this when we talk about the ArrayLists FRQ. </li>
+<li>Start thinking about building other data into POJO, or altering it for a different application.   In POJOs you can define a relationship in SQL, the POJO Person and a POJO Day can be built to contain relationships (alternate to HashMap style).  List is the interface and ArrayList is the implementation for Relationships.  It is possible to nest Lists in Lists for 2D.</li>
 <li>
 <a href="https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/">Read this article for Background</a>.</li>
 </ul>
