@@ -154,12 +154,12 @@ window.onload = wrap_img;
 </blockquote>
 <ul>
 <li>
-<p>Backend Assumptions:- This problem has one-to-many relationship between "Person" object to "Day" objects.      - Each "Day" with the "steps" attribute would need to be kept.</p>
+<p>Backend Assumptions:- This problem has one-to-many relationship between "Person" object to day "steps" attributes.      - Each day "steps" attribute would need to be stored.</p>
 <ul>
-<li>Active days implies a "Person" object needs a "goal_steps" to be maintained against the "steps" for a "Day".</li>
-<li>Person Class. Contact and biographical information, like age/height/weight could be important to this application. Such information could be used to help calculate goals steps.</li>
-<li>Day Class. Steps is key element. Could possibly include walking or running time in application and extend to have things like calorie intake, sleep hours, mood ratio, or other factors that could help in determining goal versus accomplishments.</li>
-<li>Other Class(es). A Day Class implies a Month or Year relationship. Investigation should be made to determine best Java Modeling and Algorithms available.</li>
+<li>Active days implies a "Person" object needs a "goal_steps" attribute to be stored to compare against the "steps" attribute for a day.</li>
+<li>Person Class. Contact and biographical information, like age/height/weight could be important to this application. Such information could be used to help calculate goals for "steps".</li>
+<li>Day statistics in Class could go beyond "steps". Though "steps" is key element. Additional attributes could  include walking or running time, calorie intake, sleep hours, mood ratio, or other factors that could help in determining goal versus accomplishments.</li>
+<li>Other relationships. A daily collection of "stats" implies calculations for Month or Year. Investigation should be made to determine best Java Modeling and Algorithms available.</li>
 </ul>
 </li>
 <li>
@@ -242,7 +242,7 @@ window.onload = wrap_img;
     <span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span>
     <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
 
-    <span class="c1">// email, password, roles are key to login and authentication</span>
+    <span class="c1">// email, password, roles are key attributes to login and authentication</span>
     <span class="nd">@NotEmpty</span>
     <span class="nd">@Size</span><span class="p">(</span><span class="n">min</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     <span class="nd">@Column</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
@@ -252,7 +252,7 @@ window.onload = wrap_img;
     <span class="nd">@NotEmpty</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
 
-    <span class="c1">// @NonNull: Places this in @RequiredArgsConstructor</span>
+    <span class="c1">// @NonNull, etc placed in params of constructor: "@NonNull @Size(min = 2, max = 30, message = "Name (2 to 30 chars)") String name"</span>
     <span class="nd">@NonNull</span>
     <span class="nd">@Size</span><span class="p">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"Name (2 to 30 chars)"</span><span class="p">)</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
@@ -260,11 +260,21 @@ window.onload = wrap_img;
     <span class="nd">@DateTimeFormat</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="s">"yyyy-MM-dd"</span><span class="p">)</span>
     <span class="kd">private</span> <span class="n">Date</span> <span class="n">dob</span><span class="p">;</span>
     
+
+    <span class="cm">/* HashMap is used to store JSON for daily "stats"</span>
+<span class="cm">    "stats": {</span>
+<span class="cm">        "2022-11-13": {</span>
+<span class="cm">            "calories": 2200,</span>
+<span class="cm">            "steps": 8000</span>
+<span class="cm">        }</span>
+<span class="cm">    }</span>
+<span class="cm">    */</span>
     <span class="nd">@Type</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="s">"json"</span><span class="p">)</span>
     <span class="nd">@Column</span><span class="p">(</span><span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">"jsonb"</span><span class="p">)</span>
     <span class="kd">private</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">stats</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span> 
+    
 
-    <span class="c1">// Initializer used when setting database from an API</span>
+    <span class="c1">// Constructor used when building object from an API</span>
     <span class="kd">public</span> <span class="nf">Person</span><span class="p">(</span><span class="n">String</span> <span class="n">email</span><span class="p">,</span> <span class="n">String</span> <span class="n">password</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">Date</span> <span class="n">dob</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">email</span> <span class="o">=</span> <span class="n">email</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="na">password</span> <span class="o">=</span> <span class="n">password</span><span class="p">;</span>
@@ -272,7 +282,7 @@ window.onload = wrap_img;
         <span class="k">this</span><span class="p">.</span><span class="na">dob</span> <span class="o">=</span> <span class="n">dob</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="c1">// A custom getter to return age from dob calculation</span>
+    <span class="c1">// A custom getter to return age from dob attribute</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">dob</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">LocalDate</span> <span class="n">birthDay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">dob</span><span class="p">.</span><span class="na">toInstant</span><span class="p">().</span><span class="na">atZone</span><span class="p">(</span><span class="n">ZoneId</span><span class="p">.</span><span class="na">systemDefault</span><span class="p">()).</span><span class="na">toLocalDate</span><span class="p">();</span>
