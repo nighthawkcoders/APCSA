@@ -140,8 +140,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Classes-Background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes Background<a class="anchor-link" href="#Classes-Background"> </a>
 </h2>
 <blockquote>
-<p>All Classes FRQs relate well to POJOs in PBL.  The 2019 FRQ #2 describes a problem of a Step Tracker.  The task is to write a StepTracker class.   Included is the constructor and any required instance variables and
-methods.</p>
+<p>All Classes FRQ concepts can be applied with POJOs in PBL. The 2019 FRQ #2 describes a problem of a Step Tracker. The task is to write a StepTracker class. Included is the constructor and any required instance variables and methods.</p>
 <ul>
 <li>Constructor:StepTracker tr = new StepTracker(10000);- Get Methods with algorithms: tr.activeDays(); tr.averageSteps(); </li>
 <li>Set Methods: tr.addDailySteps(9000);</li>
@@ -151,16 +150,16 @@ methods.</p>
 <a class="anchor" href="#Assumptions-to-PBL-this-Project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assumptions to PBL this Project<a class="anchor-link" href="#Assumptions-to-PBL-this-Project"> </a>
 </h3>
 <blockquote>
-<p>This is a fun problem and could be expanded upon with PBL.  The StepTracker could be a POJO in Java. As a PBL concept, StepTracking is something that is done by an individual in relation to their personal fitness. What designs or objects would you need for StepTracking...</p>
+<p>This is a fun problem and could be expanded upon with PBL. The StepTracker could be a POJO in Java. As a PBL concept, StepTracking is something that is done by an individual in relation to their personal fitness. What designs or objects would you need for StepTracking...</p>
 </blockquote>
 <ul>
 <li>
 <p>Backend Assumptions:- This problem has one-to-many relationship between "Person" object to "Day" objects.      - Each "Day" is were the "steps" attribute would need to be kept.</p>
 <ul>
 <li>Active days implies a "Person" object needs a "goal_steps" to be maintained against the "steps" for a "Day".</li>
-<li>Person Class. Contact and biographical information, like age/height/weight could be important to this application.  Such information could be used to help calculate goals steps.</li>
-<li>Day Class.  Steps is key element.  Perhaps application could include run or walking time.  Application could be extended to have things like calorie intake, sleep hours, mood ratio, or other factors that could help in determining goal versus accomplishments.</li>
-<li>Other Class(es).  A Day Class implies a Month or Year relationship.  Investigation should be made to determine best Java Modeling and Algorithms available.</li>
+<li>Person Class. Contact and biographical information, like age/height/weight could be important to this application. Such information could be used to help calculate goals steps.</li>
+<li>Day Class. Steps is key element, could possibly include run or walking time in application. Application could also be extended to have things like calorie intake, sleep hours, mood ratio, or other factors that could help in determining goal versus accomplishments.</li>
+<li>Other Class(es). A Day Class implies a Month or Year relationship. Investigation should be made to determine best Java Modeling and Algorithms available.</li>
 </ul>
 </li>
 <li>
@@ -176,13 +175,13 @@ methods.</p>
 <a class="anchor" href="#Starting-the-Project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Starting the Project<a class="anchor-link" href="#Starting-the-Project"> </a>
 </h2>
 <blockquote>
-<p>To study Classes, which is the intent of FRQ2, A PBL project step tracking seems to begin with a "Person" Class.  This may be a deviation from FRQ 2 simplicity, but it is higher level way to think of this problem.</p>
+<p>To study Classes, which is the intent of FRQ2, A PBL project step tracking seems to begin with a "Person" Class. This may be a deviation from FRQ 2 simplicity, but it is higher level way to think of this problem.</p>
 </blockquote>
 <h3 id="Person-POJO">
 <a class="anchor" href="#Person-POJO" aria-hidden="true"><span class="octicon octicon-link"></span></a>Person POJO<a class="anchor-link" href="#Person-POJO"> </a>
 </h3>
 <blockquote>
-<p>This POJO is setup as an @Entity and use Lambok extensively to reduce code required by Developer(s).  This POJO can be used for many Projects!!!</p>
+<p>This POJO is setup as an @Entity and use Lambok extensively to reduce code required by Developer(s). This POJO can be used for many Projects!!!</p>
 </blockquote>
 
 </div>
@@ -298,13 +297,13 @@ methods.</p>
 <a class="anchor" href="#Next-Steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next Steps<a class="anchor-link" href="#Next-Steps"> </a>
 </h2>
 <blockquote>
-<p>Building the Spring Java Persistent API (JPA) and the RestController API enable this or any project to get off the ground.   The JPA works with the database and RestController enables access by the Frontend developers.</p>
+<p>Building the Spring Java Persistent API (JPA) and the RestController API enable this or any project to get off the ground. The JPA works with the database and RestController enables access by the Frontend developers.</p>
 </blockquote>
 <h3 id="Spring-Data-JPA">
 <a class="anchor" href="#Spring-Data-JPA" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spring Data JPA<a class="anchor-link" href="#Spring-Data-JPA"> </a>
 </h3>
 <blockquote>
-<p>The "likeability" of Java for me and for the Computer Science industry is the ease of database management.  By defining a POJO and getting all the database management under the hood is very cool!</p>
+<p>The "likeability" of Java for me and for the Computer Science industry is the ease of database management. Defining a POJO and getting all the database management under the hood is very cool!</p>
 <ul>
 <li>BTW, there is a task to change to AWS in the future, this can be done by changing application properties and and POM dependencies, with little or no change to code.</li>
 <li>Review code, there are Long interfaces and native SQL options in extending interfaces into the JpaRepository.</li>
@@ -371,7 +370,7 @@ methods.</p>
 <a class="anchor" href="#Sprint-RestController" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sprint RestController<a class="anchor-link" href="#Sprint-RestController"> </a>
 </h3>
 <blockquote>
-<p>This is interface between Backend implementation and the world.  Get, Post, Delete mappings are shown.  In this code, you will see many interactions with the POJO as well as interactions with the JPA.</p>
+<p>This is interface between Backend implementation and the world. Get, Post, Delete mappings are shown. In this code, you will see many interactions with the POJO as well as interactions with the JPA.</p>
 </blockquote>
 
 </div>
@@ -529,21 +528,21 @@ methods.</p>
 <a class="anchor" href="#Test-RESTController" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test RESTController<a class="anchor-link" href="#Test-RESTController"> </a>
 </h3>
 <blockquote>
-<p>Recommendation are to test a RESTController using Curl or Postman.</p>
+<p>Recommendation testing a RESTController using Curl or Postman.</p>
 <ul>
-<li>Curl is command line oriented.  It is not discussed but could be used for automation.  For instance, you could use it with Bash to load test data. </li>
+<li>Curl is command line oriented. It is not discussed but could be used for automation. For instance, you could use it with Bash to load test data. </li>
 <li>
-<strong><em>PostMan</em></strong> is more visual.  Postman is very "browser like".  Test outputs will show Postman visuals and discuss highlight different access methods.  These methods are implementations available in RestController.</li>
+<strong><em>PostMan</em></strong> is more visual and very "browser like". Test outputs will show Postman visuals and discuss highlight different access methods. These methods are implementations available in RestController.</li>
 </ul>
 <p>Adding record using Params and GET.
 <img src="/APCSA/images/copied_from_nb/images/postman_add.png" alt="add"></p>
 <p>Listing records using GET.
 <img src="/APCSA/images/copied_from_nb/images/postman_list.png" alt="list"></p>
-<p>Searching records using Body raw and JSON using POST.  This is preferred method to secure transmission
+<p>Searching records using Body raw and JSON using POST. This is preferred method to secure transmission
 <img src="/APCSA/images/copied_from_nb/images/postman_search.png" alt="search"></p>
 <p>Delete record using DELETE.
 <img src="/APCSA/images/copied_from_nb/images/postman_delete.png" alt="delete"></p>
-<p>Setting stats using Body raw and JSON using POST.  This again is preferred method to secure transmission
+<p>Setting stats using Body raw and JSON using POST. This again is preferred method to secure transmission
 <img src="/APCSA/images/copied_from_nb/images/postman_stats.png" alt="stats"></p>
 </blockquote>
 
@@ -557,10 +556,10 @@ methods.</p>
 <a class="anchor" href="#Collection,-List,-ArrayList,-HashMap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collection, List, ArrayList, HashMap<a class="anchor-link" href="#Collection,-List,-ArrayList,-HashMap"> </a>
 </h3>
 <blockquote>
-<p>The usage of Collection, List, ArrayList, enables a POJO to reference other POJOs.  Often in Java you will see these different names, here is brief definition...</p>
+<p>The usage of Collection, List, ArrayList, enables a POJO to reference other POJOs. Often in Java you will see these different names, here is a brief rundown...</p>
 <ul>
 <li>A Collection is an interface that defines the highest-level of shared collection behavior, and extends Iterable which allows usage of ForEach loop.</li>
-<li>A List is an interface that defines the highest-level of shared List behavior. The type List has in its contract that all elements have an order, that the order will not change except through intended manipulation.  Key interfaces:A List allows get() the n'th element;  A List defines add() to put new elements at the end. - ArrayList is an implementation of List.  ArrayList should not be used in an API. Its usage should only be used in implementation detail.</li>
+<li>A List is an interface that defines the highest-level of shared List behavior. The type List has in its contract that all elements have an order, that the order will not change except through intended manipulation. Key interfaces:A List allows get() the n'th element; A List defines add() to put new elements at the end. - ArrayList is an implementation of List. ArrayList should not be used in an API. Its usage should only be used in implementation detail.</li>
 </ul>
 </blockquote>
 <h3 id="HashMap">
@@ -569,17 +568,17 @@ methods.</p>
 <blockquote>
 <p>HashMap may be more suited to having days in the same POJO.</p>
 <ul>
-<li>HashMap demands keys in key/value relationship be unique.  Data by date is formed in unique Key/Value pairs.</li>
+<li>HashMap demands keys in key/value relationship be unique. Data by date is formed in unique Key/Value pairs.</li>
 </ul>
 </blockquote>
 <h2 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
 <blockquote>
-<p>Start with Person POJO.  See that HashMap is built in.</p>
+<p>Start with Person POJO. See that HashMap is built in.</p>
 <ul>
-<li>Build other attributes into POJO that where mentioned in project dialog at the beginning of this blog.  Add 1 or more APIs.  Make Issues to describe plan and work.  </li>
-<li>Correct the BUG in setStats!  Currently, it won't let you do more than one date.</li>
+<li>Build other attributes into POJO that where mentioned in project dialog at the beginning of this blog. Add 1 or more APIs. Use Issues plan and divide work.  </li>
+<li>Correct the BUG in setStats! Currently, it won't let you do more than one date.</li>
 </ul>
 </blockquote>
 
@@ -591,9 +590,9 @@ methods.</p>
 <a class="anchor" href="#SQL-(Extras)" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQL (Extras)<a class="anchor-link" href="#SQL-(Extras)"> </a>
 </h3>
 <blockquote>
-<p>Start thinking about building other data into POJOs.  Use your own example or altering it for a different application.</p>
+<p>Start thinking about building other data into POJOs. Use your own example or altering it for a different application.</p>
 <ul>
-<li>PBL/SQL Relationships. In POJOs you can define a relationship in SQL, the POJO Person and a POJO Day can be built to contain relationships (alternate to HashMap style).  List is the interface and ArrayList is the implementation.It is possible to nest Lists in Lists for 2D.  <a href="https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/">Read this article for Background</a>.</li>
+<li>PBL/SQL Relationships. With POJOs you can define a relationship in SQL, the POJO Person and a POJO Day can be built to contain relationships (alternate to HashMap style). List is the interface and ArrayList is the implementation. It is possible to nest Lists in Lists for 2D. <a href="https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/">Read this article for Background</a>.</li>
 </ul>
 </blockquote>
 
