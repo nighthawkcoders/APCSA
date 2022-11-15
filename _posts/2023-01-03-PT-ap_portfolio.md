@@ -12,6 +12,6 @@ week: 17
 ---
 
 ## Plans Week 17
-> College Board individual presentations begin Tuesday.  Present items while discussing vocabulary and PBL.  Teams work on Ideation, research, and 1st code for projects while individual presentations continue.
-- Tuesday, Wednesday, Thursday: Live Reviews, Workdays
+> College Board individual presentations begin Tuesday Units #1-#10 and FRQs #1-#4.  Present highlights of learning while discussing vocabulary and PBL.  Teams work on Ideation, research, and 1st code for projects while individual presentations continue.
+- Tuesday, Wednesday, Thursday: live review on College Board Portfolio (Midterm Emphasis)
 - Friday: Ideation and Project Approval
