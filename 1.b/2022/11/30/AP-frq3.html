@@ -637,16 +637,31 @@ Final result: 1.50
 <li>Finish rpnToResult for Calculator</li>
 <li>Build in Power of operator ^:2 ^ 1 = 2, 2 ^ 2 = 4, 2 ^ 3 = 83. Build an API to receive an expression</li>
 </ol>
-<p>Advanced.</p>
-<ol>
+<p>Advanced. Deeper parsing and evaluation.</p>
+<ul>
 <li>Try adding single argument function SQRT.  This should be combined with ()'s to make sense, SQRT(expression).  Though "SQRT 1" could work.</li>
 <li>Build variable into expression "a = 3; b + 4; SQRT(a^2 + b^2)".  Hint... build a HashMap for variables.</li>
-</ol>
-<p>Advanced.</p>
+<li>At this point you probably have Physics and Calculus possibilities for managing and modeling equations.</li>
+</ul>
+<p>Advanced. Deployment and Frontend.</p>
 <ul>
 <li>Deploy all of your APIs to Team Backend repo.</li>
 <li>Start making Frontend pages to interact with APIs.</li>
 </ul>
+<p>Advanced.  Try other evaluations or use cases of parsing Strings to Tokens.</p>
+<ul>
+<li>Make a Tokenizer for sentences to words.</li>
+<li>Count words, count punctuation.</li>
+<li>Find definitions for Words or Translations.</li>
+</ul>
+<p>Basic Skill building, do FRQ3.  FYI, isBalanced could help in error corrections for Calculator.</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Delimiters</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">openDel</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">closeDel</span>
+<span class="kd">public</span> <span class="nf">Delimiters</span><span class="p">(</span><span class="n">String</span> <span class="n">open</span><span class="p">,</span> <span class="n">String</span> <span class="n">close</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getDelimitersList</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">tokens</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBalanced</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">delimiters</span><span class="p">)</span>
+</pre></div>
 </blockquote>
 
 </div>
