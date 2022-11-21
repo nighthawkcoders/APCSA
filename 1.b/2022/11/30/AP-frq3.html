@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -190,6 +190,18 @@ window.onload = wrap_img;
 <blockquote>
 <p>To support terms in mathematical expression you need to define symbols (other than operators) that help delineate the elements of an expression.  Ultimately, the String expression will be broken in distinct elements in a List, we will call each element a Token.</p>
 </blockquote>
+<ul>
+<li>
+<p>FRQ3 calls these delimiters. <strong><em>Many encoded strings contain delimiters. A delimiter is a non-empty string that acts as a boundary between different parts of a larger string. The delimiters involved in this question occur in pairs that must be balanced,with each pair having an open delimiter and a close delimiter.</em></strong></p>
+</li>
+<li>
+<p>FRQ3 mentions expressions. Expressions in mathematics use open parentheses "(" and close parentheses ")" as delimiters. For each open parenthesis, there must be a matching close parenthesis.</p>
+<ul>
+<li>(x + y) * 5 is a valid mathematical expression.</li>
+<li>(x + (y) is NOT a valid mathematical expression because there are more open delimiters than close delimiters.</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -271,10 +283,16 @@ window.onload = wrap_img;
 <blockquote>
 <p>Mathematical expression written by humans are in the form of a String Expression.  Since this expression is simply a string to the computer...  an algorithm is required to reform the equation for the computer to ensure it interprets expression according to the rules of mathematics.</p>
 <ul>
-<li>In mathematics, an expression or mathematical expression is a finite combination of symbols that is well-formed (ie "3 + 4").</li>
-<li>In computers, a string expression is hard to calculate.  Thus, the expression needs to be restructured according to rules of Mathematics that a computer can calculate.  For instance, the order of precedence rules, aka PEMDAS (parenthesis, exponents, multiplication, division, addition, subtraction) need to be factored into order of computation. To support these rules, in computer math we often convert a String expression into Reverse Polish Notation (RPN).  This converts a simple string like "3 + 4" to become ["3", "4", "+"]) using the Shunting-yard algorithm.</li>
+<li>In mathematics, an expression or mathematical expression is a finite combination of symbols that is well-formed (ie "100 + 200").</li>
+<li>In computers, a string expression is hard to calculate.  Thus, the expression needs to be restructured according to rules of Mathematics that a computer can calculate.  For instance, the order of precedence rules, aka PEMDAS (parenthesis, exponents, multiplication, division, addition, subtraction) need to be factored into order of computation. To support these rules, in computer math we often convert a String expression into Reverse Polish Notation (RPN).  This converts a simple string like "3 + 4" to become ["100", "200", "+"]) using the Shunting-yard algorithm.</li>
 </ul>
-<p>After thinking about basic computing requirements of an expression and need for an RPN algorithm, step back and think of flow of control to go from defining terms/tokens, to RPN, and ultimately calculate the final result.  This flow of control is illustrated in the Calculator instance variables and constructor as shown.  Also, listed is a toString method to output results.</p>
+<p>String expression to calculation will need  a flow of control.   A Class (aka model) is defined with instance variables, one argument constructor, and a toString.  In this code, the flow is in the Calculator calculation is contained in the constructor.</p>
+<ul>
+<li>Capture original input</li>
+<li>Parse expression into mathematical terms</li>
+<li>If using Shunting-yard algorithm, place terms into RPN</li>
+<li>Calculate RPN to a result</li>
+</ul>
 </blockquote>
 
 </div>
@@ -332,7 +350,19 @@ window.onload = wrap_img;
 <a class="anchor" href="#Term-Tokenizer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Term Tokenizer<a class="anchor-link" href="#Term-Tokenizer"> </a>
 </h3>
 <blockquote>
-<p>A Term tokenizer is used to change the String expression into a series of tokens that constitute distinct elements of a Mathematical expression.  The result is retained in the ArrayList "tokens" instance variable.</p>
+<p>FRQ3 talks about changing terms to tokens. A string containing text and possibly delimiters has been split into tokens and stored in String[] tokens. Each token is either an open delimiter, a close delimiter, or a substring that is not a delimiter. You will write the method getDelimitersList, which returns an ArrayList containing all the open and close delimiters found in tokens in their original order.</p>
+
+<pre><code>- openDel:"("    - closeDel: ")"
+- tokens: "(" "100 + 200" ")" " * 3"
+- ArrayList of delimiters: "(" ")"
+</code></pre>
+<p>The method termTokenizer() is used to change the String expression into a series of tokens that constitute distinct elements of a Mathematical expression.  The result is retained in the ArrayList "tokens".  Every token, including parenthesis, is an element in the "tokens" ArrayList.</p>
+
+<pre><code>- Example 1:Simple Math        - Original expression: 100 + 200  * 3
+    - tokens ArrayList: [100, +, 200, *, 3]
+- Example 2: Parenthesis Math to change order of operations
+    - Original expression: (100 + 200)  * 3
+    - tokens ArrayList: [(, 100, +, 200, ), *, 3]</code></pre>
 </blockquote>
 
 </div>
@@ -394,8 +424,25 @@ window.onload = wrap_img;
 <a class="anchor" href="#Tokens-to-RPN" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tokens to RPN<a class="anchor-link" href="#Tokens-to-RPN"> </a>
 </h3>
 <blockquote>
-<p>Before calculation the tokens need to be turned into RPN.  This results in the operator being followed by its operands.</p>
+<p>Before calculation the tokens need to be turned into RPN.  During calculation solvin algorithm will work Left to Right.  1. go to first operator, 2. obtain to the left the amount of operands required for operator, 3. solve.</p>
+<ul>
+<li>Simple Math.<ul>
+<li>Original expression:100 + 200  <em> 3    - RPN: [100, 200, 3, </em>, +]</li>
+<li>Calc Step 1: [100, 600, +] # 600 is calc of 100, 200, *</li>
+<li>Calc Step 2 [700]</li>
+</ul>
+</li>
+</ul>
 </blockquote>
+<ul>
+<li>Parenthesis Math. Note RPN difference<ul>
+<li>Original expression: (100 + 200)  * 3</li>
+<li>RPN: [100, 200, +, 3, *]</li>
+<li>Calc Step 1: [300, 3, *]</li>
+<li>Calc Step 2: [900]</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -472,7 +519,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#RPN-to-Result" aria-hidden="true"><span class="octicon octicon-link"></span></a>RPN to Result<a class="anchor-link" href="#RPN-to-Result"> </a>
 </h3>
 <blockquote>
-<p>Below is outline/pseudo code to produce a result.</p>
+<p>Below is setup/pseudo code to produce a result.  This is opportunity to learn about a Stack, by adding and removing elements from the stack according to intermediate and final results.</p>
 </blockquote>
 
 </div>
@@ -488,25 +535,31 @@ window.onload = wrap_img;
 <div class=" highlight hl-java"><pre><span></span><span class="c1">// Takes RPN and produces a final result</span>
 <span class="kd">private</span> <span class="kt">void</span> <span class="nf">rpnToResult</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="c1">// Stack used to hold calculation while process RPN</span>
-    <span class="n">Stack</span> <span class="n">calculation</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">();</span>
+    <span class="c1">// stack is used to hold operands and each calculation</span>
+    <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">calcStack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="p">();</span>
 
-    <span class="c1">// for loop to process RPN</span>
+    <span class="c1">// RPN is processed, ultimately calcStack has final result</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">token</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="na">reverse_polish</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="c1">// If the token is a number</span>
-        <span class="p">{</span>
-            <span class="c1">// Push number to stack</span>
-        <span class="p">}</span>
-        <span class="c1">// else</span>
+        <span class="c1">// If the token is an operator, calculate</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isOperator</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
         <span class="p">{</span>
             <span class="c1">// Pop the two top entries</span>
 
-            <span class="c1">// Based off of Token operator calculate result</span>
+            <span class="c1">// Calculate intermediate results</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
 
-            <span class="c1">// Push result back onto the stack</span>
+            <span class="c1">// Push intermediate result back onto the stack</span>
+            <span class="n">calcStack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span> <span class="n">result</span> <span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// else the token is a number push it onto the stack</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">calcStack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">Double</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">token</span><span class="p">));</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="c1">// Pop final result and set as final result for expression</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">result</span> <span class="o">=</span> <span class="n">calcStack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -524,39 +577,12 @@ window.onload = wrap_img;
 <a class="anchor" href="#Driver-/-Tester" aria-hidden="true"><span class="octicon octicon-link"></span></a>Driver / Tester<a class="anchor-link" href="#Driver-/-Tester"> </a>
 </h2>
 <blockquote>
-<p>A calculator should always have a driver for testing.  In a driver, you will need to consider multiple conditions, for instance changes with precedence...</p>
+<p>A Class should always have a driver for testing.  In a driver for expressions, you will need to consider multiple conditions, for instance changes with precedence...</p>
 </blockquote>
 
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Calculator</span> <span class="n">simpleMath</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="p">(</span><span class="s">"100 + 200  * 3"</span><span class="p">);</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Simple Math\n"</span> <span class="o">+</span> <span class="n">simpleMath</span><span class="p">);</span>
-
-<span class="n">Calculator</span> <span class="n">parenthesisMath</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="p">(</span><span class="s">"(100 + 200)  * 3"</span><span class="p">);</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Parenthesis Math\n"</span> <span class="o">+</span> <span class="n">parenthesisMath</span><span class="p">);</span>
-
-<span class="n">Calculator</span> <span class="n">allMath</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="p">(</span><span class="s">"200 % 300 + 5 + 300 / 200 + 1 * 100"</span><span class="p">);</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"All Math\n"</span> <span class="o">+</span> <span class="n">allMath</span><span class="p">);</span>
-
-<span class="n">Calculator</span> <span class="n">allMath2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculator</span><span class="p">(</span><span class="s">"200 % (300 + 5 + 300) / 200 + 1 * 100"</span><span class="p">);</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"All Math2\n"</span> <span class="o">+</span> <span class="n">allMath2</span><span class="p">);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -564,7 +590,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Output-Examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Output Examples<a class="anchor-link" href="#Output-Examples"> </a>
 </h3>
 <blockquote>
-<p>Finally, here is sample output for the calculator</p>
+<p>Here are sample outputs for the calculator</p>
 </blockquote>
 <div class="highlight"><pre><span></span>Simple Math
 Original expression:100 + 200  * 3Tokenized expression: [100, +, 200, *, 3]
@@ -577,7 +603,7 @@ Tokenized expression: [(, 100, +, 200, ), *, 3]
 Reverse Polish Notation: [100, 200, +, 3, *]
 Final result: 900.00
 
-Fraction Math
+Decimal Math
 Original expression: 100.2 - 99.3
 Tokenized expression: [100.2, -, 99.3]
 Reverse Polish Notation: [100.2, 99.3, -]
@@ -594,30 +620,6 @@ Original expression: 300/200
 Tokenized expression: [300, /, 200]
 Reverse Polish Notation: [300, 200, /]
 Final result: 1.50
-
-Multiplication Math
-Original expression: 300 * 200
-Tokenized expression: [300, *, 200]
-Reverse Polish Notation: [300, 200, *]
-Final result: 60000.00
-
-All Math
-Original expression: 200 % 300 + 5 + 300 / 200 + 1 * 100
-Tokenized expression: [200, %, 300, +, 5, +, 300, /, 200, +, 1, *, 100]
-Reverse Polish Notation: [200, 300, %, 5, +, 300, 200, /, +, 1, 100, *, +]
-Final result: 306.50
-
-All Math2
-Original expression: 200 % (300 + 5 + 300) / 200 + 1 * 100
-Tokenized expression: [200, %, (, 300, +, 5, +, 300, ), /, 200, +, 1, *, 100]
-Reverse Polish Notation: [200, 300, 5, +, 300, +, %, 200, /, 1, 100, *, +]
-Final result: 101.00
-
-All Math3
-Original expression: 200%(300+5+300)/200+1*100
-Tokenized expression: [200, %, (, 300, +, 5, +, 300, ), /, 200, +, 1, *, 100]
-Reverse Polish Notation: [200, 300, 5, +, 300, +, %, 200, /, 1, 100, *, +]
-Final result: 101.00
 </pre></div>
 
 </div>
@@ -632,13 +634,19 @@ Final result: 101.00
 <blockquote>
 <p>Build a calculator to process expressions and ultimately change RPN to a calculation.</p>
 <ol>
-<li>Finish Calculator</li>
-<li>Build in Power of operator ^:2 ^ 1 = 2, 2 ^ 2 = 4, 2 ^ 3 = 8
-Beyond short term, including PBL ideas.</li>
-<li>Build variable assignment and evaluation into your expressions (a = 2; a + 1).</li>
-<li>Try adding single argument function SQRT.</li>
-<li>Consider design to capture expression in FE and pass expression to BE.  Consider how you might maintain variables on FE.  </li>
+<li>Finish rpnToResult for Calculator</li>
+<li>Build in Power of operator ^:2 ^ 1 = 2, 2 ^ 2 = 4, 2 ^ 3 = 83. Build an API to receive an expression</li>
 </ol>
+<p>Advanced.</p>
+<ol>
+<li>Try adding single argument function SQRT.  This should be combined with ()'s to make sense, SQRT(expression).  Though "SQRT 1" could work.</li>
+<li>Build variable into expression "a = 3; b + 4; SQRT(a^2 + b^2)".  Hint... build a HashMap for variables.</li>
+</ol>
+<p>Advanced.</p>
+<ul>
+<li>Deploy all of your APIs to Team Backend repo.</li>
+<li>Start making Frontend pages to interact with APIs.</li>
+</ul>
 </blockquote>
 
 </div>
