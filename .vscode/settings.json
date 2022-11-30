@@ -34,5 +34,6 @@
         "UCSD",
         "webp",
         "xiaoa"
-    ]
+    ],
+    "DockerRun.DisableAutoGenerateConfig": true
 }
