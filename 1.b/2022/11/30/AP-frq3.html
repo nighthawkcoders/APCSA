@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -110,6 +110,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Calculator-Theory">Calculator Theory </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Term-Tokenizer">Term Tokenizer </a></li>
+<li class="toc-entry toc-h3"><a href="#String-to-Tokens">String to Tokens </a></li>
 <li class="toc-entry toc-h3"><a href="#Tokens-to-RPN">Tokens to RPN </a></li>
 <li class="toc-entry toc-h3"><a href="#RPN-to-Result">RPN to Result </a></li>
 </ul>
@@ -368,6 +369,25 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="String-to-Tokens">
+<a class="anchor" href="#String-to-Tokens" aria-hidden="true"><span class="octicon octicon-link"></span></a>String to Tokens<a class="anchor-link" href="#String-to-Tokens"> </a>
+</h3>
+<blockquote>
+<p>Before Tokenizer there is a String.  During tokenization the Chars of the String are made into mathematical tokens.</p>
+<ul>
+<li>Simple Math<ul>
+<li>String:"100+200<em>3"    - Tokens: "100", "+", "200", "</em>", "3"</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -424,22 +444,18 @@ window.onload = wrap_img;
 <a class="anchor" href="#Tokens-to-RPN" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tokens to RPN<a class="anchor-link" href="#Tokens-to-RPN"> </a>
 </h3>
 <blockquote>
-<p>Before calculation the tokens need to be turned into RPN.  During calculation solvin algorithm will work Left to Right.  1. go to first operator, 2. obtain to the left the amount of operands required for operator, 3. solve.</p>
+<p>Before calculation the tokens need to be turned into RPN.  This puts math in left to right order and resolves order of operations.</p>
+</blockquote>
 <ul>
 <li>Simple Math.<ul>
-<li>Original expression:100 + 200  <em> 3    - RPN: [100, 200, 3, </em>, +]</li>
-<li>Calc Step 1: [100, 600, +] # 600 is calc of 100, 200, *</li>
-<li>Calc Step 2 [700]</li>
+<li>Tokens:"100", "+", "200", "<em>", "3"    - RPN: "100", "200", "3", "</em>", "+"</li>
 </ul>
 </li>
 </ul>
-</blockquote>
 <ul>
 <li>Parenthesis Math. Note RPN difference<ul>
-<li>Original expression: (100 + 200)  * 3</li>
-<li>RPN: [100, 200, +, 3, *]</li>
-<li>Calc Step 1: [300, 3, *]</li>
-<li>Calc Step 2: [900]</li>
+<li>Tokens: "(", "100}, "+", "200", ")",  "*", "3"</li>
+<li>RPN: "100", "200", "+", "3", "*"</li>
 </ul>
 </li>
 </ul>
@@ -521,6 +537,22 @@ window.onload = wrap_img;
 <blockquote>
 <p>Below is setup/pseudo code to produce a result.  This is opportunity to learn about a Stack, by adding and removing elements from the stack according to intermediate and final results.</p>
 </blockquote>
+<p>During calculation algorithm will work through RPN, Left to Right.  1. go to first operator, 2. obtain to the amount of operands required for operator, 3. solve 4. push result</p>
+<ul>
+<li>
+<p>Simple Math.</p>
+<ul>
+<li>RPN:"100", "200", "3", "*", "+"    - calcStack Step 1: [100]</li>
+<li>calcStack Step 2 [200, 100]</li>
+<li>calcStack Step 3 [3, 200, 100]</li>
+<li>calcStack Step 4 [600, 100]</li>
+<li>
+<p>calcStack Step 5 [700]</p>
+<p>result = 700  # final pop</p>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
