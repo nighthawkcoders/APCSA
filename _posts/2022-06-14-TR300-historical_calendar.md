@@ -2,9 +2,9 @@
 toc: true
 layout: post
 description: 
-title: Tri3 Overview - 2022 Spring review 
+title:  Teacher Only, 2022 Spring planning
 type: plan
-week: 25
+week: 21
 ---
 
 # Time Box Tri 3
