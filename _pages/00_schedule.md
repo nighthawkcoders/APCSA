@@ -9,7 +9,7 @@ title: Schedule
 {% assign all = all | concat:site.posts | concat:site.pages %}
 
 <!-- Setup order for Units -->
-{% assign units = "4,3,2,1" | split: ',' %}
+{% assign units = "4,3,2,1,5" | split: ',' %}
 {% for unit in units %}
 
   <!-- Each Unit has a range of weeks and a heading -->
@@ -33,10 +33,15 @@ title: Schedule
       
   {% elsif unit == "4" %} 
       {% assign start = 13 %}
-      {% assign end = 17 %}
+      {% assign end = 16 %}
 ## Unit {{unit}}: College Board Study Unit
-> This period will complete formal teaching and grading on the basics of the 10 units.  Also, there will be a review and homework on each of the types of FRQs.
-  > Quiz and Blog review
+> This period will complete formal teaching and grading on the basics of the 10 units.  Also, there will be a tech talk and homework on each FRQ type customized for PBL idea.
+
+  {% elsif unit == "5" %} 
+      {% assign start = 17 %}
+      {% assign end = 21 %}
+## Unit {{unit}}: 2nd Trimester Projects
+> Objective of these weeks is to explore and create ideas and concepts for a Team Trimester N@tM project.  Frontend and creativity while using APIs/Databases will be a big portion of this section.
       
   {% endif %}
 
