@@ -12,13 +12,13 @@ week: 17
 ---
 
 ## Plans Week 17
-> Teams build ***Fastpages Frontend for 4 FRQs***
-- Tuesday: New Year and N@tM Project objectives, ***project ideation***
-- Wednesday: Tech Talk Full Stack Fastpages Lesson, work day
+> Teams build ***Fastpages Frontend for 4 FRQs*** using GitHub Pages Frontend 
+- Tuesday: GitHub Pages using Reunion Project and [Issue 1](https://github.com/jm1021/leuck_reunion/issues/1)
+- Wednesday: work day
 - Thursday: Tech Talk Frontend Reviews, SASS, work day
 - Friday: work day
 
 ## Preview Week 18
 > Teams work on Ideation, research, and 1st code for projects.
-- Monday: Ideation kickoff, Grading on 4 FRQs Deploy and Frontend
+- Monday: Grading on Issue #1 and 4 FRQs Deployed and working with Frontend
 - ...
