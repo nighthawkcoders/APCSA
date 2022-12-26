@@ -12,7 +12,7 @@ week: 17
 ---
 
 ## Plans Week 17
-> Teams build ***Fastpages Frontend for 4 FRQs*** using GitHub Pages Frontend 
+> Teams build ***GitHub Page Frontend for 4 FRQs***.
 - Tuesday: GitHub Pages using Reunion Project and [Issue 1](https://github.com/jm1021/leuck_reunion/issues/1)
 - Wednesday: work day
 - Thursday: Tech Talk Frontend Reviews, SASS, work day
