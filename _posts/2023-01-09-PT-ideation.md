@@ -14,7 +14,7 @@ week: 18
 ## Preview Week 18
 > Teams work on Ideation, research, and 1st code for projects.  Project will contain distinct app for Frontend, another app for Backend, Database, and Security.  Remember to incorporate and identify areas where College Board 10 units are used in backend code.
 - Monday: Team grading on 4 FRQs, work day
-- Tuesday: Ideate/tart GitHub or Spring Boot Frontend and Spring Boot Backend Projects
+- Tuesday: View, Frontend, Correlation to Backend, GitHub Pages or Spring Boot Frontend, Spring Boot Backend Projects
 - Wednesday: Tech Talk Spring Backend, Spring Security, Database, Backend Admin Console, Thymeleaf
 - Thursday: Tech Talk Spring Security [JWT](https://www.toptal.com/spring/spring-security-tutorial)
 - Friday: Tech Talk Proper README.
