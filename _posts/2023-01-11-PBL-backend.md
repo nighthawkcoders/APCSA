@@ -2,7 +2,7 @@
 toc: true
 comments: false
 layout: post
-title:  Spring Backend, Database, Notes POJO, Admin Frontend
+title:  Spring Backend, Database, Notes, Admin Frontend
 description: Some tips on building a Notes database using relationships.
 categories: []
 type: pbl
