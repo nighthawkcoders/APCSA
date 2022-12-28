@@ -13,8 +13,8 @@ week: 17
 
 ## Plans Week 17
 > Teams build ***GitHub Page Frontend for 4 FRQs***.
-- Tuesday: GitHub Pages using Reunion Project and [Issue 1](https://github.com/jm1021/leuck_reunion/issues/1)
-- Wednesday: work day
+- Tuesday: Review, GitHub Pages using Reunion Project and [Issue 1](https://github.com/jm1021/leuck_reunion/issues/1), work day
+- Wednesday: Review Creative, Collaborative, and Quality culture, work day
 - Thursday: Tech Talk Frontend Reviews, SASS, work day
 - Friday: work day
 
