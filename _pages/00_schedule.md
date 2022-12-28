@@ -9,7 +9,7 @@ title: Schedule
 {% assign all = all | concat:site.posts | concat:site.pages %}
 
 <!-- Setup order for Units -->
-{% assign units = "5,4,3,2,1" | split: ',' %}
+{% assign units = "5,4,3,2,1,6" | split: ',' %}
 {% for unit in units %}
 
   <!-- Each Unit has a range of weeks and a heading -->
@@ -39,9 +39,15 @@ title: Schedule
 
   {% elsif unit == "5" %} 
       {% assign start = 17 %}
-      {% assign end = 21 %}
+      {% assign end = 20 %}
 ## Unit {{unit}}: 2nd Trimester Projects
-> Objective of these weeks is to explore and create ideas and concepts for a Team Trimester N@tM project.  Frontend and creativity while using APIs/Databases will be a big portion of this section.
+> Objective of these weeks is to explore and create ideas and concepts for a Team Trimester N@tM project.  Adding frontend and creativity while using APIs/Databases.
+
+{% elsif unit == "6" %} 
+      {% assign start = 21 %}
+      {% assign end = 24 %}
+## Unit {{unit}}: 2nd Trimester N@tM and finish Project
+> This will be most creative portion of year for CSA students.  Each person within "Student Teams" will have their own specialty within their student project that shows Full Stack competency.   Student should be able to talk about design, fe/be coding, and database features of their portion of the system.
       
   {% endif %}
 
