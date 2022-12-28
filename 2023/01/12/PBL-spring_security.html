@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Spring Security and notes on JWT | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Spring Security and notes on JWT" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Some tips on building Spring Security into your Web Application" />
+<meta property="og:description" content="Some tips on building Spring Security into your Web Application" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/01/12/PBL-spring_security.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/01/12/PBL-spring_security.html" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-12T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Spring Security and notes on JWT" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-01-12T00:00:00-06:00","datePublished":"2023-01-12T00:00:00-06:00","description":"Some tips on building Spring Security into your Web Application","headline":"Spring Security and notes on JWT","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/01/12/PBL-spring_security.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/01/12/PBL-spring_security.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/ap">AP Standards</a><a class="page-link" href="/APCSA/categories/cte">CTE Standards</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Spring Security and notes on JWT</h1><p class="page-description">Some tips on building Spring Security into your Web Application</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-01-12T00:00:00-06:00" itemprop="datePublished">
+        Jan 12, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#security-starters">Security Starters</a></li>
+<li class="toc-entry toc-h2"><a href="#main-ideas">Main Ideas</a></li>
+<li class="toc-entry toc-h2"><a href="#backend---using-spring-security-to-protect">Backend - Using Spring Security to Protect</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#person-pojo-security-relevant-fragments--observe-email-password-and-role-definitions">Person POJO security relevant fragments.  Observe email, password, and role definitions.</a></li>
+<li class="toc-entry toc-h3"><a href="#role-pojo-contains-string-to-store-role_admin-role_student-as-distinct-rows--all-users-share-same-roles">Role POJO contains String to store ROLE_ADMIN, ROLE_STUDENT as distinct rows.  All users share same roles</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#back-end-code---authentication-and-authorization">Back End Code - Authentication and Authorization</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#securityconfig-provided-through-spring-security-enables-developer-to-authorize-and-authentication-different-portions-of-the-site-based-on-login-and-roles--additionally-you-are-able-to-direct-the-next-page-on-operations-like-login-and-logout--review-antmatchers-statements--this-file-is-being-established-to-support-http-for-both-web-viewing-and-api-access">SecurityConfig provided through Spring Security enables developer to Authorize and Authentication different portions of the site based on Login and Roles.  Additionally, you are able to direct the next page on operations like login and logout.  Review .antmatchers statements.  This file is being established to support http for both Web viewing and API access.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#backend-code---training-spring-security-to-work-with-pojo-and-security-config">Backend Code - Training Spring Security to work with POJO and Security Config</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#modelrepo-implements-userdetailsservice--this-associates-user-person-and-roles-role-with-spring-security-as-you-can-see-with-return-values-from-method">ModelRepo implements UserDetailsService.  This associates user (Person) and roles (Role) with Spring Security as you can see with return values from method.</a></li>
+<li class="toc-entry toc-h3"><a href="#password-encryption-style-bcrypt-is-also-managed-with-this-file">Password Encryption style (BCrypt) is also managed with this file</a></li>
+<li class="toc-entry toc-h3"><a href="#password-is-encoded-before-jpa-save--spring-security-does-decoding-within-its-system-later-we-will-build-login-to-send-user-and-password-to-spring-security">Password is encoded before JPA save.  Spring Security does decoding within its system, later we will build login to send user and password to Spring Security.</a></li>
+<li class="toc-entry toc-h3"><a href="#frontend---building-configuration-and-overrides-to-support-spring-security">Frontend - Building Configuration and Overrides to support Spring Security</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#login-page-customizing-your-own">Login Page (customizing your own)</a></li>
+<li class="toc-entry toc-h4"><a href="#navbar-customizations">Navbar Customizations</a></li>
+<li class="toc-entry toc-h4"><a href="#authorization-error---403">Authorization error - 403</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#jwt-concepts-via-chatgpt">JWT concepts via ChatGPT</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#authorization-header-example">Authorization header example</a></li>
+<li class="toc-entry toc-h3"><a href="#storing-jwt">Storing JWT</a></li>
+<li class="toc-entry toc-h3"><a href="#obtain-jwt-in-a-javascript-application">Obtain JWT in a JavaScript application:</a></li>
+<li class="toc-entry toc-h3"><a href="#authenticate-with-jwt-in-a-javascript-application">Authenticate with JWT in a JavaScript application:</a></li>
+</ul>
+</li>
+</ul><h2 id="security-starters">
+<a class="anchor" href="#security-starters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security Starters</h2>
+<p>Last year Teacher spent time in Spring Security System for csa.nighthawkcodingsociety.com.  The implementation allows users (Person POJO) to login with specific roles (Role POJO). Two roles are present currently, ROLE_ADMIN and ROLE_STUDENT. In this implementation the ROLE_STUDENT is NOT able to delete users,  you must be ROLE_ADMIN to perform this task.</p>
+
+<p>Teacher took inspiration form <a href="https://www.youtube.com/watch?v=VVn9OG9nfH0&amp;t=6350s">YouTube</a>.  This video covers the detail shared below in about 2 hours.</p>
+
+<p>My issue with this starter code is I never had time to get to JWT and have a true web implementation.  Some thoughts I have on that topic are at bottom and courtesy of ChatGPT.</p>
+
+<h2 id="main-ideas">
+<a class="anchor" href="#main-ideas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main Ideas</h2>
+
+<p>Spring Security Code is focused in these areas: <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/database">Database Folder</a>, <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/security">Security Folder</a>, <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/login.html">Login Page</a> and <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/fragments/nav.html#L116-L126">Navbar fragment</a>.</p>
+
+<ul>
+  <li>Backend - Using Spring Security to Protect
+    <ul>
+      <li>Defining POJOs</li>
+      <li>Back End Spring Security Overrides to use Person and Role POJOs</li>
+      <li>Authentication (LOGIN), requiring login to access certain parts of site</li>
+      <li>Authorization (ROLE), differentiation of permission of ROLE_ADMIN and ROLE_ADMIN on</li>
+      <li>Training Spring Security to work with POJOs and Security Config</li>
+    </ul>
+  </li>
+  <li>Frontend - Building Configuration and Overrides to support Spring Security
+    <ul>
+      <li>Login Page (customizing your own)</li>
+      <li>Navbar with Control Login/Logout buttons</li>
+      <li>Error Page for 403 authorization failure</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="backend---using-spring-security-to-protect">
+<a class="anchor" href="#backend---using-spring-security-to-protect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend - Using Spring Security to Protect</h2>
+<p>The key work of the backend and Spring Security is to associate user (Person) and their (Roles) with access to Get and Post Mappings.  Planning needs to go into your POJO to have role(s) associated with each person.</p>
+
+<h3 id="person-pojo-security-relevant-fragments--observe-email-password-and-role-definitions">
+<a class="anchor" href="#person-pojo-security-relevant-fragments--observe-email-password-and-role-definitions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Person POJO security relevant fragments.  Observe email, password, and role definitions.</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="c1">// automatic unique identifier for Person record</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="c1">// email, password, roles are key to login and authentication</span>
+    <span class="nd">@NotEmpty</span>
+    <span class="nd">@Size</span><span class="o">(</span><span class="n">min</span><span class="o">=</span><span class="mi">5</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">true</span><span class="o">)</span>
+    <span class="nd">@Email</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">email</span><span class="o">;</span>
+
+    <span class="nd">@NotEmpty</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">password</span><span class="o">;</span>
+
+    <span class="c1">// roles are stored in a "related" table</span>
+    <span class="nd">@ManyToMany</span><span class="o">(</span><span class="n">fetch</span> <span class="o">=</span> <span class="no">EAGER</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Collection</span><span class="o">&lt;</span><span class="nc">Role</span><span class="o">&gt;</span> <span class="n">roles</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+    <span class="o">...</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="role-pojo-contains-string-to-store-role_admin-role_student-as-distinct-rows--all-users-share-same-roles">
+<a class="anchor" href="#role-pojo-contains-string-to-store-role_admin-role_student-as-distinct-rows--all-users-share-same-roles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Role POJO contains String to store ROLE_ADMIN, ROLE_STUDENT as distinct rows.  All users share same roles</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Role</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">true</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="back-end-code---authentication-and-authorization">
+<a class="anchor" href="#back-end-code---authentication-and-authorization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Back End Code - Authentication and Authorization</h2>
+<h3 id="securityconfig-provided-through-spring-security-enables-developer-to-authorize-and-authentication-different-portions-of-the-site-based-on-login-and-roles--additionally-you-are-able-to-direct-the-next-page-on-operations-like-login-and-logout--review-antmatchers-statements--this-file-is-being-established-to-support-http-for-both-web-viewing-and-api-access">
+<a class="anchor" href="#securityconfig-provided-through-spring-security-enables-developer-to-authorize-and-authentication-different-portions-of-the-site-based-on-login-and-roles--additionally-you-are-able-to-direct-the-next-page-on-operations-like-login-and-logout--review-antmatchers-statements--this-file-is-being-established-to-support-http-for-both-web-viewing-and-api-access" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/SecurityConfig.java">SecurityConfig</a> provided through Spring Security enables developer to Authorize and Authentication different portions of the site based on Login and Roles.  Additionally, you are able to direct the next page on operations like login and logout.  Review .antmatchers statements.  This file is being established to support http for both Web viewing and API access.</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span> <span class="c1">//THis is going to be altered to use the JWT</span>
+        <span class="c1">// security rules</span>
+        <span class="n">http</span>
+            <span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="no">POST</span><span class="o">,</span> <span class="s">"/api/person/post/**"</span><span class="o">).</span><span class="na">hasAnyAuthority</span><span class="o">(</span><span class="s">"ROLE_STUDENT"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="no">DELETE</span><span class="o">,</span> <span class="s">"/api/person/delete/**"</span><span class="o">).</span><span class="na">hasAnyAuthority</span><span class="o">(</span><span class="s">"ROLE_ADMIN"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/database/personupdate/**"</span><span class="o">).</span><span class="na">hasAnyAuthority</span><span class="o">(</span><span class="s">"ROLE_STUDENT"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/database/persondelete/**"</span><span class="o">).</span><span class="na">hasAnyAuthority</span><span class="o">(</span><span class="s">"ROLE_ADMIN"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span> <span class="s">"/api/person/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span> <span class="s">"/api/refresh/token/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/"</span><span class="o">,</span> <span class="s">"/starters/**"</span><span class="o">,</span> <span class="s">"/frontend/**"</span><span class="o">,</span> <span class="s">"/mvc/**"</span><span class="o">,</span> <span class="s">"/database/person/**"</span><span class="o">,</span> <span class="s">"/database/personcreate"</span><span class="o">,</span> <span class="s">"/database/scrum/**"</span><span class="o">,</span> <span class="s">"/course/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">anyRequest</span><span class="o">().</span><span class="na">authenticated</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">formLogin</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">loginPage</span><span class="o">(</span><span class="s">"/login"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">logout</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">logoutRequestMatcher</span><span class="o">(</span><span class="k">new</span> <span class="nc">AntPathRequestMatcher</span><span class="o">(</span><span class="s">"/logout"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">logoutSuccessUrl</span><span class="o">(</span><span class="s">"/database/person"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">permitAll</span><span class="o">()</span>
+        <span class="o">;</span>
+        <span class="c1">// Cross-Site Request Forgery needs to be disabled to allow activation of JS Fetch URIs</span>
+        <span class="n">http</span><span class="o">.</span><span class="na">csrf</span><span class="o">().</span><span class="na">disable</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="backend-code---training-spring-security-to-work-with-pojo-and-security-config">
+<a class="anchor" href="#backend-code---training-spring-security-to-work-with-pojo-and-security-config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend Code - Training Spring Security to work with POJO and Security Config</h2>
+<h3 id="modelrepo-implements-userdetailsservice--this-associates-user-person-and-roles-role-with-spring-security-as-you-can-see-with-return-values-from-method">
+<a class="anchor" href="#modelrepo-implements-userdetailsservice--this-associates-user-person-and-roles-role-with-spring-security-as-you-can-see-with-return-values-from-method" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelRepository.java">ModelRepo</a> implements UserDetailsService.  This associates user (Person) and roles (Role) with Spring Security as you can see with return values from method.</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ModelRepository</span> <span class="kd">implements</span> <span class="nc">UserDetailsService</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* UserDetailsService Overrides and maps Person &amp; Roles POJO into Spring Security */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">userdetails</span><span class="o">.</span><span class="na">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="o">(</span><span class="nc">String</span> <span class="n">email</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">UsernameNotFoundException</span> <span class="o">{</span>
+        <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="n">personJpaRepository</span><span class="o">.</span><span class="na">findByEmail</span><span class="o">(</span><span class="n">email</span><span class="o">);</span> <span class="c1">// setting variable user equal to the method finding the username in the database</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">person</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">UsernameNotFoundException</span><span class="o">(</span><span class="s">"User not found in database"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="nc">Collection</span><span class="o">&lt;</span><span class="nc">SimpleGrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">getRoles</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">role</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="c1">//loop through roles</span>
+            <span class="n">authorities</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">SimpleGrantedAuthority</span><span class="o">(</span><span class="n">role</span><span class="o">.</span><span class="na">getName</span><span class="o">()));</span> <span class="c1">//create a SimpleGrantedAuthority by passed in role, adding it all to the authorities list, list of roles gets past in for spring security</span>
+        <span class="o">});</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">userdetails</span><span class="o">.</span><span class="na">User</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span> <span class="n">person</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(),</span> <span class="n">authorities</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="password-encryption-style-bcrypt-is-also-managed-with-this-file">
+<a class="anchor" href="#password-encryption-style-bcrypt-is-also-managed-with-this-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Password Encryption style (BCrypt) is also managed with this file</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Setup Password style for Database storing and lookup</span>
+    <span class="nd">@Autowired</span>  <span class="c1">// Inject PasswordEncoder</span>
+    <span class="kd">private</span> <span class="nc">PasswordEncoder</span> <span class="n">passwordEncoder</span><span class="o">;</span>
+    <span class="nd">@Bean</span>  <span class="c1">// Sets up password encoding style</span>
+    <span class="nc">PasswordEncoder</span> <span class="nf">passwordEncoder</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">BCryptPasswordEncoder</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="password-is-encoded-before-jpa-save--spring-security-does-decoding-within-its-system-later-we-will-build-login-to-send-user-and-password-to-spring-security">
+<a class="anchor" href="#password-is-encoded-before-jpa-save--spring-security-does-decoding-within-its-system-later-we-will-build-login-to-send-user-and-password-to-spring-security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Password is encoded before JPA save.  Spring Security does decoding within its system, later we will build login to send user and password to Spring Security.</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Person</span> <span class="n">person</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="n">passwordEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getPassword</span><span class="o">()));</span>
+        <span class="n">personJpaRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="frontend---building-configuration-and-overrides-to-support-spring-security">
+<a class="anchor" href="#frontend---building-configuration-and-overrides-to-support-spring-security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frontend - Building Configuration and Overrides to support Spring Security</h3>
+
+<h4 id="login-page-customizing-your-own">
+<a class="anchor" href="#login-page-customizing-your-own" aria-hidden="true"><span class="octicon octicon-link"></span></a>Login Page (customizing your own)</h4>
+<p>If you override the form, it needs to be built returning a username and password.  The override was setup in <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/MvcConfig.java">MvcConfig</a>.  The purpose of override is so it follows Style guideline from the site.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">"f"</span> <span class="na">th:action=</span><span class="s">"@{/login}"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">th:if=</span><span class="s">"${param.error}"</span> <span class="na">class=</span><span class="s">"alert alert-error"</span><span class="nt">&gt;</span>
+            Invalid username and password.
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">th:if=</span><span class="s">"${param.logout}"</span> <span class="na">class=</span><span class="s">"alert alert-success"</span><span class="nt">&gt;</span>
+            You have been logged out.
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="c">&lt;!-- 'email' is mapped to 'username' for Spring Security --&gt;</span>
+        <span class="nt">&lt;tr&gt;&lt;th&gt;&lt;label</span> <span class="na">for=</span><span class="s">"username"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;&lt;/th&gt;&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">'username'</span> <span class="na">name=</span><span class="s">"username"</span> <span class="na">size=</span><span class="s">"20"</span> <span class="na">required</span><span class="nt">&gt;&lt;/td&gt;&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;&lt;th&gt;&lt;label</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;&lt;/th&gt;&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span> <span class="na">name=</span><span class="s">"password"</span> <span class="na">size=</span><span class="s">"20"</span> <span class="na">required</span><span class="nt">&gt;&lt;/td&gt;&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;&lt;th&gt;&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Submit"</span><span class="nt">&gt;&lt;/th&gt;&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;&lt;td&gt;&lt;a</span> <span class="na">th:href=</span><span class="s">"@{/database/personcreate}"</span><span class="nt">&gt;</span>Sign Up<span class="nt">&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+<h4 id="navbar-customizations">
+<a class="anchor" href="#navbar-customizations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Navbar Customizations</h4>
+<p>Using Thymeleaf and Spring Security the Navbar toggles between Login/Logout based off of Spring Security status.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Login/Logout --&gt;</span>
+    <span class="nt">&lt;th:block</span> <span class="na">sec:authorize=</span><span class="s">"isAnonymous()"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"px-3"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">th:href=</span><span class="s">'@{/login}'</span> <span class="na">class=</span><span class="s">"link-dark"</span><span class="nt">&gt;</span>Login<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/th:block&gt;</span>
+    <span class="nt">&lt;th:block</span> <span class="na">sec:authorize=</span><span class="s">"isAuthenticated()"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"px-3"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;a</span> <span class="na">th:href=</span><span class="s">'@{/logout}'</span> <span class="na">class=</span><span class="s">"link-dark"</span><span class="nt">&gt;</span>Logout<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/th:block&gt;</span>
+</code></pre></div></div>
+
+<h4 id="authorization-error---403">
+<a class="anchor" href="#authorization-error---403" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authorization error - 403</h4>
+<p>Following standard of 404 errors, a 403 page is inserted to provide better user experience versus Spring Boot error page.  <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/error/403.html">403.html</a>.  Main purpose of this page is to direct the user back into the website with href.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron jumbotron-fluid"</span> <span class="na">style=</span><span class="s">"text-align: center; "</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>You don't have permission to do that! (Insufficient Role)<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>Go Home<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="jwt-concepts-via-chatgpt">
+<a class="anchor" href="#jwt-concepts-via-chatgpt" aria-hidden="true"><span class="octicon octicon-link"></span></a>JWT concepts via ChatGPT</h2>
+<p>JSON Web Token (JWT) is a popular way to authenticate users in a web application. It is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is digitally signed using JSON Web Signature (JWS).
+Here is an example of how you might use JWT for authentication in a JavaScript application:</p>
+<ol>
+  <li>The client sends a login request to the server with the user’s credentials (e.g., username and password).</li>
+  <li>If the credentials are valid, the server generates a JWT and sends it back to the client.</li>
+  <li>The client stores the JWT in a cookie or in local storage.</li>
+  <li>For subsequent requests, the client sends the JWT in the Authorization header.</li>
+  <li>The server verifies the JWT and, if it is valid, allows the request to proceed.</li>
+</ol>
+
+<h3 id="authorization-header-example">
+<a class="anchor" href="#authorization-header-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authorization header example</h3>
+<p>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</p>
+
+<p>The JWT consists of three parts, separated by dots (.). The first part is the header, which specifies the algorithm used to sign the JWT (e.g., HS256). The second part is the payload, which contains the claims. The third part is the signature, which is used to verify that the sender of the JWT is who it claims to be and to ensure that the message wasn’t changed along the way.</p>
+
+<p>It is important to use HTTPS when transmitting JWTs to ensure that the JWT is not intercepted by an attacker. It is also a good idea to use short-lived JWTs (e.g., with an expiration time of one hour) and to refresh them frequently to reduce the risk of unauthorized access.</p>
+
+<h3 id="storing-jwt">
+<a class="anchor" href="#storing-jwt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storing JWT</h3>
+<p>There are a few different options for storing a JWT in a JavaScript application:</p>
+<ol>
+  <li>Cookies: You can store the JWT in a cookie and send it back to the server with each request. This is a simple and widely-supported option, but it has some limitations. For example, you can’t access cookies from JavaScript on a different domain, and some users may have cookies disabled in their browser settings.</li>
+  <li>Local storage: You can store the JWT in the browser’s local storage (localStorage) or session storage (sessionStorage). This option allows you to access the JWT from JavaScript on the same domain, but it is vulnerable to cross-site scripting (XSS) attacks, where an attacker can inject malicious code into your application and steal the JWT from the storage.</li>
+  <li>HttpOnly cookie: You can store the JWT in an HttpOnly cookie, which is a cookie that can only be accessed by the server and not by client-side JavaScript. This option provides some protection against XSS attacks, but it is still vulnerable to other types of attacks, such as cross-site request forgery (CSRF).</li>
+</ol>
+
+<p>It is generally recommended to use a combination of options to provide the best security for your application. For example, you could store the JWT in an HttpOnly cookie and also in local storage, and use JavaScript to send the JWT from local storage to the server with each request. This way, you can still access the JWT from JavaScript on the same domain, while also protecting against XSS attacks</p>
+
+<h3 id="obtain-jwt-in-a-javascript-application">
+<a class="anchor" href="#obtain-jwt-in-a-javascript-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtain JWT in a JavaScript application:</h3>
+<p>// Send a login request to the server with the user’s credentials
+const loginResponse = await fetch(‘/login’, {
+  method: ‘POST’,
+  headers: { ‘Content-Type’: ‘application/json’ },
+  body: JSON.stringify({ username: ‘user1’, password: ‘pass123’ }),
+});</p>
+
+<p>// If the login was successful, the server will return a JWT
+if (loginResponse.ok) {
+  // Extract the JWT from the response
+  const jwt = loginResponse.headers.get(‘Authorization’).split(‘ ‘)[1];</p>
+
+<p>// Store the JWT in a cookie or in local storage
+  document.cookie = <code class="language-plaintext highlighter-rouge">jwt=${jwt}</code>;
+  // or
+  localStorage.setItem(‘jwt’, jwt);
+}</p>
+
+<h3 id="authenticate-with-jwt-in-a-javascript-application">
+<a class="anchor" href="#authenticate-with-jwt-in-a-javascript-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authenticate with JWT in a JavaScript application:</h3>
+<p>This example sends a POST request to the /login endpoint with the user’s credentials in the request body. If the login was successful, the server will return a 200 OK response with the JWT in the Authorization header. The JWT is then extracted from the header and stored in a cookie or in local storage.</p>
+
+<p>You can then use the JWT for authentication in subsequent requests by sending it in the Authorization header:</p>
+
+<p>// Send a request to a protected endpoint
+const response = await fetch(‘/protected’, {
+  headers: {
+    // Send the JWT in the Authorization header
+    Authorization: <code class="language-plaintext highlighter-rouge">Bearer ${localStorage.getItem('jwt')}</code>,
+  },
+});</p>
+
+<p>// If the JWT is valid, the server will allow the request to proceed
+if (response.ok) {
+  // …
+}</p>
+
+<p>Keep in mind that this is just a simple example, and you should consider using a library like axios or fetch-intercept to handle the details of sending and receiving HTTP requests and responses. You should also consider using HTTPS to encrypt the communication between the client and the server, and use short-lived JWTs with frequent refresh to reduce the risk of unauthorized access</p>
+
+  </div><a class="u-url" href="/APCSA/2023/01/12/PBL-spring_security.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://nighthawkcoders.github.io/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
