@@ -4,7 +4,6 @@ comments: true
 layout: post
 title:  Two Quiz Time Trial and Blog
 description: Individuals perform quiz sessions with 2 hours
-permalink: /points/19
 image: /images/apcsa_units.png
 categories: [1.B]
 type: ap
