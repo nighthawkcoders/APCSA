@@ -38,7 +38,7 @@ week: 17
 - Establish metrics to measure and monitor completeness in each feature -- identify potential improvement areas after each check point in the project.
 
 
-## Hacks
+### Jobs
 > Quality 1st and Creativity/Features 2nd will be keys to 2nd Trimester.  Each team role needs to establish goals.  To improve software it is important that all parties in the project have full understanding of requirements through fluid communication channels.  Thus, establishing a development plan is a requirement.  Here are some ideas ...
 - `Feature Focus` keep an up to date blog/readme on the features of your project.  The focus is to have 4 to 5 major features and the team should keep an up to date status of the progress of those features.  This includes how each feature meets all the criteria of College Board Create Task.  
 - `Scrum Master` should have Team Member Issues and Customer/Teacher/Grader review ticket always in plan.  The review ticket should line up with Quality and Feature Focus.  Scrum Master maintain features/quality plan and holds team members accountable to plan.  Think about Scrum Board, README, and Issues as key artifacts to plan.
@@ -46,8 +46,14 @@ week: 17
 - `Backend Developer` should have tester methods that don't depend on Frontend code or later CI/CD process to catch errors.  Make sure key features are working in backend.
 - `Frontend Developer` should establish full system checks before reviews.  Don't be that guy that says, "it worked last time I tried it".  All system checks should be able to be performed on localhost frontend server.
 
-## Edit your Comment
+### Comments continued
 > Every person should modify their comment.
 - Would you rather work on PBL project, or would you rather do FRQs?
 - In PBL or FRQs, Trust and Freedom are often earned. How will you show your passion and ability to succeed in your work?
 - In PBL or FRQs, what key learnings and quality focusses are a priority for you the remainder of Trimester 2?
+
+## Hacks
+> Every Team should review comments, review agile manifesto, and then make their own manifesto.  
+- In a manifesto you should have right and left elements, 
+- In a manifesto the right elements tell team what is most important on the left and the support process on the right.
+- Try to have 3 to 5 lines in your manifesto.
