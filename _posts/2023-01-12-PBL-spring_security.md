@@ -2,8 +2,8 @@
 toc: true
 comments: false
 layout: post
-title:  Spring Security and notes on JWT
-description: Some tips on building Spring Security into your Web Application
+title:  Spring Security, Roles and JWT concepts
+description: Some tips on building Spring Security into your Web Application(s)
 categories: []
 type: pbl
 week: 18
