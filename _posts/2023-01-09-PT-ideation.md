@@ -2,8 +2,8 @@
 toc: true
 comments: true
 layout: post
-title:  Week of 01-09, Project Kickoff
-description: Ideation and Project Approval
+title:  Week of 01-09, Project Discovery and Innovation
+description: Ideation and Research leading to Project Approval
 permalink: /points/18
 image: /images/points.jpeg
 categories: [1.B]
