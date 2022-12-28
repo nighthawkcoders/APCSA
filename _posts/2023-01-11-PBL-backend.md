@@ -10,10 +10,10 @@ week: 18
 ---
 
 ## Many Notes to One Person
-This adds to the concept of persistent data for a Person.   This tech talk is focused on building a relational table for Person Notes. These notes support text/markdwon/html rendering.
+This adds to the concept of persistent data for a Person.   This tech talk is focused on building a relational table for Notes to Person.  Notes supports text/markdwon/html rendering.  [Annotations and Hibernate](https://www.digitalocean.com/community/tutorials/jpa-hibernate-annotations) are used.  Explore and build other options for your tables and relationships.  FYI, there is even inheritance in POJOs.  You will learn a lot about Java if you explore with true PBL mindset.
 
 * Goals form this Tech Talk
-    * Make POJO with Many-to-One relationship
+    * Make POJO with Many-to-One relationship 
     * Build JPA
     * Establish Controller methods
     * Build Admin Frontend with Thymeleaf
