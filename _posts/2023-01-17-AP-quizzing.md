@@ -5,7 +5,7 @@ layout: post
 title:  Two Quiz Time Trial and Blog
 description: Individuals perform quiz sessions with 2 hours
 permalink: /points/19
-image: /images/points.jpeg
+image: /images/apcsa_units.jpeg
 categories: [1.B]
 type: ap
 week: 19
