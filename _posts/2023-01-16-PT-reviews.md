@@ -13,10 +13,10 @@ week: 19
 
 ## Week 19
 > Teams Ideation reviews in class with review ticket (5 minutes)
-- Monday: ideation workday
-- Tuesday: Ideation Review (3), work day
-- Wednesday: Ideation Review (3), work day
-- Thursday: Ideation Review (3), work day
+- Monday: Ideation workday
+- Tuesday: Ideation Review (3 teams x 10 minutes), work day
+- Wednesday: Ideation Review (3 teams x 10 minutes), work day
+- Thursday: Ideation Review (3 teams x 10 minutes), work day
 - Friday: workday ideation issues, roles, database and security plans, 1st deployment
 
 ## Preview Week 20
