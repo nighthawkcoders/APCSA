@@ -20,5 +20,5 @@ week: 17
 
 ## Preview Week 18
 > Teams work on Ideation, research, and 1st code for projects.
-- Monday: Grading on Issue #1 Hacks, 4 FRQs Deployed and working with Frontend; see [Canvas](https://poway.instructure.com/courses/128938/assignments/2461773))
+- Monday: Grading on Issue #1 Hacks, 4 FRQs Deployed and working with Frontend; see [Canvas](https://poway.instructure.com/courses/128938/assignments/2461773)).  Review tickets are posted as ***Comments on this blog***.
 - ...
