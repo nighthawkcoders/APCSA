@@ -12,7 +12,7 @@ week: 17
 ---
 
 ## Plans Week 17
-> Teams build ***GitHub Page Frontend for 4 FRQs***.
+> Teams build ***GitHub Pages Frontend for 4 FRQs***.
 - Tuesday: Review, GitHub Pages using Reunion Project and [Issue 1](https://github.com/jm1021/leuck_reunion/issues/1), work day, hack challenge
 - Wednesday: Review Creative, Collaborative, and Quality culture, work day
 - Thursday: Tech Talk Frontend Reviews, SASS, work day
@@ -20,5 +20,5 @@ week: 17
 
 ## Preview Week 18
 > Teams work on Ideation, research, and 1st code for projects.
-- Monday: Grading on Issue #1 and 4 FRQs Deployed and working with Frontend
+- Monday: Grading on Issue #1 Hacks, 4 FRQs Deployed and working with Frontend; see [Canvas](https://poway.instructure.com/courses/128938/assignments/2461773))
 - ...
