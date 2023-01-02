@@ -2,7 +2,7 @@
 toc: true
 comments: true
 layout: post
-title:  Two Quiz Time Trial and Blog
+title:  Quiz Time-Trials
 description: Individuals perform quiz sessions with 2 hours
 image: /images/apcsa_units.png
 categories: [1.B]
@@ -11,6 +11,6 @@ week: 19
 ---
 
 ## AP Practice and Blog
-> Looking for 2 time trials (> 2 hours) over next two weeks.  Blog on experience, results, time, weak areas, and add test corrections.   Test correction are outside of time trial.  You must get over 50% for full credit.
-- 1st one, 52 questions is due on the 24th. 
-- 2nd one, 66 questions is due on the 31st.
+> Complete 2 time trials (1.5 hours) over next two weeks.  Blog the experience, results, time taken, weak areas, and add test corrections.   The test correction are not part of the time trial.  You must get over 50% correct for 90% credit.
+- 1st quiz, 52 questions is due on the 24th. 
+- 2nd quiz, 66 questions is due on the 31st.
