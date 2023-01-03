@@ -55,7 +55,7 @@ title: Schedule
 ## Unit {{unit}}: Trimester 3 Data Structures
 > Trimester 3 begins with a focus on [AP Daily Videos](https://apclassroom.collegeboard.org/8/home) and Student Led Testing using the 4 FRQ types.  Technical work includes reviews on sorting algorithms, including making a human sorting video.
 
-% elsif unit == "8" %} 
+{% elsif unit == "8" %} 
       {% assign start = 29 %}
       {% assign end = 36 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
