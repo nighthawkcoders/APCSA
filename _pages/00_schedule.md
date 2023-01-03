@@ -9,7 +9,7 @@ title: Schedule
 {% assign all = all | concat:site.posts | concat:site.pages %}
 
 <!-- Setup order for Units -->
-{% assign units = "5,4,3,2,1,6" | split: ',' %}
+{% assign units = "5,6,4,3,2,1,7,8" | split: ',' %}
 {% for unit in units %}
 
   <!-- Each Unit has a range of weeks and a heading -->
@@ -41,14 +41,26 @@ title: Schedule
       {% assign start = 17 %}
       {% assign end = 20 %}
 ## Unit {{unit}}: 2nd Trimester Projects
-> Objective of these weeks is to explore and create ideas and concepts for a Team Trimester N@tM project.  Adding frontend and creativity while using APIs/Databases.
+> Objective of these weeks is to explore and create ideas and concepts for a Team Trimester N@tM project.  Adding frontend and creativity while using APIs/Databases.  Students should earn trust in these design weeks to instill confidence in the Teach for the right to work independently on a project of their own personal interest.
 
 {% elsif unit == "6" %} 
       {% assign start = 21 %}
       {% assign end = 24 %}
 ## Unit {{unit}}: 2nd Trimester N@tM and finish Project
-> This will be most creative portion of year for CSA students.  Each person within "Student Teams" will have their own specialty within their student project that shows Full Stack competency.   Student should be able to talk about design, fe/be coding, and database features of their portion of the system.
-      
+> This will be most creative portion of year for CSA students.  Each person within "Student Teams" will have their own specialty within their student project that shows Full Stack competency.  Intentions for this period is to have a free and creative period, driven by your Issues and Scrum Board.  Student should be able to talk about design, fe/be coding, and database features of their portion of the project in weekly live reviews.  
+
+{% elsif unit == "7" %} 
+      {% assign start = 25 %}
+      {% assign end = 28 %}
+## Unit {{unit}}: Trimester 3 Data Structures
+> Trimester 3 begins with a focus on [AP Daily Videos](https://apclassroom.collegeboard.org/8/home) and Student Led Testing using the 4 FRQ types.  Technical work includes reviews on sorting algorithms, including making a human sorting video.
+
+% elsif unit == "8" %} 
+      {% assign start = 29 %}
+      {% assign end = 36 %}
+## Unit {{unit}}: Trimester 3 Data Structures
+> Trimester 3 finishes creating a Final Project, this project needs to include Data Structures and Algorithms as follows: sorting, hashing, algorithm analysis, object-oriented design, collections, lists, stacks, queues, trees, sets, dictionaries, and graphs.  Tech Talks will focus on examples and hacks in these areas.
+
   {% endif %}
 
   <!-- Column Headings for Blogs -->
