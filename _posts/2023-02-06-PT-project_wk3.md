@@ -2,16 +2,16 @@
 toc: true
 comments: true
 layout: post
-title:  Week of 01-23, Project Development Week 1
+title:  Week of 02-06, Project Development Week 3
 description: Teams work on project and present issues and scrum board each Monday.
-permalink: /points/20
+permalink: /points/22
 image: /images/points.jpeg
 categories: [1.B]
 type: plan
-week: 20
+week: 22
 ---
 
-## Week 20
+## Week 22
 > Teams build projects according to their own requirements and key objectives for Trimester.
 - Monday: Stand-up meetings, workday
 - Tuesday: workday
@@ -19,6 +19,6 @@ week: 20
 - Thursday: workday
 - Friday: workday
 
-## Preview Week 21
+## Preview Week 23
 > Continue Development on N@tM project
 - Monday: Scrum Board and Issues review

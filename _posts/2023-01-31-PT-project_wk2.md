@@ -13,12 +13,11 @@ week: 21
 
 ## Week 21
 > Teams build projects according to their own requirements and key objectives for Trimester.
-- Monday: Stand-up meetings, workday
-- Tuesday: workday
+- Tuesday: Stand-up meetings, workday
 - Wednesday: Tech Talk
 - Thursday: workday
 - Friday: workday
 
-## Preview Week 20
+## Preview Week 22
 > Continue Development on N@tM project
 - Monday: Scrum Board and Issues review
