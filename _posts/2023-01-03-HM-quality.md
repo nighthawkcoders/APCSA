@@ -10,7 +10,7 @@ type: human
 week: 17
 ---
 
-## Start with a Comment (-0.1 to +0.1)
+## Start with a Comment (Seed -0.2 to +0.1)
 > These next few weeks can be some of the most creative and productive education you will ever have in High School.  ***Every person*** listening needs to get involved in this lecture by ***commenting in this blog***...
 - Express, "***What would you code*** given absolute freedom?
 - ***What would motivate you*** to be productive each day given the freedom to code what you want?
@@ -50,7 +50,8 @@ week: 17
 
 ### End with Comment Edits
 > Every person should modify their comment.
-- ***Would you rather*** work on PBL project, or or do assigned free-response coding questions (aka FRQs)?
+- Take a moment to review standards linked on this page.  ***Provide summary in comment on why information is this blog is important?***.
+- ***Would you rather*** work on PBL project, or or do assigned free-response coding questions (aka FRQs)?  Which would be easier to meet class standards?
 - Trust and Freedom are often earned. ***How will you show your passion and ability to succeed*** in your work?
 - ***What key learnings***  and focusses are a priority for you?
 
