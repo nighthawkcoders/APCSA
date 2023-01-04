@@ -29,6 +29,12 @@ week: 17
 - Additionally, ***be mutually focussed on building something of interest*** is directly linked to the Teams creativity and quality. 
 
 
+### Caution on Deliverables
+> In my recent evaluations of personal blogs I have noticed `a lack of commitment to quality` in personal work.  - Definitions incomplete, out of date pages, incomplete review tickets, `not posting your score`.  
+- Points/grades from now and until the end of the year will be more dependent on quality measures that Teachers see built into your process.
+- Be sure you can speak to your work, on-time or late.  
+- Late work will only be accepted after the student clarifies what is missed and work is defended as their own.
+
 ### Agile tips for success
 > Take a look at some of these tips from Agile writers ...
 - Become a people who ***value creativity and quality*** in their software engineering culture and are committed to it.
