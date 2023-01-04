@@ -5,12 +5,13 @@ layout: post
 title: Creative, Collaborative, and Quality Culture
 description: Fun in software engineering is when Project Teams have a collaborative culture.  My favorite projects inside a company have been when the division is not accountable for Profit and Loss P&L, just responsible for building something to change the world.  Education can create a lot of those creative elements, you learn freely, only accountability is to points/grade.
 image: /images/agile_manifesto.jpeg
+categories: [4.A, 4.B, C1.1, C1.2, C1.3, C1.4, C2.0, C2.1]
 type: human
 week: 17
 ---
 
-## Start with a Comment
-> These next few weeks can be some of the most creative and productive education you will ever have in High School.  Every person listening needs to get involved in this lecture by ***commenting in this blog***...
+## Start with a Comment (-0.1 to +0.1)
+> These next few weeks can be some of the most creative and productive education you will ever have in High School.  ***Every person*** listening needs to get involved in this lecture by ***commenting in this blog***...
 - Express, "***What would you code*** given absolute freedom?
 - ***What would motivate you*** to be productive each day given the freedom to code what you want?
 - ***How would you measure success*** in your team?
