@@ -2,7 +2,7 @@
 toc: true
 comments: false
 layout: post
-title:  Spring Security, Roles and JWT concepts
+title:  Spring Security and Roles
 description: Some tips on building Spring Security into your Web Application(s)
 categories: []
 type: pbl
