@@ -128,8 +128,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#HTML5-table-input">HTML5 table input </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#tablep">Table&lt;/&gt;&lt;/p&gt;
-</a>
+<li class="toc-entry toc-h3"><a href="#table">Table</a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#HTML5-form-input">HTML5 form input </a></li>
 </ul>
@@ -218,8 +217,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="o">/*</span>
-<span class="o">&lt;</span><span class="n">table</span> <span class="n">class</span><span class="o">=</span><span class="s2">"table"</span><span class="o">&gt;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">/*</span>
+<span class="o">&lt;</span><span class="n">table</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;</span><span class="n">Name</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"email"</span><span class="o">&gt;</span><span class="n">Email</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
@@ -246,13 +245,13 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p></p>
 <h3>
-<a class="anchor" href="#tablep" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table&lt;/&gt;&lt;/p&gt;
-</h3>
-<table class="table">
+<a class="anchor" href="#table" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table</h3>
+<table>
     <tr>
         <th><label for="name">Name</label></th>
         <th><label for="email">Email</label></th>
@@ -267,9 +266,9 @@ window.onload = wrap_img;
         <td><button onclick="create_User()">Create</button></td>
     </tr>
 </table>
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -291,7 +290,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="o">/*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">/*</span>
 <span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">"create_User()"</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">label</span><span class="o">&gt;</span>
         <span class="n">Name</span><span class="p">:</span>
@@ -336,7 +335,7 @@ window.onload = wrap_img;
 <p></p>
 <h3>
 <a class="anchor" href="#form" aria-hidden="true"><span class="octicon octicon-link"></span></a>Form</h3>
-<form action="create_User()">
+<form>
     <p><label>
         Name:
         <input type="text" name="name" id="name" required="">
@@ -396,7 +395,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">function</span> <span class="n">create_User</span><span class="p">(){</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">function</span> <span class="n">create_User</span><span class="p">(){</span>
     <span class="o">//</span> <span class="n">extract</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">inputs</span>
     <span class="n">const</span> <span class="n">name</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
     <span class="n">const</span> <span class="n">email</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">"email"</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
@@ -484,7 +483,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="o">/*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">/*</span>
 <span class="o">&lt;</span><span class="n">table</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">thead</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
@@ -494,7 +493,7 @@ window.onload = wrap_img;
   <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
   <span class="o">&lt;/</span><span class="n">thead</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">tbody</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"table"</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">javascript</span> <span class="n">generated</span> <span class="n">data</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!</span>-- javascript generated data --&gt;
   <span class="o">&lt;/</span><span class="n">tbody</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
 <span class="o">*/</span>
@@ -615,8 +614,6 @@ window.onload = wrap_img;
  
 
 </form>
-</div>
-</div></div>
 </div>
 </div></div>
 </div>
