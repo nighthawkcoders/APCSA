@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      6 min read
     
 </span></p>
 
@@ -119,7 +119,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#View-Planning">View Planning </a></li>
+<li class="toc-entry toc-h2"><a href="#View-Organization-and-Design">View Organization and Design </a></li>
 <li class="toc-entry toc-h2"><a href="#View/CRUD-Concepts">View/CRUD Concepts </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Visual-of-the-Idea">Visual of the Idea </a></li>
@@ -154,98 +154,28 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="View-Planning">
-<a class="anchor" href="#View-Planning" aria-hidden="true"><span class="octicon octicon-link"></span></a>View Planning<a class="anchor-link" href="#View-Planning"> </a>
+<h2 id="View-Organization-and-Design">
+<a class="anchor" href="#View-Organization-and-Design" aria-hidden="true"><span class="octicon octicon-link"></span></a>View Organization and Design<a class="anchor-link" href="#View-Organization-and-Design"> </a>
 </h2>
 <blockquote>
-<p>HTML, JavaScript, and a JavaScript fetch will be used to construct our final View solution.  The below example shows the how to establish View in Jupyter notebooks.  The key elements...</p>
+<p>HTML, JavaScript, and a JavaScript fetch will be used to construct our final View solution.  Every page inherits from Theme, minimizing need to define a lot of CSS.  The key elements...</p>
 <ul>
 <li>Style, the visual design.<ul>
-<li>In code below, from beginning of the year the <code>style</code> tag is used to capture very simple style for Notebook.</li>
-<li>In Fastpages, or bigger projects we typically use a design helper like SASS.  The Fastpages/Minima project takes care of style and design for us.</li>
-<li>In the custom Flask Repository, you need to design your own <code>style</code>.  We have not really discussed techniques for this path.</li>
+<li>SASS files in <code>assets/css/style.css</code>, review GitHub pages theme for instructions</li>
 </ul>
 </li>
-<li>Body.  The HTML used in main portion of the page.<ul>
-<li>In code below, <code>table</code>, <code>tr</code> table row, <code>th</code> table head/title, <code>td</code> table data/cell are key HTML tags used for display.</li>
+<li>Head and Body.  The HTML tags used to structure every page.<ul>
+<li>Layout files in <code>_layouts/default.html</code>, structure is provided by GitHub pages theme</li>
+<li>Supplement layout with files in <code>_includes</code>, for instance <code>_layouts/home.html</code> is used to add menu selections to pages by including it in <code>_layouts/default.html</code>.</li>
 </ul>
 </li>
-<li>For Loop.  This is where JavaScript is used to extract data from JSON object and build elements in page.<ul>
-<li>In code below, this is done by build a big <strong><em>body</em></strong> string to capture all the HTML</li>
-<li>In a real project, you will use <strong><em>Document Object Model (DOM)</em></strong>
-</li>
-</ul>
-</li>
+<li>Page. Markdown or HTML is defined and constructed into page using Jekyll Build, refer to <code>content</code> reference in <code>_layouts/default.html</code>.</li>
 </ul>
 </blockquote>
 
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="o">//</span> <span class="n">define</span> <span class="n">an</span> <span class="n">HTML</span> <span class="n">conversion</span> <span class="s2">"method"</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">Data</span>
-<span class="n">Classroom</span><span class="o">.</span><span class="n">prototype</span><span class="o">.</span><span class="n">_toHtml</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">//</span> <span class="n">HTML</span> <span class="n">Style</span> <span class="ow">is</span> <span class="n">build</span> <span class="n">using</span> <span class="n">inline</span> <span class="n">structure</span>
-    <span class="n">var</span> <span class="n">style</span> <span class="o">=</span> <span class="p">(</span>
-      <span class="s2">"display:inline-block;"</span> <span class="o">+</span>
-      <span class="s2">"border: 2px solid grey;"</span> <span class="o">+</span>
-      <span class="s2">"box-shadow: 0.8em 0.4em 0.4em grey;"</span>
-    <span class="p">);</span>
-  
-    <span class="o">//</span> <span class="n">HTML</span> <span class="n">Body</span> <span class="n">of</span> <span class="n">Table</span> <span class="ow">is</span> <span class="n">build</span> <span class="k">as</span> <span class="n">a</span> <span class="n">series</span> <span class="n">of</span> <span class="n">concatenations</span> <span class="p">(</span><span class="o">+=</span><span class="p">)</span>
-    <span class="n">var</span> <span class="n">body</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-    <span class="o">//</span> <span class="n">Heading</span> <span class="k">for</span> <span class="n">Array</span> <span class="n">Columns</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;tr&gt;"</span><span class="p">;</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;th&gt;&lt;mark&gt;"</span> <span class="o">+</span> <span class="s2">"Role"</span> <span class="o">+</span> <span class="s2">"&lt;/mark&gt;&lt;/th&gt;"</span><span class="p">;</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;th&gt;&lt;mark&gt;"</span> <span class="o">+</span> <span class="s2">"Name"</span> <span class="o">+</span> <span class="s2">"&lt;/mark&gt;&lt;/th&gt;"</span><span class="p">;</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;th&gt;&lt;mark&gt;"</span> <span class="o">+</span> <span class="s2">"GitHub ID"</span> <span class="o">+</span> <span class="s2">"&lt;/mark&gt;&lt;/th&gt;"</span><span class="p">;</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;th&gt;&lt;mark&gt;"</span> <span class="o">+</span> <span class="s2">"Class Of"</span> <span class="o">+</span> <span class="s2">"&lt;/mark&gt;&lt;/th&gt;"</span><span class="p">;</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;th&gt;&lt;mark&gt;"</span> <span class="o">+</span> <span class="s2">"Date of Birth"</span> <span class="o">+</span> <span class="s2">"&lt;/mark&gt;&lt;/th&gt;"</span><span class="p">;</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;th&gt;&lt;mark&gt;"</span> <span class="o">+</span> <span class="s2">"Age"</span> <span class="o">+</span> <span class="s2">"&lt;/mark&gt;&lt;/th&gt;"</span><span class="p">;</span>
-    <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;/tr&gt;"</span><span class="p">;</span>
-    <span class="o">//</span> <span class="n">Data</span> <span class="n">of</span> <span class="n">Array</span><span class="p">,</span> <span class="n">iterate</span> <span class="n">through</span> <span class="n">each</span> <span class="n">row</span> <span class="n">of</span> <span class="n">compsci</span><span class="o">.</span><span class="n">classroom</span> 
-    <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">row</span> <span class="n">of</span> <span class="n">compsci</span><span class="o">.</span><span class="n">classroom</span><span class="p">)</span> <span class="p">{</span>
-      <span class="o">//</span> <span class="n">tr</span> <span class="k">for</span> <span class="n">each</span> <span class="n">row</span><span class="p">,</span> <span class="n">a</span> <span class="n">new</span> <span class="n">line</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;tr&gt;"</span><span class="p">;</span>
-      <span class="o">//</span> <span class="n">td</span> <span class="k">for</span> <span class="n">each</span> <span class="n">column</span> <span class="n">of</span> <span class="n">data</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">role</span> <span class="o">+</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">uid</span> <span class="o">+</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">classOf</span> <span class="o">+</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">dob</span> <span class="o">+</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">age</span> <span class="o">+</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
-      <span class="o">//</span> <span class="n">tr</span> <span class="n">to</span> <span class="n">end</span> <span class="n">line</span>
-      <span class="n">body</span> <span class="o">+=</span> <span class="s2">"&lt;tr&gt;"</span><span class="p">;</span>
-    <span class="p">}</span>
-  
-     <span class="o">//</span> <span class="n">Build</span> <span class="ow">and</span> <span class="n">HTML</span> <span class="n">fragment</span> <span class="n">of</span> <span class="n">div</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">table</span> <span class="n">body</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="s2">"&lt;div style='"</span> <span class="o">+</span> <span class="n">style</span> <span class="o">+</span> <span class="s2">"'&gt;"</span> <span class="o">+</span>
-        <span class="s2">"&lt;table&gt;"</span> <span class="o">+</span>
-          <span class="n">body</span> <span class="o">+</span>
-        <span class="s2">"&lt;/table&gt;"</span> <span class="o">+</span>
-      <span class="s2">"&lt;/div&gt;"</span>
-    <span class="p">);</span>
-  
-  <span class="p">};</span>
-  
-  <span class="o">//</span> <span class="n">IJavaScript</span> <span class="n">HTML</span> <span class="n">processor</span> <span class="n">receive</span> <span class="n">parameter</span> <span class="n">of</span> <span class="n">defined</span> <span class="n">HTML</span> <span class="n">fragment</span>
-  <span class="err">$$</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="n">compsci</span><span class="o">.</span><span class="n">_toHtml</span><span class="p">());</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -300,7 +230,8 @@ window.onload = wrap_img;
         <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"name"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"name"</span> <span class="n">required</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"email"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"email"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"email"</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">"abc@xyz.org"</span> <span class="n">required</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"password"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"password"</span> <span class="n">required</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"tel"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"phone"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"phone"</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">"[0-9]</span><span class="si">{10}</span><span class="s2">"</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">"1234567890"</span> <span class="n">required</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"tel"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"phone_num"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"phone_num"</span>
+            <span class="n">pattern</span><span class="o">=</span><span class="s2">"[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{4}</span><span class="s2">"</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">td</span> <span class="o">&gt;&lt;</span><span class="n">button</span> <span class="n">onclick</span><span class="o">=</span><span class="s2">"create_User()"</span><span class="o">&gt;</span><span class="n">Create</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
     <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
@@ -331,7 +262,7 @@ window.onload = wrap_img;
         <td><input type="text" name="name" id="name" required=""></td>
         <td><input type="email" name="email" id="email" placeholder="abc@xyz.org" required=""></td>
         <td><input type="password" name="password" id="password" required=""></td>
-        <td><input type="tel" name="phone_num" id="phone_num" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"></td>
+        <td><input type="tel" name="phone_num" id="phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></td>
         <td><button onclick="create_User()">Create</button></td>
     </tr>
 </table>
@@ -378,7 +309,7 @@ window.onload = wrap_img;
     <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">label</span><span class="o">&gt;</span>
         <span class="n">Phone</span><span class="p">:</span>
         <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"tel"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"phone_num"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"phone_num"</span>
-            <span class="n">pattern</span><span class="o">=</span><span class="s2">"[\+]\d</span><span class="si">{2}</span><span class="s2">[\(]\d</span><span class="si">{2}</span><span class="s2">[\)]\d</span><span class="si">{4}</span><span class="s2">[\-]\d</span><span class="si">{4}</span><span class="s2">"</span>
+            <span class="n">pattern</span><span class="o">=</span><span class="s2">"[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{4}</span><span class="s2">"</span>
             <span class="n">placeholder</span><span class="o">=</span><span class="s2">"999-999-9999"</span><span class="o">&gt;</span>
     <span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">p</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">label</span><span class="o">&gt;</span>
@@ -423,7 +354,7 @@ window.onload = wrap_img;
     </p>
 <p><label>
         Phone:
-        <input type="tel" name="phone_num" id="phone_num" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" placeholder="999-999-9999">
+        <input type="tel" name="phone_num" id="phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="999-999-9999">
     </label></p>
 <p>
     </p>
