@@ -231,7 +231,8 @@ window.onload = wrap_img;
         <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"email"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"email"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"email"</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">"abc@xyz.org"</span> <span class="n">required</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"password"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"password"</span> <span class="n">required</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"tel"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"phone_num"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"phone_num"</span>
-            <span class="n">pattern</span><span class="o">=</span><span class="s2">"[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{4}</span><span class="s2">"</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+            <span class="n">pattern</span><span class="o">=</span><span class="s2">"[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{3}</span><span class="s2">-[0-9]</span><span class="si">{4}</span><span class="s2">"</span>
+            <span class="n">placeholder</span><span class="o">=</span><span class="s2">"999-999-9999"</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="n">td</span> <span class="o">&gt;&lt;</span><span class="n">button</span> <span class="n">onclick</span><span class="o">=</span><span class="s2">"create_User()"</span><span class="o">&gt;</span><span class="n">Create</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
     <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
@@ -262,7 +263,7 @@ window.onload = wrap_img;
         <td><input type="text" name="name" id="name" required=""></td>
         <td><input type="email" name="email" id="email" placeholder="abc@xyz.org" required=""></td>
         <td><input type="password" name="password" id="password" required=""></td>
-        <td><input type="tel" name="phone_num" id="phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></td>
+        <td><input type="tel" name="phone_num" id="phone_num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="999-999-9999"></td>
         <td><button onclick="create_User()">Create</button></td>
     </tr>
 </table>
