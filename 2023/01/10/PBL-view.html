@@ -124,6 +124,9 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#Visual-of-the-Idea">Visual of the Idea </a></li>
 <li class="toc-entry toc-h3"><a href="#HTML-to-Obtain-Input-(Create-Step-1)">HTML to Obtain Input (Create Step 1) </a></li>
+<li class="toc-entry toc-h3"><a href="#tablep">Table&lt;/&gt;&lt;/p&gt;
+</a></li>
+<li class="toc-entry toc-h3"><a href="#form">Form</a></li>
 <li class="toc-entry toc-h3"><a href="#JavaScript-Fetch-and-Response-(Create-Step-2)">JavaScript Fetch and Response (Create Step 2) </a></li>
 <li class="toc-entry toc-h3"><a href="#HTML-and-JavaScript-Display-Table-(Read)">HTML and JavaScript Display Table (Read) </a></li>
 </ul>
@@ -299,9 +302,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<h3>
+<a class="anchor" href="#tablep" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table&lt;/&gt;&lt;/p&gt;
+</h3>
 <table class="table">
     <tr>
         <th><label for="name">Name</label></th>
@@ -313,13 +319,54 @@ window.onload = wrap_img;
         <td><input type="text" name="name" id="name" required=""></td>
         <td><input type="email" name="email" id="email" placeholder="abc@xyz.org" required=""></td>
         <td><input type="password" name="password" id="password" required=""></td>
-        <td><input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder="1234567890" required=""></td>
+        <td><input type="tel" name="phone_num" id="phone_num" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"></td>
         <td><button onclick="create_User()">Create</button></td>
     </tr>
 </table>
-</div>
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<h3>
+<a class="anchor" href="#form" aria-hidden="true"><span class="octicon octicon-link"></span></a>Form</h3>
+<form action="create_User()">
+    <p><label>
+        Name:
+        <input type="text" name="name" id="name" required="">
+    </label></p>
+    <p><label>
+        User ID:
+        <input type="text" name="uid" id="uid" required="">
+    </label></p>
+    <p><label>
+        Password:
+        <input type="password" name="password" id="password" required="">
+        Verify Password:
+        <input type="password" name="passwordV" id="passwordV" required="">
+    </label></p>
+<p>
+    </p>
+<p><label>
+        Phone:
+        <input type="tel" name="phone_num" id="phone_num" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" placeholder="999-999-9999">
+    </label></p>
+<p>
+    </p>
+<p><label>
+        Birthday:
+        <input type="date" name="dob" id="dob">
+    </label></p>
+<p>
+    </p>
+<p>
+        <button>Create</button>
+    </p>
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -559,8 +606,15 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-</div>
+&lt;/div&gt;
+ 
 
+</form>
+</div>
+</div></div>
+</div>
+</div></div>
+</div>
 
 
   </div><a class="u-url" href="/APCSA/2023/01/10/PBL-view.html" hidden></a>
