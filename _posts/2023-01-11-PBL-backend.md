@@ -191,6 +191,7 @@ This blog adds to the concept of persistent data for a Person POJO.   As it is f
     * Make sure that Database is constructed
     * Have many tables in the Database
     * Build relationships in tables, ie Person has many Notes
+    * Start thinking about Roles in accessing data
 
 * Expectations of learnings form this Tech Talk
     * Create a POJO with Many-to-One relationship 
