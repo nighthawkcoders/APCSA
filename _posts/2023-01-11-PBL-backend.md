@@ -11,7 +11,7 @@ week: 18
 
 
 ## Building Database Relationships
-> This blog is built off of information developed for last years class.  There are a couple of Database relationships in the project. The UIs are build using ***Thymeleaf which will NOT be used*** this year, unless you want to build and Admin console to your backend Spring project. Here are some key links ...
+> This blog is built off of information developed for last years class.  There are a couple of Database relationships in the project. The UIs are build using ***Thymeleaf which will `NOT` be used*** this year, unless you want to build and Admin console to your backend Spring project. Here are some key links ...
 - Access... tedison@example.com  123toby
 - ***Featured*** [Building Notes for Person](https://csa.nighthawkcodingsociety.com/database/person)
 - [Building Teams from Persons](https://csa.nighthawkcodingsociety.com/database/scrum)
@@ -20,7 +20,7 @@ week: 18
 
 
 ### Dependencies 
-> Add this to POM file for markdown support
+> Add this to POM file for markdown support.  The Notes in this project include support for Markdown.
  
 ```text
 <dependency>
@@ -31,7 +31,7 @@ week: 18
 ```
 
 ### POJO - Define Note table and Many-to-One relationship
-POJO is the foundation for table definition.  Key parts are described...
+POJO is the foundation for table definition.  Key `NEW` parts are described...
 * The @ManyToOne annotation establishes relationship between this Note record and Person to which it belongs.
 * The @Column(columnDefinition="TEXT") enables SQL to define this as a very large (Blob) style database type.  This is not restricted in the database like a ordinary string.
 * FYI, @Data is shortcut, it is like having @Getter, @Setter, @ToString, @EqualsAndHashCode and @RequiredArgsConstructor annotations on the class.
@@ -85,10 +85,10 @@ public interface NoteJpaRepository extends JpaRepository<Note, Long> {
 
 ### Controller - View Page
 This Control method focuses on loading data for page.  Key logic is shared...
-* This form needs to be called with valid {id}, this is achieved by loading through table
-* Person object is loaded through {id}
-* List<Note> object is loaded with JPA query which takes a Person object as parameter
-* Note object is prepared for Save operation in UI
+* This form needs to be called with valid `id`, this is achieved by loading through table
+* Person object is loaded through its `id`
+* List<Note> object is loaded with ***JPA query*** which takes a `Person object` as parameter
+* Note an `object is prepared` for ***Save*** operation in UI
 * Very important, the convertMarkdownToHTML method is built to change the saved text/markdown/html to HTML and has method "public static String convertMarkdownToHTML(String markdown)" and multiple import org.commonmark.* dependencies.  See [NoteViewController.java](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/note/NoteViewController.java)
 
 ```java
@@ -111,9 +111,9 @@ This Control method focuses on loading data for page.  Key logic is shared...
 
 
 ### Controller - Save Note via JPA method
-This Control method focuses on saving the Note.  Key logic is shared...
+This Control method focuses on ***saving the Note***.  Key logic is shared...
 * After this method is done Error or Success, it needs to return to Notes page, the String redirect = "redirect:/database/notes/"+note.getPerson().getId() is to make sure it goes back to same Person
-* Note is saved via JPA: noteRepository.save(note);
+* Note is ***saved via JPA***: noteRepository.save(note);
 
 ```java
     @PostMapping("/database/notes")
