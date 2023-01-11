@@ -9,7 +9,13 @@ type: pbl
 week: 18
 ---
 
-## Many Notes to One Person
+## Building Database Relationships
+> This blog is built off of information developed last years.  There are a couple of Database relationships in the project. The UIs are build using ***Thymeleaf which will NOT be used*** this year, unless you want to build and Admin console. Here are some key links ...
+- [Building Teams from Persons](https://csa.nighthawkcodingsociety.com/database/scrum)
+- ***Featured*** [Building Notes for Person](https://csa.nighthawkcodingsociety.com/database/person)
+- GitHub code for [Database](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/database)
+
+### Many Notes to One Person
 This adds to the concept of persistent data for a Person.   This tech talk is focused on building a relational table for Notes to Person.  Notes supports text/markdwon/html rendering.  [Annotations and Hibernate](https://www.digitalocean.com/community/tutorials/jpa-hibernate-annotations) are used.  Explore and build other options for your tables and relationships.  FYI, there is even inheritance in POJOs.  You will learn a lot about Java if you explore with true PBL mindset.
 
 * Goals form this Tech Talk
@@ -24,7 +30,7 @@ This adds to the concept of persistent data for a Person.   This tech talk is fo
     * Notes table in Database
 
 * References
-    * Runtime Sample [https://csa.nighthawkcodingsociety.com/database/notes/87](https://csa.nighthawkcodingsociety.com/database/person)
+    * Runtime Sample [https://csa.nighthawkcodingsociety.com/database/notes/](https://csa.nighthawkcodingsociety.com/database/person)
         * Access... tedison@example.com  123toby
     * All the Code, "note" folder contains majority of the work for this Tech Talk: https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/database
 
