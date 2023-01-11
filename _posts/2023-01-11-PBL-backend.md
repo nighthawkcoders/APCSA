@@ -19,7 +19,9 @@ week: 18
 - GitHub code for [Thymeleaf](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/resources/templates/mvc/database)
 
 
-### Dependencies - Add this to POM file for markdown support
+### Dependencies 
+> Add this to POM file for markdown support
+ 
 ```text
 <dependency>
     <groupId>org.commonmark</groupId>
