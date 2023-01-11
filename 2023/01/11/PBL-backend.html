@@ -89,8 +89,9 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#many-notes-to-one-person">Many Notes to One Person</a>
+<li class="toc-entry toc-h2"><a href="#building-database-relationships">Building Database Relationships</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#many-notes-to-one-person">Many Notes to One Person</a></li>
 <li class="toc-entry toc-h3"><a href="#dependencies---add-this-to-pom-file-for-markdown-support">Dependencies - Add this to POM file for markdown support</a></li>
 <li class="toc-entry toc-h3"><a href="#pojo---define-note-table-and-many-to-one-relationship">POJO - Define Note table and Many-to-One relationship</a></li>
 <li class="toc-entry toc-h3"><a href="#jpa---find-all-notes-with-person-object">JPA - Find all Notes with Person Object</a></li>
@@ -100,8 +101,22 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#frontend---display-existing-notes">Frontend - Display Existing Notes</a></li>
 </ul>
 </li>
-</ul><h2 id="many-notes-to-one-person">
-<a class="anchor" href="#many-notes-to-one-person" aria-hidden="true"><span class="octicon octicon-link"></span></a>Many Notes to One Person</h2>
+</ul><h2 id="building-database-relationships">
+<a class="anchor" href="#building-database-relationships" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building Database Relationships</h2>
+<blockquote>
+  <p>This blog is built off of information developed last years.  There are a couple of Database relationships in the project. The UIs are build using <strong><em>Thymeleaf which will NOT be used</em></strong> this year, unless you want to build and Admin console. Here are some key links …</p>
+  <ul>
+    <li><a href="https://csa.nighthawkcodingsociety.com/database/scrum">Building Teams from Persons</a></li>
+    <li>
+<strong><em>Featured</em></strong> <a href="https://csa.nighthawkcodingsociety.com/database/person">Building Notes for Person</a>
+</li>
+    <li>GitHub code for <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/database">Database</a>
+</li>
+  </ul>
+</blockquote>
+
+<h3 id="many-notes-to-one-person">
+<a class="anchor" href="#many-notes-to-one-person" aria-hidden="true"><span class="octicon octicon-link"></span></a>Many Notes to One Person</h3>
 <p>This adds to the concept of persistent data for a Person.   This tech talk is focused on building a relational table for Notes to Person.  Notes supports text/markdwon/html rendering.  <a href="https://www.digitalocean.com/community/tutorials/jpa-hibernate-annotations">Annotations and Hibernate</a> are used.  Explore and build other options for your tables and relationships.  FYI, there is even inheritance in POJOs.  You will learn a lot about Java if you explore with true PBL mindset.</p>
 
 <ul>
@@ -122,7 +137,7 @@ window.onload = wrap_img;
   </li>
   <li>References
     <ul>
-      <li>Runtime Sample <a href="https://csa.nighthawkcodingsociety.com/database/person">https://csa.nighthawkcodingsociety.com/database/notes/87</a>
+      <li>Runtime Sample <a href="https://csa.nighthawkcodingsociety.com/database/person">https://csa.nighthawkcodingsociety.com/database/notes/</a>
         <ul>
           <li>Access… tedison@example.com  123toby</li>
         </ul>
