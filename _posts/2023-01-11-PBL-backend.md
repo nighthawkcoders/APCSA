@@ -9,6 +9,7 @@ type: pbl
 week: 18
 ---
 
+
 ## Building Database Relationships
 > This blog is built off of information developed for last years class.  There are a couple of Database relationships in the project. The UIs are build using ***Thymeleaf which will NOT be used*** this year, unless you want to build and Admin console to your backend Spring project. Here are some key links ...
 - Access... tedison@example.com  123toby
@@ -16,7 +17,6 @@ week: 18
 - [Building Teams from Persons](https://csa.nighthawkcodingsociety.com/database/scrum)
 - GitHub code for [Database](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/database)
 - GitHub code for [Thymeleaf](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/resources/templates/mvc/database)
-
 
 
 ### Dependencies - Add this to POM file for markdown support
@@ -62,6 +62,7 @@ public class Note {
 }
 ```
 
+
 ### JPA - Find all Notes with Person Object
 This Class extends JPA which provides standard database queries.  There is one additional method defined using JPA interface definitions, findAllByPerson which returns a List<Note> which is all notes for a Person.
 
@@ -78,6 +79,7 @@ public interface NoteJpaRepository extends JpaRepository<Note, Long> {
     List<Note> findAllByPerson(Person p);
 }
 ```
+
 
 ### Controller - View Page
 This Control method focuses on loading data for page.  Key logic is shared...
@@ -105,6 +107,7 @@ This Control method focuses on loading data for page.  Key logic is shared...
     }
 ```
 
+
 ### Controller - Save Note via JPA method
 This Control method focuses on saving the Note.  Key logic is shared...
 * After this method is done Error or Success, it needs to return to Notes page, the String redirect = "redirect:/database/notes/"+note.getPerson().getId() is to make sure it goes back to same Person
@@ -128,6 +131,7 @@ This Control method focuses on saving the Note.  Key logic is shared...
         return redirect;
     }
 ```
+
 
 ### Frontend - Form and Action for New Note
 The Form is used for new Post/Blog.  Here are key elements...
@@ -161,6 +165,7 @@ The Form is used for new Post/Blog.  Here are key elements...
       </form>
 ```
 
+
 ### Frontend - Display Existing Notes
 A table is used to display history of Post/Blog.  Here are key elements...
 * The "notes" is received as a data source that is specific to the logged in User
@@ -184,6 +189,7 @@ A table is used to display history of Post/Blog.  Here are key elements...
       </div>
 ```
 
+
 ## Hacks
 This blog adds to the concept of persistent data for a Person POJO.   As it is focused on building a relational table for Notes to Person.  Notes supports text/markdown/html rendering.  [Annotations and Hibernate](https://www.digitalocean.com/community/tutorials/jpa-hibernate-annotations) are used.  Explore and build other options for your tables and relationships.  FYI, there is even inheritance in POJOs.  You will learn a lot about Java if you explore with true PBL mindset.
 
@@ -198,4 +204,3 @@ This blog adds to the concept of persistent data for a Person POJO.   As it is f
     * Build JPA to access all elements from and ID
     * Establish Controller methods and APIs, Build Frontend with JavaScript
     * Extra Credit, Build Admin Frontend with Thymeleaf
-
