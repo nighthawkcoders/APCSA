@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -104,7 +104,7 @@ window.onload = wrap_img;
 </ul><h2 id="building-database-relationships">
 <a class="anchor" href="#building-database-relationships" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building Database Relationships</h2>
 <blockquote>
-  <p>This blog is built off of information developed for last years class.  There are a couple of Database relationships in the project. The UIs are build using <strong><em>Thymeleaf which will NOT be used</em></strong> this year, unless you want to build and Admin console to your backend Spring project. Here are some key links …</p>
+  <p>This blog is built off of information developed for last years class.  There are a couple of Database relationships in the project. The UIs are build using <strong><em>Thymeleaf which will <code class="language-plaintext highlighter-rouge">NOT</code> be used</em></strong> this year, unless you want to build and Admin console to your backend Spring project. Here are some key links …</p>
   <ul>
     <li>Access… tedison@example.com  123toby</li>
     <li>
@@ -121,7 +121,7 @@ window.onload = wrap_img;
 <h3 id="dependencies">
 <a class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <blockquote>
-  <p>Add this to POM file for markdown support</p>
+  <p>Add this to POM file for markdown support.  The Notes in this project include support for Markdown.</p>
 </blockquote>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dependency&gt;
@@ -133,7 +133,7 @@ window.onload = wrap_img;
 
 <h3 id="pojo---define-note-table-and-many-to-one-relationship">
 <a class="anchor" href="#pojo---define-note-table-and-many-to-one-relationship" aria-hidden="true"><span class="octicon octicon-link"></span></a>POJO - Define Note table and Many-to-One relationship</h3>
-<p>POJO is the foundation for table definition.  Key parts are described…</p>
+<p>POJO is the foundation for table definition.  Key <code class="language-plaintext highlighter-rouge">NEW</code> parts are described…</p>
 <ul>
   <li>The @ManyToOne annotation establishes relationship between this Note record and Person to which it belongs.</li>
   <li>The @Column(columnDefinition=”TEXT”) enables SQL to define this as a very large (Blob) style database type.  This is not restricted in the database like a ordinary string.</li>
@@ -188,11 +188,12 @@ window.onload = wrap_img;
 <a class="anchor" href="#controller---view-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controller - View Page</h3>
 <p>This Control method focuses on loading data for page.  Key logic is shared…</p>
 <ul>
-  <li>This form needs to be called with valid {id}, this is achieved by loading through table</li>
-  <li>Person object is loaded through {id}</li>
-  <li>List<note> object is loaded with JPA query which takes a Person object as parameter</note>
+  <li>This form needs to be called with valid <code class="language-plaintext highlighter-rouge">id</code>, this is achieved by loading through table</li>
+  <li>Person object is loaded through its <code class="language-plaintext highlighter-rouge">id</code>
 </li>
-  <li>Note object is prepared for Save operation in UI</li>
+  <li>List<note> object is loaded with ***JPA query*** which takes a `Person object` as parameter</note>
+</li>
+  <li>Note an <code class="language-plaintext highlighter-rouge">object is prepared</code> for <strong><em>Save</em></strong> operation in UI</li>
   <li>Very important, the convertMarkdownToHTML method is built to change the saved text/markdown/html to HTML and has method “public static String convertMarkdownToHTML(String markdown)” and multiple import org.commonmark.* dependencies.  See <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/note/NoteViewController.java">NoteViewController.java</a>
 </li>
 </ul>
@@ -216,10 +217,10 @@ window.onload = wrap_img;
 
 <h3 id="controller---save-note-via-jpa-method">
 <a class="anchor" href="#controller---save-note-via-jpa-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controller - Save Note via JPA method</h3>
-<p>This Control method focuses on saving the Note.  Key logic is shared…</p>
+<p>This Control method focuses on <strong><em>saving the Note</em></strong>.  Key logic is shared…</p>
 <ul>
   <li>After this method is done Error or Success, it needs to return to Notes page, the String redirect = “redirect:/database/notes/”+note.getPerson().getId() is to make sure it goes back to same Person</li>
-  <li>Note is saved via JPA: noteRepository.save(note);</li>
+  <li>Note is <strong><em>saved via JPA</em></strong>: noteRepository.save(note);</li>
 </ul>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">"/database/notes"</span><span class="o">)</span>
