@@ -12,6 +12,7 @@ week: 18
 
 ## Building Database Relationships
 > This blog is built off of information developed for last years class.  There are a couple of Database relationships in the project. The UIs are build using ***Thymeleaf which will `NOT` be used*** this year, unless you want to build and Admin console to your backend Spring project. Here are some key links ...
+- Relations Theme Videos [We are the World](https://youtu.be/Glny4jSciVI?t=241), [We are Family](https://youtu.be/oMVe_HcyP9Y?t=29)
 - Access... tedison@example.com  123toby
 - ***Featured*** [Building Notes for Person](https://csa.nighthawkcodingsociety.com/database/person)
 - [Building Teams from Persons](https://csa.nighthawkcodingsociety.com/database/scrum)
@@ -20,7 +21,7 @@ week: 18
 
 
 ### Dependencies 
-> Add this to POM file for markdown support.  The Notes in this project include support for Markdown.
+> Review [POM file](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/pom.xml) from GitHub Project that use features mentioned.  The Notes in this project does include support for Markdown.
  
 ```text
 <dependency>
