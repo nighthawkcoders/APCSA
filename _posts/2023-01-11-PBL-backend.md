@@ -78,7 +78,7 @@ public class Note {
 ```
 
 ### JPA - Find all Notes with Person Object
-This Class extends JPA which provides standard CRUD.  There is one additional method defined using JPA interface definitions, findAllByPerson which returns a List<Note> which is all notes for Person.
+This Class extends JPA which provides standard database queries.  There is one additional method defined using JPA interface definitions, findAllByPerson which returns a List<Note> which is all notes for a Person.
 
 ```java
 package com.nighthawk.csa.mvc.database.note;
@@ -187,8 +187,8 @@ A table is used to display history of Post/Blog.  Here are key elements...
     <div class="table-responsive">
         <table class="table">
           <tbody>
-            <!--Notes output area, Jinja lines iterate through notes,
-                note.text is html converted from markdown requires th:utext
+            <!--Notes output area, Thymeleaf lines iterate through notes backwards,
+                note.text is html converted from markdown requires th:utext to render correctly
             -->
             <tr th:each="i : ${#numbers.sequence(notes.size() - 1, 0, -1)}"
                 th:with="n=${notes[i]}">
