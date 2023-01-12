@@ -9,14 +9,14 @@ type: pbl
 week: 18
 ---
 
-## Security Starters
+## Security Concepts
 Last year Teacher spent time in Spring Security System for csa.nighthawkcodingsociety.com.  The implementation allows users (Person POJO) to login with specific roles (Role POJO). Two roles are present currently, ROLE_ADMIN and ROLE_STUDENT. In this implementation the ROLE_STUDENT is NOT able to delete users,  you must be ROLE_ADMIN to perform this task. 
 
 Teacher took inspiration form [YouTube](https://www.youtube.com/watch?v=VVn9OG9nfH0&t=6350s).  This video covers the detail shared below in about 2 hours.
 
-My issue with this starter code is I never had time to get to JWT and have a true web implementation.  Some thoughts I have on that topic are at bottom and courtesy of ChatGPT.
+My issue with this starter code is I never had time to get to JWT and do not have a true web implementation.  Some thoughts the Teacher has on that topic are in JWT tech talk, most of the info is courtesy of ChatGPT.
 
-## Main Ideas
+### Main Ideas
 
 Spring Security Code is focused in these areas: [Database Folder](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/database), [Security Folder](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/security), [Login Page](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/login.html) and [Navbar fragment](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/fragments/nav.html#L116-L126).
 
@@ -32,10 +32,12 @@ Spring Security Code is focused in these areas: [Database Folder](https://github
     - Error Page for 403 authorization failure
 
 
-## Backend - Using Spring Security to Protect
+### Backend - Using Spring Security to Protect
 The key work of the backend and Spring Security is to associate user (Person) and their (Roles) with access to Get and Post Mappings.  Planning needs to go into your POJO to have role(s) associated with each person.  
 
-### Person POJO security relevant fragments.  Observe email, password, and role definitions.
+### Person POJO with roles.
+> Observe Many to Many and role collection.
+
 ```java
 @Entity
 public class Person {
@@ -61,7 +63,9 @@ public class Person {
     ... 
 }
 ```
-### Role POJO contains String to store ROLE_ADMIN, ROLE_STUDENT as distinct rows.  All users share same roles
+### Role POJO.
+> Contains String to store ROLE_ADMIN, ROLE_STUDENT as distinct rows.  All users have ability to obtain the same roles as known by the system.
+
 ```java
 @Entity
 public class Role {
@@ -74,8 +78,8 @@ public class Role {
 }
 ```
 
-## Back End Code - Authentication and Authorization
-### [SecurityConfig](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/SecurityConfig.java) provided through Spring Security enables developer to Authorize and Authentication different portions of the site based on Login and Roles.  Additionally, you are able to direct the next page on operations like login and logout.  Review .antmatchers statements.  This file is being established to support http for both Web viewing and API access.
+###vBack End Code - Authentication and Authorization
+> [SecurityConfig](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/SecurityConfig.java) provided through Spring Security enables developer to Authorize and Authentication different portions of the site based on Login and Roles.  Additionally, you are able to direct the next page on operations like login and logout.  Review .antmatchers statements.  This file is being established to support http for both Web viewing and API access.
 
 ``` java
 protected void configure(HttpSecurity http) throws Exception { //THis is going to be altered to use the JWT
@@ -105,8 +109,8 @@ protected void configure(HttpSecurity http) throws Exception { //THis is going t
     }
 ```
 
-## Backend Code - Training Spring Security to work with POJO and Security Config 
-### [ModelRepo](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelRepository.java) implements UserDetailsService.  This associates user (Person) and roles (Role) with Spring Security as you can see with return values from method.
+### Backend Code - Training Spring Security to work with POJO and Security Config 
+> [ModelRepo](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelRepository.java) implements UserDetailsService.  This associates user (Person) and roles (Role) with Spring Security as you can see with return values from method.
 
 ```java
 public class ModelRepository implements UserDetailsService
@@ -128,7 +132,7 @@ public class ModelRepository implements UserDetailsService
     }
 ```
 
-### Password Encryption style (BCrypt) is also managed with this file
+> Password Encryption.  (BCrypt) is also managed with this file
 ```java
     // Setup Password style for Database storing and lookup
     @Autowired  // Inject PasswordEncoder
@@ -139,7 +143,7 @@ public class ModelRepository implements UserDetailsService
     }
 ```
 
-### Password is encoded before JPA save.  Spring Security does decoding within its system, later we will build login to send user and password to Spring Security.
+> Password is encoded before JPA save.  Spring Security does decoding within its system, later we will build login to send user and password to Spring Security.
 ```java
 public void save(Person person) {
         person.setPassword(passwordEncoder.encode(person.getPassword()));
@@ -149,8 +153,7 @@ public void save(Person person) {
 
 ### Frontend - Building Configuration and Overrides to support Spring Security
 
-#### Login Page (customizing your own)
-If you override the form, it needs to be built returning a username and password.  The override was setup in [MvcConfig](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/MvcConfig.java).  The purpose of override is so it follows Style guideline from the site.
+> Login Page (customizing your own).  If you override the form, it needs to be built returning a username and password.  The override was setup in [MvcConfig](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/MvcConfig.java).  The purpose of override is so it follows Style guideline from the site.
 
 ```html
 <form name="f" th:action="@{/login}" method="POST">
@@ -171,8 +174,7 @@ If you override the form, it needs to be built returning a username and password
 </table>
 ```
 
-#### Navbar Customizations
-Using Thymeleaf and Spring Security the Navbar toggles between Login/Logout based off of Spring Security status.  
+> Navbar Customizations. Using Thymeleaf and Spring Security the Navbar toggles between Login/Logout based off of Spring Security status.  
 ```html
 <!-- Login/Logout -->
     <th:block sec:authorize="isAnonymous()">
@@ -187,8 +189,7 @@ Using Thymeleaf and Spring Security the Navbar toggles between Login/Logout base
     </th:block>
 ```
 
-#### Authorization error - 403
-Following standard of 404 errors, a 403 page is inserted to provide better user experience versus Spring Boot error page.  [403.html](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/error/403.html).  Main purpose of this page is to direct the user back into the website with href.
+> Authorization error - 403. Following standard of 404 errors, a 403 page is inserted to provide better user experience versus Spring Boot error page.  [403.html](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/error/403.html).  Main purpose of this page is to direct the user back into the website with href.
 
 ```html
 <div class="jumbotron jumbotron-fluid" style="text-align: center; ">
@@ -198,4 +199,8 @@ Following standard of 404 errors, a 403 page is inserted to provide better user 
 </div>
 ```
 
-
+## Hacks
+> This blog should give you many considerations when considering how to design a login system with roles.  There are many features to consider, specifically what elements of site will be used by users/roles.  
+- Start to design security features for your own project
+- Make a clone of the Spring Project
+- Try to restrict Delete on Scrum Page to ADMIN rule.
