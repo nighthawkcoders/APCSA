@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -89,43 +89,27 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#security-starters">Security Starters</a></li>
-<li class="toc-entry toc-h2"><a href="#main-ideas">Main Ideas</a></li>
-<li class="toc-entry toc-h2"><a href="#backend---using-spring-security-to-protect">Backend - Using Spring Security to Protect</a>
+<li class="toc-entry toc-h2"><a href="#security-concepts">Security Concepts</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#person-pojo-security-relevant-fragments--observe-email-password-and-role-definitions">Person POJO security relevant fragments.  Observe email, password, and role definitions.</a></li>
-<li class="toc-entry toc-h3"><a href="#role-pojo-contains-string-to-store-role_admin-role_student-as-distinct-rows--all-users-share-same-roles">Role POJO contains String to store ROLE_ADMIN, ROLE_STUDENT as distinct rows.  All users share same roles</a></li>
+<li class="toc-entry toc-h3"><a href="#main-ideas">Main Ideas</a></li>
+<li class="toc-entry toc-h3"><a href="#backend---using-spring-security-to-protect">Backend - Using Spring Security to Protect</a></li>
+<li class="toc-entry toc-h3"><a href="#person-pojo-with-roles">Person POJO with roles.</a></li>
+<li class="toc-entry toc-h3"><a href="#role-pojo">Role POJO.</a></li>
+<li class="toc-entry toc-h3"><a href="#backend-code---training-spring-security-to-work-with-pojo-and-security-config">Backend Code - Training Spring Security to work with POJO and Security Config</a></li>
+<li class="toc-entry toc-h3"><a href="#frontend---building-configuration-and-overrides-to-support-spring-security">Frontend - Building Configuration and Overrides to support Spring Security</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#back-end-code---authentication-and-authorization">Back End Code - Authentication and Authorization</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#securityconfig-provided-through-spring-security-enables-developer-to-authorize-and-authentication-different-portions-of-the-site-based-on-login-and-roles--additionally-you-are-able-to-direct-the-next-page-on-operations-like-login-and-logout--review-antmatchers-statements--this-file-is-being-established-to-support-http-for-both-web-viewing-and-api-access">SecurityConfig provided through Spring Security enables developer to Authorize and Authentication different portions of the site based on Login and Roles.  Additionally, you are able to direct the next page on operations like login and logout.  Review .antmatchers statements.  This file is being established to support http for both Web viewing and API access.</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#backend-code---training-spring-security-to-work-with-pojo-and-security-config">Backend Code - Training Spring Security to work with POJO and Security Config</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#modelrepo-implements-userdetailsservice--this-associates-user-person-and-roles-role-with-spring-security-as-you-can-see-with-return-values-from-method">ModelRepo implements UserDetailsService.  This associates user (Person) and roles (Role) with Spring Security as you can see with return values from method.</a></li>
-<li class="toc-entry toc-h3"><a href="#password-encryption-style-bcrypt-is-also-managed-with-this-file">Password Encryption style (BCrypt) is also managed with this file</a></li>
-<li class="toc-entry toc-h3"><a href="#password-is-encoded-before-jpa-save--spring-security-does-decoding-within-its-system-later-we-will-build-login-to-send-user-and-password-to-spring-security">Password is encoded before JPA save.  Spring Security does decoding within its system, later we will build login to send user and password to Spring Security.</a></li>
-<li class="toc-entry toc-h3"><a href="#frontend---building-configuration-and-overrides-to-support-spring-security">Frontend - Building Configuration and Overrides to support Spring Security</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#login-page-customizing-your-own">Login Page (customizing your own)</a></li>
-<li class="toc-entry toc-h4"><a href="#navbar-customizations">Navbar Customizations</a></li>
-<li class="toc-entry toc-h4"><a href="#authorization-error---403">Authorization error - 403</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul><h2 id="security-starters">
-<a class="anchor" href="#security-starters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security Starters</h2>
+<li class="toc-entry toc-h2"><a href="#hacks">Hacks</a></li>
+</ul><h2 id="security-concepts">
+<a class="anchor" href="#security-concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security Concepts</h2>
 <p>Last year Teacher spent time in Spring Security System for csa.nighthawkcodingsociety.com.  The implementation allows users (Person POJO) to login with specific roles (Role POJO). Two roles are present currently, ROLE_ADMIN and ROLE_STUDENT. In this implementation the ROLE_STUDENT is NOT able to delete users,  you must be ROLE_ADMIN to perform this task.</p>
 
 <p>Teacher took inspiration form <a href="https://www.youtube.com/watch?v=VVn9OG9nfH0&amp;t=6350s">YouTube</a>.  This video covers the detail shared below in about 2 hours.</p>
 
-<p>My issue with this starter code is I never had time to get to JWT and have a true web implementation.  Some thoughts I have on that topic are at bottom and courtesy of ChatGPT.</p>
+<p>My issue with this starter code is I never had time to get to JWT and do not have a true web implementation.  Some thoughts the Teacher has on that topic are in JWT tech talk, most of the info is courtesy of ChatGPT.</p>
 
-<h2 id="main-ideas">
-<a class="anchor" href="#main-ideas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main Ideas</h2>
+<h3 id="main-ideas">
+<a class="anchor" href="#main-ideas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main Ideas</h3>
 
 <p>Spring Security Code is focused in these areas: <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/database">Database Folder</a>, <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/security">Security Folder</a>, <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/login.html">Login Page</a> and <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/fragments/nav.html#L116-L126">Navbar fragment</a>.</p>
 
@@ -148,12 +132,16 @@ window.onload = wrap_img;
   </li>
 </ul>
 
-<h2 id="backend---using-spring-security-to-protect">
-<a class="anchor" href="#backend---using-spring-security-to-protect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend - Using Spring Security to Protect</h2>
+<h3 id="backend---using-spring-security-to-protect">
+<a class="anchor" href="#backend---using-spring-security-to-protect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend - Using Spring Security to Protect</h3>
 <p>The key work of the backend and Spring Security is to associate user (Person) and their (Roles) with access to Get and Post Mappings.  Planning needs to go into your POJO to have role(s) associated with each person.</p>
 
-<h3 id="person-pojo-security-relevant-fragments--observe-email-password-and-role-definitions">
-<a class="anchor" href="#person-pojo-security-relevant-fragments--observe-email-password-and-role-definitions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Person POJO security relevant fragments.  Observe email, password, and role definitions.</h3>
+<h3 id="person-pojo-with-roles">
+<a class="anchor" href="#person-pojo-with-roles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Person POJO with roles.</h3>
+<blockquote>
+  <p>Observe Many to Many and role collection.</p>
+</blockquote>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
     <span class="c1">// automatic unique identifier for Person record</span>
@@ -178,8 +166,12 @@ window.onload = wrap_img;
     <span class="o">...</span> 
 <span class="o">}</span>
 </code></pre></div></div>
-<h3 id="role-pojo-contains-string-to-store-role_admin-role_student-as-distinct-rows--all-users-share-same-roles">
-<a class="anchor" href="#role-pojo-contains-string-to-store-role_admin-role_student-as-distinct-rows--all-users-share-same-roles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Role POJO contains String to store ROLE_ADMIN, ROLE_STUDENT as distinct rows.  All users share same roles</h3>
+<h3 id="role-pojo">
+<a class="anchor" href="#role-pojo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Role POJO.</h3>
+<blockquote>
+  <p>Contains String to store ROLE_ADMIN, ROLE_STUDENT as distinct rows.  All users have ability to obtain the same roles as known by the system.</p>
+</blockquote>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Role</span> <span class="o">{</span>
     <span class="nd">@Id</span>
@@ -191,10 +183,10 @@ window.onload = wrap_img;
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h2 id="back-end-code---authentication-and-authorization">
-<a class="anchor" href="#back-end-code---authentication-and-authorization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Back End Code - Authentication and Authorization</h2>
-<h3 id="securityconfig-provided-through-spring-security-enables-developer-to-authorize-and-authentication-different-portions-of-the-site-based-on-login-and-roles--additionally-you-are-able-to-direct-the-next-page-on-operations-like-login-and-logout--review-antmatchers-statements--this-file-is-being-established-to-support-http-for-both-web-viewing-and-api-access">
-<a class="anchor" href="#securityconfig-provided-through-spring-security-enables-developer-to-authorize-and-authentication-different-portions-of-the-site-based-on-login-and-roles--additionally-you-are-able-to-direct-the-next-page-on-operations-like-login-and-logout--review-antmatchers-statements--this-file-is-being-established-to-support-http-for-both-web-viewing-and-api-access" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/SecurityConfig.java">SecurityConfig</a> provided through Spring Security enables developer to Authorize and Authentication different portions of the site based on Login and Roles.  Additionally, you are able to direct the next page on operations like login and logout.  Review .antmatchers statements.  This file is being established to support http for both Web viewing and API access.</h3>
+<p>###vBack End Code - Authentication and Authorization</p>
+<blockquote>
+  <p><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/SecurityConfig.java">SecurityConfig</a> provided through Spring Security enables developer to Authorize and Authentication different portions of the site based on Login and Roles.  Additionally, you are able to direct the next page on operations like login and logout.  Review .antmatchers statements.  This file is being established to support http for both Web viewing and API access.</p>
+</blockquote>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span> <span class="c1">//THis is going to be altered to use the JWT</span>
         <span class="c1">// security rules</span>
@@ -223,10 +215,11 @@ window.onload = wrap_img;
     <span class="o">}</span>
 </code></pre></div></div>
 
-<h2 id="backend-code---training-spring-security-to-work-with-pojo-and-security-config">
-<a class="anchor" href="#backend-code---training-spring-security-to-work-with-pojo-and-security-config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend Code - Training Spring Security to work with POJO and Security Config</h2>
-<h3 id="modelrepo-implements-userdetailsservice--this-associates-user-person-and-roles-role-with-spring-security-as-you-can-see-with-return-values-from-method">
-<a class="anchor" href="#modelrepo-implements-userdetailsservice--this-associates-user-person-and-roles-role-with-spring-security-as-you-can-see-with-return-values-from-method" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelRepository.java">ModelRepo</a> implements UserDetailsService.  This associates user (Person) and roles (Role) with Spring Security as you can see with return values from method.</h3>
+<h3 id="backend-code---training-spring-security-to-work-with-pojo-and-security-config">
+<a class="anchor" href="#backend-code---training-spring-security-to-work-with-pojo-and-security-config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backend Code - Training Spring Security to work with POJO and Security Config</h3>
+<blockquote>
+  <p><a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelRepository.java">ModelRepo</a> implements UserDetailsService.  This associates user (Person) and roles (Role) with Spring Security as you can see with return values from method.</p>
+</blockquote>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ModelRepository</span> <span class="kd">implements</span> <span class="nc">UserDetailsService</span>
 </code></pre></div></div>
@@ -246,31 +239,35 @@ window.onload = wrap_img;
     <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="password-encryption-style-bcrypt-is-also-managed-with-this-file">
-<a class="anchor" href="#password-encryption-style-bcrypt-is-also-managed-with-this-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Password Encryption style (BCrypt) is also managed with this file</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Setup Password style for Database storing and lookup</span>
+<blockquote>
+  <p>Password Encryption.  (BCrypt) is also managed with this file</p>
+  <div class="language-java highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>    <span class="c1">// Setup Password style for Database storing and lookup</span>
     <span class="nd">@Autowired</span>  <span class="c1">// Inject PasswordEncoder</span>
     <span class="kd">private</span> <span class="nc">PasswordEncoder</span> <span class="n">passwordEncoder</span><span class="o">;</span>
     <span class="nd">@Bean</span>  <span class="c1">// Sets up password encoding style</span>
     <span class="nc">PasswordEncoder</span> <span class="nf">passwordEncoder</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">new</span> <span class="nf">BCryptPasswordEncoder</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre></div></div>
+</code></pre></div>  </div>
+</blockquote>
 
-<h3 id="password-is-encoded-before-jpa-save--spring-security-does-decoding-within-its-system-later-we-will-build-login-to-send-user-and-password-to-spring-security">
-<a class="anchor" href="#password-is-encoded-before-jpa-save--spring-security-does-decoding-within-its-system-later-we-will-build-login-to-send-user-and-password-to-spring-security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Password is encoded before JPA save.  Spring Security does decoding within its system, later we will build login to send user and password to Spring Security.</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Person</span> <span class="n">person</span><span class="o">)</span> <span class="o">{</span>
+<blockquote>
+  <p>Password is encoded before JPA save.  Spring Security does decoding within its system, later we will build login to send user and password to Spring Security.</p>
+  <div class="language-java highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Person</span> <span class="n">person</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">person</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="n">passwordEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getPassword</span><span class="o">()));</span>
         <span class="n">personJpaRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre></div></div>
+</code></pre></div>  </div>
+</blockquote>
 
 <h3 id="frontend---building-configuration-and-overrides-to-support-spring-security">
 <a class="anchor" href="#frontend---building-configuration-and-overrides-to-support-spring-security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frontend - Building Configuration and Overrides to support Spring Security</h3>
 
-<h4 id="login-page-customizing-your-own">
-<a class="anchor" href="#login-page-customizing-your-own" aria-hidden="true"><span class="octicon octicon-link"></span></a>Login Page (customizing your own)</h4>
-<p>If you override the form, it needs to be built returning a username and password.  The override was setup in <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/MvcConfig.java">MvcConfig</a>.  The purpose of override is so it follows Style guideline from the site.</p>
+<blockquote>
+  <p>Login Page (customizing your own).  If you override the form, it needs to be built returning a username and password.  The override was setup in <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/security/MvcConfig.java">MvcConfig</a>.  The purpose of override is so it follows Style guideline from the site.</p>
+</blockquote>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">"f"</span> <span class="na">th:action=</span><span class="s">"@{/login}"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;table&gt;</span>
@@ -290,10 +287,10 @@ window.onload = wrap_img;
 <span class="nt">&lt;/table&gt;</span>
 </code></pre></div></div>
 
-<h4 id="navbar-customizations">
-<a class="anchor" href="#navbar-customizations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Navbar Customizations</h4>
-<p>Using Thymeleaf and Spring Security the Navbar toggles between Login/Logout based off of Spring Security status.</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Login/Logout --&gt;</span>
+<blockquote>
+  <p>Navbar Customizations. Using Thymeleaf and Spring Security the Navbar toggles between Login/Logout based off of Spring Security status.</p>
+  <div class="language-html highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Login/Logout --&gt;</span>
     <span class="nt">&lt;th:block</span> <span class="na">sec:authorize=</span><span class="s">"isAnonymous()"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"px-3"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;a</span> <span class="na">th:href=</span><span class="s">'@{/login}'</span> <span class="na">class=</span><span class="s">"link-dark"</span><span class="nt">&gt;</span>Login<span class="nt">&lt;/a&gt;</span>
@@ -304,11 +301,12 @@ window.onload = wrap_img;
        <span class="nt">&lt;a</span> <span class="na">th:href=</span><span class="s">'@{/logout}'</span> <span class="na">class=</span><span class="s">"link-dark"</span><span class="nt">&gt;</span>Logout<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/th:block&gt;</span>
-</code></pre></div></div>
+</code></pre></div>  </div>
+</blockquote>
 
-<h4 id="authorization-error---403">
-<a class="anchor" href="#authorization-error---403" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authorization error - 403</h4>
-<p>Following standard of 404 errors, a 403 page is inserted to provide better user experience versus Spring Boot error page.  <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/error/403.html">403.html</a>.  Main purpose of this page is to direct the user back into the website with href.</p>
+<blockquote>
+  <p>Authorization error - 403. Following standard of 404 errors, a 403 page is inserted to provide better user experience versus Spring Boot error page.  <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/resources/templates/error/403.html">403.html</a>.  Main purpose of this page is to direct the user back into the website with href.</p>
+</blockquote>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron jumbotron-fluid"</span> <span class="na">style=</span><span class="s">"text-align: center; "</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h2&gt;</span>You don't have permission to do that! (Insufficient Role)<span class="nt">&lt;/h2&gt;</span>
@@ -317,6 +315,16 @@ window.onload = wrap_img;
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
+<h2 id="hacks">
+<a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h2>
+<blockquote>
+  <p>This blog should give you many considerations when considering how to design a login system with roles.  There are many features to consider, specifically what elements of site will be used by users/roles.</p>
+  <ul>
+    <li>Start to design security features for your own project</li>
+    <li>Make a clone of the Spring Project</li>
+    <li>Try to restrict Delete on Scrum Page to ADMIN rule.</li>
+  </ul>
+</blockquote>
 
   </div><a class="u-url" href="/APCSA/2023/01/12/PBL-spring_security.html" hidden></a>
 </article>
