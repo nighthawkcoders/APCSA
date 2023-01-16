@@ -13,9 +13,9 @@ week: 20
 
 ## Week 20
 > Teams build projects according to their own requirements and key objectives for Trimester.
-- Monday: Stand-up meetings, workday
+- Monday: Live Review, stand-up meetings, 
 - Tuesday: workday
-- Wednesday: Tech Talk
+- Wednesday: JWT Tech Talk
 - Thursday: workday
 - Friday: workday
 

@@ -21,4 +21,4 @@ week: 19
 
 ## Preview Week 20
 > Start Development on N@tM project
-- Monday: project approval and grading, 2 minute updates
+- Monday: project approval and individual quiz blogs, 2 minute updates
