@@ -12,7 +12,7 @@ week: 19
 ---
 
 ## Week 19
-> Teams Ideation reviews in class with review ticket (5 minutes).  Additionally, during the week you will be doing 2 long quiz sessions that you should time.  
+> Teams Ideation reviews in class with review ticket (5 minutes).  Additionally, during the week you will be doing 66 quiz session that you should time.  
 - Monday: Ideation workday
 - Tuesday: Ideation Review (3 teams x 5 minutes), work day
 - Wednesday: Ideation Review (3 teams x 5 minutes), work day

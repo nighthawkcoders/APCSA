@@ -12,7 +12,7 @@ week: 20
 ---
 
 ## Week 20
-> Teams build projects according to their own requirements and key objectives for Trimester.
+> Teams build projects according to their own requirements and key objectives for Trimester.  During week you will complete 52 question quiz.
 - Monday: Live Review, stand-up meetings, 
 - Tuesday: workday
 - Wednesday: JWT Tech Talk
