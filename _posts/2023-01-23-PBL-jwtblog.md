@@ -58,7 +58,7 @@ Accessing /api/person/ with generated jwt token stored in Cookies header
 ### Testing the use of cookies in Chrome console
 At first, when you access http://localhost:8085/, it will return a 401 Unauthorized error because you do not have a jwt cookie.
 ![unauthorized](https://user-images.githubusercontent.com/56620132/214109246-3fdde7e3-e602-4810-8896-cb821737a6bb.png)
-We can use Chrome console to model a frontend by using fetch:
+We can use Chrome console with fetch to model what a frontend would do:
 ![fetch in console](https://user-images.githubusercontent.com/56620132/214109082-95f1a658-e1be-4a95-8fe3-02542a8891f5.png)
 Notice how we have a jwt cookie now
 ![jwt cookie](https://user-images.githubusercontent.com/56620132/214109567-49a77c03-d86f-4685-adaa-d0e9f6ae3a25.png)
