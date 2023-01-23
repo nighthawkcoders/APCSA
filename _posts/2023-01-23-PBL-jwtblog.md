@@ -66,4 +66,4 @@ Reload and http://localhost:8085/ should load without 401 error
 ![authorized](https://user-images.githubusercontent.com/56620132/214109803-70c12715-a6f5-48e5-9865-757cdb6cedaf.png)
 
 ## What's next
-Roles can be be implemented next based on the old csa project and I am looking at that next.
+Roles can also be implemented next based on the old csa project and an actual frontend would be great.
