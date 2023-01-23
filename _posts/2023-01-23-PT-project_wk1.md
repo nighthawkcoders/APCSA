@@ -13,7 +13,7 @@ week: 20
 
 ## Week 20
 > Teams build projects according to their own requirements and key objectives for Trimester.  During week you will complete 52 question quiz.
-- Monday: Live Review Scrum Master only: team scores and 
+- Monday: Live Review Scrum Master only: team scores and 66 question quiz/blog.
 - Tuesday: Standup Meetings with Teacher, 5 minutes go over plans, self-grading plan for Monday
 - Wednesday: JWT Tech Research, top 3 usage A+ project competition (1 week challenge)
 - Thursday: workday
