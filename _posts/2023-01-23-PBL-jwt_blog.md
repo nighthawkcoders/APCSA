@@ -1,6 +1,7 @@
 ---
 toc: true
 comments: false
+author: Aidan Wu
 layout: post
 title: JWT Tokens Implementation
 description: Implementing JWT Tokens into spring boot project.
