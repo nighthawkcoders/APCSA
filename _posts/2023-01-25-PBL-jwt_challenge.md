@@ -11,7 +11,6 @@ week: 20
 
 ## Spring Security using Java Web Tokens Competition
 - [JWT Hello Articles](https://www.javainuse.com/spring/boot-jwt)
-- The spring_portfolio project has been changed by Aidan folloing this procedure.  But there are many things left to do.  [Blog of Change by Aidan Wu]({{site.baseurl}}APCSA/jwt/blog).   You can start where Aidan is or you can roll back last commit and start over.
 
 ### JWT concepts via ChatGPT
 JSON Web Token (JWT) is a popular way to authenticate users in a web application. It is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is digitally signed using JSON Web Signature (JWS).
