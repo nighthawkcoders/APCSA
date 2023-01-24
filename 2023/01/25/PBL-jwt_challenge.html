@@ -10,15 +10,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Manage access and roles to a backend Java Spring Security Application using Java Web Tokens." />
 <meta property="og:description" content="Manage access and roles to a backend Java Spring Security Application using Java Web Tokens." />
-<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt.html" />
-<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt.html" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt_challenge.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt_challenge.html" />
 <meta property="og:site_name" content="APCSA" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-01-25T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Spring Security using Java Web Tokens" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-01-25T00:00:00-06:00","datePublished":"2023-01-25T00:00:00-06:00","description":"Manage access and roles to a backend Java Spring Security Application using Java Web Tokens.","headline":"Spring Security using Java Web Tokens","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-01-25T00:00:00-06:00","datePublished":"2023-01-25T00:00:00-06:00","description":"Manage access and roles to a backend Java Spring Security Application using Java Web Tokens.","headline":"Spring Security using Java Web Tokens","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt_challenge.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/01/25/PBL-jwt_challenge.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -102,11 +102,12 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#code-from-previous-java-spring-project">Code from Previous Java Spring project</a></li>
+<li class="toc-entry toc-h2"><a href="#hacks">Hacks</a></li>
 </ul><h2 id="spring-security-using-java-web-tokens-competition">
 <a class="anchor" href="#spring-security-using-java-web-tokens-competition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spring Security using Java Web Tokens Competition</h2>
 <ul>
   <li><a href="https://www.javainuse.com/spring/boot-jwt">JWT Hello Articles</a></li>
-  <li>The spring_portfolio project has been changed by Aidan folloing this procedure.  But there are many things left to do.  <a href="https://aidanywu.github.io/fastpages/markdown/2023/01/22/JWTTokens.html">Blog of Change by Aidan Wu</a>.   You can start where Aidan is or you can roll back last commit and start over.</li>
+  <li>The spring_portfolio project has been changed by Aidan folloing this procedure.  But there are many things left to do.  <a href="%7Bsite.baseurl%7D/jwt/blog">Blog of Change by Aidan Wu</a>.   You can start where Aidan is or you can roll back last commit and start over.</li>
 </ul>
 
 <h3 id="jwt-concepts-via-chatgpt">
@@ -192,7 +193,30 @@ if (response.ok) {
 </li>
 </ul>
 
-  </div><a class="u-url" href="/APCSA/2023/01/25/PBL-jwt.html" hidden></a>
+<h2 id="hacks">
+<a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h2>
+<blockquote>
+  <p>This is first time that a nighthawkcoding society app is going under JWT.  There are some best practices, but here are some of my preliminary thoughts.  These can be done in your project or on mine.</p>
+  <ul>
+    <li>GitHub Pages Application
+      <ul>
+        <li>Make a Login and SignUp option in upper left corner of page.  To handle this well it may require some them adjustment.  Login or Name should alway be displayed in upper right corner, review <a href="https://csa.nighthawkcodingsociety.com/">csa.nighthawkcodingsociety.com</a> for example.</li>
+        <li>Only block or present login/signup page when someone fails on a fetch of something that is unauthorized.</li>
+      </ul>
+    </li>
+    <li>Spring Application
+      <ul>
+        <li>Add Roles to authentication</li>
+        <li>Bring JavaScript or Spring/Thymeleaf Admin operation into this page</li>
+        <li>Similarly, only block or present login/signup page when someone fails on a fetch of something that is unauthorized.</li>
+      </ul>
+    </li>
+    <li>Blog or Video on your successes and how you got there.</li>
+  </ul>
+</blockquote>
+
+
+  </div><a class="u-url" href="/APCSA/2023/01/25/PBL-jwt_challenge.html" hidden></a>
 </article>
 
       </div>
