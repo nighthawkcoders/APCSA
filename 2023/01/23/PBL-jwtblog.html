@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>JWT Tokens Implementation | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="JWT Tokens Implementation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Implementing JWT Tokens into spring boot project." />
+<meta property="og:description" content="Implementing JWT Tokens into spring boot project." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/01/23/PBL-jwtblog.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/01/23/PBL-jwtblog.html" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-23T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JWT Tokens Implementation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-01-23T00:00:00-06:00","datePublished":"2023-01-23T00:00:00-06:00","description":"Implementing JWT Tokens into spring boot project.","headline":"JWT Tokens Implementation","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/01/23/PBL-jwtblog.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/01/23/PBL-jwtblog.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/ap">AP Standards</a><a class="page-link" href="/APCSA/categories/cte">CTE Standards</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">JWT Tokens Implementation</h1><p class="page-description">Implementing JWT Tokens into spring boot project.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-01-23T00:00:00-06:00" itemprop="datePublished">
+        Jan 23, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#the-code">The Code</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#simple-explanation-of-each-java-file">Simple Explanation of each java file</a></li>
+<li class="toc-entry toc-h3"><a href="#bigger-changes-differing-from-the-article">Bigger changes differing from the article</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#testing">Testing</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#postman-testing">Postman Testing</a></li>
+<li class="toc-entry toc-h3"><a href="#testing-the-use-of-cookies-in-chrome-console">Testing the use of cookies in Chrome console</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#whats-next">What’s next</a></li>
+</ul><h2 id="the-code">
+<a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Code</h2>
+<ul>
+  <li><a href="https://github.com/aidanywu/spring_port/tree/master/src/main/java/com/nighthawk/spring_portfolio/mvc/jwt">JWT</a></li>
+  <li><a href="https://github.com/aidanywu/spring_port/blob/master/src/main/java/com/nighthawk/spring_portfolio/security/SecurityConfig.java">SecurityConfig</a></li>
+</ul>
+
+<h3 id="simple-explanation-of-each-java-file">
+<a class="anchor" href="#simple-explanation-of-each-java-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Explanation of each java file</h3>
+<p>A majority of the code was taken from <a href="https://www.javainuse.com/spring/boot-jwt">https://www.javainuse.com/spring/boot-jwt</a>. The new dependencies we need is in this <a href="https://github.com/nighthawkcoders/spring_portfolio/commit/a5447a6269bd2bae123c415606ac5d0f97db2d25">Commit</a>. This site provided the basic code needed to generate a jwt token and how we would configure the backend to require authorization when accessing a page. (<a href="https://github.com/nighthawkcoders/spring_portfolio/commit/6aad61a5902917e225f3b3dbaf7bd1451b986123">Commit1</a> &amp; <a href="https://github.com/nighthawkcoders/spring_portfolio/commit/08f3cc8c03b44b41ee7c79c3ce2b30ef6165386e">Commit2</a>).</p>
+
+<p>JwtTokenUtil.java, just like its name, contains utilities/functions that is needed to generate JWT tokens and get information like the email from the JWT tokens which is needed for making sure the JWT token is valid.</p>
+
+<p>JWTUserDetailsService.java implements the Spring Security UserDetailsService interface and overrides the loadUserByUsername so we can later get user details from the database using the username.</p>
+
+<p>The name JwtAuthenticationController.java on the article was changed to JwtApiController.java to fit the already existing API controllers and this creates an API endpoint of /authenticate which validates that the given email and password in the body is validate and then generates a JWT token for the credentials if it was valid.</p>
+
+<p>We did not need the JwtRequest.java because it is used to store each user as an object and that is the Person class we’ve already coded. We also do not need JwtResponse.java.</p>
+
+<p>The JwtRequestFilter.java extends the Spring Web Filter OncePerRequestFilter class and overrides the doFilterInternal function so each request sent to the server is processed through the function. The function checks if the JWT token is valid and sets the Authentication in the context to specify that the current user is authenticated.</p>
+
+<p>JwtAuthenticationEntryPoint.java implements AuthenticationEntryPoint and overrides the commence function to specify what to do when a user was not authenticated, which is to return an unauthorized error.</p>
+
+<p>WebSecurityConfig.java is our existing SecurityConfig.java. It extends WebSecurityConfigurerAdapter and overrides configure to allow /authenticate to not need the request be authenticated because /authenticate is where you generate the JWT token is get authenticated, add the jwtRequestFilter.java filter to validate the token with every request, and configure other features of web security like a stateless session. This can also be used to allow specific roles when that is configured (as seen in last year’s csa project).</p>
+
+<h3 id="bigger-changes-differing-from-the-article">
+<a class="anchor" href="#bigger-changes-differing-from-the-article" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bigger changes differing from the article</h3>
+<p>JWTUserDetailsService.java was changed from the article because we already have a database storing users while the article hardcoded a user and password because it did not.</p>
+
+<p>In the article, it assumed that our passwords stored inside the database was already encrypted using bcrypt, therefore, we have to configure /post to encrypt the passwords when adding users (<a href="https://github.com/nighthawkcoders/spring_portfolio/commit/5a869fd7fd37883628880a55699aba8394a1cf68">Commit</a>).</p>
+
+<p>Since the article coded for /authenticate to return the JWT token inside its body, the frontend would have to take the JWT token and configure it into the browser. This would be susceptible to Cross Site Scripting Attacks. We can avoid forcing the frontend’s javascript to set the cookie by coding for /authenticate api’s response to automatically set the browser’s cookies with the JWT token using the Set-Cookie header. For this part, I followed along with <a href="https://reflectoring.io/spring-boot-cookies/">https://reflectoring.io/spring-boot-cookies/</a> and made some changes to JwtApiController.java. Now the request sent by the browser would contain the JWT token using a HttpOnly cookie, so we have to code JwtRequestFilter.java so it gets the JWT token from the request’s Cookie header instead of its Authorization header (<a href="https://github.com/nighthawkcoders/spring_portfolio/commit/fcecd4e650a894912b5abddc2005f94d46fd8f65">Commit</a>).</p>
+
+<h2 id="testing">
+<a class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h2>
+
+<h3 id="postman-testing">
+<a class="anchor" href="#postman-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Postman Testing</h3>
+<p>Using the existing account’s credentials test2@gmail.com and test2 to generate JWT Token through /authenticate.
+<img src="https://user-images.githubusercontent.com/56620132/213969351-4f9bedc3-7780-4e24-b908-f63dae90e47d.png" alt="generating jwt token"></p>
+
+<p>Trying to access /api/person/ without jwt token stored in Cookies
+<img src="https://user-images.githubusercontent.com/56620132/213969664-91397851-1484-4169-8187-e3a0ea8fda0d.png" alt="unauthorized"></p>
+
+<p>Trying to access /api/person/ with a wrong jwt token stored in Cookies
+<img src="https://user-images.githubusercontent.com/56620132/214020929-ef141530-d238-4a0a-9b75-4908a6bb6bc8.png" alt="unauthorized"></p>
+
+<p>Trying to access /api/person/ with a jwt token that does not have the signature
+<img src="https://user-images.githubusercontent.com/56620132/214021142-2273a23f-ae4c-493a-9d08-b39ec944890c.png" alt="unauthorized"></p>
+
+<p>Accessing /api/person/ with generated jwt token stored in Cookies header
+<img src="https://user-images.githubusercontent.com/56620132/213969894-d5a83af9-614e-45ec-afe9-123d8d422713.png" alt="authorized"></p>
+
+<h3 id="testing-the-use-of-cookies-in-chrome-console">
+<a class="anchor" href="#testing-the-use-of-cookies-in-chrome-console" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing the use of cookies in Chrome console</h3>
+<p>At first, when you access http://localhost:8085/, it will return a 401 Unauthorized error because you do not have a jwt cookie.
+<img src="https://user-images.githubusercontent.com/56620132/214109246-3fdde7e3-e602-4810-8896-cb821737a6bb.png" alt="unauthorized">
+We can use Chrome console with fetch to model what a frontend would do:
+<img src="https://user-images.githubusercontent.com/56620132/214109082-95f1a658-e1be-4a95-8fe3-02542a8891f5.png" alt="fetch in console">
+Notice how we have a jwt cookie now
+<img src="https://user-images.githubusercontent.com/56620132/214109567-49a77c03-d86f-4685-adaa-d0e9f6ae3a25.png" alt="jwt cookie">
+Reload and http://localhost:8085/ should load without 401 error
+<img src="https://user-images.githubusercontent.com/56620132/214109803-70c12715-a6f5-48e5-9865-757cdb6cedaf.png" alt="authorized"></p>
+
+<h2 id="whats-next">
+<a class="anchor" href="#whats-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s next</h2>
+<p>Roles can also be implemented next based on the old csa project and an actual frontend would be great.</p>
+
+  </div><a class="u-url" href="/APCSA/2023/01/23/PBL-jwtblog.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://nighthawkcoders.github.io/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
