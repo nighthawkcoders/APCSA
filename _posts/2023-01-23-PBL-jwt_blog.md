@@ -4,6 +4,7 @@ comments: false
 layout: post
 title: JWT Tokens Implementation
 description: Implementing JWT Tokens into spring boot project.
+permalink: /jwt/blog
 categories: []
 type: pbl
 week: 20

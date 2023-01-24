@@ -11,7 +11,7 @@ week: 20
 
 ## Spring Security using Java Web Tokens Competition
 - [JWT Hello Articles](https://www.javainuse.com/spring/boot-jwt)
-- The spring_portfolio project has been changed by Aidan folloing this procedure.  But there are many things left to do.  [Blog of Change by Aidan Wu](https://aidanywu.github.io/fastpages/markdown/2023/01/22/JWTTokens.html).   You can start where Aidan is or you can roll back last commit and start over.
+- The spring_portfolio project has been changed by Aidan folloing this procedure.  But there are many things left to do.  [Blog of Change by Aidan Wu]({site.baseurl}/jwt/blog).   You can start where Aidan is or you can roll back last commit and start over.
 
 ### JWT concepts via ChatGPT
 JSON Web Token (JWT) is a popular way to authenticate users in a web application. It is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is digitally signed using JSON Web Signature (JWS).
@@ -81,3 +81,15 @@ Keep in mind that this is just a simple example, and you should consider using a
 - Roles, [Person Collection of Roles sample](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/person/Person.java)
 - Setup Roles, [Default Roles](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelInit.java)
 - Security, [Endpoint rules](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/security)
+
+## Hacks
+> This is first time that a nighthawkcoding society app is going under JWT.  There are some best practices, but here are some of my preliminary thoughts.  These can be done in your project or on mine.
+- GitHub Pages Application
+    - Make a Login and SignUp option in upper left corner of page.  To handle this well it may require some them adjustment.  Login or Name should alway be displayed in upper right corner, review [csa.nighthawkcodingsociety.com](https://csa.nighthawkcodingsociety.com/) for example. 
+    - Only block or present login/signup page when someone fails on a fetch of something that is unauthorized.
+- Spring Application
+    - Add Roles to authentication
+    - Bring JavaScript or Spring/Thymeleaf Admin operation into this page
+    - Similarly, only block or present login/signup page when someone fails on a fetch of something that is unauthorized.
+- Blog or Video on your successes and how you got there.
+
