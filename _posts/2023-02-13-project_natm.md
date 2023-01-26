@@ -2,7 +2,7 @@
 toc: true
 comments: true
 layout: post
-title:  Week of 02-20, N@tM presentation
+title:  Week of 02-13, N@tM presentation
 description: Teams work on project and demo at N@tM
 permalink: /points/23
 image: /images/points.jpeg
