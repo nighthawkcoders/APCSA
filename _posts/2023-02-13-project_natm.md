@@ -8,7 +8,7 @@ permalink: /points/23
 image: /images/points.jpeg
 categories: [1.B]
 type: plan
-week: 22
+week: 23
 ---
 
 ## Week 23
