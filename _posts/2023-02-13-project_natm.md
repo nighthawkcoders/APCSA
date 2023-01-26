@@ -15,7 +15,7 @@ week: 23
 > Teams build projects according to their own requirements and key objectives for Trimester.
 - Monday: Stand-up meetings, workday
 - Tuesday: workday
-- Wednesday: Best Full Stack, Top 3
+- Wednesday: Best Full Stack, Top 10 (individual)
 - Thursday: N@tM
 - Friday: workday
 
