@@ -14,10 +14,11 @@ week: 21
 ## Week 21
 > Teams build projects according to their own requirements and key objectives for Trimester.
 - Tuesday: Stand-up meetings Live Review complete, Live Review plan
-- Wednesday: JWT Top 3 judging
+- Wednesday: Best JWT, Top 3 judging
 - Thursday: workday
 - Friday: workday
 
 ## Preview Week 22
 > Continue Development on N@tM project
 - Monday: Scrum Board and Issues review
+- Tuesday: Top Challenge

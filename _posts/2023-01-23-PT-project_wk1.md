@@ -22,3 +22,4 @@ week: 20
 ## Preview Week 21
 > Continue Development on N@tM project
 - Monday: Scrum Board and Issues review
+- Tuesday: Top Challenge
