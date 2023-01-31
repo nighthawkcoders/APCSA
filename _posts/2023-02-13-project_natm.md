@@ -15,8 +15,8 @@ week: 23
 > Teams build projects according to their own requirements and key objectives for Trimester.
 - Monday: Stand-up live review, workday
 - Tuesday: workday
-- Wednesday: Best Full Stack, Top 10 (individual)
-- Thursday: N@tM
+- Wednesday: Full Stack Reviews, Top 10 (individual)
+- Thursday: Full Stack Reviews Continued, N@tM capture the moment
 - Friday: workday
 
 ## Preview Week 23
