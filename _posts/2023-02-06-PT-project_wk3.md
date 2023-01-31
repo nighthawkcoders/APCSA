@@ -13,7 +13,7 @@ week: 22
 
 ## Week 22
 > Teams build projects according to their own requirements and key objectives for Trimester.
-- Monday: Stand-up meetings, workday
+- Monday: Stand-up live review, workday
 - Tuesday: workday
 - Wednesday: Best UI, Top 3
 - Thursday: workday

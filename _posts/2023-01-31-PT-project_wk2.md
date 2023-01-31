@@ -14,7 +14,7 @@ week: 21
 ## Week 21
 > Teams build projects according to their own requirements and key objectives for Trimester.
 - Tuesday: Stand-up meetings Live Review complete, Live Review plan
-- Wednesday: Best JWT, Top 3 judging
+- Wednesday: Best JWT, Top 3 judging; Teacher JWT updates
 - Thursday: workday
 - Friday: workday
 
