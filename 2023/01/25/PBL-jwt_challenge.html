@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      9 min read
     
 </span></p>
 
@@ -103,6 +103,7 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#code-from-previous-java-spring-project">Code from Previous Java Spring project</a></li>
 <li class="toc-entry toc-h2"><a href="#hacks">Hacks</a></li>
+<li class="toc-entry toc-h2"><a href="#hack-helpers">Hack Helpers</a></li>
 </ul><h2 id="spring-security-using-java-web-tokens-competition">
 <a class="anchor" href="#spring-security-using-java-web-tokens-competition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spring Security using Java Web Tokens Competition</h2>
 <ul>
@@ -213,6 +214,187 @@ if (response.ok) {
     <li>Blog or Video on your successes and how you got there.</li>
   </ul>
 </blockquote>
+
+<h2 id="hack-helpers">
+<a class="anchor" href="#hack-helpers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hack Helpers</h2>
+<blockquote>
+  <p>Since 1st introducing this project the Teacher has done several things to make this task easier.  However, IMO until you have looked at and played with the code any additions or organizations could just lead to confusion.  Reading article is a must.</p>
+</blockquote>
+
+<ul>
+  <li>security/SecurityConfig.java.
+    <ul>
+      <li>This code sets up BCrypt as password encoder, this is wired into Spring Security</li>
+      <li>HTTP security is changed so that you white list things that you want secure.  It is possible to do this either way, white list authenticated <code class="language-plaintext highlighter-rouge">.antMatchers("/api/person/**").authenticated()</code> or white list permitted <code class="language-plaintext highlighter-rouge">.antMatchers("/", "/frontend/**").permitAll()</code>.  In either case, it is valuable to have a convention on naming endpoints to simplify rules.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+* To enable HTTP Security in Spring, extend the WebSecurityConfigurerAdapter. 
+*/</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableWebSecurity</span>  <span class="c1">// Beans to enable basic Web security</span>
+<span class="nd">@EnableGlobalMethodSecurity</span><span class="o">(</span><span class="n">prePostEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">JwtAuthenticationEntryPoint</span> <span class="n">jwtAuthenticationEntryPoint</span><span class="o">;</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">JwtRequestFilter</span> <span class="n">jwtRequestFilter</span><span class="o">;</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="nc">PersonDetailsService</span> <span class="n">personDetailsService</span><span class="o">;</span>
+	
+    <span class="nd">@Bean</span>  <span class="c1">// Sets up password encoding style</span>
+    <span class="nc">PasswordEncoder</span> <span class="nf">passwordEncoder</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">BCryptPasswordEncoder</span><span class="o">();</span>
+    <span class="o">}</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">configureGlobal</span><span class="o">(</span><span class="nc">AuthenticationManagerBuilder</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="c1">// configure AuthenticationManager so that it knows from where to load</span>
+		<span class="c1">// user for matching credentials</span>
+		<span class="c1">// Use BCryptPasswordEncoder</span>
+		<span class="n">auth</span><span class="o">.</span><span class="na">userDetailsService</span><span class="o">(</span><span class="n">personDetailsService</span><span class="o">).</span><span class="na">passwordEncoder</span><span class="o">(</span><span class="n">passwordEncoder</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="nd">@Bean</span>
+	<span class="kd">public</span> <span class="nc">AuthenticationManager</span> <span class="nf">authenticationManagerBean</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">authenticationManagerBean</span><span class="o">();</span>
+	<span class="o">}</span>
+
+    
+    <span class="c1">// Provide security configuration</span>
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">httpSecurity</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="n">httpSecurity</span>
+			<span class="c1">// no CSRF for this example</span>
+			<span class="o">.</span><span class="na">csrf</span><span class="o">().</span><span class="na">disable</span><span class="o">()</span>
+			<span class="c1">// list the requests/endpoints need to be authenticated</span>
+			<span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>
+			<span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/api/person/**"</span><span class="o">).</span><span class="na">authenticated</span><span class="o">()</span>
+			<span class="o">.</span><span class="na">and</span><span class="o">().</span>
+			<span class="c1">// make sure we use stateless session; </span>
+			<span class="c1">// session won't be used to store user's state.</span>
+			<span class="n">exceptionHandling</span><span class="o">().</span><span class="na">authenticationEntryPoint</span><span class="o">(</span><span class="n">jwtAuthenticationEntryPoint</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">sessionManagement</span><span class="o">()</span>
+			<span class="o">.</span><span class="na">sessionCreationPolicy</span><span class="o">(</span><span class="nc">SessionCreationPolicy</span><span class="o">.</span><span class="na">STATELESS</span><span class="o">);</span>
+
+		<span class="c1">// Add a filter to validate the tokens with every request</span>
+		<span class="n">httpSecurity</span><span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span><span class="n">jwtRequestFilter</span><span class="o">,</span> <span class="nc">UsernamePasswordAuthenticationFilter</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>mvc\person\PersonDetailsService.java, implements UserDetailsService from JWT.
+    <ul>
+      <li>UserDetailsService is how we train Spring Security to use Person and PersonRoles POJOs for security.</li>
+      <li>PersonDetails makes sure each save use password encoding</li>
+      <li>PersonDetails in my implementation is to build abstraction of all the Jpa complexities, allowing  API and MVC classes and methods to be simpler and reusable.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Service</span>
+<span class="nd">@Transactional</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PersonDetailsService</span> <span class="kd">implements</span> <span class="nc">UserDetailsService</span> <span class="o">{</span>  <span class="c1">// "implements" ties ModelRepo to Spring Security</span>
+    <span class="c1">// Encapsulate many object into a single Bean (Person, Roles, and Scrum)</span>
+    <span class="nd">@Autowired</span>  <span class="c1">// Inject PersonJpaRepository</span>
+    <span class="kd">private</span> <span class="nc">PersonJpaRepository</span> <span class="n">personJpaRepository</span><span class="o">;</span>
+    <span class="nd">@Autowired</span>  <span class="c1">// Inject RoleJpaRepository</span>
+    <span class="kd">private</span> <span class="nc">PersonRoleJpaRepository</span> <span class="n">personRoleJpaRepository</span><span class="o">;</span>
+    <span class="nd">@Autowired</span>  <span class="c1">// Inject PasswordEncoder</span>
+    <span class="kd">private</span> <span class="nc">PasswordEncoder</span> <span class="n">passwordEncoder</span><span class="o">;</span>
+
+    <span class="cm">/* UserDetailsService Overrides and maps Person &amp; Roles POJO into Spring Security */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">userdetails</span><span class="o">.</span><span class="na">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="o">(</span><span class="nc">String</span> <span class="n">email</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">UsernameNotFoundException</span> <span class="o">{</span>
+        <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="n">personJpaRepository</span><span class="o">.</span><span class="na">findByEmail</span><span class="o">(</span><span class="n">email</span><span class="o">);</span> <span class="c1">// setting variable user equal to the method finding the username in the database</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">person</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UsernameNotFoundException</span><span class="o">(</span><span class="s">"User not found with username: "</span> <span class="o">+</span> <span class="n">email</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="nc">Collection</span><span class="o">&lt;</span><span class="nc">SimpleGrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">getRoles</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">role</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="c1">//loop through roles</span>
+            <span class="n">authorities</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">SimpleGrantedAuthority</span><span class="o">(</span><span class="n">role</span><span class="o">.</span><span class="na">getName</span><span class="o">()));</span> <span class="c1">//create a SimpleGrantedAuthority by passed in role, adding it all to the authorities list, list of roles gets past in for spring security</span>
+        <span class="o">});</span>
+        <span class="c1">// train spring security to User and Authorities</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">userdetails</span><span class="o">.</span><span class="na">User</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span> <span class="n">person</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(),</span> <span class="n">authorities</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="c1">// ....</span>
+
+    <span class="c1">// encode password prior to sava</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nc">Person</span> <span class="n">person</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="n">passwordEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getPassword</span><span class="o">()));</span>
+        <span class="n">personJpaRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// ....</span>
+
+    <span class="c1">// custom JPA query to find anything containing term in name or email ignoring case</span>
+    <span class="kd">public</span>  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span><span class="n">listLike</span><span class="o">(</span><span class="nc">String</span> <span class="n">term</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">personJpaRepository</span><span class="o">.</span><span class="na">findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase</span><span class="o">(</span><span class="n">term</span><span class="o">,</span> <span class="n">term</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// ....</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>mvc\ModelInit.java, used to initialize database for testing
+    <ul>
+      <li>The <code class="language-plaintext highlighter-rouge">CommandLineRunner run()</code> occurs prior to web site port being available.  Typically, there is only one Bean of type without application.properties override.  Thus, you see jokes and person in same runner.  Splitting this and having Person initialization in person package is desireable.</li>
+      <li>Class methods for Person (<code class="language-plaintext highlighter-rouge">Person.init</code>) is used to initialize object.</li>
+      <li>Each object is checked and saved using <code class="language-plaintext highlighter-rouge">personService</code> methods.</li>
+      <li>Test Notes are added to ensure functionality.  Intention is to add notes into person package.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span> <span class="c1">// Scans Application for ModelInit Bean, this detects CommandLineRunner</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ModelInit</span> <span class="o">{</span>  
+    <span class="nd">@Autowired</span> <span class="nc">JokesJpaRepository</span> <span class="n">jokesRepo</span><span class="o">;</span>
+    <span class="nd">@Autowired</span> <span class="nc">NoteJpaRepository</span> <span class="n">noteRepo</span><span class="o">;</span>
+    <span class="nd">@Autowired</span> <span class="nc">PersonDetailsService</span> <span class="n">personService</span><span class="o">;</span>
+
+    <span class="nd">@Bean</span>
+    <span class="nc">CommandLineRunner</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>  <span class="c1">// The run() method will be executed after the application starts</span>
+        <span class="k">return</span> <span class="n">args</span> <span class="o">-&gt;</span> <span class="o">{</span>
+
+            <span class="c1">// Joke database is populated with starting jokes</span>
+            <span class="nc">String</span><span class="o">[]</span> <span class="n">jokesArray</span> <span class="o">=</span> <span class="nc">Jokes</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">joke</span> <span class="o">:</span> <span class="n">jokesArray</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Jokes</span><span class="o">&gt;</span> <span class="n">jokeFound</span> <span class="o">=</span> <span class="n">jokesRepo</span><span class="o">.</span><span class="na">findByJokeIgnoreCase</span><span class="o">(</span><span class="n">joke</span><span class="o">);</span>  <span class="c1">// JPA lookup</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">jokeFound</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+                    <span class="n">jokesRepo</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="k">new</span> <span class="nc">Jokes</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">joke</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span> <span class="c1">//JPA save</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Person database is populated with test data</span>
+            <span class="nc">Person</span><span class="o">[]</span> <span class="n">personArray</span> <span class="o">=</span> <span class="nc">Person</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="nc">Person</span> <span class="n">person</span> <span class="o">:</span> <span class="n">personArray</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase</span>
+                <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="n">personFound</span> <span class="o">=</span> <span class="n">personService</span><span class="o">.</span><span class="na">list</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">person</span><span class="o">.</span><span class="na">getEmail</span><span class="o">());</span>  <span class="c1">// lookup</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">personFound</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">personService</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>  <span class="c1">// save</span>
+
+                    <span class="c1">// Each "test person" starts with a "test note"</span>
+                    <span class="nc">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"Test "</span> <span class="o">+</span> <span class="n">person</span><span class="o">.</span><span class="na">getEmail</span><span class="o">();</span>
+                    <span class="nc">Note</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Note</span><span class="o">(</span><span class="n">text</span><span class="o">,</span> <span class="n">person</span><span class="o">);</span>  <span class="c1">// constructor uses new person as Many-to-One association</span>
+                    <span class="n">noteRepo</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>  <span class="c1">// JPA Save                  </span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+        <span class="o">};</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
 
 
   </div><a class="u-url" href="/APCSA/2023/01/25/PBL-jwt_challenge.html" hidden></a>
