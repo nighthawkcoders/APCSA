@@ -92,3 +92,169 @@ Keep in mind that this is just a simple example, and you should consider using a
     - Similarly, only block or present login/signup page when someone fails on a fetch of something that is unauthorized.
 - Blog or Video on your successes and how you got there.
 
+## Hack Helpers
+> Since 1st introducing this project the Teacher has done several things to make this task easier.  However, IMO until you have looked at and played with the code any additions or organizations could just lead to confusion.  Reading article is a must.
+
+* security/SecurityConfig.java.   
+    * This code sets up BCrypt as password encoder, this is wired into Spring Security
+    * HTTP security is changed so that you white list things that you want secure.  It is possible to do this either way, white list authenticated `.antMatchers("/api/person/**").authenticated()` or white list permitted `.antMatchers("/", "/frontend/**").permitAll()`.  In either case, it is valuable to have a convention on naming endpoints to simplify rules.
+
+```java
+/*
+* To enable HTTP Security in Spring, extend the WebSecurityConfigurerAdapter. 
+*/
+@Configuration
+@EnableWebSecurity  // Beans to enable basic Web security
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+	@Autowired
+	private JwtRequestFilter jwtRequestFilter;
+
+	@Autowired
+	private PersonDetailsService personDetailsService;
+	
+    @Bean  // Sets up password encoding style
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		// configure AuthenticationManager so that it knows from where to load
+		// user for matching credentials
+		// Use BCryptPasswordEncoder
+		auth.userDetailsService(personDetailsService).passwordEncoder(passwordEncoder());
+	}
+
+	@Override
+	@Bean
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
+
+    
+    // Provide security configuration
+	@Override
+	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity
+			// no CSRF for this example
+			.csrf().disable()
+			// list the requests/endpoints need to be authenticated
+			.authorizeRequests()
+			.antMatchers("/api/person/**").authenticated()
+			.and().
+			// make sure we use stateless session; 
+			// session won't be used to store user's state.
+			exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+		// Add a filter to validate the tokens with every request
+		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+	}
+}
+
+```
+
+* mvc\person\PersonDetailsService.java, implements UserDetailsService from JWT.
+    * UserDetailsService is how we train Spring Security to use Person and PersonRoles POJOs for security.
+    * PersonDetails makes sure each save use password encoding
+    * PersonDetails in my implementation is to build abstraction of all the Jpa complexities, allowing  API and MVC classes and methods to be simpler and reusable.
+
+```java
+@Service
+@Transactional
+public class PersonDetailsService implements UserDetailsService {  // "implements" ties ModelRepo to Spring Security
+    // Encapsulate many object into a single Bean (Person, Roles, and Scrum)
+    @Autowired  // Inject PersonJpaRepository
+    private PersonJpaRepository personJpaRepository;
+    @Autowired  // Inject RoleJpaRepository
+    private PersonRoleJpaRepository personRoleJpaRepository;
+    @Autowired  // Inject PasswordEncoder
+    private PasswordEncoder passwordEncoder;
+
+    /* UserDetailsService Overrides and maps Person & Roles POJO into Spring Security */
+    @Override
+    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Person person = personJpaRepository.findByEmail(email); // setting variable user equal to the method finding the username in the database
+        if(person==null) {
+			    throw new UsernameNotFoundException("User not found with username: " + email);
+        }
+        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        person.getRoles().forEach(role -> { //loop through roles
+            authorities.add(new SimpleGrantedAuthority(role.getName())); //create a SimpleGrantedAuthority by passed in role, adding it all to the authorities list, list of roles gets past in for spring security
+        });
+        // train spring security to User and Authorities
+        return new org.springframework.security.core.userdetails.User(person.getEmail(), person.getPassword(), authorities);
+    }
+
+
+    // ....
+
+    // encode password prior to sava
+    public void save(Person person) {
+        person.setPassword(passwordEncoder.encode(person.getPassword()));
+        personJpaRepository.save(person);
+    }
+
+    // ....
+
+    // custom JPA query to find anything containing term in name or email ignoring case
+    public  List<Person>listLike(String term) {
+        return personJpaRepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(term, term);
+    }
+
+    // ....
+
+}
+```
+
+* mvc\ModelInit.java, used to initialize database for testing
+   * The `CommandLineRunner run()` occurs prior to web site port being available.  Typically, there is only one Bean of type without application.properties override.  Thus, you see jokes and person in same runner.  Splitting this and having Person initialization in person package is desireable. 
+   * Class methods for Person (`Person.init`) is used to initialize object.  
+   * Each object is checked and saved using `personService` methods.
+   * Test Notes are added to ensure functionality.  Intention is to add notes into person package.
+
+```java
+@Component // Scans Application for ModelInit Bean, this detects CommandLineRunner
+public class ModelInit {  
+    @Autowired JokesJpaRepository jokesRepo;
+    @Autowired NoteJpaRepository noteRepo;
+    @Autowired PersonDetailsService personService;
+
+    @Bean
+    CommandLineRunner run() {  // The run() method will be executed after the application starts
+        return args -> {
+
+            // Joke database is populated with starting jokes
+            String[] jokesArray = Jokes.init();
+            for (String joke : jokesArray) {
+                List<Jokes> jokeFound = jokesRepo.findByJokeIgnoreCase(joke);  // JPA lookup
+                if (jokeFound.size() == 0)
+                    jokesRepo.save(new Jokes(null, joke, 0, 0)); //JPA save
+            }
+
+            // Person database is populated with test data
+            Person[] personArray = Person.init();
+            for (Person person : personArray) {
+                //findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase
+                List<Person> personFound = personService.list(person.getName(), person.getEmail());  // lookup
+                if (personFound.size() == 0) {
+                    personService.save(person);  // save
+
+                    // Each "test person" starts with a "test note"
+                    String text = "Test " + person.getEmail();
+                    Note n = new Note(text, person);  // constructor uses new person as Many-to-One association
+                    noteRepo.save(n);  // JPA Save                  
+                }
+            }
+
+        };
+    }
+}
+
+```
+
