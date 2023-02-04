@@ -125,7 +125,10 @@ window.onload = wrap_img;
     },
   };
   // prepare fetch PUT options, clones with JS Spread Operator (...)
-  const put_options = {...options, method: 'PUT'}; // clones and replaces method
+  const put_options = {...options,
+   method: 'PUT',
+   mode: 'no-cors', // no-cors, *cors, same-origin
+   }; // clones and replaces method
 
   // fetch the API
   fetch(get_url, options)
