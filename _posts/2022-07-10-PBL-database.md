@@ -86,7 +86,7 @@ tags: [javascript]
     console.error(err);
     const tr = document.createElement("tr");
     const td = document.createElement("td");
-    td.innerHTML = err;
+    td.innerHTML = err + ": " + url;
     tr.appendChild(td);
     resultContainer.appendChild(tr);
   });
