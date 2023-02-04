@@ -116,7 +116,7 @@ window.onload = wrap_img;
   // prepare fetch GET options
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
+    mode: 'no-cors', // no-cors, *cors, same-origin
     cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, same-origin, omit
     headers: {
@@ -127,7 +127,7 @@ window.onload = wrap_img;
   // prepare fetch PUT options, clones with JS Spread Operator (...)
   const put_options = {...options,
     method: 'PUT',
-    // mode: 'no-cors', // no-cors, *cors, same-origin
+    mode: 'cors', // no-cors, *cors, same-origin
   }; // clones and replaces method
 
   // fetch the API
