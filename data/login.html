@@ -4,23 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Database CRUD Operations | APCSA</title>
+<title>JWT Login | APCSA</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Database CRUD Operations" />
+<meta property="og:title" content="JWT Login" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An advanced example of do database create, read, update, delete operations working asynchronously between JavaScript and a Java backend Database. This requires a set of Java RESTful API services for Get, Put, Delete, and Update." />
-<meta property="og:description" content="An advanced example of do database create, read, update, delete operations working asynchronously between JavaScript and a Java backend Database. This requires a set of Java RESTful API services for Get, Put, Delete, and Update." />
-<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/data/database" />
-<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/data/database" />
+<meta name="description" content="A login screen that interacts with Java and obtains a JWT" />
+<meta property="og:description" content="A login screen that interacts with Java and obtains a JWT" />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/data/login" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/data/login" />
 <meta property="og:site_name" content="APCSA" />
-<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/database.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-07-10T00:00:00-05:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/database.png" />
-<meta property="twitter:title" content="Database CRUD Operations" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JWT Login" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-10T00:00:00-05:00","datePublished":"2022-07-10T00:00:00-05:00","description":"An advanced example of do database create, read, update, delete operations working asynchronously between JavaScript and a Java backend Database. This requires a set of Java RESTful API services for Get, Put, Delete, and Update.","headline":"Database CRUD Operations","image":"https://nighthawkcoders.github.io/APCSA/images/database.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/data/database"},"url":"https://nighthawkcoders.github.io/APCSA/data/database"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-10T00:00:00-05:00","datePublished":"2022-07-10T00:00:00-05:00","description":"A login screen that interacts with Java and obtains a JWT","headline":"JWT Login","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/data/login"},"url":"https://nighthawkcoders.github.io/APCSA/data/login"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -83,86 +81,56 @@ window.onload = wrap_img;
     </tr>
 </table>
 
-<h2 id="students">Students</h2>
-<!-- HTML table fragment for page -->
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>ID</th>
-    <th>Age</th>
-  </tr>
-  </thead>
-  <tbody id="result">
-    <!-- javascript generated data -->
-  </tbody>
-</table>
+<form action="javascript:login_user()">
+    <p><label>
+        User ID:
+        <input type="text" name="uid" id="uid" required="" />
+    </label></p>
+    <p><label>
+        Password:
+        <input type="password" name="password" id="password" required="" />
+    </label></p>
+    <p>
+        <button>Login</button>
+    </p>
+</form>
 
-<!-- Script is layed out in a sequence (no function) and will execute when page is loaded -->
 <script>
-  // prepare HTML result container for new output
-  const resultContainer = document.getElementById("result");
+    // prepare URL's to allow easy switch from deployment and localhost
+    //const url = "http://localhost:8085"
+    const url = "https://spring.nighthawkcodingsociety.com"
+    const login_url = url + '/authenticate';
 
-  // prepare fetch options
-  const url = "https://spring.nighthawkcodingsociety.com/api/person/";
-  //const url = "http://localhost:8085/api/person/";
-  const options = {
-    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'omit', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  };
+    function login_user(){
+        //Validate Password (must be 6-20 characters in len)
+        //verifyPassword("click");
+        const body = {
+            email: document.getElementById("uid").value,
+            password: document.getElementById("password").value,
+        };
+        const requestOptions = {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                "content-type": "application/json",
+                'Authorization': 'Bearer my-token',
+            },
+        };
 
-  // fetch the API
-  fetch(url, options)
-    // response is a RESTful "promise" on any successful fetch
-    .then(response => {
-      // check for response errors
-      if (response.status !== 200) {
-          const errorMsg = 'Database response error: ' + response.status;
-          console.log(errorMsg);
-          const tr = document.createElement("tr");
-          const td = document.createElement("td");
-          td.innerHTML = errorMsg;
-          tr.appendChild(td);
-          resultContainer.appendChild(tr);
-          return;
-      }
-      // valid response will have json data
-      response.json().then(data => {
-          console.log(data);
-          for (const row of data) {
-            // tr and td build out for each row
-            const tr = document.createElement("tr");
-            const name = document.createElement("td");
-            const id = document.createElement("td");
-            const age = document.createElement("td");
-            // data is specific to the API
-            name.innerHTML = row.name; 
-            id.innerHTML = row.email; 
-            age.innerHTML = row.age; 
-            // this build td's into tr
-            tr.appendChild(name);
-            tr.appendChild(id);
-            tr.appendChild(age);
-            // add HTML to container
-            resultContainer.appendChild(tr);
-          }
-      })
-  })
-  // catch fetch errors (ie ACCESS to server blocked)
-  .catch(err => {
-    console.error(err);
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    td.innerHTML = err + ": " + url;
-    tr.appendChild(td);
-    resultContainer.appendChild(tr);
-  });
+        // URL for Create API
+        // Fetch API call to the database to create a new user
+        fetch(login_url, requestOptions)
+        .then(response => {
+            // trap error response from Web API
+            if (!response.ok) {
+                const errorMsg = 'Login error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+        })
+    }
+
+
 </script>
 
 
