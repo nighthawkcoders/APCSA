@@ -10,7 +10,7 @@ tags: [javascript]
 
 {% include nav_data.html %}
 
-## Students
+## SQL Database
 <!-- HTML table fragment for page -->
 <table>
   <thead>
@@ -33,14 +33,15 @@ tags: [javascript]
   // prepare fetch options
   const url = "https://spring.nighthawkcodingsociety.com/api/person/";
   //const url = "http://localhost:8085/api/person/";
+
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'omit', // include, *same-origin, omit
     headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
     },
   };
 
