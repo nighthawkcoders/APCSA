@@ -83,7 +83,7 @@ window.onload = wrap_img;
     </tr>
 </table>
 
-<h2 id="students">Students</h2>
+<h2 id="sql-database">SQL Database</h2>
 <!-- HTML table fragment for page -->
 <table>
   <thead>
@@ -106,14 +106,15 @@ window.onload = wrap_img;
   // prepare fetch options
   const url = "https://spring.nighthawkcodingsociety.com/api/person/";
   //const url = "http://localhost:8085/api/person/";
+
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'omit', // include, *same-origin, omit
     headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
     },
   };
 

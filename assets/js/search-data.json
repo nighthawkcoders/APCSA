@@ -916,7 +916,7 @@
     
         ,"post83": {
             "title": "Database CRUD Operations",
-            "content": "| Overview | Covid19 RapidAPI | Jokes API | JWT Login | Database CRUD | . Students . Name ID Age .",
+            "content": "| Overview | Covid19 RapidAPI | Jokes API | JWT Login | Database CRUD | . SQL Database . Name ID Age .",
             "url": "https://nighthawkcoders.github.io/APCSA/data/database",
             "relUrl": "/data/database",
             "date": " • Jul 10, 2022"
