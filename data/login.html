@@ -97,9 +97,11 @@ window.onload = wrap_img;
 
 <script>
     // prepare URL's to allow easy switch from deployment and localhost
-    //const url = "http://localhost:8085"
-    const url = "https://spring.nighthawkcodingsociety.com"
+    var url = "https://spring.nighthawkcodingsociety.com"
+    //url = "http://localhost:8085"
+
     const login_url = url + '/authenticate';
+
 
     function login_user(){
         //Validate Password (must be 6-20 characters in len)
@@ -113,7 +115,6 @@ window.onload = wrap_img;
             body: JSON.stringify(body),
             headers: {
                 "content-type": "application/json",
-                'Authorization': 'Bearer my-token',
             },
         };
 
@@ -127,7 +128,7 @@ window.onload = wrap_img;
                 console.log(errorMsg);
                 return;
             }
-            // Grt the JWT from Header and Store it
+            // Get the JWT from Header and Store it
             jwt = response.headers.get("Set-Cookie");   // NOT WORKING
             localStorage.setItem('jwt', jwt);
             window.location.href = "/APCSA/data/database";
