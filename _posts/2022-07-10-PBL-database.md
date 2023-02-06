@@ -32,7 +32,7 @@ tags: [javascript]
 
   // prepare fetch options
   var url = "https://spring.nighthawkcodingsociety.com/api/person/";
-  //url = "http://localhost:8085/api/person/";
+  url = "http://localhost:8085/api/person/";
 
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -41,7 +41,8 @@ tags: [javascript]
     credentials: 'omit', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      Authorize: `Bearer ${localStorage.getItem('jwt')}`,
+      Cookie: `Bearer ${localStorage.getItem('jwt')}`,
     },
   };
 
