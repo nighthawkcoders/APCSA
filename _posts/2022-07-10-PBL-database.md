@@ -32,7 +32,7 @@ tags: [javascript]
 
   // prepare fetch options
   var url = "https://spring.nighthawkcodingsociety.com/api/person/";
-  url = "http://localhost:8085/api/person/";
+  //url = "http://localhost:8085/api/person/";
 
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
