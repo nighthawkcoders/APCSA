@@ -43,63 +43,199 @@ ChatGPT says ... It is generally recommended to use a combination of options to 
 However, for this implementation we have used *** #3 HttpOnly Cookie ***.
 
 
-#### Obtain JWT in a JavaScript application:
-// Send a login request to the server with the user's credentials
-const loginResponse = await fetch('/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ username: 'user1', password: 'pass123' }),
-});
+### Key Configuration Areas
+#### Nginx configuration snippet (Client to this Server):
+> Nginx. Focus on add_header in preflight that allow cross domain (github.io) to access server.
+```java
+location / {
+        proxy_pass http://localhost:8085;
 
-// If the login was successful, the server will return a JWT
-if (loginResponse.ok) {
-  // Extract the JWT from the response
-  const jwt = loginResponse.headers.get('Authorization').split(' ')[1];
+        # Preflighted requests
+        if ($request_method = OPTIONS ) {
+                add_header "Access-Control-Allow-Credentials"  "true";
+                add_header "Access-Control-Allow-Origin"  "https://myserver.github.io";
+                add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
+                add_header "Access-Control-Allow-MaxAge"  600;
+                add_header "Access-Control-Allow-Headers" "Content-Type, Authorization, x-csrf-token";
+                return 200;
+        }
 
-  // Store the JWT in a cookie or in local storage
-  document.cookie = `jwt=${jwt}`;
-  // or
-  localStorage.setItem('jwt', jwt);
-}
+    }
+```
+
+
+#### Java JWT / Authenticate API
+> Java. Focus on the response ResponseCookie to see type, path, age, and allowing for cross-origin (sameSite).
+```java
+@PostMapping("/authenticate")
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody Person authenticationRequest) throws Exception {
+		authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+		final UserDetails userDetails = personDetailsService
+				.loadUserByUsername(authenticationRequest.getEmail());
+		final String token = jwtTokenUtil.generateToken(userDetails);
+		final ResponseCookie tokenCookie = ResponseCookie.from("jwt", token)
+			.httpOnly(true)
+			.secure(true)
+			.path("/")
+			.maxAge(3600)
+			.sameSite("None; Secure")
+			// .domain("example.com") // Set to backend domain
+			.build();
+		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, tokenCookie.toString()).build();
+	}
+```
+
+#### Java WebMvcConfigurer addCorsMappings
+> Java. Focus on allowedOrigins, clients that can access this server server
+```java
+@Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedOrigins("https://myserver.github.io", "http://localhost:4000");
+    }
+```
+
+#### Java Security Config
+> Java. CORS enablement and headers to allow access to API endpoints from cross origin. 
+```java
+.cors().and()
+    .headers()
+        .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Credentials", "true"))
+        .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-ExposedHeaders", "*", "Authorization"))
+        .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Headers", "Content-Type", "Authorization", "x-csrf-token"))
+        .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-MaxAge", "600"))
+        .addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Methods", "POST", "GET", "OPTIONS", "HEAD"))
+        //.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "https://nighthawkcoders.github.io", "http://localhost:4000"))
+```
 
 #### Authenticate with JWT in a JavaScript application:
-This example sends a POST request to the /login endpoint with the user's credentials in the request body. If the login was successful, the server will return a 200 OK response with the JWT in the Authorization header. The JWT is then extracted from the header and stored in a cookie or in local storage.
+> This example sends a POST request to the /authorize endpoint with the user's credentials in the request body. If the login was successful, the server will return a 200 OK response with the JWT set to Application properties.
 
-You can then use the JWT for authentication in subsequent requests by sending it in the Authorization header:
+```javascript
+/// URL for deployment
+var url = "https://spring.nighthawkcodingsociety.com"
+// Comment out next line for local testing
+// url = "http://localhost:8085"
+// Authenticate endpoint
+const login_url = url + '/authenticate';
 
-// Send a request to a protected endpoint
-const response = await fetch('/protected', {
-  headers: {
-    // Send the JWT in the Authorization header
-    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-  },
-});
 
-// If the JWT is valid, the server will allow the request to proceed
-if (response.ok) {
-  // ...
+function login_user(){
+    // Set body to include login data
+    const body = {
+        email: document.getElementById("uid").value,
+        password: document.getElementById("password").value,
+    };
+
+    // Set Headers to support cross origin
+    const requestOptions = {
+        method: 'POST',
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        body: JSON.stringify(body),
+        headers: {
+            "content-type": "application/json",
+        },
+    };
+
+    // Fetch JWT
+    fetch(login_url, requestOptions)
+    .then(response => {
+        // trap error response from Web API
+        if (!response.ok) {
+            const errorMsg = 'Login error: ' + response.status;
+            console.log(errorMsg);
+            return;
+        }
+        // Success!!!
+        // Redirect to Database location
+        window.location.href = "/APCSA/data/database";
+    })
 }
+```
 
-Keep in mind that this is just a simple example, and you should consider using a library like axios or fetch-intercept to handle the details of sending and receiving HTTP requests and responses. You should also consider using HTTPS to encrypt the communication between the client and the server, and use short-lived JWTs with frequent refresh to reduce the risk of unauthorized access
+You can then use the JWT for authentication in subsequent fetch requests as the browser sends JWT in the Authorization header.   Here is an example, but there is *** Nothing Unique *** in this example.  
 
-## Code from Previous Java Spring project
-- Roles, [Person Collection of Roles sample](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/person/Person.java)
-- Setup Roles, [Default Roles](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelInit.java)
-- Security, [Endpoint rules](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/security)
+```javascript
+// prepare HTML result container for new output
+  const resultContainer = document.getElementById("result");
+
+  // prepare URL
+  var url = "https://spring.nighthawkcodingsociety.com/api/person/";
+  // Uncomment next line for localhost testing
+  // url = "http://localhost:8085/api/person/";
+
+  // set options for cross origin header request
+  const options = {
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  // fetch the API
+  fetch(url, options)
+    // response is a RESTful "promise" on any successful fetch
+    .then(response => {
+      // check for response errors and display
+      if (response.status !== 200) {
+          const errorMsg = 'Database response error: ' + response.status;
+          console.log(errorMsg);
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.innerHTML = errorMsg;
+          tr.appendChild(td);
+          resultContainer.appendChild(tr);
+          return;
+      }
+      // valid response will contain json data
+      response.json().then(data => {
+          console.log(data);
+          for (const row of data) {
+            // tr and td build out for each row
+            const tr = document.createElement("tr");
+            const name = document.createElement("td");
+            const id = document.createElement("td");
+            const age = document.createElement("td");
+            // data is specific to the API
+            name.innerHTML = row.name; 
+            id.innerHTML = row.email; 
+            age.innerHTML = row.age; 
+            // this build td's into tr
+            tr.appendChild(name);
+            tr.appendChild(id);
+            tr.appendChild(age);
+            // add HTML to container
+            resultContainer.appendChild(tr);
+          }
+      })
+  })
+  // catch fetch errors (ie ACCESS to server blocked)
+  .catch(err => {
+    console.error(err);
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.innerHTML = err + ": " + url;
+    tr.appendChild(td);
+    resultContainer.appendChild(tr);
+  });
+  ```
 
 ## Hacks
-> This is first time that a nighthawkcoding society app is going under JWT.  There are some best practices, but here are some of my preliminary thoughts.  These can be done in your project or on mine.
+> This is first time that a nighthawkcoding society apps are under JWT.  There are some best practices, but these are simply preliminary thoughts.  These can be done in your project or on mine.
 - GitHub Pages Application
     - Make a Login and SignUp option in upper left corner of page.  To handle this well it may require some them adjustment.  Login or Name should alway be displayed in upper right corner, review [csa.nighthawkcodingsociety.com](https://csa.nighthawkcodingsociety.com/) for example. 
     - Only block or present login/signup page when someone fails on a fetch of something that is unauthorized.
 - Spring Application
     - Add Roles to authentication
-    - Bring JavaScript or Spring/Thymeleaf Admin operation into this page
-    - Similarly, only block or present login/signup page when someone fails on a fetch of something that is unauthorized.
+    - Bring JavaScript or Spring/Thymeleaf Admin operations into this page.  Some Thymeleaf exists in the project,
 - Blog or Video on your successes and how you got there.
 
 ## Hack Helpers
-> Since 1st introducing this project the Teacher has done several things to make this task easier.  However, IMO until you have looked at and played with the code any additions or organizations could just lead to confusion.  Reading article is a must.
+> Additional user and security elements.
 
 * security/SecurityConfig.java.   
     * This code sets up BCrypt as password encoder, this is wired into Spring Security
@@ -143,24 +279,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
     
-    // Provide security configuration
-	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity
-			// no CSRF for this example
-			.csrf().disable()
-			// list the requests/endpoints need to be authenticated
-			.authorizeRequests()
-			.antMatchers("/api/person/**").authenticated()
-			.and().
-			// make sure we use stateless session; 
-			// session won't be used to store user's state.
-			exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-		// Add a filter to validate the tokens with every request
-		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-	}
+    ...
 }
 
 ```
