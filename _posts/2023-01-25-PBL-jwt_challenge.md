@@ -23,7 +23,7 @@ Here is an example of how you might use JWT for authentication in a JavaScript a
     - Sec-Fetch-Site: cross-site
 3. The client stores the JWT in a cookie. Here is cookie in Chrome Inspect properties
     - ![JWT Cookie]({{site.baseurl}}/images/jwt_cookie.png)
-4. For subsequent requests, the client sends the JWT in the Authorization header.  Here is sample of header.
+4. For subsequent requests, the client sends the JWT in the Authorization header.  Here is a sample JWT.
     - jwt=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqbTEwMjFAZ21haWwuY29tIiwiZXhwIjoxNjc1ODA0MTg2LCJpYXQiOjE2NzU3ODYxODZ9.rHoLxTcBJOBv36gH5qNI1VhgGv2Jub1OPtpddf1-fHd84BcL5MeGxiBhi2M0MpEJcuhTjeC2TYWVaOjT7ek0tg; Path=/; Max-Age=3600; Expires=Tue, 07 Feb 2023 17:09:46 GMT; Secure; HttpOnly; SameSite=None; Secure
 5. The server verifies the JWT and, if it is valid, allows the request to proceed.  Here is successful response.
     - ![JWT Response]({{site.baseurl}}/images/jwt_response.png)
