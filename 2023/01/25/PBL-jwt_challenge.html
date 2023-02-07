@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      11 min read
     
 </span></p>
 
@@ -94,13 +94,19 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#jwt-concepts-via-chatgpt-with-added-illustrations">JWT concepts via ChatGPT with added illustrations</a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#storing-jwt">Storing JWT</a></li>
-<li class="toc-entry toc-h4"><a href="#obtain-jwt-in-a-javascript-application">Obtain JWT in a JavaScript application:</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#key-configuration-areas">Key Configuration Areas</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#nginx-configuration-snippet-client-to-this-server">Nginx configuration snippet (Client to this Server):</a></li>
+<li class="toc-entry toc-h4"><a href="#java-jwt--authenticate-api">Java JWT / Authenticate API</a></li>
+<li class="toc-entry toc-h4"><a href="#java-webmvcconfigurer-addcorsmappings">Java WebMvcConfigurer addCorsMappings</a></li>
+<li class="toc-entry toc-h4"><a href="#java-security-config">Java Security Config</a></li>
 <li class="toc-entry toc-h4"><a href="#authenticate-with-jwt-in-a-javascript-application">Authenticate with JWT in a JavaScript application:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#code-from-previous-java-spring-project">Code from Previous Java Spring project</a></li>
 <li class="toc-entry toc-h2"><a href="#hacks">Hacks</a></li>
 <li class="toc-entry toc-h2"><a href="#hack-helpers">Hack Helpers</a></li>
 </ul><h2 id="spring-security-using-java-web-tokens-competition">
@@ -131,7 +137,7 @@ Here is an example of how you might use JWT for authentication in a JavaScript a
       <li><img src="/APCSA/images/jwt_cookie.png" alt="JWT Cookie"></li>
     </ul>
   </li>
-  <li>For subsequent requests, the client sends the JWT in the Authorization header.  Here is sample of header.
+  <li>For subsequent requests, the client sends the JWT in the Authorization header.  Here is a sample JWT.
     <ul>
       <li>jwt=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqbTEwMjFAZ21haWwuY29tIiwiZXhwIjoxNjc1ODA0MTg2LCJpYXQiOjE2NzU3ODYxODZ9.rHoLxTcBJOBv36gH5qNI1VhgGv2Jub1OPtpddf1-fHd84BcL5MeGxiBhi2M0MpEJcuhTjeC2TYWVaOjT7ek0tg; Path=/; Max-Age=3600; Expires=Tue, 07 Feb 2023 17:09:46 GMT; Secure; HttpOnly; SameSite=None; Secure</li>
     </ul>
@@ -161,62 +167,204 @@ Here is an example of how you might use JWT for authentication in a JavaScript a
 
 <p>However, for this implementation we have used <em>** #3 HttpOnly Cookie **</em>.</p>
 
-<h4 id="obtain-jwt-in-a-javascript-application">
-<a class="anchor" href="#obtain-jwt-in-a-javascript-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtain JWT in a JavaScript application:</h4>
-<p>// Send a login request to the server with the user’s credentials
-const loginResponse = await fetch(‘/login’, {
-  method: ‘POST’,
-  headers: { ‘Content-Type’: ‘application/json’ },
-  body: JSON.stringify({ username: ‘user1’, password: ‘pass123’ }),
-});</p>
+<h3 id="key-configuration-areas">
+<a class="anchor" href="#key-configuration-areas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Configuration Areas</h3>
+<h4 id="nginx-configuration-snippet-client-to-this-server">
+<a class="anchor" href="#nginx-configuration-snippet-client-to-this-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nginx configuration snippet (Client to this Server):</h4>
+<blockquote>
+  <p>Nginx. Focus on add_header in preflight that allow cross domain (github.io) to access server.
+```java
+location / {
+        proxy_pass http://localhost:8085;</p>
+</blockquote>
 
-<p>// If the login was successful, the server will return a JWT
-if (loginResponse.ok) {
-  // Extract the JWT from the response
-  const jwt = loginResponse.headers.get(‘Authorization’).split(‘ ‘)[1];</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # Preflighted requests
+    if ($request_method = OPTIONS ) {
+            add_header "Access-Control-Allow-Credentials"  "true";
+            add_header "Access-Control-Allow-Origin"  "https://myserver.github.io";
+            add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
+            add_header "Access-Control-Allow-MaxAge"  600;
+            add_header "Access-Control-Allow-Headers" "Content-Type, Authorization, x-csrf-token";
+            return 200;
+    }
 
-<p>// Store the JWT in a cookie or in local storage
-  document.cookie = <code class="language-plaintext highlighter-rouge">jwt=${jwt}</code>;
-  // or
-  localStorage.setItem(‘jwt’, jwt);
-}</p>
+} ```
+</code></pre></div></div>
+
+<h4 id="java-jwt--authenticate-api">
+<a class="anchor" href="#java-jwt--authenticate-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Java JWT / Authenticate API</h4>
+<blockquote>
+  <p>Java. Focus on the response ResponseCookie to see type, path, age, and allowing for cross-origin (sameSite).</p>
+  <div class="language-java highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">"/authenticate"</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="nc">ResponseEntity</span><span class="o">&lt;?&gt;</span> <span class="n">createAuthenticationToken</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="nc">Person</span> <span class="n">authenticationRequest</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="n">authenticate</span><span class="o">(</span><span class="n">authenticationRequest</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span> <span class="n">authenticationRequest</span><span class="o">.</span><span class="na">getPassword</span><span class="o">());</span>
+		<span class="kd">final</span> <span class="nc">UserDetails</span> <span class="n">userDetails</span> <span class="o">=</span> <span class="n">personDetailsService</span>
+				<span class="o">.</span><span class="na">loadUserByUsername</span><span class="o">(</span><span class="n">authenticationRequest</span><span class="o">.</span><span class="na">getEmail</span><span class="o">());</span>
+		<span class="kd">final</span> <span class="nc">String</span> <span class="n">token</span> <span class="o">=</span> <span class="n">jwtTokenUtil</span><span class="o">.</span><span class="na">generateToken</span><span class="o">(</span><span class="n">userDetails</span><span class="o">);</span>
+		<span class="kd">final</span> <span class="nc">ResponseCookie</span> <span class="n">tokenCookie</span> <span class="o">=</span> <span class="nc">ResponseCookie</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="s">"jwt"</span><span class="o">,</span> <span class="n">token</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">httpOnly</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">secure</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">path</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">maxAge</span><span class="o">(</span><span class="mi">3600</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">sameSite</span><span class="o">(</span><span class="s">"None; Secure"</span><span class="o">)</span>
+			<span class="c1">// .domain("example.com") // Set to backend domain</span>
+			<span class="o">.</span><span class="na">build</span><span class="o">();</span>
+		<span class="k">return</span> <span class="nc">ResponseEntity</span><span class="o">.</span><span class="na">ok</span><span class="o">().</span><span class="na">header</span><span class="o">(</span><span class="nc">HttpHeaders</span><span class="o">.</span><span class="na">SET_COOKIE</span><span class="o">,</span> <span class="n">tokenCookie</span><span class="o">.</span><span class="na">toString</span><span class="o">()).</span><span class="na">build</span><span class="o">();</span>
+	<span class="o">}</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<h4 id="java-webmvcconfigurer-addcorsmappings">
+<a class="anchor" href="#java-webmvcconfigurer-addcorsmappings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Java WebMvcConfigurer addCorsMappings</h4>
+<blockquote>
+  <p>Java. Focus on allowedOrigins, clients that can access this server server</p>
+  <div class="language-java highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addCorsMappings</span><span class="o">(</span><span class="nc">CorsRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">addMapping</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">allowedOrigins</span><span class="o">(</span><span class="s">"https://myserver.github.io"</span><span class="o">,</span> <span class="s">"http://localhost:4000"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<h4 id="java-security-config">
+<a class="anchor" href="#java-security-config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Java Security Config</h4>
+<blockquote>
+  <p>Java. CORS enablement and headers to allow access to API endpoints from cross origin.</p>
+  <div class="language-java highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="na">cors</span><span class="o">().</span><span class="na">and</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">headers</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">addHeaderWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">StaticHeadersWriter</span><span class="o">(</span><span class="s">"Access-Control-Allow-Credentials"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">addHeaderWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">StaticHeadersWriter</span><span class="o">(</span><span class="s">"Access-Control-Allow-ExposedHeaders"</span><span class="o">,</span> <span class="s">"*"</span><span class="o">,</span> <span class="s">"Authorization"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">addHeaderWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">StaticHeadersWriter</span><span class="o">(</span><span class="s">"Access-Control-Allow-Headers"</span><span class="o">,</span> <span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"x-csrf-token"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">addHeaderWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">StaticHeadersWriter</span><span class="o">(</span><span class="s">"Access-Control-Allow-MaxAge"</span><span class="o">,</span> <span class="s">"600"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">addHeaderWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">StaticHeadersWriter</span><span class="o">(</span><span class="s">"Access-Control-Allow-Methods"</span><span class="o">,</span> <span class="s">"POST"</span><span class="o">,</span> <span class="s">"GET"</span><span class="o">,</span> <span class="s">"OPTIONS"</span><span class="o">,</span> <span class="s">"HEAD"</span><span class="o">))</span>
+        <span class="c1">//.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "https://nighthawkcoders.github.io", "http://localhost:4000"))</span>
+</code></pre></div>  </div>
+</blockquote>
 
 <h4 id="authenticate-with-jwt-in-a-javascript-application">
 <a class="anchor" href="#authenticate-with-jwt-in-a-javascript-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authenticate with JWT in a JavaScript application:</h4>
-<p>This example sends a POST request to the /login endpoint with the user’s credentials in the request body. If the login was successful, the server will return a 200 OK response with the JWT in the Authorization header. The JWT is then extracted from the header and stored in a cookie or in local storage.</p>
+<blockquote>
+  <p>This example sends a POST request to the /authorize endpoint with the user’s credentials in the request body. If the login was successful, the server will return a 200 OK response with the JWT set to Application properties.</p>
+</blockquote>
 
-<p>You can then use the JWT for authentication in subsequent requests by sending it in the Authorization header:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// URL for deployment</span>
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://spring.nighthawkcodingsociety.com</span><span class="dl">"</span>
+<span class="c1">// Comment out next line for local testing</span>
+<span class="c1">// url = "http://localhost:8085"</span>
+<span class="c1">// Authenticate endpoint</span>
+<span class="kd">const</span> <span class="nx">login_url</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/authenticate</span><span class="dl">'</span><span class="p">;</span>
 
-<p>// Send a request to a protected endpoint
-const response = await fetch(‘/protected’, {
-  headers: {
-    // Send the JWT in the Authorization header
-    Authorization: <code class="language-plaintext highlighter-rouge">Bearer ${localStorage.getItem('jwt')}</code>,
-  },
-});</p>
 
-<p>// If the JWT is valid, the server will allow the request to proceed
-if (response.ok) {
-  // …
-}</p>
+<span class="kd">function</span> <span class="nx">login_user</span><span class="p">(){</span>
+    <span class="c1">// Set body to include login data</span>
+    <span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">email</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">uid</span><span class="dl">"</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span>
+        <span class="na">password</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span>
+    <span class="p">};</span>
 
-<p>Keep in mind that this is just a simple example, and you should consider using a library like axios or fetch-intercept to handle the details of sending and receiving HTTP requests and responses. You should also consider using HTTPS to encrypt the communication between the client and the server, and use short-lived JWTs with frequent refresh to reduce the risk of unauthorized access</p>
+    <span class="c1">// Set Headers to support cross origin</span>
+    <span class="kd">const</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cors</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// no-cors, *cors, same-origin</span>
+        <span class="na">cache</span><span class="p">:</span> <span class="dl">'</span><span class="s1">no-cache</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// *default, no-cache, reload, force-cache, only-if-cached</span>
+        <span class="na">credentials</span><span class="p">:</span> <span class="dl">'</span><span class="s1">include</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// include, *same-origin, omit</span>
+        <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">),</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">content-type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">};</span>
 
-<h2 id="code-from-previous-java-spring-project">
-<a class="anchor" href="#code-from-previous-java-spring-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code from Previous Java Spring project</h2>
-<ul>
-  <li>Roles, <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/person/Person.java">Person Collection of Roles sample</a>
-</li>
-  <li>Setup Roles, <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/mvc/database/ModelInit.java">Default Roles</a>
-</li>
-  <li>Security, <a href="https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/mvc/security">Endpoint rules</a>
-</li>
-</ul>
+    <span class="c1">// Fetch JWT</span>
+    <span class="nx">fetch</span><span class="p">(</span><span class="nx">login_url</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// trap error response from Web API</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">errorMsg</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Login error: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">;</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorMsg</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Success!!!</span>
+        <span class="c1">// Redirect to Database location</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">/APCSA/data/database</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can then use the JWT for authentication in subsequent fetch requests as the browser sends JWT in the Authorization header.   Here is an example, but there is <em>** Nothing Unique **</em> in this example.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// prepare HTML result container for new output</span>
+  <span class="kd">const</span> <span class="nx">resultContainer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="c1">// prepare URL</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://spring.nighthawkcodingsociety.com/api/person/</span><span class="dl">"</span><span class="p">;</span>
+  <span class="c1">// Uncomment next line for localhost testing</span>
+  <span class="c1">// url = "http://localhost:8085/api/person/";</span>
+
+  <span class="c1">// set options for cross origin header request</span>
+  <span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// *GET, POST, PUT, DELETE, etc.</span>
+    <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cors</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// no-cors, *cors, same-origin</span>
+    <span class="na">cache</span><span class="p">:</span> <span class="dl">'</span><span class="s1">default</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// *default, no-cache, reload, force-cache, only-if-cached</span>
+    <span class="na">credentials</span><span class="p">:</span> <span class="dl">'</span><span class="s1">include</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// include, *same-origin, omit</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+
+  <span class="c1">// fetch the API</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span>
+    <span class="c1">// response is a RESTful "promise" on any successful fetch</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// check for response errors and display</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">const</span> <span class="nx">errorMsg</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Database response error: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">;</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorMsg</span><span class="p">);</span>
+          <span class="kd">const</span> <span class="nx">tr</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">tr</span><span class="dl">"</span><span class="p">);</span>
+          <span class="kd">const</span> <span class="nx">td</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">td</span><span class="dl">"</span><span class="p">);</span>
+          <span class="nx">td</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">errorMsg</span><span class="p">;</span>
+          <span class="nx">tr</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">td</span><span class="p">);</span>
+          <span class="nx">resultContainer</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">tr</span><span class="p">);</span>
+          <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// valid response will contain json data</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+          <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">row</span> <span class="k">of</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// tr and td build out for each row</span>
+            <span class="kd">const</span> <span class="nx">tr</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">tr</span><span class="dl">"</span><span class="p">);</span>
+            <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">td</span><span class="dl">"</span><span class="p">);</span>
+            <span class="kd">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">td</span><span class="dl">"</span><span class="p">);</span>
+            <span class="kd">const</span> <span class="nx">age</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">td</span><span class="dl">"</span><span class="p">);</span>
+            <span class="c1">// data is specific to the API</span>
+            <span class="nx">name</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span> 
+            <span class="nx">id</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">email</span><span class="p">;</span> 
+            <span class="nx">age</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span> 
+            <span class="c1">// this build td's into tr</span>
+            <span class="nx">tr</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+            <span class="nx">tr</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+            <span class="nx">tr</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+            <span class="c1">// add HTML to container</span>
+            <span class="nx">resultContainer</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">tr</span><span class="p">);</span>
+          <span class="p">}</span>
+      <span class="p">})</span>
+  <span class="p">})</span>
+  <span class="c1">// catch fetch errors (ie ACCESS to server blocked)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">tr</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">tr</span><span class="dl">"</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">td</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">td</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">td</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">err</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">url</span><span class="p">;</span>
+    <span class="nx">tr</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">td</span><span class="p">);</span>
+    <span class="nx">resultContainer</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">tr</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
 
 <h2 id="hacks">
 <a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h2>
 <blockquote>
-  <p>This is first time that a nighthawkcoding society app is going under JWT.  There are some best practices, but here are some of my preliminary thoughts.  These can be done in your project or on mine.</p>
+  <p>This is first time that a nighthawkcoding society apps are under JWT.  There are some best practices, but these are simply preliminary thoughts.  These can be done in your project or on mine.</p>
   <ul>
     <li>GitHub Pages Application
       <ul>
@@ -227,8 +375,7 @@ if (response.ok) {
     <li>Spring Application
       <ul>
         <li>Add Roles to authentication</li>
-        <li>Bring JavaScript or Spring/Thymeleaf Admin operation into this page</li>
-        <li>Similarly, only block or present login/signup page when someone fails on a fetch of something that is unauthorized.</li>
+        <li>Bring JavaScript or Spring/Thymeleaf Admin operations into this page.  Some Thymeleaf exists in the project,</li>
       </ul>
     </li>
     <li>Blog or Video on your successes and how you got there.</li>
@@ -238,7 +385,7 @@ if (response.ok) {
 <h2 id="hack-helpers">
 <a class="anchor" href="#hack-helpers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hack Helpers</h2>
 <blockquote>
-  <p>Since 1st introducing this project the Teacher has done several things to make this task easier.  However, IMO until you have looked at and played with the code any additions or organizations could just lead to confusion.  Reading article is a must.</p>
+  <p>Additional user and security elements.</p>
 </blockquote>
 
 <ul>
@@ -287,24 +434,7 @@ if (response.ok) {
 	<span class="o">}</span>
 
     
-    <span class="c1">// Provide security configuration</span>
-	<span class="nd">@Override</span>
-	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">httpSecurity</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
-		<span class="n">httpSecurity</span>
-			<span class="c1">// no CSRF for this example</span>
-			<span class="o">.</span><span class="na">csrf</span><span class="o">().</span><span class="na">disable</span><span class="o">()</span>
-			<span class="c1">// list the requests/endpoints need to be authenticated</span>
-			<span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>
-			<span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/api/person/**"</span><span class="o">).</span><span class="na">authenticated</span><span class="o">()</span>
-			<span class="o">.</span><span class="na">and</span><span class="o">().</span>
-			<span class="c1">// make sure we use stateless session; </span>
-			<span class="c1">// session won't be used to store user's state.</span>
-			<span class="n">exceptionHandling</span><span class="o">().</span><span class="na">authenticationEntryPoint</span><span class="o">(</span><span class="n">jwtAuthenticationEntryPoint</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">sessionManagement</span><span class="o">()</span>
-			<span class="o">.</span><span class="na">sessionCreationPolicy</span><span class="o">(</span><span class="nc">SessionCreationPolicy</span><span class="o">.</span><span class="na">STATELESS</span><span class="o">);</span>
-
-		<span class="c1">// Add a filter to validate the tokens with every request</span>
-		<span class="n">httpSecurity</span><span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span><span class="n">jwtRequestFilter</span><span class="o">,</span> <span class="nc">UsernamePasswordAuthenticationFilter</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-	<span class="o">}</span>
+    <span class="o">...</span>
 <span class="o">}</span>
 
 </code></pre></div></div>
