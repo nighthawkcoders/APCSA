@@ -12,17 +12,21 @@ week: 20
 ## Spring Security using Java Web Tokens Competition
 - [JWT Hello Articles](https://www.javainuse.com/spring/boot-jwt)
 
-### JWT concepts via ChatGPT
+### JWT concepts via ChatGPT with added illustrations
 JSON Web Token (JWT) is a popular way to authenticate users in a web application. It is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is digitally signed using JSON Web Signature (JWS).
 Here is an example of how you might use JWT for authentication in a JavaScript application:
 1. The client sends a login request to the server with the user's credentials (e.g., username and password).
-2. If the credentials are valid, the server generates a JWT and sends it back to the client.
-3. The client stores the JWT in a cookie or in local storage.
-4. For subsequent requests, the client sends the JWT in the Authorization header.
-5. The server verifies the JWT and, if it is valid, allows the request to proceed.
-
-#### Authorization header example
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+    - Client/Origin: https://nighthawkcoders.github.io
+    - Server/Host: spring.nighthawkcodingsociety.com
+2. If the credentials are valid, the server generates a JWT and sends it back to the client.  Here ae some sample credentials.
+    - Sec-Fetch-Mode: cors
+    - Sec-Fetch-Site: cross-site
+3. The client stores the JWT in a cookie. Here is cookie in Chrome Inspect properties
+    - ![JWT Cookie]({{site.baseurl}}/images/jwt_cookie.png)
+4. For subsequent requests, the client sends the JWT in the Authorization header.  Here is sample of header.
+    - jwt=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqbTEwMjFAZ21haWwuY29tIiwiZXhwIjoxNjc1ODA0MTg2LCJpYXQiOjE2NzU3ODYxODZ9.rHoLxTcBJOBv36gH5qNI1VhgGv2Jub1OPtpddf1-fHd84BcL5MeGxiBhi2M0MpEJcuhTjeC2TYWVaOjT7ek0tg; Path=/; Max-Age=3600; Expires=Tue, 07 Feb 2023 17:09:46 GMT; Secure; HttpOnly; SameSite=None; Secure
+5. The server verifies the JWT and, if it is valid, allows the request to proceed.  Here is successful response.
+    - ![JWT Response]({{site.baseurl}}/images/jwt_response.png)
 
 The JWT consists of three parts, separated by dots (.). The first part is the header, which specifies the algorithm used to sign the JWT (e.g., HS256). The second part is the payload, which contains the claims. The third part is the signature, which is used to verify that the sender of the JWT is who it claims to be and to ensure that the message wasn't changed along the way.
 
@@ -32,9 +36,11 @@ It is important to use HTTPS when transmitting JWTs to ensure that the JWT is no
 There are a few different options for storing a JWT in a JavaScript application:
 1. Cookies: You can store the JWT in a cookie and send it back to the server with each request. This is a simple and widely-supported option, but it has some limitations. For example, you can't access cookies from JavaScript on a different domain, and some users may have cookies disabled in their browser settings.
 2. Local storage: You can store the JWT in the browser's local storage (localStorage) or session storage (sessionStorage). This option allows you to access the JWT from JavaScript on the same domain, but it is vulnerable to cross-site scripting (XSS) attacks, where an attacker can inject malicious code into your application and steal the JWT from the storage.
-3. HttpOnly cookie: You can store the JWT in an HttpOnly cookie, which is a cookie that can only be accessed by the server and not by client-side JavaScript. This option provides some protection against XSS attacks, but it is still vulnerable to other types of attacks, such as cross-site request forgery (CSRF).
+3. ***HttpOnly cookie***: You can store the JWT in an HttpOnly cookie, which is a cookie that can only be accessed by the server and not by client-side JavaScript. This option provides some protection against XSS attacks, but it is still vulnerable to other types of attacks, such as cross-site request forgery (CSRF).
 
-It is generally recommended to use a combination of options to provide the best security for your application. For example, you could store the JWT in an HttpOnly cookie and also in local storage, and use JavaScript to send the JWT from local storage to the server with each request. This way, you can still access the JWT from JavaScript on the same domain, while also protecting against XSS attacks
+ChatGPT says ... It is generally recommended to use a combination of options to provide the best security for your application. For example, you could store the JWT in an HttpOnly cookie and also in local storage, and use JavaScript to send the JWT from local storage to the server with each request. This way, you can still access the JWT from JavaScript on the same domain, while also protecting against XSS attacks.
+
+However, for this implementation we have used *** #3 HttpOnly Cookie ***.
 
 
 #### Obtain JWT in a JavaScript application:
