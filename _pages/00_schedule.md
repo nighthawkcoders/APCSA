@@ -51,15 +51,21 @@ title: Schedule
 
 {% elsif unit == "7" %} 
       {% assign start = 25 %}
-      {% assign end = 28 %}
+      {% assign end = 30 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 begins with a focus on [AP Daily Videos](https://apclassroom.collegeboard.org/8/home) and Student Led Testing using the 4 FRQ types.  Technical work includes reviews on sorting algorithms, including making a human sorting video.
+> Trimester 3 begins with a focus Data Structures that relate to the AP exam.   Technical work includes all the main FRQ types and reviews on on extra topics like sorting algorithms.  Be ready to make your human sorting video.  As a final project, through the Trimester, building study sites for future generations in Teachers preferred project.
 
 {% elsif unit == "8" %} 
-      {% assign start = 29 %}
+      {% assign start = 31 %}
+      {% assign end = 33 %}
+## Unit {{unit}}: Trimester 3 Data Structures
+> 
+
+{% elsif unit == "8" %} 
+      {% assign start = 34 %}
       {% assign end = 36 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 finishes creating a Final Project, this project needs to include Data Structures and Algorithms as follows: sorting, hashing, algorithm analysis, object-oriented design, collections, lists, stacks, queues, trees, sets, dictionaries, and graphs.  Tech Talks will focus on examples and hacks in these areas.
+> Trimester 3 Wrap up instructional site or lessons to contribute to NightHawk Coding Society.
 
   {% endif %}
 
