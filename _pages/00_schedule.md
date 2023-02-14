@@ -53,7 +53,7 @@ title: Schedule
       {% assign start = 25 %}
       {% assign end = 30 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 begins with a focus Data Structures that relate to the AP exam.   Technical work includes all the main FRQ types and reviews on on extra topics like sorting algorithms.  Be ready to make your human sorting video.  As a final project, through the Trimester, building study sites for future generations in Teachers preferred project.
+> Trimester 3 begins with a focus Data Structures that relate to the AP exam.   Technical work includes all the main FRQ types and reviews on on extra topics like sorting algorithms.  Be ready to make your human sorting video.  As a final project, through the Trimester, building on 2nd trimester project would be great.  Teacher prefers study sites to add to future generations in AP CS.
 
 {% elsif unit == "8" %} 
       {% assign start = 31 %}
@@ -65,7 +65,7 @@ title: Schedule
       {% assign start = 34 %}
       {% assign end = 36 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 Wrap up instructional site or lessons to contribute to NightHawk Coding Society.
+> Trimester 3 Wrap up preferred project or instructional site lessons to contribute to the NightHawk Coding Society library.  If you are selected, then you will get a high 'A' on final.
 
   {% endif %}
 
