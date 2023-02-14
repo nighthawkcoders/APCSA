@@ -59,7 +59,7 @@ title: Schedule
       {% assign start = 31 %}
       {% assign end = 33 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> 
+> Trimester 3 AP unit. Student will lead daily study sessions (20 minute test, follow by review).
 
 {% elsif unit == "8" %} 
       {% assign start = 34 %}
