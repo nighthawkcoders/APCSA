@@ -4,23 +4,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Data Types and Data Structures | APCSA</title>
+<title>Common Data Structures | APCSA</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Data Types and Data Structures" />
+<meta property="og:title" content="Common Data Structures" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Deeper review on data types and data structures. Including Objects and Generic Type." />
-<meta property="og:description" content="Deeper review on data types and data structures. Including Objects and Generic Type." />
+<meta name="description" content="Deeper review on some common data structures specific to Java. Many of these Data Structures are referred to as Collections. Using Collections requires deeper understand of Objects and the Generic Type." />
+<meta property="og:description" content="Deeper review on some common data structures specific to Java. Many of these Data Structures are referred to as Collections. Using Collections requires deeper understand of Objects and the Generic Type." />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/03/07/linked-list.html" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/03/07/linked-list.html" />
 <meta property="og:site_name" content="APCSA" />
-<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/java-logo.png" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/collection.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-03-07T00:00:00-06:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/java-logo.png" />
-<meta property="twitter:title" content="Data Types and Data Structures" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/collection.png" />
+<meta property="twitter:title" content="Common Data Structures" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-07T00:00:00-06:00","datePublished":"2023-03-07T00:00:00-06:00","description":"Deeper review on data types and data structures. Including Objects and Generic Type.","headline":"Data Types and Data Structures","image":"https://nighthawkcoders.github.io/APCSA/images/java-logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/03/07/linked-list.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/03/07/linked-list.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-07T00:00:00-06:00","datePublished":"2023-03-07T00:00:00-06:00","description":"Deeper review on some common data structures specific to Java. Many of these Data Structures are referred to as Collections. Using Collections requires deeper understand of Objects and the Generic Type.","headline":"Common Data Structures","image":"https://nighthawkcoders.github.io/APCSA/images/collection.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/03/07/linked-list.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/03/07/linked-list.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -75,13 +75,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Data Types and Data Structures</h1><p class="page-description">Deeper review on data types and data structures.  Including Objects and Generic Type.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-07T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Common Data Structures</h1><p class="page-description">Deeper review on some common data structures specific to Java.  Many of these Data Structures are referred to as Collections.   Using Collections requires deeper understand of Objects and the Generic Type.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-07T00:00:00-06:00" itemprop="datePublished">
         Mar 7, 2023
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      15 min read
     
 </span></p>
 
@@ -119,7 +119,8 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Introduction">Introduction </a>
+<li class="toc-entry toc-h2"><a href="#Arrays,-ArrayList,-2D-Arrays">Arrays, ArrayList, 2D Arrays </a></li>
+<li class="toc-entry toc-h2"><a href="#Collection-Framework-in-Java">Collection Framework in Java </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Key-Learnings">Key Learnings </a></li>
 <li class="toc-entry toc-h3"><a href="#Hacks">Hacks </a></li>
@@ -141,23 +142,43 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">
-<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+<h2 id="Arrays,-ArrayList,-2D-Arrays">
+<a class="anchor" href="#Arrays,-ArrayList,-2D-Arrays" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays, ArrayList, 2D Arrays<a class="anchor-link" href="#Arrays,-ArrayList,-2D-Arrays"> </a>
 </h2>
-<p>Most "Data Structures" conversations begin with Arrays, which are built into most Computer Programming Languages. College Board has CSA Units 6-8 which discuss Arrays, ArrayLists, and 2-Dimensional Arrays.  A deeper dive into Data Structures continues with <strong>Linked Lists (LL)</strong> which are the foundation for <strong>Stacks</strong> and <strong>Queues</strong>.</p>
-<p>In building Data Structures you need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage Data Types, specifically Object and Generic data <t>.&lt;/p&gt;
+<p>Most "Data Structures" conversations begin with Arrays, which are built into most Computer Programming Languages. College Board has CSA Units 6-8 which discuss Arrays, ArrayLists, and 2-Dimensional Arrays.</p>
+<p>Arrays and ArrayLists are important data structures in computer science, and they are the subject of two FRQs in each AP Computer Science A exam. Here are some types of FRQs that may focus on these topics:</p>
+<ol>
+<li>
+<strong><em>Array/ArrayList implementation</em></strong>: You may be asked to implement an Array or ArrayList, including methods to add, remove, and access elements.</li>
+<li>
+<strong><em>Array/ArrayList traversal</em></strong>: You may be given an Array or ArrayList and asked to traverse it, perform operations on each element, and/or modify the array or list.</li>
+<li>
+<strong><em>Array/ArrayList searching and sorting</em></strong>: You may be asked to implement or modify code to search for an element in an array or list, or to sort the elements of an array or list.</li>
+<li>
+<strong><em>2D Arrays or Multi-dimensional arrays</em></strong>: You may be asked to implement or modify code that uses a multi-dimensional array, and to perform operations on elements of the array.</li>
+<li>
+<strong><em>ArrayList vs. Array</em></strong>: You may be asked to compare and contrast the characteristics of ArrayLists and Arrays, and to explain when it is appropriate to use one data structure over the other.</li>
+<li>
+<strong><em>Big-O complexity</em></strong>: You may be asked to analyze the time and space complexity of algorithms that use Arrays or ArrayLists, and to compare the efficiency of different algorithms.</li>
+</ol>
+<h2 id="Collection-Framework-in-Java">
+<a class="anchor" href="#Collection-Framework-in-Java" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collection Framework in Java<a class="anchor-link" href="#Collection-Framework-in-Java"> </a>
+</h2>
+<p>A deeper dive into Data Structures continues with <strong>Linked Lists (LL)</strong> which are the foundation for <strong>Stacks</strong> and <strong>Queues</strong>, which we have used.   Java has implemented a Collection framework that has established common methods to assist in using these Dat Structures.</p>
+<p><a href="https://www.geeksforgeeks.org/collections-in-java-2/">Reference from Geeks</a></p>
+<p>In my experience, building your own Data Structures help you to understand fundamentals of a Computer Language.  To use a Data Structure yo will need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage variant Data Types, this help you learn about the Java type <code>Object</code> and the <code>Generic type &lt;T&gt;</code>.</p>
 <h3 id="Key-Learnings">
 <a class="anchor" href="#Key-Learnings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Learnings<a class="anchor-link" href="#Key-Learnings"> </a>
 </h3>
 <ul>
-<li>Become familiar with Linked List, Circle Queues, and Stacks.  </li>
+<li>Become familiar with Linked List, Queues, and Stacks.  </li>
 <li>Become familiar with managing data (aka nodes) in these structures.   </li>
 <li>Implement Generic data and ForEach loop support, similar ArrayLists<t>.  Here is sample <a href="https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/">Java Generic T and the Java Iterable interface by Geeks4Geeks</a>.&lt;/li&gt;
 &lt;/ul&gt;
 <h3 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h3>
-<ol>
+<ul>
 <li>
 <p>Challenge #1, Add and Delete elements from Queue.  Working with the code that is given,  you will need to adjust Add and write Delete, to output from the Queue as follows.</p>
 <div class="highlight"><pre><span></span>Enqueued data: seven
@@ -191,18 +212,18 @@ Words count: 0, data: null
 </pre></div>
 </li>
 <li>
-<p>Challenge #2, perform a merge or combination of 2 Queue's that are ordered.  This is a foundation step for future Merge sorting.  IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.
+<p>Challenge #2, perform a merge or combination of 2 Queue's that are ordered.  This is a foundation step for the algorithm used in Merge sorting.  IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.
 ```text
 // Start with two ordered Queue's
 (1st Queue) 1 -&gt; 4 -&gt; 5 -&gt; 8 -&gt; nil
 (2nd Queue) 2 -&gt; 3 -&gt; 6 -&gt; 7 -&gt; nil</p>
 </li>
-</ol>
+</ul>
 <p>// Finish with a 3rd Queue 
 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 nil</p>
 
 <pre><code>
-3. Challenge #3, Build a Stack and use it to reverse the order of a Queue.  FYI, here is an implementation of [Stack without Generic T and Iterable](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists/Stack.java).
+- Challenge #3, Build a Stack and use it to reverse the order of a Queue.  FYI, here is an implementation of [Stack without Generic T and Iterable](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists/Stack.java), here is better [Stack](https://github.com/nighthawkcoders/spring_portfolio/blob/master/src/main/java/com/nighthawk/hacks/classDataStruct/Stack.java) with tester methods.
 ```text
 // Place elements into Queue
 (Head) 1 -&gt; 2 -&gt; 3 -&gt; nil
@@ -974,7 +995,7 @@ Words count: 0, data: null
 
 </t>
 </li>
-</ul></t></p>
+</ul>
 </div>
 </div></div>
 </div>
