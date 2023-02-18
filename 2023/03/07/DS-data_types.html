@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data Types | APCSA</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Data Types" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is a deeper review on data types, wrapper classes and classes specific in preparation for using Data Structures." />
+<meta property="og:description" content="This is a deeper review on data types, wrapper classes and classes specific in preparation for using Data Structures." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/03/07/DS-data_types.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/03/07/DS-data_types.html" />
+<meta property="og:site_name" content="APCSA" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/data_types.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-07T00:00:00-06:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/data_types.jpeg" />
+<meta property="twitter:title" content="Data Types" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-07T00:00:00-06:00","datePublished":"2023-03-07T00:00:00-06:00","description":"This is a deeper review on data types, wrapper classes and classes specific in preparation for using Data Structures.","headline":"Data Types","image":"https://nighthawkcoders.github.io/APCSA/images/data_types.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/03/07/DS-data_types.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/03/07/DS-data_types.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/APCSA/">APCSA</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/APCSA/schedule">Schedule</a><a class="page-link" href="/APCSA/frontend/overview">Frontend</a><a class="page-link" href="/APCSA/api/overview">API</a><a class="page-link" href="/APCSA/search/">Search</a><a class="page-link" href="/APCSA/categories/ap">AP Standards</a><a class="page-link" href="/APCSA/categories/cte">CTE Standards</a><a class="page-link" href="/APCSA/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Data Types</h1><p class="page-description">This is a deeper review on data types, wrapper classes and classes specific in preparation for using Data Structures.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-07T00:00:00-06:00" itemprop="datePublished">
+        Mar 7, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/nighthawkcoders/APCSA/tree/master/_notebooks/2023-03-07-DS-data_types.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/APCSA/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/nighthawkcoders/APCSA/master?filepath=_notebooks%2F2023-03-07-DS-data_types.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/nighthawkcoders/APCSA/blob/master/_notebooks/2023-03-07-DS-data_types.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2FAPCSA%2Fblob%2Fmaster%2F_notebooks%2F2023-03-07-DS-data_types.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/APCSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Data-Types-in-Java">Data Types in Java </a></li>
+<li class="toc-entry toc-h2"><a href="#Data-Types-behaviors">Data Types behaviors </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#A-primitive-Data-Type-"int"-showing-pass-by-value">A primitive Data Type &quot;int&quot; showing pass by value </a></li>
+<li class="toc-entry toc-h3"><a href="#The-wrapper-Integer-class-(by-value-or-reference?)">The wrapper Integer class (by value or reference?) </a></li>
+<li class="toc-entry toc-h3"><a href="#The-class-AtomicInteger">The class AtomicInteger </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-03-07-DS-data_types.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Types-in-Java">
+<a class="anchor" href="#Data-Types-in-Java" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Types in Java<a class="anchor-link" href="#Data-Types-in-Java"> </a>
+</h2>
+<p>Before discussing <strong><em>Data Structures</em></strong> it is important to review <strong><em>Data Types</em></strong>.  To begin this discussion I asked ChatGPT, <strong><em>"what are Java data types"</em></strong> and was really happy with the answer ...</p>
+<ul>
+<li>
+<p>In Java, <strong><em>data types are used to define the type of data that a variable can hold</em></strong>. There are two main categories of data types in Java: primitive data types and reference data types.</p>
+<ul>
+<li>
+<p>Primitive data types:</p>
+<ul>
+<li>byte: 8-bit signed integer (-128 to 127)</li>
+<li>short: 16-bit signed integer (-32,768 to 32,767)</li>
+<li>int: 32-bit signed integer (-2,147,483,648 to 2,147,483,647)</li>
+<li>long: 64-bit signed integer (-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807)</li>
+<li>float: 32-bit floating-point number (1.4e-45 to 3.4e+38)</li>
+<li>double: 64-bit floating-point number (4.9e-324 to 1.8e+308)</li>
+<li>boolean: true or false</li>
+<li>char: 16-bit Unicode character (0 to 65,535)</li>
+</ul>
+</li>
+<li>
+<p>Reference data types:</p>
+<ul>
+<li>Objects: instances of classes</li>
+<li>Arrays: a collection of data of the same type.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Primitive data types are stored directly in memory</em></strong>, whereas <strong><em>reference data types are stored as a reference to a memory location</em></strong> where the actual data is stored.</p>
+</li>
+</ul>
+<p>This led to follow up question, <strong><em>"what about Java Wrapper data types"</em></strong> and this answer even corrected my language to say <strong><em>wrapper classes</em></strong> ...</p>
+<ul>
+<li>
+<p>Java Wrapper classes are classes that provide a way to use primitive data types as objects. <strong><em>They are called wrapper classes because they "wrap" the primitive data types into an object</em></strong>.</p>
+<ul>
+<li>There are eight wrapper classes in Java, each corresponding to one of the primitive data types:</li>
+<li>Byte: represents a byte value</li>
+<li>Short: represents a short value</li>
+<li>Integer: represents an int value</li>
+<li>Long: represents a long value</li>
+<li>Float: represents a float value</li>
+<li>Double: represents a double value</li>
+<li>Boolean: represents a boolean value</li>
+<li>Character: represents a char value</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Wrapper classes are often used when working with collections</em></strong> or other APIs that require objects rather than primitive data types. They also provide methods for converting between primitive data types and their corresponding object types, as well as methods for performing operations on the wrapped values.</p>
+</li>
+</ul>
+<p>As an addendum to ChatGPT definition of a Wrapper Class, it is critical to understand assignments.  When you <strong><em>assign a value</em></strong> to a wrapper class object, Java automatically <strong><em>creates a new instance</em></strong> of the wrapper class and assigns the value to it. Thus, every assignment is a new object!!! This process is called <strong><em>Auto-boxing</em></strong>. For example, to assign an integer value to an Integer object ...</p>
+<div class="highlight"><pre><span></span><span class="c1">// Both of these create new objects</span>
+<span class="n">Integer</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// Auto-boxing, Integer n = new Integer(5);</span>
+<span class="n">n</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// Auto-boxing, Integer n = new Integer(n + 5);</span>
+</pre></div>
+<p>For clarification, for my students I asked, "define reference data types".   This added a purpose to the name <strong><em>reference</em></strong> ...</p>
+<ul>
+<li>
+<p>In Java, <strong><em>reference data types are data types that hold references or memory addresses that point to objects.</em></strong> These data types do not actually contain the data they refer to, but instead, store a reference to the memory location where the data is stored.</p>
+</li>
+<li>
+<p><strong><em>Reference data types are used to store complex data structures</em></strong> such as objects and arrays. Objects are instances of classes that encapsulate data and behavior, while arrays are collections of data of the same type.</p>
+</li>
+<li>
+<p>When a reference data type variable is declared, memory is allocated for the reference variable itself, but not for the object or array it refers to. Memory for the object or array is allocated separately using the "new" keyword, and the reference variable is assigned the memory address of the object or array.</p>
+</li>
+<li>
+<p><strong>*</strong>Reference data types are passed by reference<strong><em>, which means that when a reference variable is passed as a method argument, the method receives a copy of the reference, but both the original reference and the copy point to the same object in memory. </em></strong>This allows methods to modify the object or array that the reference points to***.</p>
+</li>
+</ul>
+<p>For completeness on this discussion I asked, <strong><em>"define primitive data types"</em></strong> ...</p>
+<ul>
+<li>
+<p>In Java, primitive data types are the basic building blocks of data that can hold a single value of a specific type. They are called <strong><em>"primitive" because they are not objects</em></strong> and do not have any methods or properties like objects do.</p>
+</li>
+<li>
+<p>There are eight primitive data types in Java:</p>
+<ul>
+<li>byte: 8-bit signed integer (-128 to 127)</li>
+<li>short: 16-bit signed integer (-32,768 to 32,767)</li>
+<li>int: 32-bit signed integer (-2,147,483,648 to 2,147,483,647)</li>
+<li>long: 64-bit signed integer (-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807)</li>
+<li>float: 32-bit floating-point number</li>
+<li>double: 64-bit floating-point number</li>
+<li>boolean: true or false</li>
+<li>char: 16-bit Unicode character (0 to 65,535)</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Primitive data types are stored directly in memory and are passed by value</em></strong>, which means that when a primitive data type variable is passed as a method argument, the method receives a copy of the value, not a reference to the original variable. This also means that modifying the value of a primitive data type variable inside a method does not affect the original value of the variable outside the method.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Types-behaviors">
+<a class="anchor" href="#Data-Types-behaviors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Types behaviors<a class="anchor-link" href="#Data-Types-behaviors"> </a>
+</h2>
+<p>The <strong><em>AP exam will have questions about "primitives", "wrapper classes", and "reference"</em></strong> and how they work in relation to "pass by value", and "pass by reference".</p>
+<h3 id='A-primitive-Data-Type-"int"-showing-pass-by-value'>
+<a class="anchor" href="#A-primitive-Data-Type-" int aria-hidden="true"><span class="octicon octicon-link"></span></a>A primitive Data Type "int" showing pass by value<a class="anchor-link" href="#A-primitive-Data-Type-%22int%22-showing-pass-by-value"> </a>
+</h3>
+<p>The primitive <strong><em>int</em></strong> data type. This code shows behavior as it is passed to method and the value is changed.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PassByValue</span> <span class="p">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">changeInt</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"In changeInt method"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\tBefore n += 10: n = "</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// prints 5</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\tAfter n += 10: n = "</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// prints 10</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Main method before changeInt(n): n = "</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// prints 5</span>
+        <span class="n">changeInt</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Main method after changeInt(n): n = "</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// still prints 5</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">PassByValue</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Main method before changeInt(n): n = 5
+In changeInt method
+	Before n += 10: n = 5
+	After n += 10: n = 15
+Main method after changeInt(n): n = 5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-wrapper-Integer-class-(by-value-or-reference?)">
+<a class="anchor" href="#The-wrapper-Integer-class-(by-value-or-reference?)" aria-hidden="true"><span class="octicon octicon-link"></span></a>The wrapper Integer class (by value or reference?)<a class="anchor-link" href="#The-wrapper-Integer-class-(by-value-or-reference?)"> </a>
+</h3>
+<p>An object wrapper class <strong><em>Integer</em></strong> for the primitive <strong><em>int</em></strong> data type. TWhen an Integer object is passed as a parameter to a method, the object is passed as a class.  How does assignment behave in this example?  By value or by reference?  Observe the hashCode(), we will compare it to the next example.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PassByValueOrReference</span> <span class="p">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">changeInteger</span><span class="p">(</span><span class="n">Integer</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"In changeInteger method"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\tBefore change: n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span> <span class="c1">// prints 5</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span> 
+
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// behind the scenes, this is:  n = new Integer(n+10)</span>
+        
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\tAfter change: n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span> <span class="c1">// prints 15</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span> 
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Integer</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Main method before changeInteger(n): n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span> <span class="c1">// prints 5</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span> 
+
+        <span class="n">changeInteger</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Main method after changeInteger(n): n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span>  <span class="c1">// now prints 15</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span>     
+<span class="p">}</span>
+<span class="n">PassByValueOrReference</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Main method before changeInteger(n): n = 5
+In changeInteger method
+	Before change: n = 5 hash code = 5
+	After change: n = 15 hash code = 15
+Main method after changeInteger(n): n = 5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-class-AtomicInteger">
+<a class="anchor" href="#The-class-AtomicInteger" aria-hidden="true"><span class="octicon octicon-link"></span></a>The class AtomicInteger<a class="anchor-link" href="#The-class-AtomicInteger"> </a>
+</h3>
+<p>A class <strong><em>AtomicInteger</em></strong> for the primitive <strong><em>int</em></strong> data type. When an AtomicInteger object is passed as a parameter to a method, the object is passed as a Java class.  The only way to change the data with a class is to use the setters and getters of the Object.  The hashCode() show a unique object number and it maintains consistency through as the referenced data being changed by the setter.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.atomic.AtomicInteger</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PassByReference</span> <span class="p">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">changeAtomicInteger</span><span class="p">(</span><span class="n">AtomicInteger</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"In changeAtomicInteger method"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\tBefore change: n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span> <span class="c1">// prints 5</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span> 
+        <span class="n">n</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="na">get</span><span class="p">()</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>  <span class="c1">// at this point, we are clearly working with reference data type</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\tAfter change: n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span> <span class="c1">// prints 15</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span> 
+<span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">AtomicInteger</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// unlike conventional wrapper class, this requires new</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Main method before changeAtomicInteger(n): n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span> <span class="c1">// prints 5</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span> 
+        <span class="n">changeAtomicInteger</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Main method after changeAtomicInteger(n): n = "</span> <span class="o">+</span> 
+                            <span class="n">n</span> <span class="o">+</span>  <span class="c1">// now prints 15</span>
+                            <span class="s">" hash code = "</span> <span class="o">+</span> 
+                            <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span> 
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">PassByReference</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Main method before changeAtomicInteger(n): n = 5 hash code = 747820531
+In changeAtomicInteger method
+	Before change: n = 5 hash code = 747820531
+	After change: n = 15 hash code = 747820531
+Main method after changeAtomicInteger(n): n = 15 hash code = 747820531
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/APCSA/2023/03/07/DS-data_types.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/APCSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://nighthawkcoders.github.io/APCSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/APCSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>AP Computer Science A</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/nighthawkcoders" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://twitter.com/NighthawkCoding" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/APCSA/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
