@@ -1,7 +1,7 @@
 ---
 description: Quick launch into Variables, Functions, Arrays, IJavaScript HTML, using Jupyter Notebooks
 title: JavaScript Tutorial
-layout: default
+layout: base
 toc: false
 comments: true
 permalink: /frontend/javascript

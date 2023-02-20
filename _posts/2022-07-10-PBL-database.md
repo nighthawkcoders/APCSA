@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 title: Database CRUD Operations
 description: An advanced example of do database create, read, update, delete operations working asynchronously between JavaScript and a Java backend Database.  This requires a set of Java RESTful API services for Get, Put, Delete, and Update.
 permalink: /data/database

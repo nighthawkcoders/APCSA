@@ -1,6 +1,6 @@
 ---
 title: Fetch of Backend Jokes
-layout: default
+layout: base
 description: An introductory example of Frontend talking to Backend Java application serving jokes.  
 permalink: /data/jokes
 image: /images/jokes.png
