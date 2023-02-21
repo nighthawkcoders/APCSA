@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      17 min read
     
 </span></p>
 
@@ -146,7 +146,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Arrays,-ArrayList,-2D-Arrays" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays, ArrayList, 2D Arrays<a class="anchor-link" href="#Arrays,-ArrayList,-2D-Arrays"> </a>
 </h2>
 <p>Most "Data Structures" conversations begin with Arrays, which are built into most Computer Programming Languages. College Board has CSA Units 6-8 which discuss Arrays, ArrayLists, and 2-Dimensional Arrays.</p>
-<p>Arrays and ArrayLists are important data structures in computer science, and they are the subject of two FRQs in each AP Computer Science A exam. Here are some types of FRQs that may focus on these topics:</p>
+<p>Arrays, 2D Arrays, and ArrayLists are important data structures in computer science, and they are the subject of two FRQs in each AP Computer Science A exam. Here are some types of FRQs that may focus on these topics:</p>
 <ol>
 <li>
 <strong><em>Array/ArrayList implementation</em></strong>: You may be asked to implement an Array or ArrayList, including methods to add, remove, and access elements.</li>
@@ -164,15 +164,21 @@ window.onload = wrap_img;
 <h2 id="Collection-Framework-in-Java">
 <a class="anchor" href="#Collection-Framework-in-Java" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collection Framework in Java<a class="anchor-link" href="#Collection-Framework-in-Java"> </a>
 </h2>
-<p>A deeper dive into Data Structures continues with <strong>Linked Lists (LL)</strong> which are the foundation for <strong>Stacks</strong> and <strong>Queues</strong>, which we have used.   Java has implemented a Collection framework that has established common methods to assist in using these Dat Structures.</p>
-<p><a href="https://www.geeksforgeeks.org/collections-in-java-2/">Reference from Geeks</a></p>
-<p>In my experience, building your own Data Structures help you to understand fundamentals of a Computer Language.  To use a Data Structure yo will need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage variant Data Types, this help you learn about the Java type <code>Object</code> and the <code>Generic type &lt;T&gt;</code>.</p>
+<p>A deeper dive into Data Structures continues with <strong>Linked Lists (LL)</strong> which are the foundation for <strong>Stacks</strong> and <strong>Queues</strong>, which we have used.   Java has implemented a Collection framework that has established common methods to assist in using many of these Data Structures.</p>
+<div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>  <span class="c1">// Queue interface uses LL implementation</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"John"</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Jane"</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
+</pre></div>
+<p><a href="https://www.geeksforgeeks.org/collections-in-java-2/">Deeper reference from Geeks</a></p>
+<p>In my experience, building your own Data Structures can help you to understand fundamentals of a Computer Language.  To use a Data Structure you will need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage variant Data Types, this help you learn about the Java type <code>Object</code> and the <code>Generic type &lt;T&gt;</code>.</p>
 <h3 id="Key-Learnings">
 <a class="anchor" href="#Key-Learnings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Learnings<a class="anchor-link" href="#Key-Learnings"> </a>
 </h3>
 <ul>
+<li>Understand the details of a Class: Access modifier, statics, constructor, modifiers, etc.</li>
 <li>Become familiar with Linked List, Queues, and Stacks.  </li>
-<li>Become familiar with managing data (aka nodes) in these structures.   </li>
+<li>Become familiar with managing data (aka nodes in LL) in these structures.   </li>
 <li>Implement Generic data and ForEach loop support, similar ArrayLists<t>.  Here is sample <a href="https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/">Java Generic T and the Java Iterable interface by Geeks4Geeks</a>.&lt;/li&gt;
 &lt;/ul&gt;
 <h3 id="Hacks">
@@ -419,6 +425,77 @@ Words count: 0, data: null
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>class [LREPL.$JShell$13B$Alphabet; 26
+Generic: Alphabet listed by title
+Alphabet: A
+Alphabet: B
+Alphabet: C
+Alphabet: D
+Alphabet: E
+Alphabet: F
+Alphabet: G
+Alphabet: H
+Alphabet: I
+Alphabet: J
+Alphabet: K
+Alphabet: L
+Alphabet: M
+Alphabet: N
+Alphabet: O
+Alphabet: P
+Alphabet: Q
+Alphabet: R
+Alphabet: S
+Alphabet: T
+Alphabet: U
+Alphabet: V
+Alphabet: W
+Alphabet: X
+Alphabet: Y
+Alphabet: Z
+
+class [LREPL.$JShell$13B$Alphabet; 26
+Generic: Alphabet listed by letter
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -531,6 +608,37 @@ Words count: 0, data: null
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>class [LREPL.$JShell$15B$Animal; 6
+Generic: Animal listed by title
+Animal: Lion, Gold, 8
+Animal: Pig, Pink, 3
+Animal: Robin, Red, 7
+Animal: Cat, Black, 10
+Animal: Kitty, Calico, 1
+Animal: Dog, Brown, 14
+
+class [LREPL.$JShell$15B$Animal; 6
+Generic: Animal listed by name
+Lion
+Pig
+Robin
+Cat
+Kitty
+Dog
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -637,6 +745,43 @@ Words count: 0, data: null
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>class [LREPL.$JShell$17B$Cupcake; 9
+Generic: Cupcake listed by title
+Cupcake: Red Velvet, Red, 4
+Cupcake: Orange, Orange, 5
+Cupcake: Lemon, Yellow, 6
+Cupcake: Apple, Green, 7
+Cupcake: Blueberry, Blue, 8
+Cupcake: Blackberry, Purple, 9
+Cupcake: Strawberry, Pink, 10
+Cupcake: Vanilla, Tan, 11
+Cupcake: Chocolate, Brown, 12
+
+class [LREPL.$JShell$17B$Cupcake; 9
+Generic: Cupcake listed by flavor
+Red Velvet
+Orange
+Lemon
+Apple
+Blueberry
+Blackberry
+Strawberry
+Vanilla
+Chocolate
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -646,7 +791,7 @@ Words count: 0, data: null
 <h3 id="Hack-Helpers">
 <a class="anchor" href="#Hack-Helpers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hack Helpers<a class="anchor-link" href="#Hack-Helpers"> </a>
 </h3>
-<p>Below is a starter Queue and a Linked List implementation.  Unlike former code shared this contains implementation of a REAL Java Generic type and implements Iterable to support Java ForEach (enhanced For) loops.</p>
+<p>Below is a starter Queue and a Linked List implementation.  This implements Generic type and implements Iterable to support Java ForEach (enhanced For) loops.</p>
 
 </div>
 </div>
@@ -782,9 +927,9 @@ Words count: 0, data: null
 <span class="kd">class</span> <span class="nc">QueueIterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span><span class="p">;</span>  <span class="c1">// current element in iteration</span>
 
-    <span class="c1">// QueueIterator is intended to the head of the list for iteration</span>
-    <span class="kd">public</span> <span class="nf">QueueIterator</span><span class="p">(</span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">current</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="na">getHead</span><span class="p">();</span>
+    <span class="c1">// QueueIterator is pointed to the head of the list for iteration</span>
+    <span class="kd">public</span> <span class="nf">QueueIterator</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// hasNext informs if next element exists</span>
@@ -809,7 +954,7 @@ Words count: 0, data: null
 <span class="cm"> * 3. "has a" LinkedList for head and tail</span>
 <span class="cm"> */</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span><span class="p">,</span> <span class="n">tail</span><span class="p">;</span>
+    <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
     <span class="cm">/**</span>
 <span class="cm">     *  Add a new object at the end of the Queue,</span>
@@ -820,12 +965,46 @@ Words count: 0, data: null
         <span class="c1">// add new object to end of Queue</span>
         <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>  <span class="c1">// initial condition</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>  <span class="c1">// initial condition</span>
             <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
         <span class="k">else</span> <span class="p">{</span>  <span class="c1">// nodes in queue</span>
             <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span> <span class="c1">// current tail points to new tail</span>
             <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>  <span class="c1">// update tail</span>
         <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the data of head.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  data, the dequeued data</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// initial condition</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span> <span class="c1">// current tail points to new tail</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// initial condition</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">tail</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the data of head.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this.head.getData(), the head data in Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">peek</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="cm">/**</span>
@@ -852,7 +1031,7 @@ Words count: 0, data: null
 <span class="cm">     * @return  this, instance of object</span>
 <span class="cm">     */</span>
     <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">QueueIterator</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">QueueIterator</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -957,12 +1136,12 @@ Words count: 0, data: null
         <span class="c1">// Create iterable Queue of NCS Generics</span>
         <span class="n">Animal</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">Animal</span><span class="p">.</span><span class="na">KeyType</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
         <span class="n">Alphabet</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">Alphabet</span><span class="p">.</span><span class="na">KeyType</span><span class="p">.</span><span class="na">letter</span><span class="p">);</span>
-        <span class="n">Cupcakes</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">Cupcakes</span><span class="p">.</span><span class="na">KeyType</span><span class="p">.</span><span class="na">flavor</span><span class="p">);</span>
+        <span class="n">Cupcake</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">Cupcake</span><span class="p">.</span><span class="na">KeyType</span><span class="p">.</span><span class="na">flavor</span><span class="p">);</span>
         <span class="c1">// Illustrates use of a series of repeating arguments</span>
         <span class="n">QueueManager</span> <span class="n">qGenerics</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="p">(</span><span class="s">"My Generics"</span><span class="p">,</span>
                 <span class="n">Alphabet</span><span class="p">.</span><span class="na">alphabetData</span><span class="p">(),</span>
                 <span class="n">Animal</span><span class="p">.</span><span class="na">animals</span><span class="p">(),</span>
-                <span class="n">Cupcakes</span><span class="p">.</span><span class="na">cupcakes</span><span class="p">()</span>
+                <span class="n">Cupcake</span><span class="p">.</span><span class="na">cupcakes</span><span class="p">()</span>
         <span class="p">);</span>
         <span class="n">qGenerics</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
 
@@ -974,16 +1153,37 @@ Words count: 0, data: null
                 <span class="n">numbers</span><span class="p">,</span>
                 <span class="n">Alphabet</span><span class="p">.</span><span class="na">alphabetData</span><span class="p">(),</span>
                 <span class="n">Animal</span><span class="p">.</span><span class="na">animals</span><span class="p">(),</span>
-                <span class="n">Cupcakes</span><span class="p">.</span><span class="na">cupcakes</span><span class="p">()</span>
+                <span class="n">Cupcake</span><span class="p">.</span><span class="na">cupcakes</span><span class="p">()</span>
         <span class="p">);</span>
         <span class="n">qMix</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"End"</span><span class="p">);</span>
         <span class="n">qMix</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">QueueTester</span><span class="p">.</span><span class="na">main</span><span class="p">();</span>
+<span class="n">QueueTester</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Words count: 7
+Words data: seven slimy snakes sallying slowly slithered southward 
+Integers count: 10
+Integers data: 0 1 2 3 4 5 6 7 8 9 
+My Generics count: 41
+My Generics data: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Lion Pig Robin Cat Kitty Dog Red Velvet Orange Lemon Apple Blueberry Blackberry Strawberry Vanilla Chocolate 
+Mixed count: 58
+Mixed data: Start seven slimy snakes sallying slowly slithered southward 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Lion Pig Robin Cat Kitty Dog Red Velvet Orange Lemon Apple Blueberry Blackberry Strawberry Vanilla Chocolate End 
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
