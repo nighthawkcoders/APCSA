@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      18 min read
     
 </span></p>
 
@@ -122,13 +122,13 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Arrays,-ArrayList,-2D-Arrays">Arrays, ArrayList, 2D Arrays </a></li>
 <li class="toc-entry toc-h2"><a href="#Collection-Framework-in-Java">Collection Framework in Java </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#Key-Learnings">Key Learnings </a></li>
-<li class="toc-entry toc-h3"><a href="#Hacks">Hacks </a></li>
 <li class="toc-entry toc-h3"><a href="#Generics.--The-purpose-of-this-"class"-is-to-show-how-we-can-combine-any-Data-Type-into-a-super-class.--In-fact,-this-is-what-many-Computer-Languages-do,-is-they-make-general-methods-and-properties-for-all-Data-within-the-language.">Generics.  The purpose of this &quot;class&quot; is to show how we can combine any Data Type into a super class.  In fact, this is what many Computer Languages do, is they make general methods and properties for all Data within the language. </a></li>
 <li class="toc-entry toc-h3"><a href="#Alphabet.--This-class-is-used-to-store-the-alphabet.">Alphabet.  This class is used to store the alphabet. </a></li>
 <li class="toc-entry toc-h3"><a href="#Animal.--This-class-is-used-to-store-properties-on-Animals.">Animal.  This class is used to store properties on Animals. </a></li>
 <li class="toc-entry toc-h3"><a href="#Cupcake.--This-class-is-used-to-store-properties-of-Cupcakes.">Cupcake.  This class is used to store properties of Cupcakes. </a></li>
 <li class="toc-entry toc-h3"><a href="#Hack-Helpers">Hack Helpers </a></li>
+<li class="toc-entry toc-h3"><a href="#Key-Learnings">Key Learnings </a></li>
+<li class="toc-entry toc-h3"><a href="#Hacks">Hacks </a></li>
 </ul>
 </li>
 </ul><!--
@@ -140,7 +140,8 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Arrays,-ArrayList,-2D-Arrays">
 <a class="anchor" href="#Arrays,-ArrayList,-2D-Arrays" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays, ArrayList, 2D Arrays<a class="anchor-link" href="#Arrays,-ArrayList,-2D-Arrays"> </a>
@@ -171,80 +172,11 @@ window.onload = wrap_img;
 <span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
 </pre></div>
 <p><a href="https://www.geeksforgeeks.org/collections-in-java-2/">Deeper reference from Geeks</a></p>
-<p>In my experience, building your own Data Structures can help you to understand fundamentals of a Computer Language.  To use a Data Structure you will need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage variant Data Types, this help you learn about the Java type <code>Object</code> and the <code>Generic type &lt;T&gt;</code>.</p>
-<h3 id="Key-Learnings">
-<a class="anchor" href="#Key-Learnings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Learnings<a class="anchor-link" href="#Key-Learnings"> </a>
-</h3>
-<ul>
-<li>Understand the details of a Class: Access modifier, statics, constructor, modifiers, etc.</li>
-<li>Become familiar with Linked List, Queues, and Stacks.  </li>
-<li>Become familiar with managing data (aka nodes in LL) in these structures.   </li>
-<li>Implement Generic data and ForEach loop support, similar ArrayLists<t>.  Here is sample <a href="https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/">Java Generic T and the Java Iterable interface by Geeks4Geeks</a>.&lt;/li&gt;
-&lt;/ul&gt;
-<h3 id="Hacks">
-<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
-</h3>
-<ul>
-<li>
-<p>Challenge #1, Add and Delete elements from Queue.  Working with the code that is given,  you will need to adjust Add and write Delete, to output from the Queue as follows.</p>
-<div class="highlight"><pre><span></span>Enqueued data: seven
-Words count: 1, data: seven 
-Enqueued data: slimy
-Words count: 2, data: seven slimy 
-Enqueued data: snakes
-Words count: 3, data: seven slimy snakes 
-Enqueued data: sallying
-Words count: 4, data: seven slimy snakes sallying 
-Enqueued data: slowly
-Words count: 5, data: seven slimy snakes sallying slowly 
-Enqueued data: slithered
-Words count: 6, data: seven slimy snakes sallying slowly slithered 
-Enqueued data: southward
-Words count: 7, data: seven slimy snakes sallying slowly slithered southward 
-Dequeued data: seven
-Words count: 6, data: slimy snakes sallying slowly slithered southward 
-Dequeued data: slimy
-Words count: 5, data: snakes sallying slowly slithered southward 
-Dequeued data: snakes
-Words count: 4, data: sallying slowly slithered southward 
-Dequeued data: sallying
-Words count: 3, data: slowly slithered southward 
-Dequeued data: slowly
-Words count: 2, data: slithered southward 
-Dequeued data: slithered
-Words count: 1, data: southward 
-Dequeued data: southward
-Words count: 0, data: null
-</pre></div>
-</li>
-<li>
-<p>Challenge #2, perform a merge or combination of 2 Queue's that are ordered.  This is a foundation step for the algorithm used in Merge sorting.  IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.
-```text
-// Start with two ordered Queue's
-(1st Queue) 1 -&gt; 4 -&gt; 5 -&gt; 8 -&gt; nil
-(2nd Queue) 2 -&gt; 3 -&gt; 6 -&gt; 7 -&gt; nil</p>
-</li>
-</ul>
-<p>// Finish with a 3rd Queue 
-1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 nil</p>
+<p>In my experience, building your own Data Structures can help you to understand fundamentals of a Computer Language.  To use a Data Structure you will need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage different Data Types, this helps you learn about the Java Data Type <code>Object</code> as a generic form of an instance of a class and the <code>Generic type &lt;T&gt;</code> as generic for of a Data Type within a class definition.</p>
 
-<pre><code>
-- Challenge #3, Build a Stack and use it to reverse the order of a Queue.  FYI, here is an implementation of [Stack without Generic T and Iterable](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists/Stack.java), here is better [Stack](https://github.com/nighthawkcoders/spring_portfolio/blob/master/src/main/java/com/nighthawk/hacks/classDataStruct/Stack.java) with tester methods.
-```text
-// Place elements into Queue
-(Head) 1 -&gt; 2 -&gt; 3 -&gt; nil
-// Print out the following:
-1 2 3
-
-// Place elements from Queue to Stack
-(Top) 3 -&gt; 2 -&gt; 1 -&gt; nil
-
-// Print out the following:
-3 2 1</code></pre>
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -254,7 +186,7 @@ Words count: 0, data: null
 <ul>
 <li>This class is abstract, meaning it is not used unless extended.</li>
 <li>The keyword interface is used to ensure people specify the key fields in their data.  This can be used for things like sorting and searching information within the class.</li>
-<li>Every object in Java is inherited from "Object".  This is shown in toString() method below, as the data type for each extended class does not need to be know to iterate through the values.</li>
+<li>Every object in Java is inherited from Data Type "Object".  This is shown in toString() method @Overrides below.  The toString() method has a prototype implementation in "Object".  Each extended class that @Overrides toString() and can be used to create a string representation of the child object.</li>
 </ul>
 
 </div>
@@ -989,15 +921,6 @@ Chocolate
         <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="n">T</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// initial condition</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">tail</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
-    <span class="p">}</span>
-
     <span class="cm">/**</span>
 <span class="cm">     *  Returns the data of head.</span>
 <span class="cm">     *</span>
@@ -1190,10 +1113,98 @@ Mixed data: Start seven slimy snakes sallying slowly slithered southward 0 1 2 3
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Key-Learnings">
+<a class="anchor" href="#Key-Learnings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Learnings<a class="anchor-link" href="#Key-Learnings"> </a>
+</h3>
+<ul>
+<li>Watch the college board video <a href="https://apclassroom.collegeboard.org/8/home?apd=9qx7yzjoeg">Classes and Objects</a>
+</li>
+<li>Understand the details of a Class: Access modifier, constructor, modifiers/setters, getters, etc.</li>
+<li>Become familiar with Linked List, Queues, and Stacks.  </li>
+<li>Become familiar with managing data (aka nodes in LL) in these structures.  </li>
+<li>Implement Generic data and ForEach loop support, similar ArrayLists<t>.  Here is sample <a href="https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/">Java Generic T and the Java Iterable interface by Geeks4Geeks</a>.&lt;/li&gt;
+&lt;/ul&gt;
+<h3 id="Hacks">
+<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
+</h3>
+<ul>
+<li>
+<p>Challenge #1, Add and Delete elements from Queue.  Working with the code that is given,  you will need to adjust Add and write Delete, to output from the Queue as follows.</p>
+<div class="highlight"><pre><span></span>Enqueued data: seven
+Words count: 1, data: seven 
+Enqueued data: slimy
+Words count: 2, data: seven slimy 
+Enqueued data: snakes
+Words count: 3, data: seven slimy snakes 
+Enqueued data: sallying
+Words count: 4, data: seven slimy snakes sallying 
+Enqueued data: slowly
+Words count: 5, data: seven slimy snakes sallying slowly 
+Enqueued data: slithered
+Words count: 6, data: seven slimy snakes sallying slowly slithered 
+Enqueued data: southward
+Words count: 7, data: seven slimy snakes sallying slowly slithered southward 
+Dequeued data: seven
+Words count: 6, data: slimy snakes sallying slowly slithered southward 
+Dequeued data: slimy
+Words count: 5, data: snakes sallying slowly slithered southward 
+Dequeued data: snakes
+Words count: 4, data: sallying slowly slithered southward 
+Dequeued data: sallying
+Words count: 3, data: slowly slithered southward 
+Dequeued data: slowly
+Words count: 2, data: slithered southward 
+Dequeued data: slithered
+Words count: 1, data: southward 
+Dequeued data: southward
+Words count: 0, data: null
+</pre></div>
+</li>
+<li>
+<p>Challenge #2, perform a merge or combination of 2 Queue's that are ordered.  This is a foundation step for the algorithm used in Merge sorting.  IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.
+```text
+// Start with two ordered Queue's
+(1st Queue) 1 -&gt; 4 -&gt; 5 -&gt; 8 -&gt; nil
+(2nd Queue) 2 -&gt; 3 -&gt; 6 -&gt; 7 -&gt; nil</p>
+</li>
+</ul>
+<p>// Finish with a 3rd Queue 
+1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 nil</p>
+
+<pre><code>
+- Challenge #3, Shuffle the Queue.  Iterate through the Queue and change data with another random position in the queue/
+// Start with ordered Queue
+1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 nil
+// Finish with shuffled Queue
+2 -&gt; 8 -&gt; 6 -&gt; 1 -&gt; 3 -&gt; 4 -&gt; 7 -&gt; 4 nil
+
+
+- Challenge #4, Build a Stack and use it to reverse the order of a Queue.  The Queue is a LIFO Data Structure, the Stack is a FIFO data structure, so code is similar but most everything is reversed.
+```text
+// Place elements into Queue
+(Head) 1 -&gt; 2 -&gt; 3 -&gt; nil
+// Print out the following:
+1 2 3
+
+// Place elements from Queue to Stack
+(Top) 3 -&gt; 2 -&gt; 1 -&gt; nil
+
+// Print out the following:
+3 2 1</code></pre>
+<ul>
+<li>Challenge #5, Teacher has not tried it, but implement Stack and Queue so you can use interface and implementation style in declaration.</li>
+</ul>
+<p>Queue<string> queue = new LinkedList&lt;&gt;();  // Queue interface uses LL implementation&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
  
 
-</t>
+</string></p></t>
 </li>
 </ul>
 </div>
