@@ -4,23 +4,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 8 of 8 for APCSA | AP Computer Science A</title>
+<title>Sorts and Algo Rythmic part 2 | APCSA</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="APCSA" />
+<meta property="og:title" content="Sorts and Algo Rythmic part 2" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="AP Computer Science A" />
-<meta property="og:description" content="AP Computer Science A" />
-<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/page8/" />
-<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/page8/" />
+<meta name="description" content="Continue with Classes, Queues, performing Sorts and BigO analysis on your algorithm(s)." />
+<meta property="og:description" content="Continue with Classes, Queues, performing Sorts and BigO analysis on your algorithm(s)." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/03/29/DS-sorts2.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/03/29/DS-sorts2.html" />
 <meta property="og:site_name" content="APCSA" />
-<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/logo.png" />
-<meta property="og:type" content="website" />
-<link rel="prev" href="https://nighthawkcoders.github.io/APCSA/page7/" />
+<meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/collection.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-29T00:00:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/logo.png" />
-<meta property="twitter:title" content="APCSA" />
+<meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/collection.jpg" />
+<meta property="twitter:title" content="Sorts and Algo Rythmic part 2" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"AP Computer Science A","headline":"APCSA","image":"https://nighthawkcoders.github.io/APCSA/images/logo.png","url":"https://nighthawkcoders.github.io/APCSA/page8/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-29T00:00:00-05:00","datePublished":"2023-03-29T00:00:00-05:00","description":"Continue with Classes, Queues, performing Sorts and BigO analysis on your algorithm(s).","headline":"Sorts and Algo Rythmic part 2","image":"https://nighthawkcoders.github.io/APCSA/images/collection.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/03/29/DS-sorts2.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/03/29/DS-sorts2.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -72,85 +72,83 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h2 id="objectives">Objectives</h2>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-<div>
-
-    <div style="float: left; margin: 0px 10px 10px 0px;">
-        <a href="https://docs.google.com/document/d/1ibm_4fqSgfnRZKhUns2vVe83MVes70Ts/edit?usp=sharing&amp;ouid=115023546255406346351&amp;rtpof=true&amp;sd=true">
-            <img atl="Course Framework" src="/APCSA/images/apcsa.png" title="Course Framework inspired by Domingo David" width="200" />
-        </a>
-    </div>
-    <div>
-        <hr />
-        <p>
-            This Course Framework teaches Java, College Boards 10 Units of AP Computer Science A, and Web Site application development together in an integrated fashion.  The purpose is to teach Java College Board requirements while adding frameworks that meet Career Technical Education (CTE) needs.  The outcome is preparing the High School student for the AP Test and simultaneously building the skills required for Computer Science internships and beyond.
-        </p>
-        <hr />
-    </div>
-
-</div>
-
-<h2 id="blogs">Blogs</h2>
-
-
-
-
-  
-
-  <!-- Hide posts if front matter flag hide:true -->
-  
-  
-
-  <!-- Sort posts by rank, then date -->
-  
-  
-  
-
- 
-  
-
-   <!-- Assemble final sorted posts array -->
-  
-  <ul class="post-list"><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/APCSA/2022/06/14/Curriculum-Map-David-2021-2022.html">
-            Curriculum Map David  2021 2022
-          </a>
-        </h3>
-        <p class="post-meta-description"></p>
-          <p class="post-meta">Jun 14, 2022</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/APCSA/unused">
-            Unused
-          </a>
-        </h3>
-        <p class="post-meta-description">Standards with no related posts</p>
-          <p class="post-meta">Jun 1, 2022</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-4 d-table-cell p-3 v-align-middle">
-        <img class="image-preview " src="/APCSA/images/bitcoin.png" />
-      </div><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/APCSA/hobby/bitcoin">
-            Bitcoin Hobby Mine 2021
-          </a>
-        </h3>
-        <p class="post-meta-description">Worksheet that was used to calculate profits in 2021.</p>
-          <p class="post-meta">Jun 1, 2022</p>
-      </div>
-  </div></li></ul>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Sorts and Algo Rythmic part 2</h1><p class="page-description">Continue with Classes, Queues, performing Sorts and BigO analysis on your algorithm(s).</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-29T00:00:00-05:00" itemprop="datePublished">
+        Mar 29, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
 
     
-      <div class="pager">
-        <ul class="pagination">
-          <li><a href="/APCSA/page7/" class="previous-page">7</a></li>
-          <li><div class="current-page">8</div></li>
-          <li><div class="pager-edge">•</div></li>
-        </ul>
-      </div></div>
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/nighthawkcoders/APCSA/tree/master/_notebooks/2023-03-29-DS-sorts2.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/APCSA/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/nighthawkcoders/APCSA/master?filepath=_notebooks%2F2023-03-29-DS-sorts2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/nighthawkcoders/APCSA/blob/master/_notebooks/2023-03-29-DS-sorts2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/APCSA/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2FAPCSA%2Fblob%2Fmaster%2F_notebooks%2F2023-03-29-DS-sorts2.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/APCSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Algo-Rythmics-Presentation-Week">Algo Rythmics Presentation Week </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-03-29-DS-sorts2.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Algo-Rythmics-Presentation-Week">
+<a class="anchor" href="#Algo-Rythmics-Presentation-Week" aria-hidden="true"><span class="octicon octicon-link"></span></a>Algo Rythmics Presentation Week<a class="anchor-link" href="#Algo-Rythmics-Presentation-Week"> </a>
+</h2>
+<blockquote>
+<p>This week student teams of at least 8 will do their Algor Rythmic perfornance.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/APCSA/2023/03/29/DS-sorts2.html" hidden></a>
+</article>
+
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/APCSA/"></data>
