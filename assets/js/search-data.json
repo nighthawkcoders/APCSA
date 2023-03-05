@@ -113,7 +113,7 @@
     
         ,"post10": {
             "title": "Week of 03-13, Arrays and Collections",
-            "content": "Plans Week 26 . Focus of the weeks is working with Arrays, Collections (aka ArrayLists), Generic Type. Using Generic Type requires understand Object and toString and CompareTo overrides. . Monday: Live Review on Data Types | Tuesday: Collections Tech Talk | Wednesday: workday | Thursday: workday | Friday: workday | . Look ahead . Sorting custom Collections .",
+            "content": "Plans Week 26 . Focus of the weeks is working with Arrays, Collections (aka ArrayLists), Generic Type. Using Generic Type requires understand Object and toString and CompareTo overrides. . Monday: Live Review of Midterm Plans, Data Types, and Quiz | Tuesday: Collections Tech Talk | Wednesday: workday | Thursday: workday | Friday: workday | . Look ahead . Sorting custom Collections .",
             "url": "https://nighthawkcoders.github.io/APCSA/points/26",
             "relUrl": "/points/26",
             "date": " • Mar 13, 2023"
@@ -135,7 +135,7 @@
     
         ,"post12": {
             "title": "Week of 03-06, Data Types, Methods, Control Structures",
-            "content": "Plans Week 25 . Technical focus for the week is Data Types and Quiz. Technical outlook and planning should be to the week before spring break. MidTerm project is going tocover Data Types, Classes, Inheritance, Overrides, Generic Type and Sorting Custom Collections and BigO analysis. There will be an Algo Rythmic dance/skit. The technical project can be done as FE/BE or a Jupyter notebook project. An education Focus on Data Structure and AP is required. . Monday: Form teams and work on 2015 MCQs | Tuesday: Tech Talk on Data Types | Wednesday: Plan and work out key objectives ‘till Midterm Final’, you should plan Individual and Team criteria. | Thursday: Work day | Friday: Work Day | . Look ahead . Review Midterm plans, Quiz due Monday .",
+            "content": "Plans Week 25 . Technical focus for the week is Data Types and Quiz. Technical outlook and planning should be to the week before spring break. MidTerm project is going tocover Data Types, Classes, Inheritance, Overrides, Generic Type and Sorting Custom Collections and BigO analysis. There will be an Algo Rythmic dance/skit. The technical project can be done as FE/BE or a Jupyter notebook project. An education Focus on Data Structure and AP is required. . Monday: Form teams and work on 2015 MCQs | Tuesday: Tech Talk on Data Types | Wednesday: Plan and work out key objectives ‘till Midterm Final’, you should plan Individual and Team criteria. | Thursday: Work Day. Data Types, Plans, Quiz | Friday: Work Day | . Look ahead . Live Review of Midterm Plans, Data Types, and Quiz .",
             "url": "https://nighthawkcoders.github.io/APCSA/points/25",
             "relUrl": "/points/25",
             "date": " • Mar 6, 2023"
