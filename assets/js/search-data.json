@@ -47,7 +47,7 @@
     
         ,"post4": {
             "title": "Week of 04-03, Big O and Hash Maps",
-            "content": "Plans Week 29 . Discuss efficiency of algorithms and Big ‘O’ notation. Looking at O(1) algorithms. . Monday: Live Review, Preview Notebook Midterm | Tuesday: Data Structures using Hashmaps, Sets, Hash Tables, Hashing and Collisions | Wednesday: | Thursday: Live Review Notebook Midterm | Friday: continue Live Review | . Look ahead .",
+            "content": "Plans Week 29 . Discuss efficiency of algorithms and Big ‘O’ notation. Looking at O(1) algorithms. . Monday: Live Review, Preview Notebook Midterm | Tuesday: Data Structures using Hashmaps, Sets, Hash Tables, Hashing and Collisions | Wednesday: | Thursday: Live Review FE/BE or Notebook Midterm | Friday: continue Live Review | . Look ahead .",
             "url": "https://nighthawkcoders.github.io/APCSA/points/29",
             "relUrl": "/points/29",
             "date": " • Apr 3, 2023"
@@ -135,7 +135,7 @@
     
         ,"post12": {
             "title": "Week of 03-06, Data Types, Methods, Control Structures",
-            "content": "Plans Week 25 . Focus of the week is Data Types. Outlook should be to the end of the week of 4-03. Project is going to be a Midterm Final on Data Types, Classes, Inheritance, Overrides, Generic Type and Sorting Custom Collections and BigO analysis. . Monday: Form teams and work on 2015 MCQs | Tuesday: Tech Talk on Data Types | Wednesday: Plan and work out ‘till Midterm Final’, there will be Individual and Team criteria. | Thursday: Work day | Friday: Quiz Due, Work Day | . Look ahead . Collections .",
+            "content": "Plans Week 25 . Technical focus for the week is Data Types and Quiz. Technical outlook and planning should be to the week before spring break. MidTerm project is going tocover Data Types, Classes, Inheritance, Overrides, Generic Type and Sorting Custom Collections and BigO analysis. There will be an Algo Rythmic dance/skit. The technical project can be done as FE/BE or a Jupyter notebook project. An education Focus on Data Structure and AP is required. . Monday: Form teams and work on 2015 MCQs | Tuesday: Tech Talk on Data Types | Wednesday: Plan and work out key objectives ‘till Midterm Final’, you should plan Individual and Team criteria. | Thursday: Work day | Friday: Work Day | . Look ahead . Review Midterm plans, Quiz due Monday .",
             "url": "https://nighthawkcoders.github.io/APCSA/points/25",
             "relUrl": "/points/25",
             "date": " • Mar 6, 2023"
