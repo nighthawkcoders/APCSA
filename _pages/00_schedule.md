@@ -53,19 +53,19 @@ title: Schedule
       {% assign start = 25 %}
       {% assign end = 30 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 begins with a focus Data Structures that relate to the AP exam.   Technical work includes all the main FRQ types and reviews on on extra topics like sorting algorithms.  Be ready to make your human sorting video.  As a final project, through the Trimester, building on 2nd trimester project would be great.  Teacher prefers study sites to add to future generations in AP CS.
+> Trimester 3 has a focus Data Structures that relate to the AP exam.  A key requirement is to make your own Algo Rythmic sorting video.  The midterm project, due at the end of week 30, will be either FE/BE or Jupyter Notebook project.   The theme is proeduce a project that can be used by future generations in AP CS, ask a Study Aide.  The project must cover key concepts from the Four AP FRQ types and contain multiple sorting algorithms with BigO analysis.
 
 {% elsif unit == "8" %} 
       {% assign start = 31 %}
       {% assign end = 33 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 AP unit. Student will lead daily study sessions (20 minute test, follow by review).
+> Trimester 3 AP unit. Student will lead daily study sessions (20 minute test, follow by review) the week before the exam.  Then, students will transition to a final project for remaining weeks.
 
 {% elsif unit == "8" %} 
       {% assign start = 34 %}
       {% assign end = 36 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 Wrap up preferred project or instructional site lessons to contribute to the NightHawk Coding Society library.  If you are selected, then you will get a high 'A' on final.
+> Trimester 3 Wrap up preferred project or instructional site lessons.  There will be opportunity to contribute and be published to the NightHawk Coding Society library.  If your project is selected, then you will receive a high 'A' on final.
 
   {% endif %}
 
