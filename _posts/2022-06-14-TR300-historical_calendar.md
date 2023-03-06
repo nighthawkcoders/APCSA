@@ -4,7 +4,7 @@ layout: post
 description: 
 title:  Teacher Only, 2022 Spring planning
 type: plan
-week: 25
+week: 34
 ---
 
 # Time Box Tri 3
