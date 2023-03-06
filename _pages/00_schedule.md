@@ -61,11 +61,11 @@ title: Schedule
 ## Unit {{unit}}: Trimester 3 Data Structures
 > Trimester 3 AP unit. Student will lead daily study sessions (20 minute test, follow by review) the week before the exam.  Then, students will transition to a final project for remaining weeks.
 
-{% elsif unit == "8" %} 
+{% elsif unit == "9" %} 
       {% assign start = 34 %}
       {% assign end = 36 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 Wrap up preferred project or instructional site lessons.  There will be opportunity to contribute and be published to the NightHawk Coding Society library.  If your project is selected, then you will receive a high 'A' on final.
+> Trimester 3 Wrap up your preferred project or instructional site.  There will be an opportunity to contribute and be published to the NightHawk Coding Society library.  If your project is selected, then you will receive a high 'A' on final.
 
   {% endif %}
 
