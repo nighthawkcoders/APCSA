@@ -159,27 +159,32 @@ window.onload = wrap_img;
 <h3 id="Information-about-Selection-Sort,-Insertion-Sort,-Merge-Sort">
 <a class="anchor" href="#Information-about-Selection-Sort,-Insertion-Sort,-Merge-Sort" aria-hidden="true"><span class="octicon octicon-link"></span></a>Information about Selection Sort, Insertion Sort, Merge Sort<a class="anchor-link" href="#Information-about-Selection-Sort,-Insertion-Sort,-Merge-Sort"> </a>
 </h3>
-<p>For the AP exam, there are three main sort algorithms you will need to know and be able to use fluently: insertion, merge, and selection sort.</p>
-<ol>
+<blockquote>
+<p>For the AP exam, there are three main sort algorithms you will need to know and be able to use fluently:insertion, merge, and selection sort.</p>
+<ul>
 <li>
 <strong>Selection Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=c764t0gw1z&amp;unit=7">Lecture on Arrays/ArrayLists</a>
 </li>
-</ol>
-<p>Selection sort is a linear sort algorithm as it moves from index [0] to [n-1]. In an inner loop it in a second linear loop that compares two elements (like seen in the visual below) and notes which is smallest, after cycling to the end it swaps the smallest number to the lowest in the round.</p>
+</ul>
+</blockquote>
+
+<pre><code>Selection sort is a linear sort algorithm as it moves from index [0] to [n-1]. In an inner loop it in a second linear loop that compares two elements (like seen in the visual below) and notes which is smallest, after cycling to the end it swaps the smallest number to the lowest in the round.
+
+</code></pre>
 <p><img src="https://www.w3resource.com/w3r_images/selection-short.png" alt=""></p>
-<ol>
+<ul>
 <li>
-<strong>Insertion Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=dq1xzt1e35&amp;unit=7">Lecture on Arrays/ArrayLists</a> -- <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists/CircleQueue.java#L168-L209">Sample code that Sorts Objects</a>
-</li>
-</ol>
+<p><strong>Insertion Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=dq1xzt1e35&amp;unit=7">Lecture on Arrays/ArrayLists</a> -- <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists/CircleQueue.java#L168-L209">Sample code that Sorts Objects</a></p>
 <p>Insertion sort is another linear algorithm that sorts elements from index [0] to index [n-1].  In the inner loop of this algorithm, it find the gap, insertion point for the next item and inserts it.  Each inner loop leave the list partially sorted according to outer loops index.</p>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/insertion_sort-recursion.png" alt=""></p>
-<ol>
-<li>
-<strong>Merge Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=14ybgme7em&amp;unit=10">Algorithm part 1</a>, <a href="https://apclassroom.collegeboard.org/8/home?apd=yrqb7lfza1&amp;unit=10">Algorithm part 2</a>
 </li>
-</ol>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/insertion_sort-recursion.png" alt=""></p>
+<ul>
+<li>
+<p><strong>Merge Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=14ybgme7em&amp;unit=10">Algorithm part 1</a>, <a href="https://apclassroom.collegeboard.org/8/home?apd=yrqb7lfza1&amp;unit=10">Algorithm part 2</a></p>
 <p>This algorithm uses a divide and conquer algorithm, versus linear algorithm of insertion or selection sort.  Looking at it can be complicated, but it is more simple than it looks. It divides the array into two different groups recursively, until it gets only two to compare, swaps if necessary.   Then it pops out of the recursion, observe the cascading and then the inverted assembly in illustration, after pop it puts each split group back together using a sorted comparison.</p>
+</li>
+</ul>
 <p><img src="https://miro.medium.com/max/661/1*7Kox4Bll0Ddvb0td1tiXsg.png" alt=""></p>
 
 </div>
