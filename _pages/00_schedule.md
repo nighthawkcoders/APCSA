@@ -53,7 +53,7 @@ title: Schedule
       {% assign start = 25 %}
       {% assign end = 29 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 has a focus Data Structures that relate to the AP exam.  A key requirement is to make your own Algo Rythmic sorting video.  The midterm project, due at the end of week 30, will be either FE/BE or Jupyter Notebook project.   The theme is proeduce a project that can be used by future generations in AP CS, ask a Study Aide.  The project must cover key concepts from the Four AP FRQ types and contain multiple sorting algorithms with BigO analysis.
+> Trimester 3 has a focus Data Structures that relate to the AP exam.  A key requirement is to make your own Algo Rythmic sorting video.  The midterm project, due at the beginning of week 30, will be either FE/BE or Jupyter Notebook project and hopefully you can use it as a lesson starting Week 30.   The theme is produce work that can be used to help you pass the AP Exam and be used by future generations in AP CS, as a Study Aide.  Each student must cover key concepts from one of the Four AP FRQ types, contain a key Data Structure, and utilize sorting. These requirements are fairly generic and could complement any teaching assignment or project.
 
 {% elsif unit == "8" %} 
       {% assign start = 30 %}
