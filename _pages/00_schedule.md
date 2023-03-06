@@ -59,7 +59,7 @@ title: Schedule
       {% assign start = 30 %}
       {% assign end = 33 %}
 ## Unit {{unit}}: Trimester 3 Data Structures
-> Trimester 3 AP unit. Student will lead daily study sessions (20 minute test, follow by review) the week before the exam.  Then, students will transition to a final project for remaining weeks.
+> Trimester 3 AP unit. Test is May 3rd.  Student will lead several study sessions (20 minute test, follow by review) the week before the exam.  In any break in study, students will transition activities to a final project.
 
 {% elsif unit == "9" %} 
       {% assign start = 34 %}
