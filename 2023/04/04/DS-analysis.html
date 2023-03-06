@@ -4,23 +4,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Sorts and Algo Rythmic part 1 | APCSA</title>
+<title>Sort analysis and Hashmap comparision. | APCSA</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Sorts and Algo Rythmic part 1" />
+<meta property="og:title" content="Sort analysis and Hashmap comparision." />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s)." />
-<meta property="og:description" content="Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s)." />
-<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html" />
-<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html" />
+<meta name="description" content="Perform analysis on sorts. Compare List Collections to HashMaps." />
+<meta property="og:description" content="Perform analysis on sorts. Compare List Collections to HashMaps." />
+<link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/04/04/DS-analysis.html" />
+<meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/04/04/DS-analysis.html" />
 <meta property="og:site_name" content="APCSA" />
 <meta property="og:image" content="https://nighthawkcoders.github.io/APCSA/images/collection.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-03-22T00:00:00-05:00" />
+<meta property="article:published_time" content="2023-04-04T00:00:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/collection.jpg" />
-<meta property="twitter:title" content="Sorts and Algo Rythmic part 1" />
+<meta property="twitter:title" content="Sort analysis and Hashmap comparision." />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-22T00:00:00-05:00","datePublished":"2023-03-22T00:00:00-05:00","description":"Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s).","headline":"Sorts and Algo Rythmic part 1","image":"https://nighthawkcoders.github.io/APCSA/images/collection.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-04T00:00:00-05:00","datePublished":"2023-04-04T00:00:00-05:00","description":"Perform analysis on sorts. Compare List Collections to HashMaps.","headline":"Sort analysis and Hashmap comparision.","image":"https://nighthawkcoders.github.io/APCSA/images/collection.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/04/04/DS-analysis.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/04/04/DS-analysis.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -75,8 +75,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Sorts and Algo Rythmic part 1</h1><p class="page-description">Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s).</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-22T00:00:00-05:00" itemprop="datePublished">
-        Mar 22, 2023
+    <h1 class="post-title p-name" itemprop="name headline">Sort analysis and Hashmap comparision.</h1><p class="page-description">Perform analysis on sorts.   Compare List Collections to HashMaps.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-04-04T00:00:00-05:00" itemprop="datePublished">
+        Apr 4, 2023
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -92,24 +92,24 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-justify-center">
           <div class="px-2">
 
-    <a href="https://github.com/nighthawkcoders/APCSA/tree/master/_notebooks/2023-03-22-DS-sorts1.ipynb" role="button" target="_blank">
+    <a href="https://github.com/nighthawkcoders/APCSA/tree/master/_notebooks/2023-04-04-DS-analysis.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/APCSA/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/nighthawkcoders/APCSA/master?filepath=_notebooks%2F2023-03-22-DS-sorts1.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/nighthawkcoders/APCSA/master?filepath=_notebooks%2F2023-04-04-DS-analysis.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/APCSA/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/nighthawkcoders/APCSA/blob/master/_notebooks/2023-03-22-DS-sorts1.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/nighthawkcoders/APCSA/blob/master/_notebooks/2023-04-04-DS-analysis.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/APCSA/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
           <div class="px-2">
-  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2FAPCSA%2Fblob%2Fmaster%2F_notebooks%2F2023-03-22-DS-sorts1.ipynb" target="_blank">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2FAPCSA%2Fblob%2Fmaster%2F_notebooks%2F2023-04-04-DS-analysis.ipynb" target="_blank">
       <img class="notebook-badge-image" src="/APCSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
   </a>
 </div>
@@ -119,13 +119,12 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Algo-Rythmics-Planning-and-Coding-Week">Algo Rythmics Planning and Coding Week </a></li>
 <li class="toc-entry toc-h2"><a href="#Hacks">Hacks </a></li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2023-03-22-DS-sorts1.ipynb
+# file to edit: _notebooks/2023-04-04-DS-analysis.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -133,34 +132,21 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Algo-Rythmics-Planning-and-Coding-Week">
-<a class="anchor" href="#Algo-Rythmics-Planning-and-Coding-Week" aria-hidden="true"><span class="octicon octicon-link"></span></a>Algo Rythmics Planning and Coding Week<a class="anchor-link" href="#Algo-Rythmics-Planning-and-Coding-Week"> </a>
-</h2>
-<blockquote>
-<p>There is a craze in either Dancing or Algo Rythmic societies to combine Coding and Dancing.  Plus, Computer Science at Del Norte needs a traditional activity (aka Physics Boat races)!!!   You will be first gneraction to perform.  Here are some samples ...</p>
-<ul>
-<li>
-<a href="https://www.youtube.com/watch?v=lyZQPjUT5B4">Bubble-sort with Hungarian ("Csángó") folk dance</a>- <a href="https://www.i-programmer.info/programming/theory/3531-sorting-algorithms-as-dances.html">Multiple Sorts</a>
-</li>
-</ul>
-<p>This is a two week mini project containing code and Algo Rythmic performance of the code and algorithm.  Have fun and be creative.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
 <blockquote>
-<p>CB wants you to work with Bubble Sort, Selection Sort, Insertion Sort and Merge Sort.  The material on these sorts is prevelant.</p>
+<p>Analysis and the Big O complexity on Sorts.</p>
 <ul>
-<li>Build Jupyter Notebook(s) for Bubble Sort, Selection Sort, Insertion Sort and Merge Sort.</li>
-<li>Build into Jupyter Notebooks Tester methods that run Sort implementations </li>
-<li>Commit to GitHub Repository often, shows iterations on work</li>
+<li>Establish analytics including:time, comparisons and swaps.- Average the results for each each Sort, run each at least 12 times and 5000 elements.  You should throw out High and Low when doing analysis.</li>
+<li>Make your final/judgement on best sort: Number of Comparisons, Number of Swaps, Big O complexity, and Total Time.  </li>
+<li>Try to find/build two data sets (100 records, 1000 records).  See if there is any difference in analysis and you opinions based off of size.</li>
+</ul>
+<p>Build Hashmap of similar data that is used in Sorts</p>
+<ul>
+<li>Setup data in favorite sort and Hashmap to prepare for searching</li>
+<li>Perform analysis on Binary Search</li>
+<li>Perform analysis on Hashmap Lookup</li>
 </ul>
 </blockquote>
 
@@ -171,7 +157,7 @@ window.onload = wrap_img;
 
 
 
-  </div><a class="u-url" href="/APCSA/2023/03/22/DS-sorts1.html" hidden></a>
+  </div><a class="u-url" href="/APCSA/2023/04/04/DS-analysis.html" hidden></a>
 </article>
 
       </div>
