@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Sorts and Algo Rythmic part 1" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s)." />
-<meta property="og:description" content="Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s)." />
+<meta name="description" content="Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts." />
+<meta property="og:description" content="Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts." />
 <link rel="canonical" href="https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html" />
 <meta property="og:url" content="https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html" />
 <meta property="og:site_name" content="APCSA" />
@@ -20,7 +20,7 @@
 <meta property="twitter:image" content="https://nighthawkcoders.github.io/APCSA/images/collection.jpg" />
 <meta property="twitter:title" content="Sorts and Algo Rythmic part 1" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-22T00:00:00-05:00","datePublished":"2023-03-22T00:00:00-05:00","description":"Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s).","headline":"Sorts and Algo Rythmic part 1","image":"https://nighthawkcoders.github.io/APCSA/images/collection.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-22T00:00:00-05:00","datePublished":"2023-03-22T00:00:00-05:00","description":"Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts.","headline":"Sorts and Algo Rythmic part 1","image":"https://nighthawkcoders.github.io/APCSA/images/collection.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html"},"url":"https://nighthawkcoders.github.io/APCSA/2023/03/22/DS-sorts1.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/APCSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nighthawkcoders.github.io/APCSA/feed.xml" title="APCSA" /><link rel="shortcut icon" type="image/x-icon" href="/APCSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -75,13 +75,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Sorts and Algo Rythmic part 1</h1><p class="page-description">Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts and BigO analysis on your algorithm(s).</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-22T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Sorts and Algo Rythmic part 1</h1><p class="page-description">Learn and perform Algo Rythmic interpretation of Classes, Queues, performing Sorts.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-22T00:00:00-05:00" itemprop="datePublished">
         Mar 22, 2023
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -119,7 +119,11 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Algo-Rythmics-Planning-and-Coding-Week">Algo Rythmics Planning and Coding Week </a></li>
+<li class="toc-entry toc-h2"><a href="#Algo-Rythmics-Planning-and-Coding-Week">Algo Rythmics Planning and Coding Week </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Information-about-Selection-Sort,-Insertion-Sort,-Merge-Sort">Information about Selection Sort, Insertion Sort, Merge Sort </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#Hacks">Hacks </a></li>
 </ul><!--
 #################################################
@@ -143,8 +147,40 @@ window.onload = wrap_img;
 <a href="https://www.youtube.com/watch?v=lyZQPjUT5B4">Bubble-sort with Hungarian ("Csángó") folk dance</a>- <a href="https://www.i-programmer.info/programming/theory/3531-sorting-algorithms-as-dances.html">Multiple Sorts</a>
 </li>
 </ul>
-<p>This is a two week mini project containing code and Algo Rythmic performance of the code and algorithm.  Have fun and be creative.</p>
+<p>This is a two week mini project containing Sorting Code and Algo Rythmic performance of your favorite algorithm.  Have fun and don't be afraid to be creative.</p>
 </blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Information-about-Selection-Sort,-Insertion-Sort,-Merge-Sort">
+<a class="anchor" href="#Information-about-Selection-Sort,-Insertion-Sort,-Merge-Sort" aria-hidden="true"><span class="octicon octicon-link"></span></a>Information about Selection Sort, Insertion Sort, Merge Sort<a class="anchor-link" href="#Information-about-Selection-Sort,-Insertion-Sort,-Merge-Sort"> </a>
+</h3>
+<p>For the AP exam, there are three main sort algorithms you will need to know and be able to use fluently: insertion, merge, and selection sort.</p>
+<ol>
+<li>
+<strong>Selection Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=c764t0gw1z&amp;unit=7">Lecture on Arrays/ArrayLists</a>
+</li>
+</ol>
+<p>Selection sort is a linear sort algorithm as it moves from index [0] to [n-1]. In an inner loop it in a second linear loop that compares two elements (like seen in the visual below) and notes which is smallest, after cycling to the end it swaps the smallest number to the lowest in the round.</p>
+<p><img src="https://www.w3resource.com/w3r_images/selection-short.png" alt=""></p>
+<ol>
+<li>
+<strong>Insertion Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=dq1xzt1e35&amp;unit=7">Lecture on Arrays/ArrayLists</a> -- <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists/CircleQueue.java#L168-L209">Sample code that Sorts Objects</a>
+</li>
+</ol>
+<p>Insertion sort is another linear algorithm that sorts elements from index [0] to index [n-1].  In the inner loop of this algorithm, it find the gap, insertion point for the next item and inserts it.  Each inner loop leave the list partially sorted according to outer loops index.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/insertion_sort-recursion.png" alt=""></p>
+<ol>
+<li>
+<strong>Merge Sort</strong> <a href="https://apclassroom.collegeboard.org/8/home?apd=14ybgme7em&amp;unit=10">Algorithm part 1</a>, <a href="https://apclassroom.collegeboard.org/8/home?apd=yrqb7lfza1&amp;unit=10">Algorithm part 2</a>
+</li>
+</ol>
+<p>This algorithm uses a divide and conquer algorithm, versus linear algorithm of insertion or selection sort.  Looking at it can be complicated, but it is more simple than it looks. It divides the array into two different groups recursively, until it gets only two to compare, swaps if necessary.   Then it pops out of the recursion, observe the cascading and then the inverted assembly in illustration, after pop it puts each split group back together using a sorted comparison.</p>
+<p><img src="https://miro.medium.com/max/661/1*7Kox4Bll0Ddvb0td1tiXsg.png" alt=""></p>
 
 </div>
 </div>
@@ -156,10 +192,10 @@ window.onload = wrap_img;
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
 <blockquote>
-<p>CB wants you to work with Bubble Sort, Selection Sort, Insertion Sort and Merge Sort.  The material on these sorts is prevelant.</p>
+<p>CB wants you to work with Bubble Sort, Selection Sort, Insertion Sort and Merge Sort.  The material on these sorts is prevelant on the Internet and ChatGPT.</p>
 <ul>
 <li>Build Jupyter Notebook(s) for Bubble Sort, Selection Sort, Insertion Sort and Merge Sort.</li>
-<li>Build into Jupyter Notebooks Tester methods that run Sort implementations </li>
+<li>Build into Jupyter Notebooks Tester methods that runs each Sort implementations </li>
 <li>Commit to GitHub Repository often, shows iterations on work</li>
 </ul>
 </blockquote>
