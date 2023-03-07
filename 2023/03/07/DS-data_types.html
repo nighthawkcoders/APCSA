@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -125,6 +125,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#A-primitive-Data-Type-"int"-showing-pass-by-value">A primitive Data Type &quot;int&quot; showing pass by value </a></li>
 <li class="toc-entry toc-h3"><a href="#The-wrapper-Integer-class-(by-value-or-reference?)">The wrapper Integer class (by value or reference?) </a></li>
 <li class="toc-entry toc-h3"><a href="#The-class-AtomicInteger">The class AtomicInteger </a></li>
+<li class="toc-entry toc-h3"><a href="#Swap-by-IntByReference">Swap by IntByReference </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#Methods-and-Control-Structures-in-Java--2022-AP-Video-on-Method-and-Control">Methods and Control Structures in Java  2022 AP Video on Method and Control </a></li>
@@ -266,7 +267,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PassByValue</span> <span class="p">{</span>
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntByValue</span> <span class="p">{</span>
     
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">changeInt</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"In changeInt method"</span><span class="p">);</span>
@@ -282,10 +283,28 @@ window.onload = wrap_img;
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Main method after changeInt(n): n = "</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// still prints 5</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">PassByValue</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="n">IntByValue</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Main method before changeInt(n): n = 5
+In changeInt method
+	Before n += 10: n = 5
+	After n += 10: n = 15
+Main method after changeInt(n): n = 5
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -310,7 +329,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PassByValueOrReference</span> <span class="p">{</span>
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerByValueOrReference</span> <span class="p">{</span>
     
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">changeInteger</span><span class="p">(</span><span class="n">Integer</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"In changeInteger method"</span><span class="p">);</span>
@@ -340,11 +359,30 @@ window.onload = wrap_img;
                             <span class="n">n</span> <span class="o">+</span>  <span class="c1">// now prints 15</span>
                             <span class="s">" hash code = "</span> <span class="o">+</span> 
                             <span class="n">n</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span>     
+    <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">PassByValueOrReference</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="n">IntegerByValueOrReference</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Main method before changeInteger(n): n = 5 hash code = 5
+In changeInteger method
+	Before change: n = 5 hash code = 5
+	After change: n = 15 hash code = 15
+Main method after changeInteger(n): n = 5 hash code = 5
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -403,6 +441,91 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Swap-by-IntByReference">
+<a class="anchor" href="#Swap-by-IntByReference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swap by IntByReference<a class="anchor-link" href="#Swap-by-IntByReference"> </a>
+</h3>
+<p>Behind the scenes you need to swap values.  This add a little purpose by only swapping if values are out of LowHigh order.  This is a <strong><em>Methods and Control Structures</em></strong> type of problem!!!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntByReference</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">IntByReference</span><span class="p">(</span><span class="n">Integer</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">swapToLowHighOrder</span><span class="p">(</span><span class="n">IntByReference</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">.</span><span class="na">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+            <span class="n">i</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swapper</span><span class="p">(</span><span class="kt">int</span> <span class="n">n0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">IntByReference</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IntByReference</span><span class="p">(</span><span class="n">n0</span><span class="p">);</span>
+        <span class="n">IntByReference</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IntByReference</span><span class="p">(</span><span class="n">n1</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Before: "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+        <span class="n">a</span><span class="p">.</span><span class="na">swapToLowHighOrder</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>  <span class="c1">// conditionally build swap method to change values of a, b</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"After: "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">ags</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">IntByReference</span><span class="p">.</span><span class="na">swapper</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+        <span class="n">IntByReference</span><span class="p">.</span><span class="na">swapper</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">21</span><span class="p">);</span>
+        <span class="n">IntByReference</span><span class="p">.</span><span class="na">swapper</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+<span class="n">IntByReference</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before: 21 16
+After: 16 21
+
+Before: 16 21
+After: 16 21
+
+Before: 16 -1
+After: -1 16
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
