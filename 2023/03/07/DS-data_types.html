@@ -191,9 +191,11 @@ window.onload = wrap_img;
 <li>Character: represents a char value</li>
 </ul>
 </li>
+</ul>
+<p><img src="/APCSA/images/copied_from_nb/images/java_int_vs_integer.jpeg" alt=""></p>
+<ul>
 <li>
-<p><strong><em>Wrapper classes are often used when working with collections</em></strong> or other APIs that require objects rather than primitive data types. They also provide methods for converting between primitive data types and their corresponding object types, as well as methods for performing operations on the wrapped values.</p>
-</li>
+<strong><em>Wrapper classes are often used when working with collections</em></strong> or other APIs that require objects rather than primitive data types. They also provide methods for converting between primitive data types and their corresponding object types, as well as methods for performing operations on the wrapped values.</li>
 </ul>
 <p>As an addendum to ChatGPT definition of a Wrapper Class, it is critical to understand assignments.  When you <strong><em>assign a value</em></strong> to a wrapper class object, Java automatically <strong><em>creates a new instance</em></strong> of the wrapper class and assigns the value to it. Thus, every assignment is a new object!!! This process is called <strong><em>Auto-boxing</em></strong>. For example, to assign an integer value to an Integer object ...</p>
 <div class="highlight"><pre><span></span><span class="c1">// Both of these create new objects</span>
@@ -202,9 +204,10 @@ window.onload = wrap_img;
 </pre></div>
 <p>For clarification, for my students I asked, "define reference data types".   This added a purpose to the name <strong><em>reference</em></strong> ...</p>
 <ul>
-<li>
-<p>In Java, <strong><em>reference data types are data types that hold references or memory addresses that point to objects.</em></strong> These data types do not actually contain the data they refer to, but instead, store a reference to the memory location where the data is stored.</p>
-</li>
+<li>In Java, <strong><em>reference data types are data types that hold references or memory addresses that point to objects.</em></strong> These data types do not actually contain the data they refer to, but instead, store a reference to the memory location where the data is stored.  Area in blue is called stack, variables local to the method; area in green is called heap or area used to store objects.</li>
+</ul>
+<p><img src="/APCSA/images/copied_from_nb/images/java_primitive_reference.jpeg" alt=""></p>
+<ul>
 <li>
 <p><strong><em>Reference data types are used to store complex data structures</em></strong> such as objects and arrays. Objects are instances of classes that encapsulate data and behavior, while arrays are collections of data of the same type.</p>
 </li>
