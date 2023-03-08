@@ -27,6 +27,7 @@ week: 25
     - Sort activity skit/dance is one of those concepts
     - The second key concept is for 3 days of teaching and helps prove viability of system.
 - Note, you can deviate from these basic requirements by producing and getting approval on and ouline with teacher.
+- Note 2, on the above topics you can teach them Directly (Data Types Discussion) or Indirectly 
 
 ##  Agile and Roles
 > We will deviate from the picture slightly.  I will ask lead scrum master to make a Roles chart for each Group of 12.  Each leadership role should perform an appropriate share of development within the Group of 12.  
