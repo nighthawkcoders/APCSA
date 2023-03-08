@@ -7,7 +7,7 @@ description: Forming project teams of 12 or more.
 image: /images/agile.webp
 categories: []
 type: human
-week: 26
+week: 25
 ---
 
 ![git-pic]({{site.baseurl}}/images/agile.webp)
@@ -30,7 +30,9 @@ week: 26
 
 ##  Agile and Roles
 > We will deviate from the picture slightly.  I will ask lead scrum master to make a Roles chart for each Group of 12.  Each leadership role should perform an appropriate share of development within the Group of 12.  
-- Every group of 12 will have a Product Owner/Manager, these people will be final say on requirements for the project.  The will make sure Teacher knows what is going on in each team and is an agreement with project.  Leaders P1 Daniel T, P2 Tristan C.  Team Leaders P1 Daniel, Lily, Andrew M.   P2 Tistan, Don, Rohan G.
-- Every group of 12 will have a Technical Lead / DevOps Lead.  These people will guid team in technical task, according to Product Owner requirements.  They will provide guideance or starter code for everyones tasks.  They will ask Teacher to assist on technical research or clarifications on things team is having trouble solving. (P1 Rojan J, Sahill S)  P1 Rojan J, Aadit, Aidan W, P2 Sahill, Rebecca, Akhil.
+- Every group of 12 will have a Product Owner/Manager, these people will be final say on requirements for the project.  The will make sure Teacher knows what is going on in each team and is an agreement with project.  Leaders P1 Daniel T, P2 Tristan C.  Team Leaders P1 Daniel, Dylan L, Andrew M.   P2 Tistan, Don, Rohan G.
+- Every group of 12 will have a Technical Lead / DevOps Lead.  These people will guid team in technical task, according to Product Owner requirements.  They will provide guideance or starter code for everyones tasks.  They will ask Teacher to assist on technical research or clarifications on things team is having trouble solving. Leaders P1 Rojan J, Sahil S.  P1 Rojan J, Aadit, Aidan W, P2 Sahil, Rebecca, Akhil.
 - Each group of 12 will have a Scrum Master, and there will only be one Scrum Master for entire team.  These people will alert Product Owner, Technical Lead or Teacher of an obstacles in getting work done.  Leaders P1 Nicolas M, P2 Hetvi Trividi.  Team Leaders P1 Nicolas M, Pranavi, Jazair  P2 Hetvi, Karthik, Madhumita
 - 9-10 Developers, roles of Front End and Back End can be given.   However, certain people will be required to do backend role (only).
+- Note, in each team of 12 you can appoint assistant to work with you on Each leaership role.  Teams of 4 remain inside the teams of 4, but you should set up zones.
+- Nothing is final and adaptations could be made through the trimester to promote function.
