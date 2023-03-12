@@ -127,7 +127,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Animal.--This-class-is-used-to-store-properties-on-Animals.">Animal.  This class is used to store properties on Animals. </a></li>
 <li class="toc-entry toc-h3"><a href="#Cupcake.--This-class-is-used-to-store-properties-of-Cupcakes.">Cupcake.  This class is used to store properties of Cupcakes. </a></li>
 <li class="toc-entry toc-h3"><a href="#Hack-Helpers">Hack Helpers </a></li>
-<li class="toc-entry toc-h3"><a href="#Hacks:-Key-Learnings">Hacks: Key Learnings </a></li>
+<li class="toc-entry toc-h3"><a href="#Hacks">Hacks </a></li>
 <li class="toc-entry toc-h3"><a href="#Hacks:-Code">Hacks: Code </a></li>
 </ul>
 </li>
@@ -171,7 +171,7 @@ window.onload = wrap_img;
 <span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Jane"</span><span class="p">);</span>
 <span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
 </pre></div>
-<p><a href="https://www.geeksforgeeks.org/collections-in-java-2/">Deeper reference from Geeks</a></p>
+<p><strong><em><a href="https://www.geeksforgeeks.org/collections-in-java-2/">Deeper reference from Geeks</a></em></strong></p>
 <p>In my experience, building your own Data Structures can help you to understand fundamentals of a Computer Language.  To use a Data Structure you will need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage different Data Types, this helps you learn about the Java Data Type <code>Object</code> as a generic form of an instance of a class and the <code>Generic type &lt;T&gt;</code> as generic for of a Data Type within a class definition.</p>
 
 </div>
@@ -185,8 +185,9 @@ window.onload = wrap_img;
 </h3>
 <ul>
 <li>This class is abstract, meaning it is not used unless extended.</li>
-<li>The keyword interface is used to ensure people specify the key fields in their data.  This can be used for things like sorting and searching information within the class.</li>
-<li>Every object in Java is inherited from Data Type "Object".  This is shown in toString() method @Overrides below.  The toString() method has a prototype implementation in "Object".  Each extended class that @Overrides toString() and can be used to create a string representation of the child object.</li>
+<li>The keyword interface is used to ensure people specify "interface" in their implementation.  This can be used for things like sorting and searching information within the class.</li>
+<li>
+<strong><em>Every object in Java is inherited from Data Type "Object"</em></strong>.  This is shown in toString() method @Overrides below.  The toString() method has a prototype implementation in "Object".  Each extended class that @Overrides toString() and can be used to create a string representation of its "Object".</li>
 </ul>
 
 </div>
@@ -269,8 +270,10 @@ window.onload = wrap_img;
 </h3>
 <ul>
 <li>Extends Generics.</li>
-<li>Implements interface KeyType which is used in toString method of Alphabet object</li>
-<li>Overrides methods in abstract Generics.</li>
+<li>
+<strong><em>Implements interface KeyType</em></strong> which is used in toString method of Alphabet object</li>
+<li>
+<strong><em>Overrides methods</em></strong> in abstract class Generics, which includes class Object.</li>
 </ul>
 
 </div>
@@ -440,7 +443,7 @@ Z
 <ul>
 <li>Extends Generics.</li>
 <li>Implements interface KeyType with more keys than 1st example, as this Class has more attributes.</li>
-<li>Overrides methods in abstract Generics, notice that this has more variation of Display.</li>
+<li>Overrides methods in abstract Generics, notice that this has more variations of Display.</li>
 </ul>
 
 </div>
@@ -854,7 +857,7 @@ Chocolate
 <span class="cm"> * Queue Iterator</span>
 <span class="cm"> *</span>
 <span class="cm"> * 1. "has a" current reference in Queue</span>
-<span class="cm"> * 2. supports iterable required methods for next that returns a data object</span>
+<span class="cm"> * 2. supports iterable required methods for next that returns a generic T Object</span>
 <span class="cm"> */</span>
 <span class="kd">class</span> <span class="nc">QueueIterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span><span class="p">;</span>  <span class="c1">// current element in iteration</span>
@@ -1004,7 +1007,7 @@ Chocolate
     <span class="cm">/**</span>
 <span class="cm">     * Add a list of objects to queue</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addList</span><span class="p">(</span><span class="n">T</span><span class="o">[]</span><span class="p">...</span> <span class="n">seriesOfObjects</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addList</span><span class="p">(</span><span class="n">T</span><span class="o">[]</span><span class="p">...</span> <span class="n">seriesOfObjects</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//accepts multiple generic T lists</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">objects</span><span class="p">:</span> <span class="n">seriesOfObjects</span><span class="p">)</span>
             <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="n">objects</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
@@ -1113,10 +1116,11 @@ Mixed data: Start seven slimy snakes sallying slowly slithered southward 0 1 2 3
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Hacks:-Key-Learnings">
-<a class="anchor" href="#Hacks:-Key-Learnings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks: Key Learnings<a class="anchor-link" href="#Hacks:-Key-Learnings"> </a>
+<h3 id="Hacks">
+<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h3>
 <blockquote>
 <p>Blog or illustrate understanding of the following.</p>
@@ -1125,8 +1129,8 @@ Mixed data: Start seven slimy snakes sallying slowly slithered southward 0 1 2 3
 <li>Watch the college board video <a href="https://apclassroom.collegeboard.org/8/home?apd=9qx7yzjoeg">Classes and Objects</a>* Blog and Define the details of a Class: Access modifier, constructor, modifiers/setters, getters, etc.</li>
 <li>Build example code in jupyter notebook with Linked List, Queues, and Stacks.  </li>
 <li>Show familiarity with managing data (aka nodes in LL) in these structures.  </li>
-<li>Show familiarity with Generic data and ForEach loop support, similar ArrayLists<t>.  Here is sample <a href="https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/">Java Generic T and the Java Iterable interface by Geeks4Geeks</a>.&lt;/li&gt;
-&lt;/ul&gt;
+<li>Show familiarity with Generic data and ForEach loop support, similar to ArrayLists T.  Here is sample <a href="https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/">Java Generic T and the Java Iterable interface by Geeks4Geeks</a>.</li>
+</ul>
 <h3 id="Hacks:-Code">
 <a class="anchor" href="#Hacks:-Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks: Code<a class="anchor-link" href="#Hacks:-Code"> </a>
 </h3>
@@ -1164,27 +1168,28 @@ Words count: 0, data: null
 </pre></div>
 </li>
 <li>
-<p>Challenge #2, perform a merge or combination of 2 Queue's that are ordered.  This is a foundation step for the algorithm used in Merge sorting.  IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.
-```text
-// Start with two ordered Queue's
-(1st Queue) 1 -&gt; 4 -&gt; 5 -&gt; 8 -&gt; nil
-(2nd Queue) 2 -&gt; 3 -&gt; 6 -&gt; 7 -&gt; nil</p>
+<p>Challenge #2, perform a merge or combination of 2 Queue's that are ordered.  This is a foundation step for the algorithm used in Merge sorting.  IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.</p>
 </li>
 </ul>
-<p>// Finish with a 3rd Queue 
-1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 nil</p>
+<div class="highlight"><pre><span></span>// Start with two ordered Queue's
+(1st Queue) 1 -&gt; 4 -&gt; 5 -&gt; 8 -&gt; nil
+(2nd Queue) 2 -&gt; 3 -&gt; 6 -&gt; 7 -&gt; nil
 
-<pre><code>
-- Challenge #3, Shuffle the Queue.  Iterate through the Queue and change data with another random position in the queue.
-// Start with ordered Queue
+// Finish with a 3rd Queue 
+1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 nil
+</pre></div>
+<ul>
+<li>Challenge #3, Shuffle the Queue.  Iterate through the Queue and change data with another random position in the queue.</li>
+</ul>
+<div class="highlight"><pre><span></span>// Start with ordered Queue
 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 nil
 // Finish with shuffled Queue
 2 -&gt; 8 -&gt; 6 -&gt; 1 -&gt; 3 -&gt; 4 -&gt; 7 -&gt; 4 nil
-
-
-- Challenge #4, Build a Stack and use it to reverse the order of a Queue.  The Queue is a LIFO Data Structure, the Stack is a FIFO data structure, so code is similar but most everything is reversed.
-```text
-// Place elements into Queue
+</pre></div>
+<ul>
+<li>Challenge #4, Build a Stack and use it to reverse the order of a Queue.  The Queue is a LIFO Data Structure, the Stack is a FIFO data structure, so code is similar but most everything is reversed.</li>
+</ul>
+<div class="highlight"><pre><span></span>// Place elements into Queue
 (Head) 1 -&gt; 2 -&gt; 3 -&gt; nil
 // Print out the following:
 1 2 3
@@ -1193,23 +1198,22 @@ Words count: 0, data: null
 (Top) 3 -&gt; 2 -&gt; 1 -&gt; nil
 
 // Print out the following:
-3 2 1</code></pre>
+3 2 1
+</pre></div>
 <ul>
-<li>Challenge #5, Teacher has not tried it, but implement Stack.</li>
-</ul>
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
- 
-
-</t>
+<li>
+<p>Advanced Challenge #5, Implement a Sort into your LL in Jupyter Notebook ...  Here is <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists/CircleQueue.java#L165-L207">concept</a>; this is required next week.</p>
+</li>
+<li>
+<p>Advanced Challenge #6, Implement a Stack from your LL in Jupyter Notebook ...  Here is a former <a href="https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists2/Stack.java">solution</a>; this is required next week</p>
 </li>
 </ul>
+
 </div>
-</div></div>
 </div>
+</div>
+</div>
+
 
 
   </div><a class="u-url" href="/APCSA/2023/03/15/DS-collections.html" hidden></a>
