@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      19 min read
     
 </span></p>
 
@@ -187,11 +187,12 @@ window.onload = wrap_img;
 <span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"John"</span><span class="p">);</span>
 <span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Jane"</span><span class="p">);</span>
 <span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
+
 <span class="c1">// Collections has a toArray convertion</span>
 <span class="n">Object</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="na">toArray</span><span class="p">();</span>
 
 <span class="c1">// Empty queue</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Empty Queue"</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Empty the Queue"</span><span class="p">);</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// Interate while size</span>
     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">remove</span><span class="p">());</span>
 
@@ -202,6 +203,27 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Empty Queue
+John
+Jane
+Bob
+Iterate over Array
+John
+Jane
+Bob
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -234,7 +256,7 @@ window.onload = wrap_img;
 <div class=" highlight hl-java"><pre><span></span><span class="cm">/* This is wrapper class...</span>
 <span class="cm"> Objective would be to push more functionality into this Class to enforce consistent definition</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Generics</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Generics</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="o">&lt;</span><span class="n">Generics</span><span class="o">&gt;</span> <span class="p">{</span>
 	<span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">masterType</span> <span class="o">=</span> <span class="s">"Generic"</span><span class="p">;</span>
 	<span class="kd">private</span> <span class="n">String</span> <span class="n">type</span><span class="p">;</span>	<span class="c1">// extender should define their data type</span>
 
@@ -261,6 +283,11 @@ window.onload = wrap_img;
 	
 	<span class="c1">// this method is used to establish key order</span>
 	<span class="kd">public</span> <span class="kd">abstract</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">();</span>
+
+	<span class="c1">// this method is used to compare toString of objects</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Generics</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+	<span class="p">}</span>
 
 	<span class="c1">// static print method used by extended classes</span>
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">Generics</span><span class="o">[]</span> <span class="n">objs</span><span class="p">)</span> <span class="p">{</span>
@@ -391,6 +418,77 @@ window.onload = wrap_img;
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>class [LREPL.$JShell$22B$Alphabet; 26
+Generic: Alphabet listed by title
+Alphabet: A
+Alphabet: B
+Alphabet: C
+Alphabet: D
+Alphabet: E
+Alphabet: F
+Alphabet: G
+Alphabet: H
+Alphabet: I
+Alphabet: J
+Alphabet: K
+Alphabet: L
+Alphabet: M
+Alphabet: N
+Alphabet: O
+Alphabet: P
+Alphabet: Q
+Alphabet: R
+Alphabet: S
+Alphabet: T
+Alphabet: U
+Alphabet: V
+Alphabet: W
+Alphabet: X
+Alphabet: Y
+Alphabet: Z
+
+class [LREPL.$JShell$22B$Alphabet; 26
+Generic: Alphabet listed by letter
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -490,9 +588,13 @@ window.onload = wrap_img;
 		<span class="n">Animal</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">);</span>
 		<span class="n">Animal</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">objs</span><span class="p">);</span>
 
-		<span class="c1">// print name only</span>
+		<span class="c1">// convert to Coolection and sort in name order</span>
 		<span class="n">Animal</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
-		<span class="n">Animal</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">objs</span><span class="p">);</span>
+		<span class="n">List</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span> <span class="n">animals</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">objs</span><span class="p">));</span>  <span class="c1">// Array has asList conversion</span>
+		<span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span>
+		<span class="n">Animal</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">);</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">Animal</span> <span class="n">animal</span> <span class="p">:</span> <span class="n">animals</span><span class="p">)</span>
+			<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animal</span><span class="p">);</span>
 	<span class="p">}</span>
 
 <span class="p">}</span>
@@ -500,6 +602,34 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>class [LREPL.$JShell$24U$Animal; 6
+Generic: Animal listed by title
+Animal: Lion, Gold, 8
+Animal: Pig, Pink, 3
+Animal: Robin, Red, 7
+Animal: Cat, Black, 10
+Animal: Kitty, Calico, 1
+Animal: Dog, Brown, 14
+
+Animal: Cat, Black, 10
+Animal: Dog, Brown, 14
+Animal: Kitty, Calico, 1
+Animal: Lion, Gold, 8
+Animal: Pig, Pink, 3
+Animal: Robin, Red, 7
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -596,13 +726,79 @@ window.onload = wrap_img;
 		<span class="n">Cupcake</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">);</span>
 		<span class="n">Cupcake</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">objs</span><span class="p">);</span>
 
-		<span class="c1">// print flavor only</span>
+		<span class="c1">// convert to Coolection and sort in flavor order</span>
 		<span class="n">Cupcake</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">flavor</span><span class="p">);</span>
-		<span class="n">Cupcake</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">objs</span><span class="p">);</span>
+		<span class="n">List</span><span class="o">&lt;</span><span class="n">Cupcake</span><span class="o">&gt;</span> <span class="n">cupcakes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cupcake</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">objs</span><span class="p">));</span>
+		<span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">cupcakes</span><span class="p">);</span>
+		<span class="n">Cupcake</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">);</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">Cupcake</span> <span class="n">cupcake</span> <span class="p">:</span> <span class="n">cupcakes</span><span class="p">)</span>
+			<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cupcake</span><span class="p">);</span>
 	<span class="p">}</span>
 	
 <span class="p">}</span>
 <span class="n">Cupcake</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>class [LREPL.$JShell$26M$Cupcake; 9
+Generic: Cupcake listed by title
+Cupcake: Red Velvet, Red, 4
+Cupcake: Orange, Orange, 5
+Cupcake: Lemon, Yellow, 6
+Cupcake: Apple, Green, 7
+Cupcake: Blueberry, Blue, 8
+Cupcake: Blackberry, Purple, 9
+Cupcake: Strawberry, Pink, 10
+Cupcake: Vanilla, Tan, 11
+Cupcake: Chocolate, Brown, 12
+
+Cupcake: Apple, Green, 7
+Cupcake: Blackberry, Purple, 9
+Cupcake: Blueberry, Blue, 8
+Cupcake: Chocolate, Brown, 12
+Cupcake: Lemon, Yellow, 6
+Cupcake: Orange, Orange, 5
+Cupcake: Red Velvet, Red, 4
+Cupcake: Strawberry, Pink, 10
+Cupcake: Vanilla, Tan, 11
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cupcake</span> <span class="kd">extends</span> <span class="n">Generics</span> <span class="p">{</span>
+
+    <span class="n">Generics</span><span class="o">[]</span> <span class="n">objs</span> <span class="o">=</span> <span class="n">cupcakes</span><span class="p">();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addList</span><span class="p">(</span><span class="n">Generics</span><span class="o">[]</span><span class="p">...</span> <span class="n">seriesOfObjects</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//accepts multiple Generics lists</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Generics</span><span class="o">[]</span> <span class="n">objects</span><span class="p">:</span> <span class="n">seriesOfObjects</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="n">objects</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">count</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
     </div>
@@ -982,6 +1178,65 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">/**</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold"> * Driver Class</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold"> * Tests queue with string, integers, and mixes of Classes and types</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold"> */</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">class QueueTester {</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">    public static void main(String[] args)</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">    {</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        // Create iterable Queue of Words</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        Object[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        QueueManager qWords = new QueueManager("Words", words );</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qWords.printQueue();</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        // Create iterable Queue of Integers</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        Object[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        QueueManager qNums = new QueueManager("Integers", numbers );</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qNums.printQueue();</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        // Create iterable Queue of NCS Generics</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        Animal.setOrder(Animal.KeyType.name);</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        Alphabet.setOrder(Alphabet.KeyType.letter);</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        Cupcake.setOrder(Cupcake.KeyType.flavor);</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        // Illustrates use of a series of repeating arguments</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        QueueManager qGenerics = new QueueManager("My Generics",</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                Alphabet.alphabetData(),</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                Animal.animals(),</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                Cupcake.cupcakes()</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        );</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qGenerics.sort();</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qGenerics.printQueue();</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        // Create iterable Queue of Mixed types of data</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        QueueManager qMix = new QueueManager("Mixed");</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qMix.queue.add("Start");</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qMix.addList(</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                words,</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                numbers,</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                Alphabet.alphabetData(),</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                Animal.animals(),</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">                Cupcake.cupcakes()</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        );</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qMix.queue.add("End");</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        qMix.printQueue();</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">    }</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">}</span>
+<span class="ansi-red-intense-fg ansi-bold">Unresolved dependencies:</span>
+<span class="ansi-red-intense-fg ansi-bold">   - method sort()</span></pre>
+</div>
+</div>
+
 </div>
 </div>
 
