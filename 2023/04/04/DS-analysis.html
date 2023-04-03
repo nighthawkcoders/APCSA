@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      9 min read
     
 </span></p>
 
@@ -119,6 +119,8 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Data-for-HashMap-and-Hacks">Data for HashMap and Hacks </a></li>
+<li class="toc-entry toc-h2"><a href="#HashMap">HashMap </a></li>
 <li class="toc-entry toc-h2"><a href="#Hacks">Hacks </a></li>
 </ul><!--
 #################################################
@@ -132,6 +134,478 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-for-HashMap-and-Hacks">
+<a class="anchor" href="#Data-for-HashMap-and-Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data for HashMap and Hacks<a class="anchor-link" href="#Data-for-HashMap-and-Hacks"> </a>
+</h2>
+<blockquote>
+<p>Find a data source.  To develop concepts use a few records.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="cm">/* This is wrapper class...</span>
+<span class="cm"> Objective would be to push more functionality into this Class to enforce consistent definition</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Collectable</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="o">&lt;</span><span class="n">Collectable</span><span class="o">&gt;</span> <span class="p">{</span>
+	<span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">masterType</span> <span class="o">=</span> <span class="s">"Collectable"</span><span class="p">;</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">type</span><span class="p">;</span>	<span class="c1">// extender should define their data type</span>
+
+	<span class="c1">// enumerated interface</span>
+	<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">KeyTypes</span> <span class="p">{</span>
+		<span class="n">String</span> <span class="nf">name</span><span class="p">();</span>
+	<span class="p">}</span>
+	<span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">KeyTypes</span> <span class="nf">getKey</span><span class="p">();</span>  	<span class="c1">// this method helps force usage of KeyTypes</span>
+
+	<span class="c1">// getter</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getMasterType</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">masterType</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// getter</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getType</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">type</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// setter</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setType</span><span class="p">(</span><span class="n">String</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="na">type</span> <span class="o">=</span> <span class="n">type</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="c1">// this method is used to establish key order</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">();</span>
+
+	<span class="c1">// this method is used to compare toString of objects</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Collectable</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+	<span class="p">}</span>
+
+	<span class="c1">// static print method used by extended classes</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">Collectable</span><span class="o">[]</span> <span class="n">objs</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// print 'Object' properties</span>
+		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">objs</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">objs</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+
+		<span class="c1">// print 'Collectable' properties</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">objs</span><span class="p">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">Collectable</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">objs</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>	<span class="c1">// Look at properties of 1st element</span>
+			<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span>
+					<span class="n">obj</span><span class="p">.</span><span class="na">getMasterType</span><span class="p">()</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> 
+					<span class="n">obj</span><span class="p">.</span><span class="na">getType</span><span class="p">()</span> <span class="o">+</span>
+					<span class="s">" listed by "</span> <span class="o">+</span>
+					<span class="n">obj</span><span class="p">.</span><span class="na">getKey</span><span class="p">());</span>
+		<span class="p">}</span>
+
+		<span class="c1">// print "Collectable: Objects'</span>
+		<span class="k">for</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span> <span class="p">:</span> <span class="n">objs</span><span class="p">)</span>	<span class="c1">// observe that type is Opaque</span>
+			<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+
+		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Animal class extends Collectable and defines abstract methods</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span> <span class="kd">extends</span> <span class="n">Collectable</span> <span class="p">{</span>
+	<span class="c1">// Class data</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="n">KeyTypes</span> <span class="n">key</span> <span class="o">=</span> <span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">;</span>  <span class="c1">// static initializer</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setOrder</span><span class="p">(</span><span class="n">KeyTypes</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span> <span class="n">Animal</span><span class="p">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span> <span class="p">}</span>
+	<span class="kd">public</span> <span class="kd">enum</span> <span class="n">KeyType</span> <span class="kd">implements</span> <span class="n">KeyTypes</span> <span class="p">{</span><span class="n">title</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">color</span><span class="p">}</span>
+
+	<span class="c1">// Instance data</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">color</span><span class="p">;</span>
+
+	<span class="cm">/* constructor</span>
+<span class="cm">	 *</span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="nf">Animal</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="n">String</span> <span class="n">color</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="kd">super</span><span class="p">.</span><span class="na">setType</span><span class="p">(</span><span class="s">"Animal"</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="cm">/* 'Collectable' requires getKey to help enforce KeyTypes usage */</span>
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="n">KeyTypes</span> <span class="nf">getKey</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Animal</span><span class="p">.</span><span class="na">key</span><span class="p">;</span> <span class="p">}</span>
+
+	<span class="cm">/* Getters</span>
+<span class="cm">	 * </span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">;</span> <span class="p">}</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="p">;</span> <span class="p">}</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getColor</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">color</span><span class="p">;</span> <span class="p">}</span>
+
+	
+	<span class="cm">/* 'Collectable' requires toString override</span>
+<span class="cm">	 * toString provides data based off of Static Key setting</span>
+<span class="cm">	 */</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="n">String</span> <span class="n">output</span><span class="o">=</span><span class="s">""</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getKey</span><span class="p">()))</span> <span class="p">{</span>
+			<span class="n">output</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">age</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getKey</span><span class="p">()))</span> <span class="p">{</span>
+			<span class="n">output</span> <span class="o">+=</span> <span class="s">"00"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="p">;</span>
+			<span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">output</span><span class="p">.</span><span class="na">length</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">color</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getKey</span><span class="p">()))</span> <span class="p">{</span>
+			<span class="n">output</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="na">color</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">output</span> <span class="o">+=</span> <span class="kd">super</span><span class="p">.</span><span class="na">getType</span><span class="p">()</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">color</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="n">output</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+
+	<span class="c1">// Test data initializer</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="n">Animal</span><span class="o">[]</span> <span class="nf">animals</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="n">Animal</span><span class="o">[]</span><span class="p">{</span>
+				<span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Lion"</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s">"Gold"</span><span class="p">),</span>
+				<span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Pig"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">"Pink"</span><span class="p">),</span>
+				<span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Robin"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s">"Red"</span><span class="p">),</span>
+				<span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Cat"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"Black"</span><span class="p">),</span>
+				<span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Kitty"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"Calico"</span><span class="p">),</span>
+				<span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Dog"</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="s">"Brown"</span><span class="p">)</span>
+		<span class="p">};</span>
+	<span class="p">}</span>
+	
+	<span class="cm">/* main to test Animal class</span>
+<span class="cm">	 * </span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Inheritance Hierarchy</span>
+		<span class="n">Animal</span><span class="o">[]</span> <span class="n">objs</span> <span class="o">=</span> <span class="n">animals</span><span class="p">();</span>
+
+		<span class="c1">// print with title</span>
+		<span class="n">Animal</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">);</span>
+		<span class="n">Animal</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">objs</span><span class="p">);</span>
+
+		<span class="c1">// convert to Coolection and sort in name order</span>
+		<span class="n">Animal</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+		<span class="n">List</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span> <span class="n">animals</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">objs</span><span class="p">));</span>  <span class="c1">// Array has asList conversion</span>
+		<span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span>
+		<span class="n">Animal</span><span class="p">.</span><span class="na">setOrder</span><span class="p">(</span><span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">);</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">Animal</span> <span class="n">animal</span> <span class="p">:</span> <span class="n">animals</span><span class="p">)</span>
+			<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animal</span><span class="p">);</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+<span class="n">Animal</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>class [LREPL.$JShell$13B$Animal; 6
+Collectable: Animal listed by title
+Animal: Lion, Gold, 8
+Animal: Pig, Pink, 3
+Animal: Robin, Red, 7
+Animal: Cat, Black, 10
+Animal: Kitty, Calico, 1
+Animal: Dog, Brown, 14
+
+Animal: Cat, Black, 10
+Animal: Dog, Brown, 14
+Animal: Kitty, Calico, 1
+Animal: Lion, Gold, 8
+Animal: Pig, Pink, 3
+Animal: Robin, Red, 7
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="HashMap">
+<a class="anchor" href="#HashMap" aria-hidden="true"><span class="octicon octicon-link"></span></a>HashMap<a class="anchor-link" href="#HashMap"> </a>
+</h2>
+<blockquote>
+<p>Below is an example using a HashMap and listed are some key things to consider when using this data structure.</p>
+</blockquote>
+<ol>
+<li>Hashing:HashMap uses a hash function to map keys to their corresponding buckets. The hash function is used to compute the index of the array where the key-value pair should be stored. A good hash function should generate a unique hash code for each key, but collisions (i.e., two keys with the same hash code) can still occur.</li>
+<li>
+<p>Performance: HashMap provides constant-time performance (O(1)) for get() and put() operations, as long as the hash function is well-distributed and there are no hash collisions. However, in the worst case, the performance of a HashMap can degrade to O(n), where n is the number of elements in the map.</p>
+</li>
+<li>
+<p>Key and value types: HashMap allows any non-null object as a key, and any object (including null) as a value. However, to use a class as a key, it must implement the equals() and hashCode() methods. HashMap uses the equals() method to check if two keys are equal, and the hashCode() method to generate the hash code for the key.</p>
+</li>
+<li>
+<p>Iteration: HashMap provides several ways to iterate over the key-value pairs in the map, including using keySet(), values(), and entrySet(). The entrySet() method returns a Set view of the key-value pairs in the map, which can be used to iterate over the pairs and modify the map as you go.</p>
+</li>
+<li>
+<p>Thread safety: HashMap is not thread-safe, which means that if multiple threads access the same HashMap instance concurrently and at least one thread modifies the map structurally, the behavior is undefined. To make a HashMap thread-safe, you can use the ConcurrentHashMap class instead, which provides concurrent access and is designed for high concurrency. In a Full Stack project it would be best to use a NoSQL database to avoid concurrency issues.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pets</span> <span class="p">{</span>
+    <span class="c1">// create a new HashMap</span>
+    <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Animal</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+    <span class="cm">/* Add Pets</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Pets</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// add some key-value pairs to the HashMap</span>
+        <span class="n">names</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Leo"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Lion"</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s">"Gold"</span><span class="p">));</span>
+        <span class="n">names</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Porky"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Pig"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">"Pink"</span><span class="p">));</span>
+        <span class="n">names</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Ro-Ro"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Robin"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s">"Red"</span><span class="p">));</span>
+        <span class="n">names</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Midnight"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Cat"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"Black"</span><span class="p">));</span>
+        <span class="n">names</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Hobbes"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Kitty"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"Calico"</span><span class="p">));</span>
+        <span class="n">names</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Duke"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Dog"</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="s">"Brown"</span><span class="p">));</span>
+    <span class="p">}</span> 
+
+    <span class="cm">/* Remove Pet</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Animal</span> <span class="nf">remove</span><span class="p">(</span><span class="n">String</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// check if a key exists in the HashMap then remove</span>
+        <span class="n">Animal</span> <span class="n">animal</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">names</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">animal</span> <span class="o">=</span> <span class="n">names</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+            <span class="n">names</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">animal</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* Print Pets</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// iterate over the keys in the HashMap</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">:</span> <span class="n">names</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">Animal</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">names</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">" is a "</span> <span class="o">+</span> <span class="n">obj</span><span class="p">.</span><span class="na">getColor</span><span class="p">()</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">obj</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s">" and is "</span> <span class="o">+</span> <span class="n">obj</span><span class="p">.</span><span class="na">getAge</span><span class="p">()</span> <span class="o">+</span> <span class="s">" years old."</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* Tester Method</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// intialize Pets</span>
+        <span class="n">Pets</span> <span class="n">pets</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pets</span><span class="p">();</span>
+        <span class="n">pets</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        
+        <span class="c1">// remove Pet</span>
+        <span class="n">Animal</span> <span class="n">animal</span> <span class="o">=</span> <span class="n">pets</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"Hobbes"</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">animal</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s">" not found"</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Removed: "</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">animal</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">pets</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">Pets</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hobbes is a Calico Kitty and is 1 years old.
+Leo is a Gold Lion and is 8 years old.
+Porky is a Pink Pig and is 3 years old.
+Ro-Ro is a Red Robin and is 7 years old.
+Duke is a Brown Dog and is 14 years old.
+Midnight is a Black Cat and is 10 years old.
+
+Removed: Hobbes, Animal: Kitty, Calico, 1
+Leo is a Gold Lion and is 8 years old.
+Porky is a Pink Pig and is 3 years old.
+Ro-Ro is a Red Robin and is 7 years old.
+Duke is a Brown Dog and is 14 years old.
+Midnight is a Black Cat and is 10 years old.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Below is an example using a java.util.Set and listed are some key things to consider when using this data structure.  A Set works similarly to a key in a HashMap, a Set is just the Key.</p>
+</blockquote>
+<ol>
+<li>No duplicates:A Set does not allow duplicate elements. If you try to add an element that already exists in the Set, the add() method will return false and the Set will not be modified.  Duplicate add is shown in example.</li>
+<li>
+<p>Unordered: A Set does not maintain the insertion order of elements. The order of elements in a Set may change as elements are added or removed.</p>
+</li>
+<li>
+<p>Equality: Two Sets are considered equal if they have the same elements, regardless of their order. The equals() method is used to test for Set equality.</p>
+</li>
+<li>
+<p>Implementation classes: Java provides several implementation classes for the Set interface, including HashSet, LinkedHashSet, and TreeSet. Each implementation has different performance characteristics and is optimized for different use cases.</p>
+</li>
+<li>
+<p>Iterator: The iterator() method can be used to iterate over the elements in a Set. The order in which elements are returned by the iterator is not defined and may change over time as elements are added or removed from the Set. The forEach() method is another way to iterate over the elements in a Set, and it allows you to pass a lambda expression to process each element in the Set.  Lambda expression is shown in example.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalSet</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// create a new HashSet</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">animals</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="c1">// add some elements to the Set</span>
+        <span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"lion"</span><span class="p">);</span>
+        <span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"dog"</span><span class="p">);</span>
+        <span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"cat"</span><span class="p">);</span>
+
+        <span class="c1">// print out the Set</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span>
+
+        <span class="c1">// check if an element is in the Set</span>
+        <span class="kt">boolean</span> <span class="n">hasLion</span> <span class="o">=</span> <span class="n">animals</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">"lion"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Has lion: "</span> <span class="o">+</span> <span class="n">hasLion</span><span class="p">);</span>
+
+        <span class="c1">// remove an element from the Set</span>
+        <span class="n">animals</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"lion"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Removed lion"</span><span class="p">);</span>
+
+        <span class="c1">// print out the Set</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span>
+
+        <span class="c1">// add duplicate</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"add duplicate dog"</span><span class="p">);</span>
+        <span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"dog"</span><span class="p">);</span>  <span class="c1">// no action</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span>
+        <span class="c1">// add duplicate</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"add pig"</span><span class="p">);</span>
+        <span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"pig"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span>
+
+        <span class="c1">// using forEach() method with a lambda expression</span>
+        <span class="n">animals</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">animal</span> <span class="o">-&gt;</span> <span class="p">{</span>
+            <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"I "</span><span class="p">;</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="n">animal</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">"dog"</span><span class="p">)</span> <span class="o">?</span> <span class="s">"like"</span> <span class="p">:</span> <span class="s">"don't like"</span><span class="p">;</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">animal</span> <span class="o">+</span> <span class="s">"s "</span> <span class="o">+</span> <span class="s">"for pets"</span><span class="p">;</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+        <span class="p">});</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">AnimalSet</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[cat, dog, lion]
+Has lion: true
+Removed lion
+[cat, dog]
+add duplicate dog
+[cat, dog]
+add pig
+[cat, dog, pig]
+I don't like cats for pets
+I like dogs for pets
+I don't like pigs for pets
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Hacks">
 <a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
 </h2>
@@ -142,11 +616,16 @@ window.onload = wrap_img;
 <li>Make your final/judgement on best sort: Number of Comparisons, Number of Swaps, Big O complexity, and Total Time.  </li>
 <li>Try to find/build two data sets (100 records, 1000 records).  See if there is any difference in analysis and you opinions based off of size.</li>
 </ul>
-<p>Build Hashmap of similar data that is used in Sorts</p>
+<p>Continue to build Hashmap above and a corresponding Data Structure using a Collection.</p>
 <ul>
-<li>Setup data in favorite sort and Hashmap to prepare for searching</li>
-<li>Perform analysis on Binary Search</li>
-<li>Perform analysis on Hashmap Lookup</li>
+<li>Setup data using favorite Sort with Collection</li>
+<li>Be sure to have 100 records and 1000 records of records</li>
+<li>Perform analysis on Binary Search vs HashMap Lookup, try using random to search and find 100 and 1000 times respectiviely.</li>
+<li>Performing Delete, Add operations are another way to analyze a Data Structure.</li>
+</ul>
+<p>Extra, Practical learning</p>
+<ul>
+<li>Consider using HashMap, Set or HashSet in a Class, POJO and API.</li>
 </ul>
 </blockquote>
 
