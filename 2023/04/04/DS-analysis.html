@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      8 min read
     
 </span></p>
 
@@ -324,34 +324,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>class [LREPL.$JShell$13B$Animal; 6
-Collectable: Animal listed by title
-Animal: Lion, Gold, 8
-Animal: Pig, Pink, 3
-Animal: Robin, Red, 7
-Animal: Cat, Black, 10
-Animal: Kitty, Calico, 1
-Animal: Dog, Brown, 14
-
-Animal: Cat, Black, 10
-Animal: Dog, Brown, 14
-Animal: Kitty, Calico, 1
-Animal: Lion, Gold, 8
-Animal: Pig, Pink, 3
-Animal: Robin, Red, 7
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -443,8 +415,9 @@ Animal: Robin, Red, 7
         <span class="n">Pets</span> <span class="n">pets</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pets</span><span class="p">();</span>
         <span class="n">pets</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
         
-        <span class="c1">// remove Pet</span>
-        <span class="n">Animal</span> <span class="n">animal</span> <span class="o">=</span> <span class="n">pets</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"Hobbes"</span><span class="p">);</span>
+        <span class="c1">// remove a Pet</span>
+        <span class="n">String</span> <span class="n">key</span> <span class="o">=</span> <span class="s">"Hobbes"</span><span class="p">;</span>
+        <span class="n">Animal</span> <span class="n">animal</span> <span class="o">=</span> <span class="n">pets</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">animal</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s">" not found"</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -458,33 +431,6 @@ Animal: Robin, Red, 7
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hobbes is a Calico Kitty and is 1 years old.
-Leo is a Gold Lion and is 8 years old.
-Porky is a Pink Pig and is 3 years old.
-Ro-Ro is a Red Robin and is 7 years old.
-Duke is a Brown Dog and is 14 years old.
-Midnight is a Black Cat and is 10 years old.
-
-Removed: Hobbes, Animal: Kitty, Calico, 1
-Leo is a Gold Lion and is 8 years old.
-Porky is a Pink Pig and is 3 years old.
-Ro-Ro is a Red Robin and is 7 years old.
-Duke is a Brown Dog and is 14 years old.
-Midnight is a Black Cat and is 10 years old.
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -562,7 +508,9 @@ Midnight is a Black Cat and is 10 years old.
         <span class="c1">// using forEach() method with a lambda expression</span>
         <span class="n">animals</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">animal</span> <span class="o">-&gt;</span> <span class="p">{</span>
             <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"I "</span><span class="p">;</span>
+            <span class="c1">// ternary operation for like, don't like</span>
             <span class="n">message</span> <span class="o">+=</span> <span class="n">animal</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">"dog"</span><span class="p">)</span> <span class="o">?</span> <span class="s">"like"</span> <span class="p">:</span> <span class="s">"don't like"</span><span class="p">;</span>
+            <span class="c1">// complete sentance</span>
             <span class="n">message</span> <span class="o">+=</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">animal</span> <span class="o">+</span> <span class="s">"s "</span> <span class="o">+</span> <span class="s">"for pets"</span><span class="p">;</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
         <span class="p">});</span>
@@ -573,30 +521,6 @@ Midnight is a Black Cat and is 10 years old.
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[cat, dog, lion]
-Has lion: true
-Removed lion
-[cat, dog]
-add duplicate dog
-[cat, dog]
-add pig
-[cat, dog, pig]
-I don't like cats for pets
-I like dogs for pets
-I don't like pigs for pets
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
