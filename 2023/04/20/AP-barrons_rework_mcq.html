@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      7 min read
     
 </span></p>
 
@@ -307,9 +307,9 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Libary Book Count: 0
-1.REPL.$JShell$12$Book@5714651f: Barron's Computer Science "A", Shelf Life 1.0
-2.REPL.$JShell$12$Book@79dfd41: Angels and Demons, Shelf Life 1.0
-3.REPL.$JShell$12$Book@11dbfc62: Lion, Witch, and a Wardrobe, Shelf Life 1.0
+1.REPL.$JShell$12$Book@6f8f9a19: Barron's Computer Science "A", Shelf Life 1.0
+2.REPL.$JShell$12$Book@5bb3b43e: Angels and Demons, Shelf Life 1.0
+3.REPL.$JShell$12$Book@5be77cb4: Lion, Witch, and a Wardrobe, Shelf Life 1.0
 Libary Book Count: 3
 </pre>
 </div>
@@ -332,6 +332,7 @@ Libary Book Count: 3
     <span class="kd">private</span> <span class="n">String</span> <span class="n">author</span><span class="p">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">checkouts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
+    <span class="c1">// Two argument, not according to requirements</span>
     <span class="kd">public</span> <span class="nf">Novel</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">,</span> <span class="n">String</span> <span class="n">author</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">super</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// call to super constructor</span>
         <span class="k">this</span><span class="p">.</span><span class="na">author</span> <span class="o">=</span> <span class="n">author</span><span class="p">;</span>
@@ -358,6 +359,7 @@ Libary Book Count: 3
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>      
         <span class="k">return</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">author</span><span class="p">);</span>
     <span class="p">}</span>
@@ -399,8 +401,8 @@ Libary Book Count: 3
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Libary Book Count: 3
-4.REPL.$JShell$14$Novel@7098ad46: The Da Vincii Code, Shelf Life 2.0, Dan Brown
-5.REPL.$JShell$14$Novel@180731e1: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
+4.REPL.$JShell$14$Novel@7adf6956: The Da Vincii Code, Shelf Life 2.0, Dan Brown
+5.REPL.$JShell$14$Novel@3c0b2077: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
 Libary Book Count: 5
 </pre>
 </div>
@@ -422,16 +424,19 @@ Libary Book Count: 5
 <div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">TextBook</span> <span class="kd">extends</span> <span class="n">Book</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">publisher</span><span class="p">;</span>
 
+    <span class="c1">// Single argument</span>
     <span class="kd">public</span> <span class="nf">TextBook</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">super</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// call to super constructor</span>
         <span class="kd">super</span><span class="p">.</span><span class="na">setShelfLife</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  
     <span class="p">}</span>
 
+    <span class="c1">// Two argument for ease of use</span>
     <span class="kd">public</span> <span class="nf">TextBook</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">,</span> <span class="n">String</span> <span class="n">publisher</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// call to single arg constructor</span>
         <span class="k">this</span><span class="p">.</span><span class="na">setPublisher</span><span class="p">(</span><span class="n">publisher</span><span class="p">);</span>  <span class="c1">// call to setter</span>
     <span class="p">}</span>
 
+    <span class="c1">// Setter to allow post constructor update</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPublisher</span><span class="p">(</span><span class="n">String</span> <span class="n">publisher</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">publisher</span> <span class="o">=</span> <span class="n">publisher</span><span class="p">;</span>
     <span class="p">}</span>
@@ -440,6 +445,7 @@ Libary Book Count: 5
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">publisher</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>      
         <span class="k">return</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">getPublisher</span><span class="p">());</span>
     <span class="p">}</span>
@@ -448,7 +454,7 @@ Libary Book Count: 5
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>  <span class="c1">// Note library count is truly static acroos inheritance</span>
 
-        <span class="c1">// 2D array initialization</span>
+        <span class="c1">// 2D array initialization, just for fun</span>
         <span class="n">String</span> <span class="o">[][]</span> <span class="n">books</span> <span class="o">=</span> <span class="p">{</span>
             <span class="p">{</span> <span class="s">"e=MC^2 a Biography"</span><span class="p">,</span>
               <span class="s">"Pan Books (January 1, 2001)"</span><span class="p">},</span>                        <span class="c1">// row 0</span>
@@ -486,12 +492,13 @@ Libary Book Count: 5
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Libary Book Count: 5
-6.REPL.$JShell$17$TextBook@5671e66f: e=MC^2 a Biography, Shelf Life 3.0, Pan Books (January 1, 2001)
-Libary Book Count: 6
-7.REPL.$JShell$17$TextBook@2d9196da: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
-Libary Book Count: 7
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">\   @Override</span>
+<span class="ansi-red-intense-fg ansi-bold">illegal character: '\'</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">\   @Override</span>
+<span class="ansi-red-intense-fg ansi-bold">&lt;identifier&gt; expected</span>
 </pre>
 </div>
 </div>
@@ -531,69 +538,6 @@ Libary Book Count: 7
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Year: 0
-Saved books
-1.REPL.$JShell$12$Book@5714651f: Barron's Computer Science "A", Shelf Life 1.0
-2.REPL.$JShell$12$Book@79dfd41: Angels and Demons, Shelf Life 1.0
-3.REPL.$JShell$12$Book@11dbfc62: Lion, Witch, and a Wardrobe, Shelf Life 1.0
-4.REPL.$JShell$14$Novel@7098ad46: The Da Vincii Code, Shelf Life 2.0, Dan Brown
-5.REPL.$JShell$14$Novel@180731e1: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
-6.REPL.$JShell$17$TextBook@5671e66f: e=MC^2 a Biography, Shelf Life 3.0, Pan Books (January 1, 2001)
-7.REPL.$JShell$17$TextBook@2d9196da: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
-
-Year: 1
-Saved books
-1.REPL.$JShell$12$Book@5714651f: Barron's Computer Science "A", Shelf Life 0.0
-2.REPL.$JShell$12$Book@79dfd41: Angels and Demons, Shelf Life 0.0
-3.REPL.$JShell$12$Book@11dbfc62: Lion, Witch, and a Wardrobe, Shelf Life 0.0
-4.REPL.$JShell$14$Novel@7098ad46: The Da Vincii Code, Shelf Life 1.0, Dan Brown
-5.REPL.$JShell$14$Novel@180731e1: Prinde and Prejudice, Shelf Life 3.0, Jane Austen
-6.REPL.$JShell$17$TextBook@5671e66f: e=MC^2 a Biography, Shelf Life 2.0, Pan Books (January 1, 2001)
-7.REPL.$JShell$17$TextBook@2d9196da: The Practice of Programming, Shelf Life 2.0, Addison-Wesley Professional Computing
-
-Year: 2
-Saved books
-1.REPL.$JShell$12$Book@5714651f: Barron's Computer Science "A", Shelf Life 0.0
-2.REPL.$JShell$12$Book@79dfd41: Angels and Demons, Shelf Life 0.0
-3.REPL.$JShell$12$Book@11dbfc62: Lion, Witch, and a Wardrobe, Shelf Life 0.0
-4.REPL.$JShell$14$Novel@7098ad46: The Da Vincii Code, Shelf Life 0.0, Dan Brown
-5.REPL.$JShell$14$Novel@180731e1: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
-6.REPL.$JShell$17$TextBook@5671e66f: e=MC^2 a Biography, Shelf Life 1.0, Pan Books (January 1, 2001)
-7.REPL.$JShell$17$TextBook@2d9196da: The Practice of Programming, Shelf Life 1.0, Addison-Wesley Professional Computing
-
-Year: 3
-Saved books
-1.REPL.$JShell$12$Book@5714651f: Barron's Computer Science "A", Shelf Life 0.0
-2.REPL.$JShell$12$Book@79dfd41: Angels and Demons, Shelf Life 0.0
-3.REPL.$JShell$12$Book@11dbfc62: Lion, Witch, and a Wardrobe, Shelf Life 0.0
-4.REPL.$JShell$14$Novel@7098ad46: The Da Vincii Code, Shelf Life 0.0, Dan Brown
-5.REPL.$JShell$14$Novel@180731e1: Prinde and Prejudice, Shelf Life 1.0, Jane Austen
-6.REPL.$JShell$17$TextBook@5671e66f: e=MC^2 a Biography, Shelf Life 0.0, Pan Books (January 1, 2001)
-7.REPL.$JShell$17$TextBook@2d9196da: The Practice of Programming, Shelf Life 0.0, Addison-Wesley Professional Computing
-
-Year: 4
-Saved books
-1.REPL.$JShell$12$Book@5714651f: Barron's Computer Science "A", Shelf Life 0.0
-2.REPL.$JShell$12$Book@79dfd41: Angels and Demons, Shelf Life 0.0
-3.REPL.$JShell$12$Book@11dbfc62: Lion, Witch, and a Wardrobe, Shelf Life 0.0
-4.REPL.$JShell$14$Novel@7098ad46: The Da Vincii Code, Shelf Life 0.0, Dan Brown
-5.REPL.$JShell$14$Novel@180731e1: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
-6.REPL.$JShell$17$TextBook@5671e66f: e=MC^2 a Biography, Shelf Life 0.0, Pan Books (January 1, 2001)
-7.REPL.$JShell$17$TextBook@2d9196da: The Practice of Programming, Shelf Life 0.0, Addison-Wesley Professional Computing
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
