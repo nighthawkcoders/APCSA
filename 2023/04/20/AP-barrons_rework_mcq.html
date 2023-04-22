@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      11 min read
     
 </span></p>
 
@@ -120,7 +120,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Extend-Book-Class">Extend Book Class </a></li>
 <li class="toc-entry toc-h2"><a href="#Perform-these-actions,-answer-questions,-adjust-code.">Perform these actions, answer questions, adjust code. </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#class-Book-(Part-1)--Close-Book">class Book (Part 1)  Close Book </a></li>
+<li class="toc-entry toc-h3"><a href="#class-Book-(Part-1)--Close-Book-Test">class Book (Part 1)  Close Book Test </a></li>
 <li class="toc-entry toc-h3"><a href="#extended-Classes-(Part-2)-Try-to-use-alternate-forms-of-loops-and-techniques-for-construction.">extended Classes (Part 2) Try to use alternate forms of loops and techniques for construction. </a></li>
 <li class="toc-entry toc-h3"><a href="#Simulation-(Part-3)">Simulation (Part 3) </a></li>
 </ul>
@@ -163,12 +163,12 @@ window.onload = wrap_img;
 <h2 id="Perform-these-actions,-answer-questions,-adjust-code.">
 <a class="anchor" href="#Perform-these-actions,-answer-questions,-adjust-code." aria-hidden="true"><span class="octicon octicon-link"></span></a>Perform these actions, answer questions, adjust code.<a class="anchor-link" href="#Perform-these-actions,-answer-questions,-adjust-code."> </a>
 </h2>
-<h3 id="class-Book-(Part-1)--Close-Book">
-<a class="anchor" href="#class-Book-(Part-1)--Close-Book" aria-hidden="true"><span class="octicon octicon-link"></span></a>class Book (Part 1)  Close Book<a class="anchor-link" href="#class-Book-(Part-1)--Close-Book"> </a>
+<h3 id="class-Book-(Part-1)--Close-Book-Test">
+<a class="anchor" href="#class-Book-(Part-1)--Close-Book-Test" aria-hidden="true"><span class="octicon octicon-link"></span></a>class Book (Part 1)  Close Book Test<a class="anchor-link" href="#class-Book-(Part-1)--Close-Book-Test"> </a>
 </h3>
 <ol>
-<li>Define 1 argument constructor for title, </li>
-<li>Define toString method for id and title.</li>
+<li>Define 1 argument constructor using title</li>
+<li>Define toString method for id and title</li>
 <li>Generate unique id for each object</li>
 <li>Create a public getter that has Book Count</li>
 <li>Define tester method that initializes at least 2 books, outputs id and title, and provides a count of books in library.</li>
@@ -179,9 +179,8 @@ window.onload = wrap_img;
 <ol>
 <li>Ensure Novel and Textbook run the Constructor from Book.</li>
 <li>Create instance variables unique to Novel has Author, Textbook has publishing company.  New items are not required by Constructor.  </li>
-<li>Make Getters and Setters for all new items.  You can add your own.</li>
+<li>Make Getters and Setters for all new items.  For instance, be able to set items not required by constructor.</li>
 <li>Add a time when book entered the library.  This should be same for Parent and Subclasses.  </li>
-<li>Make sure there are getters and setters for items as needed.  For instance, be able to set items not required by constructor.</li>
 <li>Define tester method to test all items.</li>
 </ol>
 <h3 id="Simulation-(Part-3)">
@@ -196,7 +195,7 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>Use a sleep in Java to assist with simulation</li>
-<li>Make a method that looks at book in library and determines if they need to come of the shelf, try to have title and on/off status in output.</li>
+<li>Make a method that determines if book has shelf life remaining, try to have title and on/off status in output.</li>
 </ol>
 
 </div>
@@ -209,89 +208,132 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Book</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span><span class="p">();</span>  <span class="c1">// library as static ArrayList</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">YEAR</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>  <span class="c1">// year in milliseconds</span>
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Book and Library Data Structure</span>
+<span class="kd">class</span> <span class="nc">Book</span> <span class="p">{</span>
+    <span class="c1">// Static attributes are called "Class Variables", the are not part of the Object</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span><span class="p">();</span>  <span class="c1">// Library as static ArrayList</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">YEAR</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>  <span class="c1">// year in milliseconds, final as it does not change</span>
+
+    <span class="c1">// The remaining attributes are "Instance Variables"</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="p">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+    <span class="c1">// protected variables can be referenced in extended classes, semi-private</span>
     <span class="kd">protected</span> <span class="kt">long</span> <span class="n">created</span><span class="p">;</span>
     <span class="kd">protected</span> <span class="kt">long</span> <span class="n">life</span><span class="p">;</span>
 
-    <span class="kd">public</span> <span class="nf">Book</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 1 argument constructor, note that no argument constructor is NOT supported</span>
+    <span class="kd">public</span> <span class="nf">Book</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Part 1.1, Define 1 argument constructor using title</span>
         <span class="k">this</span><span class="p">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">;</span>
-        <span class="n">Book</span><span class="p">.</span><span class="na">library</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>  <span class="c1">// must be before id is set</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">id</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">();</span>
+        <span class="n">Book</span><span class="p">.</span><span class="na">library</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>  <span class="c1">// library size used to set</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">id</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">();</span>  <span class="c1">// Part 1.3, Generate unique id for each object</span>
 
         <span class="c1">// init time for simulation</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">created</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">created</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>  <span class="c1">// Part 2.4 Add a time when book entered the library.</span>
         <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">created</span><span class="p">;</span> <span class="c1">// set offset for shelf life</span>
         <span class="k">this</span><span class="p">.</span><span class="na">setShelfLife</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// provide a default for shelf life</span>
     <span class="p">}</span>
 
+    <span class="c1">/////////////////////////// Part 1 Methods ///////////////////////////////</span>
+    
     <span class="cm">/* getter for id */</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="cm">/* method to increase shelf life by years */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setShelfLife</span><span class="p">(</span><span class="kt">int</span> <span class="n">years</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">+=</span> <span class="n">years</span> <span class="o">*</span> <span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">;</span>  <span class="c1">// add years to shelf life</span>
-    <span class="p">}</span>
-
-    <span class="cm">/* book aging method  */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ageShelfLife</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">-=</span> <span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="p">.</span><span class="na">created</span><span class="p">)</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">created</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="cm">/* method to display shelf life in years */</span>
-    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getShelfLife</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="na">created</span><span class="p">)</span> <span class="o">/</span> <span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">;</span>
-    <span class="p">}</span>
-
     <span class="cm">/* size is used as unique id, deletes can't occur in this implementation */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getBookCount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getBookCount</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// Part 1.4, Create a public getter that has Book Count</span>
         <span class="k">return</span> <span class="n">Book</span><span class="p">.</span><span class="na">library</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
     <span class="p">}</span>
 
-    <span class="cm">/* returns List of books */</span>
+    <span class="cm">/* returns an Immutable List of books </span>
+<span class="cm">     * we don't want anyone changing this list outside of provided public methods</span>
+<span class="cm">     * unmodifiable means ... this could create everything to break (unique id, simulation, etc)</span>
+<span class="cm">     * if any attempt occurs to modify the returned list, whether direct or via its iterator</span>
+<span class="cm">     * this results in an UnsupportedOperationException.</span>
+<span class="cm">    */</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span> <span class="nf">getLibrary</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">Collections</span><span class="p">.</span><span class="na">unmodifiableList</span><span class="p">(</span><span class="n">Book</span><span class="p">.</span><span class="na">library</span><span class="p">);</span>  <span class="c1">// ArrayList should not be changed outside of this Book class</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printLibrary</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// Here are save books, but where could this process go if I want a library of books across subclasses</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Saved books"</span><span class="p">);</span>   
-        <span class="k">for</span> <span class="p">(</span><span class="n">Book</span> <span class="n">book</span><span class="p">:</span> <span class="n">Book</span><span class="p">.</span><span class="na">library</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">book</span><span class="p">);</span>
-        <span class="p">}</span>
+    <span class="cm">/*</span>
+<span class="cm">     * The default implementation of toString() method returns the ...</span>
+<span class="cm">     * concatenation of class name and hashcode</span>
+<span class="cm">     * This implementation contains ...</span>
+<span class="cm">     * id concatenated to default toString (super) title, and adds aging</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// Part 1.2, Define toString method for id and title</span>
+        <span class="k">return</span><span class="p">(</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">id</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span>  <span class="s">": "</span> <span class="o">+</span> <span class="c1">// id is unique, but super shows how Java ids object</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">title</span><span class="p">)</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="c1">// title requirement</span>
+            <span class="s">"Shelf Life "</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%.1f"</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="na">getShelfLife</span><span class="p">()</span>  <span class="c1">// added for simulation</span>
+            <span class="p">);</span>
     <span class="p">}</span>
 
-        
-    <span class="cm">/* toString() returns string representation of object</span>
-<span class="cm">       overrides default Object toString</span>
-<span class="cm">       enumerates content of this object</span>
+    <span class="cm">/* Part 1.5, Define tester method that initializes at least 2 books, </span>
+<span class="cm">                 outputs id and title, </span>
+<span class="cm">                 and provides a count of books in library.</span>
 <span class="cm">    */</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>      
-        <span class="k">return</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">id</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span>  <span class="s">": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">title</span><span class="p">)</span> <span class="o">+</span> <span class="s">", Shelf Life "</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%.1f"</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="na">getShelfLife</span><span class="p">());</span>
-    <span class="p">}</span>
-
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// During Part 1 of 3 parts this is technique used for display</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>  <span class="c1">// Notice how this method exist and works before any books are created</span>
 
-        <span class="n">Book</span><span class="o">[]</span> <span class="n">books</span> <span class="o">=</span> <span class="p">{</span>    <span class="c1">// Use Array iniitialization to add book</span>
+        <span class="c1">// This shows intializing Book Array with new Book objects</span>
+        <span class="n">Book</span><span class="o">[]</span> <span class="n">books</span> <span class="o">=</span> <span class="p">{</span>    <span class="c1">// Uses an Array to store the creation of 3 books</span>
             <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="s">"Barron's Computer Science \"A\""</span><span class="p">),</span>  <span class="c1">// Set a new Book object as array element.</span>
-            <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="s">"Angels and Demons"</span><span class="p">),</span>
-            <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="s">"Lion, Witch, and a Wardrobe"</span><span class="p">)</span>
+            <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="s">"Angels and Demons"</span><span class="p">)</span>
         <span class="p">};</span>
 
+        <span class="c1">// Iterates through new Book objects</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">Book</span> <span class="n">book</span> <span class="p">:</span> <span class="n">books</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Use Foreach syntax to iterate over array</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">book</span><span class="p">);</span>   <span class="c1">// this is same as book.toString()</span>
         <span class="p">}</span>
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>
+
+        <span class="c1">// During Part 2 and 3,  a library Data Structure behind the scenes took the places of Book array</span>
+        <span class="n">String</span> <span class="n">narnia</span> <span class="o">=</span> <span class="s">"Lion, Witch, and a Wardrobe"</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"add: "</span> <span class="o">+</span> <span class="n">narnia</span><span class="p">);</span>
+        <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="n">narnia</span><span class="p">);</span>  <span class="c1">// this is stored in static library ArrayList</span>
+        <span class="n">Book</span><span class="p">.</span><span class="na">printLibrary</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>
+
     <span class="p">}</span>
+
+    <span class="c1">/////////////////////////// Part 3 Methods ///////////////////////////////</span>
+
+    <span class="cm">/* increase book shelf life by years */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setShelfLife</span><span class="p">(</span><span class="kt">int</span> <span class="n">years</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">+=</span> <span class="n">years</span> <span class="o">*</span> <span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">;</span>  <span class="c1">// add years to shelf life</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* book aging, note: Novel overrides this method */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ageShelfLife</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// Part 3.3, Define shelfLife expiration methods as needed in TextBook and Novel</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">-=</span> <span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">;</span>  <span class="c1">// remove a year</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">getShelfLife</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1">// small number zero out, this is for double floating point condition</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">created</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* calculate shelf life in years */</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getShelfLife</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// Part 3.2, Define a default method in Book that returns "current shelfLife"</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="na">created</span><span class="p">)</span> <span class="o">/</span> <span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* calculatee boolean that determines if book has shelf life */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasShelfLife</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// Part 3.5, Make a method that determines if has shelf life remaining</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">life</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">created</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* prints "active" books in library */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printLibrary</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Here are save books, but where could this process go if I want a library of books across subclasses</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Active books"</span><span class="p">);</span>   
+        <span class="k">for</span> <span class="p">(</span><span class="n">Book</span> <span class="n">book</span><span class="p">:</span> <span class="n">Book</span><span class="p">.</span><span class="na">library</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">book</span><span class="p">.</span><span class="na">hasShelfLife</span><span class="p">())</span>  <span class="c1">// Active book check</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">book</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
 <span class="p">}</span>
 <span class="n">Book</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
@@ -307,9 +349,13 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Libary Book Count: 0
-1.REPL.$JShell$12$Book@6f8f9a19: Barron's Computer Science "A", Shelf Life 1.0
-2.REPL.$JShell$12$Book@5bb3b43e: Angels and Demons, Shelf Life 1.0
-3.REPL.$JShell$12$Book@5be77cb4: Lion, Witch, and a Wardrobe, Shelf Life 1.0
+1.REPL.$JShell$12C$Book@24019239: Barron's Computer Science "A", Shelf Life 1.0
+2.REPL.$JShell$12C$Book@2ac668c9: Angels and Demons, Shelf Life 1.0
+Libary Book Count: 2
+Active books
+1.REPL.$JShell$12C$Book@24019239: Barron's Computer Science "A", Shelf Life 1.0
+2.REPL.$JShell$12C$Book@2ac668c9: Angels and Demons, Shelf Life 1.0
+3.REPL.$JShell$12C$Book@2ef9f949: Lion, Witch, and a Wardrobe, Shelf Life 1.0
 Libary Book Count: 3
 </pre>
 </div>
@@ -328,20 +374,21 @@ Libary Book Count: 3
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Novel</span> <span class="kd">extends</span> <span class="n">Book</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">author</span><span class="p">;</span>
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Novel customizations to Book</span>
+<span class="kd">class</span> <span class="nc">Novel</span> <span class="kd">extends</span> <span class="n">Book</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">author</span><span class="p">;</span>  <span class="c1">// Part 2.2 Create instance variables unique to Novel has Author</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">checkouts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="c1">// Two argument, not according to requirements</span>
+    <span class="c1">// Two argument, not according to requirements but is convenient</span>
     <span class="kd">public</span> <span class="nf">Novel</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">,</span> <span class="n">String</span> <span class="n">author</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// call to super constructor</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">author</span> <span class="o">=</span> <span class="n">author</span><span class="p">;</span>
-        <span class="kd">super</span><span class="p">.</span><span class="na">setShelfLife</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  
+        <span class="kd">super</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// Part 2.1 Ensure Novel and Textbook run the Constructor from Book.</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">author</span> <span class="o">=</span> <span class="n">author</span><span class="p">;</span>  
+        <span class="kd">super</span><span class="p">.</span><span class="na">setShelfLife</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// adds 1 year to default age</span>
     <span class="p">}</span>
 
     <span class="cm">/* book aging method override for Novel  */</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ageShelfLife</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ageShelfLife</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// Part 3.3, Define shelfLife expiration methods as needed in Novel</span>
         <span class="kd">final</span> <span class="kt">int</span> <span class="n">bookThreshold</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// arbitrary constant for simulation</span>
 
         <span class="c1">// book must have life to be checked out</span>
@@ -364,6 +411,11 @@ Libary Book Count: 3
         <span class="k">return</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">author</span><span class="p">);</span>
     <span class="p">}</span>
 
+    <span class="cm">/* Part 2.5 for Novel, Define tester method to test all items,</span>
+<span class="cm">        adds 2 novels, </span>
+<span class="cm">        shows book count before and after,</span>
+<span class="cm">        prints items in library</span>
+<span class="cm">    */</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>  <span class="c1">// Note library count is truly static acroos inheritance</span>
@@ -401,8 +453,8 @@ Libary Book Count: 3
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Libary Book Count: 3
-4.REPL.$JShell$14$Novel@7adf6956: The Da Vincii Code, Shelf Life 2.0, Dan Brown
-5.REPL.$JShell$14$Novel@3c0b2077: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
+4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
+5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
 Libary Book Count: 5
 </pre>
 </div>
@@ -421,22 +473,23 @@ Libary Book Count: 5
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">TextBook</span> <span class="kd">extends</span> <span class="n">Book</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">publisher</span><span class="p">;</span>
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// TextBook customizations to Book</span>
+<span class="kd">class</span> <span class="nc">TextBook</span> <span class="kd">extends</span> <span class="n">Book</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">publisher</span><span class="p">;</span>  <span class="c1">// Part 2.2 Create instance variables unique to TextBook has publisher</span>
 
     <span class="c1">// Single argument</span>
     <span class="kd">public</span> <span class="nf">TextBook</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// call to super constructor</span>
-        <span class="kd">super</span><span class="p">.</span><span class="na">setShelfLife</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  
+        <span class="kd">super</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// Part 2.1 Ensure Novel and Textbook run the Constructor from Book.</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">setShelfLife</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">// adds 2 years to default age</span>
     <span class="p">}</span>
 
     <span class="c1">// Two argument for ease of use</span>
     <span class="kd">public</span> <span class="nf">TextBook</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">,</span> <span class="n">String</span> <span class="n">publisher</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">(</span><span class="n">title</span><span class="p">);</span>  <span class="c1">// call to single arg constructor</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setPublisher</span><span class="p">(</span><span class="n">publisher</span><span class="p">);</span>  <span class="c1">// call to setter</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setPublisher</span><span class="p">(</span><span class="n">publisher</span><span class="p">);</span>  
     <span class="p">}</span>
 
-    <span class="c1">// Setter to allow post constructor update</span>
+    <span class="c1">///// 2.3 Make Getters and Setters for all new items. /////</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPublisher</span><span class="p">(</span><span class="n">String</span> <span class="n">publisher</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">publisher</span> <span class="o">=</span> <span class="n">publisher</span><span class="p">;</span>
     <span class="p">}</span>
@@ -450,6 +503,13 @@ Libary Book Count: 5
         <span class="k">return</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">getPublisher</span><span class="p">());</span>
     <span class="p">}</span>
 
+    <span class="cm">/* Part 2.5 for TextBook, Define tester method to test all items,</span>
+<span class="cm">        as an extra uses 2D array for static content</span>
+<span class="cm">        adds 2 textbooks from 2D array, </span>
+<span class="cm">        uses single arg constructor and setter to initialize,</span>
+<span class="cm">        prints book as it is added</span>
+<span class="cm">        shows book count at end</span>
+<span class="cm">    */</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>  <span class="c1">// Note library count is truly static acroos inheritance</span>
@@ -457,7 +517,7 @@ Libary Book Count: 5
         <span class="c1">// 2D array initialization, just for fun</span>
         <span class="n">String</span> <span class="o">[][]</span> <span class="n">books</span> <span class="o">=</span> <span class="p">{</span>
             <span class="p">{</span> <span class="s">"e=MC^2 a Biography"</span><span class="p">,</span>
-              <span class="s">"Pan Books (January 1, 2001)"</span><span class="p">},</span>                        <span class="c1">// row 0</span>
+              <span class="s">"Pan Books"</span><span class="p">},</span>                        <span class="c1">// row 0</span>
   
             <span class="p">{</span> <span class="s">"The Practice of Programming"</span><span class="p">,</span>
               <span class="s">"Addison-Wesley Professional Computing"</span> <span class="p">}</span>              <span class="c1">// row 1</span>
@@ -492,13 +552,12 @@ Libary Book Count: 5
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">\   @Override</span>
-<span class="ansi-red-intense-fg ansi-bold">illegal character: '\'</span>
-
-<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">\   @Override</span>
-<span class="ansi-red-intense-fg ansi-bold">&lt;identifier&gt; expected</span>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Libary Book Count: 5
+6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 3.0, Pan Books
+Libary Book Count: 6
+7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
+Libary Book Count: 7
 </pre>
 </div>
 </div>
@@ -516,18 +575,21 @@ Libary Book Count: 5
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LibraryManager</span>
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Library Simulation</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LibraryManager</span>
 <span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="p">{</span>
-
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Part 3.1, Build a Tester Method that does a Simulation.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="p">{</span>  
+        <span class="kt">int</span> <span class="n">years</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// Simulation years</span>
+        <span class="c1">// Sleep in loop creates delay for simulation</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">years</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Year: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
             <span class="n">Book</span><span class="p">.</span><span class="na">printLibrary</span><span class="p">();</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-            <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">);</span>
-
+            <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="n">Book</span><span class="p">.</span><span class="na">YEAR</span><span class="p">);</span>  <span class="c1">// Part 3.4, Use a sleep in Java to assist with simulation</span>
+            <span class="c1">// Loop through books in Library</span>
             <span class="k">for</span> <span class="p">(</span><span class="n">Book</span> <span class="n">book</span> <span class="p">:</span> <span class="n">Book</span><span class="p">.</span><span class="na">getLibrary</span><span class="p">())</span> <span class="p">{</span>
-                <span class="n">book</span><span class="p">.</span><span class="na">ageShelfLife</span><span class="p">();</span>
+                <span class="n">book</span><span class="p">.</span><span class="na">ageShelfLife</span><span class="p">();</span>  <span class="c1">// apply aging formula</span>
             <span class="p">}</span>
 
         <span class="p">}</span>
@@ -538,6 +600,53 @@ Libary Book Count: 5
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Year: 0
+Active books
+1.REPL.$JShell$12$Book@972f3c8: Barron's Computer Science "A", Shelf Life 1.0
+2.REPL.$JShell$12$Book@7568350c: Angels and Demons, Shelf Life 1.0
+3.REPL.$JShell$12$Book@8c9c367: Lion, Witch, and a Wardrobe, Shelf Life 1.0
+4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
+5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
+6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 3.0, Pan Books
+7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
+
+Year: 1
+Active books
+4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 1.0, Dan Brown
+5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 1.0, Jane Austen
+6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 2.0, Pan Books
+7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 2.0, Addison-Wesley Professional Computing
+
+Year: 2
+Active books
+4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
+5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
+6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 1.0, Pan Books
+7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 1.0, Addison-Wesley Professional Computing
+
+Year: 3
+Active books
+4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 3.0, Dan Brown
+5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 3.0, Jane Austen
+
+Year: 4
+Active books
+4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
+5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 4.0, Jane Austen
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
