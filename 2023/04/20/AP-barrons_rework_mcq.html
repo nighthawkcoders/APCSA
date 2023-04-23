@@ -271,33 +271,31 @@ window.onload = wrap_img;
 
     <span class="cm">/* Part 1.5, Define tester method that initializes at least 2 books, </span>
 <span class="cm">                 outputs id and title, </span>
-<span class="cm">                 and provides a count of books in library.</span>
+<span class="cm">                 and provides a count of books in library,</span>
+<span class="cm">                 Part 2/3 now covertly tests adding to libary.</span>
+<span class="cm">                 and tests printLibary</span>
 <span class="cm">    */</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 
-        <span class="c1">// During Part 1 of 3 parts this is technique used for display</span>
+        <span class="c1">/////// During Part 1 of 3 parts this is technique used for adding and display /////</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>  <span class="c1">// Notice how this method exist and works before any books are created</span>
-
         <span class="c1">// This shows intializing Book Array with new Book objects</span>
         <span class="n">Book</span><span class="o">[]</span> <span class="n">books</span> <span class="o">=</span> <span class="p">{</span>    <span class="c1">// Uses an Array to store the creation of 3 books</span>
             <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="s">"Barron's Computer Science \"A\""</span><span class="p">),</span>  <span class="c1">// Set a new Book object as array element.</span>
             <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="s">"Angels and Demons"</span><span class="p">)</span>
         <span class="p">};</span>
-
         <span class="c1">// Iterates through new Book objects</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">Book</span> <span class="n">book</span> <span class="p">:</span> <span class="n">books</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Use Foreach syntax to iterate over array</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">book</span><span class="p">);</span>   <span class="c1">// this is same as book.toString()</span>
         <span class="p">}</span>
-
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>
 
-        <span class="c1">// During Part 2 and 3,  a library Data Structure behind the scenes took the places of Book array</span>
+        <span class="c1">/////// During Part 2 and 3, a library Data Structure behind the scenes, removing need for Book array /////</span>
         <span class="n">String</span> <span class="n">narnia</span> <span class="o">=</span> <span class="s">"Lion, Witch, and a Wardrobe"</span><span class="p">;</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"add: "</span> <span class="o">+</span> <span class="n">narnia</span><span class="p">);</span>
         <span class="k">new</span> <span class="n">Book</span><span class="p">(</span><span class="n">narnia</span><span class="p">);</span>  <span class="c1">// this is stored in static library ArrayList</span>
         <span class="n">Book</span><span class="p">.</span><span class="na">printLibrary</span><span class="p">();</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Libary Book Count: "</span> <span class="o">+</span> <span class="n">Book</span><span class="p">.</span><span class="na">getBookCount</span><span class="p">());</span>
-
     <span class="p">}</span>
 
     <span class="c1">/////////////////////////// Part 3 Methods ///////////////////////////////</span>
@@ -349,13 +347,14 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Libary Book Count: 0
-1.REPL.$JShell$12C$Book@24019239: Barron's Computer Science "A", Shelf Life 1.0
-2.REPL.$JShell$12C$Book@2ac668c9: Angels and Demons, Shelf Life 1.0
+1.REPL.$JShell$12$Book@7bfb814c: Barron's Computer Science "A", Shelf Life 1.0
+2.REPL.$JShell$12$Book@2e4e133: Angels and Demons, Shelf Life 1.0
 Libary Book Count: 2
+add: Lion, Witch, and a Wardrobe
 Active books
-1.REPL.$JShell$12C$Book@24019239: Barron's Computer Science "A", Shelf Life 1.0
-2.REPL.$JShell$12C$Book@2ac668c9: Angels and Demons, Shelf Life 1.0
-3.REPL.$JShell$12C$Book@2ef9f949: Lion, Witch, and a Wardrobe, Shelf Life 1.0
+1.REPL.$JShell$12$Book@7bfb814c: Barron's Computer Science "A", Shelf Life 1.0
+2.REPL.$JShell$12$Book@2e4e133: Angels and Demons, Shelf Life 1.0
+3.REPL.$JShell$12$Book@2dbb3ccc: Lion, Witch, and a Wardrobe, Shelf Life 1.0
 Libary Book Count: 3
 </pre>
 </div>
@@ -453,8 +452,8 @@ Libary Book Count: 3
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Libary Book Count: 3
-4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
-5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
+4.REPL.$JShell$14$Novel@4ccda4b1: The Da Vincii Code, Shelf Life 2.0, Dan Brown
+5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
 Libary Book Count: 5
 </pre>
 </div>
@@ -554,9 +553,9 @@ Libary Book Count: 5
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Libary Book Count: 5
-6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 3.0, Pan Books
+6.REPL.$JShell$17$TextBook@1d2c35d2: e=MC^2 a Biography, Shelf Life 3.0, Pan Books
 Libary Book Count: 6
-7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
+7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
 Libary Book Count: 7
 </pre>
 </div>
@@ -611,37 +610,34 @@ Libary Book Count: 7
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Year: 0
 Active books
-1.REPL.$JShell$12$Book@972f3c8: Barron's Computer Science "A", Shelf Life 1.0
-2.REPL.$JShell$12$Book@7568350c: Angels and Demons, Shelf Life 1.0
-3.REPL.$JShell$12$Book@8c9c367: Lion, Witch, and a Wardrobe, Shelf Life 1.0
-4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
-5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
-6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 3.0, Pan Books
-7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
+1.REPL.$JShell$12$Book@7bfb814c: Barron's Computer Science "A", Shelf Life 1.0
+2.REPL.$JShell$12$Book@2e4e133: Angels and Demons, Shelf Life 1.0
+3.REPL.$JShell$12$Book@2dbb3ccc: Lion, Witch, and a Wardrobe, Shelf Life 1.0
+4.REPL.$JShell$14$Novel@4ccda4b1: The Da Vincii Code, Shelf Life 2.0, Dan Brown
+5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
+6.REPL.$JShell$17$TextBook@1d2c35d2: e=MC^2 a Biography, Shelf Life 3.0, Pan Books
+7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
 
 Year: 1
 Active books
-4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 1.0, Dan Brown
-5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 1.0, Jane Austen
-6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 2.0, Pan Books
-7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 2.0, Addison-Wesley Professional Computing
+4.REPL.$JShell$14$Novel@4ccda4b1: The Da Vincii Code, Shelf Life 1.0, Dan Brown
+5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 3.0, Jane Austen
+6.REPL.$JShell$17$TextBook@1d2c35d2: e=MC^2 a Biography, Shelf Life 2.0, Pan Books
+7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 2.0, Addison-Wesley Professional Computing
 
 Year: 2
 Active books
-4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
-5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
-6.REPL.$JShell$17$TextBook@4e20e9cd: e=MC^2 a Biography, Shelf Life 1.0, Pan Books
-7.REPL.$JShell$17$TextBook@466ae8f3: The Practice of Programming, Shelf Life 1.0, Addison-Wesley Professional Computing
+5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 4.0, Jane Austen
+6.REPL.$JShell$17$TextBook@1d2c35d2: e=MC^2 a Biography, Shelf Life 1.0, Pan Books
+7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 1.0, Addison-Wesley Professional Computing
 
 Year: 3
 Active books
-4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 3.0, Dan Brown
-5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 3.0, Jane Austen
+5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 5.0, Jane Austen
 
 Year: 4
 Active books
-4.REPL.$JShell$14$Novel@3cc05396: The Da Vincii Code, Shelf Life 2.0, Dan Brown
-5.REPL.$JShell$14$Novel@834c157: Prinde and Prejudice, Shelf Life 4.0, Jane Austen
+5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 4.0, Jane Austen
 
 </pre>
 </div>
